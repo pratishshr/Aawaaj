@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">AAWAAJ</h1>
-                        <p class="intro-text">Helps connect those in need with the ones <br/> who are willing to help.</p>
+                        <p class="intro-text">Connecting those in need with the ones <br/> who are willing to help.</p>
                         <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
