@@ -1,4 +1,7 @@
- <?php include_once("modal.php"); ?>
+ <?php include_once("loginmodal.php"); ?>
+ <?php include_once("signupmodal.php"); ?>
+ 
+
  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container ">
             <div class="navbar-header ">
@@ -44,7 +47,7 @@
                         <a class="page-scroll" href="" data-toggle="modal" data-target="#signupModal">Sign Up</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="" data-toggle="modal" data-target="#loginModal">Log in</a>
+                        <a class="page-scroll" href="" data-toggle="modal" data-target="#loginModal">Login</a>
                     </li>
                                    
                 </ul>
