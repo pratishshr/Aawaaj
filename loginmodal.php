@@ -15,6 +15,9 @@
               <input type="password" name="password" class="form-control input-lg" placeholder="Password">
             </div>
             <div class="form-group">
+              <input type="checkbox" name="remember" value=""> Remember Me 
+            </div>
+            <div class="form-group">
               <a href="#"> Forgot Password </a>
             </div>
             <div class="form-group text-left ">
