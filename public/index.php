@@ -1,8 +1,8 @@
-
-<?php include_once("header.php") ?>
+<?php include_once("config.php"); ?>
+<?php include_once(ROOT_PATH."public/includes/header.php") ?>
 
     <!-- Navigation -->
-<?php include_once("navhome.php") ?>   
+<?php include_once(ROOT_PATH."public/includes/navhome.php") ?>   
 
     <!-- Intro Header -->
     <header class="intro">
@@ -41,7 +41,7 @@
                  <div class="row">
                     <div class="col-md-6">
                         <a href="#" class="thumbnail">
-                            <img class="img-responsive" src="<?php echo BASE_URL?>/assets/img/thumb1.jpg" alt="">
+                            <img class="img-responsive" src="<?php echo BASE_URL?>/public/assets/img/thumb1.jpg" alt="">
                         </a>
                         <h3>
                             <a href="#">Project Name</a>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-6">
                         <a href="#" class="thumbnail">
-                            <img class="img-responsive" src="<?php echo BASE_URL?>/assets/img/thumb2.jpg" alt="">
+                            <img class="img-responsive" src="<?php echo BASE_URL?>/public/assets/img/thumb2.jpg" alt="">
                         </a>
                         <h3>
                             <a href="#">Project Name</a>
@@ -96,17 +96,17 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="<?php echo BASE_URL?>/assets/js/jquery.js"></script>
+    <script src="<?php echo BASE_URL?>/public/assets/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo BASE_URL?>/assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo BASE_URL?>/public/assets/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="<?php echo BASE_URL?>/assets/js/jquery.easing.min.js"></script>
+    <script src="<?php echo BASE_URL?>/public/assets/js/jquery.easing.min.js"></script>
 
     
     <!-- Custom Theme JavaScript -->
-    <script src="<?php echo BASE_URL?>/assets/js/grayscale.js"></script>
+    <script src="<?php echo BASE_URL?>/public/assets/js/grayscale.js"></script>
 
 </body>
 

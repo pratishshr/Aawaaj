@@ -1,6 +1,6 @@
 <!-- <script src="//code.jquery.com/jquery.min.js"></script> -->
 
-    <script src="<?php echo BASE_URL?>/assets/js/jquery.js"></script>
+    <script src="<?php echo BASE_URL?>/public/assets/js/jquery.js"></script>
 <!--Signup Modal -->
 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -73,7 +73,7 @@
                 </div>
                 <div class="form-group">
                   <label for="organization_logo">Official logo</label>
-                  <input type="file" accept="image/*" id="organization_logo" name="organization_logo" class="form-control input-lg"/>
+                  <input type="file" accept="image/*" id="organization_logo" name="organization_logo" class="form-control input-lg" required/>
                 </div>
                 <div class="form-group">
                   <textarea name="objectives_of_organization" class="form-control input-lg" placeholder="Objectives of Organization"></textarea>
