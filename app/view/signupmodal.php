@@ -29,7 +29,7 @@
               <input type="password" name="re_password" class="form-control input-lg" placeholder="Retype Password" required/>
             </div>
             <div class="form-group">
-              <input type="number" name="contact_number" class="form-control input-lg" placeholder="Contact Number" required/>
+              <input type="number" name="contact_number" class="form-control input-lg" placeholder="Contact Number" size="3" required/>
             </div>
             <div class="form-group row">
               <div class="col-md-4">
@@ -66,7 +66,8 @@
                   <input type="text" name="organization_name" class="form-control input-lg" placeholder="Name of Organization" required/>
                 </div>
                 <div class="form-group">
-                  <input type="text" name="organization_date_of_establishment" class="form-control input-lg" placeholder="Date of Establishment" required/>
+                  <label for="organization_logo">Date of Establishment</label>
+                  <input type="date" name="organization_date_of_establishment" class="form-control input-lg" required/>
                 </div>
                 <div class="form-group">
                   <input type="text" name="full_address_of_organization" class="form-control input-lg" placeholder="Full Address" required/>
