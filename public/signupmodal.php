@@ -1,6 +1,6 @@
 <!-- <script src="//code.jquery.com/jquery.min.js"></script> -->
 
-    <script src="js/jquery.js"></script>
+    <script src="<?php echo BASE_URL?>/assets/js/jquery.js"></script>
 <!--Signup Modal -->
 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">

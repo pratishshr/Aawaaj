@@ -1,3 +1,4 @@
+
 <?php include_once("header.php") ?>
 
     <!-- Navigation -->
@@ -40,7 +41,7 @@
                  <div class="row">
                     <div class="col-md-6">
                         <a href="#" class="thumbnail">
-                            <img class="img-responsive" src="img/thumb1.jpg" alt="">
+                            <img class="img-responsive" src="<?php echo BASE_URL?>/assets/img/thumb1.jpg" alt="">
                         </a>
                         <h3>
                             <a href="#">Project Name</a>
@@ -49,7 +50,7 @@
                     </div>
                     <div class="col-md-6">
                         <a href="#" class="thumbnail">
-                            <img class="img-responsive" src="img/thumb2.jpg" alt="">
+                            <img class="img-responsive" src="<?php echo BASE_URL?>/assets/img/thumb2.jpg" alt="">
                         </a>
                         <h3>
                             <a href="#">Project Name</a>
@@ -95,17 +96,17 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="<?php echo BASE_URL?>/assets/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?php echo BASE_URL?>/assets/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
+    <script src="<?php echo BASE_URL?>/assets/js/jquery.easing.min.js"></script>
 
     
     <!-- Custom Theme JavaScript -->
-    <script src="js/grayscale.js"></script>
+    <script src="<?php echo BASE_URL?>/assets/js/grayscale.js"></script>
 
 </body>
 
