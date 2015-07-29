@@ -10,7 +10,7 @@
         <h4 class="modal-title" id="myModalLabel">Sign up</h4>
       </div>
       <div class="modal-body">
-        <form class="form-group" action="hello.php" method="post">
+        <form class="form-group" action="<?php echo BASE_URL?>/app/controller/signUpController.php" method="post" enctype="multipart/form-data">
             <div class="form-group row">
               <div class="col-md-6">
                 <input type="text" name="first_name" class="form-control input-lg" placeholder="First Name" required/>
@@ -33,9 +33,9 @@
             </div>
             <div class="form-group row">
               <div class="col-md-4">
-              <select id="user_type" class="form-control">
+              <select id="user_type" class="form-control" name="user_type">
                 <option>Select User Type</option>
-                <option value="general">General User</option>
+                <option value="generalUser">General User</option>
                 <option value="organization">Organization</option>
                 <option value="welfare">Welfare</option>
               </select>
@@ -63,18 +63,19 @@
             <!-- form for organization -->
             <div id="organization" style="display:none">
                 <div class="form-group">
-                  <input type="text" name="organization_name" class="form-control input-lg" placeholder="Name of Organization" required/>
+                  <input type="text" name="organization_name" class="form-control input-lg" placeholder="Name of Organization" />
                 </div>
                 <div class="form-group">
                   <label for="organization_logo">Date of Establishment</label>
-                  <input type="date" name="organization_date_of_establishment" class="form-control input-lg" required/>
+                  <input type="date" name="organization_date_of_establishment" class="form-control input-lg"/>
                 </div>
                 <div class="form-group">
-                  <input type="text" name="full_address_of_organization" class="form-control input-lg" placeholder="Full Address" required/>
+                  <input type="text" name="full_address_of_organization" class="form-control input-lg" placeholder="Full Address" />
                 </div>
                 <div class="form-group">
                   <label for="organization_logo">Official logo</label>
-                  <input type="file" accept="image/*" id="organization_logo" name="organization_logo" class="form-control input-lg" required/>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
+                  <input type="file" accept="image/*" id="organization_logo" name="organization_logo" class="form-control input-lg" />
                 </div>
                 <div class="form-group">
                   <textarea name="objectives_of_organization" class="form-control input-lg" placeholder="Objectives of Organization"></textarea>
@@ -86,19 +87,20 @@
              <!-- form for welfare -->
             <div id="welfare" style="display:none">
                 <div class="form-group">
-                  <input type="text" name="welfare_name" class="form-control input-lg" placeholder="Name of Welfare" required/>
+                  <input type="text" name="welfare_name" class="form-control input-lg" placeholder="Name of Welfare" />
                 </div>
                 <div class="form-group">
-                  <input type="text" name="welfare_date_of_establishment" class="form-control input-lg" placeholder="Date of Establishment" required/>
+                  <input type="text" name="welfare_date_of_establishment" class="form-control input-lg" placeholder="Date of Establishment" />
                 </div>
                 <div class="form-group">
-                  <input type="text" name="full_address_of_welfare" class="form-control input-lg" placeholder="Full Address" required/>
+                  <input type="text" name="full_address_of_welfare" class="form-control input-lg" placeholder="Full Address" />
                 </div>
                 <div class="form-group">
-                  <input type="text" name="welfare_service" class="form-control input-lg" placeholder="Welfare Service To" required/>
+                  <input type="text" name="welfare_service" class="form-control input-lg" placeholder="Welfare Service To" />
                 </div>
                 <div class="form-group">
                   <label for="organization_logo">Photo</label>
+                  <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
                   <input type="file" accept="image/*" id="welfare_photo" name="welfare_photo" class="form-control input-lg"/>
                 </div>
                 <div class="form-group">
@@ -109,7 +111,7 @@
        
            
             <div class="form-group">
-              <input type="checkbox" name="terms" class=""> I agree to <a href"#">Terms of Use</a>
+              <input type="checkbox" name="terms" class="" required> I agree to <a href"#">Terms of Use</a>
             </div>
 
             <div class="form-group text-left ">
