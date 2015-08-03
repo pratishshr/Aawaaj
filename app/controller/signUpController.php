@@ -151,8 +151,8 @@
 				$genSuccess = $signUpModelObj->insertGeneralUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getAge());
 				if($genSuccess){
 					echo "done"; //Redirect to signupmodal.php
-					// $location = $_SERVER['DOCUMENT_ROOT']. "/Aawaaj/app/signupmodal.php?success=1";
-					//header("Location: {$location}" );
+					
+					header("Location: ../../public/index.php" );
 					
 				}
 				else{
