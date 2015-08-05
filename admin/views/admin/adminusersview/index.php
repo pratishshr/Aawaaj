@@ -41,7 +41,20 @@
                   <td><?php echo $user->get_first_name();?> <?php echo $user->get_last_name();?></td>
                   <td><?php echo $user->get_contact_number();?></td>
                   <td><?php echo $user->get_user_type();?></td>
-                  <td><?php echo $user->get_user_status();?></td>
+                  <?php if($user->get_user_status()==1){
+                    ?>
+                     <td><span class="label label-success">Active</span></td>
+                  
+                 <?php 
+                 }else{
+
+                ?>
+                  <td><span class="label label-danger">Inactive</span></td>
+                <?php
+                 }
+                 ?>
+                   
+                  
                   <td><a href="#" class="btn btn-primary btn-sm glyphicon glyphicon-pencil"></a> <a href="" class="btn btn-danger btn-sm glyphicon glyphicon-trash"></a></td>
                 </tr>
 
