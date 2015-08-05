@@ -1,7 +1,7 @@
 <?php include_once("config/config.php");?>
+<?php ob_start();?>
 
-<?php include_once(ROOT_PATH."/system/model/user.class.php");?>
-<?php include_once(ROOT_PATH."/system/repository/userrepository.class.php");?>
+
 
 <?php include_once(ROOT_PATH."/views/admin/header.php");?>
 

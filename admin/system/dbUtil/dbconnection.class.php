@@ -17,6 +17,10 @@
 			return $this->conn->query($sql);
 		}
 
+		public function initialize($sql){
+			return $this->conn->prepare($sql);
+		}
+
 		public function close(){
 			$this->conn->close();
 		}

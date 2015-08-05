@@ -33,7 +33,40 @@
 
 				array_push($user_list,$user);
 			}
-				return $user_list;
+			$this->db->close();
+			return $user_list;
+		}
+
+	
+		public function insert(){
+			//DATABASE CONNECTION
+			$this->db->connect();
+
+			//INSERT QUERY
+			$sql = "INSERT INTO user(user_name,first_name,last_name,contact_number,user_type";
+
+		}
+
+		public function delete($id){
+			//DATABASE CONNECTION
+			$this->db->connect();
+
+			//DELETE QUERY
+			$sql = "DELETE FROM user WHERE user_id=?";
+		
+			//PREPARE
+			$stmt = $this->db->initialize($sql);
+			
+			//BIND
+			$stmt->bind_param("i",$id);
+
+			//EXECUTE
+			$result = $stmt->execute();
+			
+			return $result;
+
+			
+
 		}
 	}
 ?>

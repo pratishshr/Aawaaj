@@ -5,6 +5,10 @@
           </h1>
         </section>
 
+
+
+
+
         <!-- Main content -->
         <section class="content">
            <!-- Default box -->
@@ -16,6 +20,15 @@
               </div>
             </div>
             <div class="box-body">
+
+            <?php if(isset($_GET['action']) && $_GET['action']=="delete"){ ?>
+                     <div class="alert alert-danger" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        Deleted Succesfully!
+                     </div> 
+            <?php  } ?>         
               <table class="table table-bordered">
                 <tr>
                   <th>ID</th>
@@ -45,8 +58,8 @@
                     ?>
                      <td><span class="label label-success">Active</span></td>
                   
-                 <?php 
-                 }else{
+                   <?php 
+                   }else{
 
                 ?>
                   <td><span class="label label-danger">Inactive</span></td>
@@ -55,7 +68,8 @@
                  ?>
                    
                   
-                  <td><a href="#" class="btn btn-primary btn-sm glyphicon glyphicon-pencil"></a> <a href="" class="btn btn-danger btn-sm glyphicon glyphicon-trash"></a></td>
+                  <td><a href="#" class="btn btn-primary btn-sm glyphicon glyphicon-pencil"></a> 
+                      <a href="<?php echo BASE_URL;?>/index.php?page=admin&m=delete&id=<?php echo $user->get_user_id();?>" class="btn btn-danger btn-sm glyphicon glyphicon-trash" onclick="return confirm('Are you sure?')"></a></td>
                 </tr>
 
 

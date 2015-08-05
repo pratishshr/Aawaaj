@@ -1,3 +1,5 @@
+<?php include_once(ROOT_PATH."/system/model/user.class.php");?>
+<?php include_once(ROOT_PATH."/system/repository/userrepository.class.php");?>
 <?php
 	class AdminUsersController{
 		private $userrepository;
@@ -26,7 +28,11 @@
 
 		public function delete(){
 			//DELETE THE USER CURRENTLY IN THE DATABASE
-			echo "delete";
+			$id = $_GET['id'];
+			$result = $this->userrepository->delete($id);
+			if($result = true){
+				header("Location: index.php?page=admin&m=index&action=delete");
+			}
 		}
 
 	}
