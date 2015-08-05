@@ -21,7 +21,7 @@ class Connection{
 		public function open_connection(){
 
 			try{
-				$this->handler = new PDO("mysql:host=127.0.0.1;dbname=aawaaj","root","");
+				$this->handler = new PDO(DB_SERVER.SEPARATOR."dbname=".DB_NAME,DB_USER,DB_PASSWORD);
 				$this->handler->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 			}catch(PDOException $e){
 				echo "Please Retry";

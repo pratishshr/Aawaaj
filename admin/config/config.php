@@ -6,7 +6,7 @@
 	//DEFINE DATABASE CONSTANTS
 	define('HOSTNAME','localhost');
 	define('USERNAME','root');
-	define('PASSWORD','');
+	define('PASSWORD','alskdjf1');
 	define('DATABASE','aawaaj');
 
 	//INCLUDE ROUTES AND DATABASE CONNECTION CLASS
