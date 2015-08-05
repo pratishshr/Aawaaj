@@ -149,9 +149,9 @@
 			global $signUpModelObj;
 			if ($this->userType == "generalUser"){
 				$genSuccess = $signUpModelObj->insertGeneralUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getAge());
+
 				if($genSuccess){
 					echo "done"; //Redirect to signupmodal.php
-					
 					header("Location: ../../public/index.php" );
 					
 				}
@@ -175,6 +175,6 @@
 	}
 
 	$signUpControllerObj = new SignUpController();
-	
+
 
 ?>
