@@ -1,12 +1,12 @@
 <?php
 	define('BASE_URL','http://localhost/Aawaaj/admin');
-	define('ROOT_PATH',$_SERVER['DOCUMENT_ROOT']."Aawaaj/admin");
+	define('ROOT_PATH',$_SERVER['DOCUMENT_ROOT']."/Aawaaj/admin");
 	
 
 	//DEFINE DATABASE CONSTANTS
 	define('HOSTNAME','localhost');
 	define('USERNAME','root');
-	define('PASSWORD','damcare');
+	define('PASSWORD','');
 	define('DATABASE','aawaaj');
 
 	//INCLUDE ROUTES AND DATABASE CONNECTION CLASS
