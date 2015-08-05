@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2015 at 02:41 AM
--- Server version: 5.6.21
--- PHP Version: 5.5.19
+-- Generation Time: Aug 05, 2015 at 10:07 AM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,18 +27,28 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `generaluser` (
-`gen_id` int(11) NOT NULL,
+  `gen_id` int(11) NOT NULL AUTO_INCREMENT,
   `age` int(11) DEFAULT NULL,
   `type` enum('generalUser') NOT NULL,
-  `u_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+  `u_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`gen_id`),
+  KEY `u_id` (`u_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `generaluser`
 --
 
 INSERT INTO `generaluser` (`gen_id`, `age`, `type`, `u_id`) VALUES
-(1, 20, 'generalUser', 1);
+(9, NULL, 'generalUser', 48),
+(10, NULL, 'generalUser', 49),
+(11, NULL, 'generalUser', 50),
+(12, NULL, 'generalUser', 51),
+(13, NULL, 'generalUser', 52),
+(14, NULL, 'generalUser', 53),
+(15, NULL, 'generalUser', 54),
+(16, NULL, 'generalUser', 55),
+(17, NULL, 'generalUser', 56);
 
 -- --------------------------------------------------------
 
@@ -47,15 +57,17 @@ INSERT INTO `generaluser` (`gen_id`, `age`, `type`, `u_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `organization` (
-`org_id` int(11) NOT NULL,
+  `org_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(40) NOT NULL,
   `doe` varchar(20) NOT NULL,
   `img` varchar(100) NOT NULL,
   `address` varchar(60) NOT NULL,
   `objective` text NOT NULL,
   `type` enum('organization') NOT NULL,
-  `u_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `u_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`org_id`),
+  KEY `u_id` (`u_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -64,17 +76,27 @@ CREATE TABLE IF NOT EXISTS `organization` (
 --
 
 CREATE TABLE IF NOT EXISTS `password` (
-`p_id` int(11) NOT NULL,
+  `p_id` int(11) NOT NULL AUTO_INCREMENT,
   `password` varchar(40) NOT NULL,
-  `u_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+  `u_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`p_id`),
+  KEY `u_id` (`u_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `password`
 --
 
 INSERT INTO `password` (`p_id`, `password`, `u_id`) VALUES
-(1, 'RomitPass', 1);
+(9, 'damcare', 48),
+(10, 'damcare', 49),
+(11, 'damcare', 50),
+(12, 'damcaer', 51),
+(13, 'TEST', 52),
+(14, 'DAMCARE', 53),
+(15, 'DAMCARE', 54),
+(16, 'DAMCARE', 55),
+(17, 'DAMCARE', 56);
 
 -- --------------------------------------------------------
 
@@ -83,21 +105,31 @@ INSERT INTO `password` (`p_id`, `password`, `u_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-`user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(30) NOT NULL,
   `first_name` varchar(20) NOT NULL,
   `last_name` varchar(20) NOT NULL,
-  `contact_number` int(15) NOT NULL,
+  `contact_number` bigint(20) NOT NULL,
   `user_type` enum('generalUser','organization','welfare') NOT NULL,
-  `user_status` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+  `user_status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_name` (`user_name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=57 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `user_name`, `first_name`, `last_name`, `contact_number`, `user_type`, `user_status`) VALUES
-(1, 'rom_amgai@hotmail.com', 'Romit', 'Amgai', 2147483647, 'generalUser', 1);
+(48, 'vanroshr@gmail.com', 'Pratish', 'Shrestha', 9849170867, 'generalUser', 1),
+(49, 'rom_amgai@hotmail.com', 'Romit', 'Amgai', 987654321, 'generalUser', 1),
+(50, 'sujanshr@gmail.com', 'Sujan', 'Shrestha', 9849209514, 'generalUser', 1),
+(51, 'sujanmalakar@gmail.com', 'Sujan', 'Malakar', 9843224697, 'generalUser', 1),
+(52, 'test@test.com', 'TEST', 'TEST', 987654321, 'generalUser', 0),
+(53, 'test2@test.com', 'TEST', 'TESTAGAIN', 98765462, 'generalUser', 0),
+(54, 'test3@test.com', 'TEST', 'TEST', 98746545, 'generalUser', 0),
+(55, 'test4@test.com', 'TEST', 'TEST', 9874654512, 'generalUser', 0),
+(56, 'test5@test.com', 'TEST', 'TEST', 9874654512, 'generalUser', 0);
 
 -- --------------------------------------------------------
 
@@ -106,7 +138,7 @@ INSERT INTO `user` (`user_id`, `user_name`, `first_name`, `last_name`, `contact_
 --
 
 CREATE TABLE IF NOT EXISTS `welfare` (
-`welf_id` int(11) NOT NULL,
+  `welf_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(40) NOT NULL,
   `doe` varchar(20) NOT NULL,
   `img` varchar(100) NOT NULL,
@@ -114,72 +146,11 @@ CREATE TABLE IF NOT EXISTS `welfare` (
   `service` varchar(30) NOT NULL,
   `objective` text NOT NULL,
   `type` enum('welfare') NOT NULL,
-  `u_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `u_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`welf_id`),
+  KEY `u_id` (`u_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `generaluser`
---
-ALTER TABLE `generaluser`
- ADD PRIMARY KEY (`gen_id`), ADD KEY `u_id` (`u_id`);
-
---
--- Indexes for table `organization`
---
-ALTER TABLE `organization`
- ADD PRIMARY KEY (`org_id`), ADD KEY `u_id` (`u_id`);
-
---
--- Indexes for table `password`
---
-ALTER TABLE `password`
- ADD PRIMARY KEY (`p_id`), ADD KEY `u_id` (`u_id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
- ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `welfare`
---
-ALTER TABLE `welfare`
- ADD PRIMARY KEY (`welf_id`), ADD KEY `u_id` (`u_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `generaluser`
---
-ALTER TABLE `generaluser`
-MODIFY `gen_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
---
--- AUTO_INCREMENT for table `organization`
---
-ALTER TABLE `organization`
-MODIFY `org_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `password`
---
-ALTER TABLE `password`
-MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
---
--- AUTO_INCREMENT for table `welfare`
---
-ALTER TABLE `welfare`
-MODIFY `welf_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
@@ -188,25 +159,25 @@ MODIFY `welf_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- Constraints for table `generaluser`
 --
 ALTER TABLE `generaluser`
-ADD CONSTRAINT `generaluser_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `generaluser_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `organization`
 --
 ALTER TABLE `organization`
-ADD CONSTRAINT `organization_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `organization_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `password`
 --
 ALTER TABLE `password`
-ADD CONSTRAINT `password_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `password_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `welfare`
 --
 ALTER TABLE `welfare`
-ADD CONSTRAINT `welfare_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `welfare_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
