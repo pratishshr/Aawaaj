@@ -21,12 +21,12 @@ class Connection{
 		public function open_connection(){
 
 			try{
-<<<<<<< HEAD
-				$this->handler = new PDO(DB_SERVER.SEPARATOR."dbname=".DB_NAME,DB_USER,DB_PASSWORD);
-=======
-				$this->handler = new PDO("mysql:host=127.0.0.1;dbname=aawaaj","root","damcare");
->>>>>>> 88951be23119d74af99fc59e66d7fae7f0d7584e
+
+				//$this->handler = new PDO(DB_SERVER.SEPARATOR."dbname=".DB_NAME,DB_USER,DB_PASSWORD);
+				//$this->handler = new PDO("mysql:host=127.0.0.1;dbname=aawaaj","root","damcare");
+				$this->handler = new PDO(DB_SERVER.SEPARATOR."dbname=".DB_NAME,DB_USER,DB_PASSWORD_SUJAN);
 				$this->handler->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+			
 			}catch(PDOException $e){
 				echo "Please Retry";
 				die();

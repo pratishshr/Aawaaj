@@ -1,5 +1,4 @@
 <!-- <script src="//code.jquery.com/jquery.min.js"></script> -->
-
     <script src="<?php echo BASE_URL?>/public/assets/js/jquery.js"></script>
 <!--Signup Modal -->
 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -10,7 +9,7 @@
         <h4 class="modal-title" id="myModalLabel">Sign up</h4>
       </div>
       <div class="modal-body">
-        <form class="form-group" action="<?php echo BASE_URL?>/app/controller/signUpController.php" method="post" enctype="multipart/form-data">
+        <form class="form-group" name="frm" action="<?php echo BASE_URL?>/app/controller/signUpController.php" method="post" enctype="multipart/form-data">
             <div class="form-group row">
               <div class="col-md-6">
                 <input type="text" name="first_name" class="form-control input-lg" placeholder="First Name" required/>
@@ -23,10 +22,10 @@
               <input type="email" name="email" class="form-control input-lg" placeholder="Email" required/>
             </div>
             <div class="form-group">
-              <input type="password" name="password" class="form-control input-lg" placeholder="Password" required/>
+              <input type="password" id="password" name="password" class="form-control input-lg" placeholder="Password" required/>
             </div>
-            <div class="form-group">
-              <input type="password" name="re_password" class="form-control input-lg" placeholder="Retype Password" required/>
+            <div id="re_password_div" class="form-group">
+              <input type="password" id="re_password" name="re_password" class="form-control input-lg" placeholder="Retype Password" required/>
             </div>
             <div class="form-group">
               <input type="number" name="contact_number" class="form-control input-lg" placeholder="Contact Number" size="3" required/>
@@ -42,24 +41,7 @@
               </div>
               </div>
             
-            <script>
-              $(document).on("ready",function(){
-                                
-                $("#user_type").on("change",function(){
-                  var userType = $("#user_type").val();
-
-                  $("#organization, #welfare").hide();
-                  // $("#welfare").hide();
-                  if(userType == "organization"){
-                   $("#organization").show();
-                  }
-                  else if(userType == "welfare"){
-                    $("#welfare").show();
-                  }
-                });
-              });
-            </script>
-
+ 
             <!-- form for organization -->
             <div id="organization" style="display:none">
                 <div class="form-group">
@@ -90,7 +72,7 @@
                   <input type="text" name="welfare_name" class="form-control input-lg" placeholder="Name of Welfare" />
                 </div>
                 <div class="form-group">
-                  <input type="text" name="welfare_date_of_establishment" class="form-control input-lg" placeholder="Date of Establishment" />
+                  <input type="date" name="welfare_date_of_establishment" class="form-control input-lg" placeholder="Date of Establishment" />
                 </div>
                 <div class="form-group">
                   <input type="text" name="full_address_of_welfare" class="form-control input-lg" placeholder="Full Address" />
@@ -115,7 +97,7 @@
             </div>
 
             <div class="form-group text-left ">
-              <input type="submit" name="submit" class="btn btn-info btn-lg btn-block" value="Sign up">
+              <input type="button" id="submit_btn" name="submit" class="btn btn-info btn-lg btn-block" value="Sign up">
             </div>
             <div class="modal-footer"></div>
           </form>
@@ -124,3 +106,4 @@
     </div>
   </div>
 </div>
+<script src="<?php echo BASE_URL;?>/public/assets/js/signupmodal.js"></script>
