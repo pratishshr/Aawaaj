@@ -1,6 +1,8 @@
+<?php require_once(ROOT_PATH."database/session.php") ?>
+<?php require_once(ROOT_PATH."app/controller/logincontroller.php") ?>
  <?php include_once(ROOT_PATH."app/view/loginmodal.php"); ?>
  <?php include_once(ROOT_PATH."app/view/signupmodal.php"); ?>
- 
+
 
  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container ">
@@ -32,9 +34,10 @@
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
+                    </li>   
                     
                 </ul>
+
             </div>
             <!-- Sign up / Login -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -43,13 +46,25 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
+                    <?php global $session; if(!$session->isLoggedIn()){ ?>
                     <li>
                         <a class="page-scroll" href="" data-toggle="modal" data-target="#signupModal">Sign Up</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="" data-toggle="modal" data-target="#loginModal">Login</a>
                     </li>
-                                   
+                     <?php 
+                        }else{ 
+                            $firstName = $_SESSION['first_name'];
+                            ?>
+                            <li>
+                                <a class = "page-scross" href=""><?php echo "Namaste, " . $firstName; ?></a>
+                           </li>
+                           <li>
+                                <a class = "page-scross" href="<?php echo BASE_URL?>/database/session.php?id=Logout">Logout</a>
+                                </li>
+                            <?php
+                        }?>             
                 </ul>
                 
             </div>

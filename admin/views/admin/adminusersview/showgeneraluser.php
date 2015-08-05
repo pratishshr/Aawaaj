@@ -29,7 +29,7 @@
 
                 </table>
 
-                <?php foreach($this->userrepository->get_all() as $user{
+                <?php foreach($this->userrepository->get_all() as $user){
                     echo("hawa");
                 } 
                   ?>
