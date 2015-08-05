@@ -29,7 +29,7 @@
                         Deleted Succesfully!
                      </div> 
             <?php  } ?>         
-              <table class="table table-bordered">
+              <table class="table table-bordered table-hover table-striped">
                 <tr>
                   <th>ID</th>
                   <th>Username</th>
