@@ -151,8 +151,7 @@
 				$genSuccess = $signUpModelObj->insertGeneralUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getAge());
 
 				if($genSuccess){
-					echo "done"; //Redirect to signupmodal.php
-					header("Location: ../../public/index.php" );
+					header('location:../view/signUpConfirm.php?email='.$this->getEmail());					
 					
 				}
 				else{
@@ -162,12 +161,12 @@
 				
 				$orgSuccess = $signUpModelObj->insertOrganizationUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getOrganizationName(),$this->getOrganizationDoe(),$this->getOrganizationAddress(),$this->getOrganizationLogo(),$this->getOrganizationObjectives());
 		 		if($orgSuccess){
-		 			echo "donee"; //Redirect to signupmodal.php
+					header('location:../view/signUpConfirm.php?email='.$this->getEmail());					
 		 		}
 		 	}elseif ($this->userType == "welfare") {
 		 		$welfSuccess = $signUpModelObj->insertWelfareUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getWelfareName(),$this->getWelfareDoe(),$this->getWelfareAddress(),$this->getWelfareService(),$this->getWelfareLogo(),$this->getWelfareObjectives());
 		 		if($welfSuccess){
-		 			echo "doneee"; //Redirect to signupmodal.php
+					header('location:../view/signUpConfirm.php?email='.$this->getEmail());					
 		 		}
 		 	}
 		}
