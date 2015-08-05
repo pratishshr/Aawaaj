@@ -7,6 +7,9 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 		private $connObj;
 		private $first_name=null;
 		private $user_id = null;
+		private $user_type;
+		private $welfare_name;
+		private $organization_name;
 
 		function __construct(Connection $connObj){
 			$this->connObj = $connObj;
@@ -24,6 +27,7 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 					while($row = $getUser->fetch(PDO::FETCH_OBJ)){
 						$this->first_name = $row->first_name;
 						$this->user_id = $row->user_id;
+						$this->user_type = $row->user_type;
 					}
 					 return true;
 				}
@@ -32,12 +36,33 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 				return false;
 			}
 		}
+		public function getName(){
+			$handler = $this->connObj->handler;
+			if($this->getUserType()=="welfare"){
+				$userQuery = "SELECT name FROM user,welfare WHERE user.user_id = welfare.u_id LIMIT 1";
+				$getUser = $handler->query($userQuery);
+					while($row = $getUser->fetch(PDO::FETCH_OBJ)){
+						return $this->welfare_name = $row->name;
+				}
+			}else if($this->getUserType()=="organization"){
+				$userQuery = "SELECT name FROM user,organization WHERE user.user_id = organization.u_id LIMIT 1";
+				$getUser = $handler->query($userQuery);
+					while($row = $getUser->fetch(PDO::FETCH_OBJ)){
+						return $this->organization_name = $row->name;
+				}
+			}
+			return false;
+		}
 		public function getFirstName(){
 			return $this->first_name;
 		}
 		public function getUserId(){
 			return $this->user_id;
 		}
+		public function getUserType(){
+			return $this->user_type;
+		}
+
 
 	}
 	global $connObj;
