@@ -11,7 +11,6 @@
   <div class="form-group">	
     <input type="text" class="form-control" id="confirmation_code" placeholder="Confirmation Code" name="code">
   </div>
-  <div id="empty"></div>
   <div class="text-center"><button type="submit" class="btn btn-lg btn-default">Submit</button></div>
 </form>
 </div>
