@@ -1,6 +1,35 @@
 <!-- <script src="//code.jquery.com/jquery.min.js"></script> -->
+   <style type="text/css">
+  .no {color:red; font-size: 12px;}
+  .yes{color:green;font-size:12px;}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
+<script type="text/javascript">
+  
+$(document).ready(function(){
+  $("#email").blur(function(){
+
+    var form_data = {
+      action: 'check_username',
+      username: $(this).val()
+
+    };
+    $.ajax({
+      type: "POST",
+      url: "<?php echo BASE_URL?>/app/controller/confirmfunction.php",
+      data: form_data,
+      success: function(result){
+        $("#message").html(result);
+      }
+    });
+
+  })
+});
+
+
+</script>
     <script src="<?php echo BASE_URL?>/public/assets/js/jquery.js"></script>
-<!--Signup Modal -->
 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -19,7 +48,8 @@
               </div>
             </div>
             <div class="form-group">
-              <input type="email" name="email" class="form-control input-lg" placeholder="Email" required/>
+              <input type="email" name="email" class="form-control input-lg" id="email" placeholder="Email" required/>
+              <div id="message"></div>
             </div>
             <div class="form-group">
               <input type="password" id="password" name="password" class="form-control input-lg" placeholder="Password" required/>

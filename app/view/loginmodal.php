@@ -9,7 +9,9 @@
       <div class="modal-body">
         <form class="form-group" action="<?php echo BASE_URL?>/app/controller/logincontroller.php" method="post">
             <div class="form-group">
-              <input type="text" name="username" class="form-control input-lg" placeholder="Email">
+              <input type="text" name="username" class="form-control input-lg" id="username" placeholder="Email">
+             
+             
             </div>
             <div class="form-group">
               <input type="password" name="password" class="form-control input-lg" placeholder="Password">

@@ -20,6 +20,7 @@
 				$this->logout();
 				header("Location: ../../public/index.php" );
 				}
+				header("Location: ../public/index.php" );
 			}
 
 		}

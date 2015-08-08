@@ -1,5 +1,6 @@
 <?php
 		require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/SignUpModel.php");
+		require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/phpmailer/sendmail.php");
 
 	class SignUpController{
 
@@ -149,11 +150,13 @@
 
 		//Function to add data to database
 		public function addToDatabase(){
-			global $signUpModelObj;
+			global $signUpModelObj,$sendmail;
 			if ($this->userType == "generalUser"){
 				$genSuccess = $signUpModelObj->insertGeneralUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getAge());
 
 				if($genSuccess){
+					$sendmail->generateKey($this->getFirstName());
+					$sendmail->send($this->getEmail(),$this->getFirstName(),$this->getLastName());
 					header('location:../view/signUpConfirm.php?email='.$this->getEmail());					
 					
 				}

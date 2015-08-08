@@ -16,20 +16,22 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 			$this->connObj = $connObj;
 		}
 		public function findUser($username,$password){
-
+		
 			$handler = $this->connObj->handler;
-			$userQuery = "SELECT * FROM user,password WHERE user.user_id = password.u_id AND user.user_name=? AND LIMIT 1";
+			$userQuery = "SELECT * FROM user,password WHERE user.user_id = password.u_id AND user.user_name=? AND user.user_status=? LIMIT 1";
 			$getUser = $handler->prepare($userQuery);
-			if($getUser->execute(array($username,$password))){
+			if($getUser->execute(array($username,1))){
 				if($getUser->rowCount()==0){
 					return false;
 				}
 				else{
+					
 					while($row = $getUser->fetch(PDO::FETCH_OBJ)){
 						$this->first_name = $row->first_name;
 						$this->user_id = $row->user_id;
 						$this->user_type = $row->user_type;
 						$this->data_pass = $row->password;
+
 					}
 					$pwd=$this->data_pass;
 					//verify passwords and returns boolean true/false
@@ -57,6 +59,7 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 			}
 			return false;
 		}
+		
 		public function getFirstName(){
 			return $this->first_name;
 		}
