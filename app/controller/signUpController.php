@@ -37,7 +37,10 @@
 			$this->firstName = $_POST['first_name'];
 			$this->lastName = $_POST['last_name'];
 			$this->email = $_POST['email'];
-			$this->password = $_POST['password'];
+			$pwd=($_POST['password']);
+			//encrypting password
+			$pass=password_hash($pwd,PASSWORD_BCRYPT,array('cost'=>12));
+			$this->password = $pass;
 			$this->contactNumber = $_POST['contact_number'];
 			$this->userType = $_POST['user_type'];
 

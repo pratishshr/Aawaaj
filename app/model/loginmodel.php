@@ -10,6 +10,7 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 		private $user_type;
 		private $welfare_name;
 		private $organization_name;
+		private $data_pass;
 
 		function __construct(Connection $connObj){
 			$this->connObj = $connObj;
@@ -17,7 +18,7 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 		public function findUser($username,$password){
 
 			$handler = $this->connObj->handler;
-			$userQuery = "SELECT * FROM user,password WHERE user.user_id = password.u_id AND user.user_name=? AND password.password=? LIMIT 1";
+			$userQuery = "SELECT * FROM user,password WHERE user.user_id = password.u_id AND user.user_name=? AND LIMIT 1";
 			$getUser = $handler->prepare($userQuery);
 			if($getUser->execute(array($username,$password))){
 				if($getUser->rowCount()==0){
@@ -28,8 +29,11 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 						$this->first_name = $row->first_name;
 						$this->user_id = $row->user_id;
 						$this->user_type = $row->user_type;
+						$this->data_pass = $row->password;
 					}
-					 return true;
+					$pwd=$this->data_pass;
+					//verify passwords and returns boolean true/false
+					return password_verify($password,$pwd);
 				}
 			}else{
 				echo "Null";
