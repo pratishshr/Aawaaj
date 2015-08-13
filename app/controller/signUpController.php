@@ -1,5 +1,6 @@
 <?php
 		require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/SignUpModel.php");
+		require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/phpmailer/sendmail.php");
 
 	class SignUpController{
 
@@ -37,7 +38,10 @@
 			$this->firstName = $_POST['first_name'];
 			$this->lastName = $_POST['last_name'];
 			$this->email = $_POST['email'];
-			$this->password = $_POST['password'];
+			$pwd=($_POST['password']);
+			//encrypting password
+			$pass=password_hash($pwd,PASSWORD_BCRYPT,array('cost'=>12));
+			$this->password = $pass;
 			$this->contactNumber = $_POST['contact_number'];
 			$this->userType = $_POST['user_type'];
 
@@ -146,13 +150,14 @@
 
 		//Function to add data to database
 		public function addToDatabase(){
-			global $signUpModelObj;
+			global $signUpModelObj,$sendmail;
 			if ($this->userType == "generalUser"){
 				$genSuccess = $signUpModelObj->insertGeneralUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getAge());
 
 				if($genSuccess){
-					echo "done"; //Redirect to signupmodal.php
-					header("Location: ../../public/index.php" );
+					$sendmail->generateKey($this->getFirstName());
+					$sendmail->send($this->getEmail(),$this->getFirstName(),$this->getLastName());
+					header('location:../view/signUpConfirm.php?email='.$this->getEmail());					
 					
 				}
 				else{
@@ -162,12 +167,12 @@
 				
 				$orgSuccess = $signUpModelObj->insertOrganizationUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getOrganizationName(),$this->getOrganizationDoe(),$this->getOrganizationAddress(),$this->getOrganizationLogo(),$this->getOrganizationObjectives());
 		 		if($orgSuccess){
-		 			echo "donee"; //Redirect to signupmodal.php
+					header('location:../view/signUpConfirm.php?email='.$this->getEmail());					
 		 		}
 		 	}elseif ($this->userType == "welfare") {
 		 		$welfSuccess = $signUpModelObj->insertWelfareUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getWelfareName(),$this->getWelfareDoe(),$this->getWelfareAddress(),$this->getWelfareService(),$this->getWelfareLogo(),$this->getWelfareObjectives());
 		 		if($welfSuccess){
-		 			echo "doneee"; //Redirect to signupmodal.php
+					header('location:../view/signUpConfirm.php?email='.$this->getEmail());					
 		 		}
 		 	}
 		}

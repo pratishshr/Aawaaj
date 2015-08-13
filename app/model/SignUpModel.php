@@ -105,6 +105,19 @@
 				return 0;
 			}
 		}	
+		public function checkValid($user){
+			$handler = $this->connObj->handler;
+			$userQuery = "SELECT * FROM user WHERE user.user_name=? LIMIT 1";
+			$getUser = $handler->prepare($userQuery);
+			if($getUser->execute(array($user))){
+				if($getUser->rowCount()==0){
+					return true;
+				}
+				else{
+					return false;
+				}
+			}	
+		}
 	}
 	global $connObj;
 	$signUpModelObj = new SignUpModel($connObj);
