@@ -12,4 +12,5 @@
 	//INCLUDE ROUTES AND DATABASE CONNECTION CLASS
 	include_once(ROOT_PATH."/config/routes.php");
 	include_once(ROOT_PATH."/system/dbUtil/dbconnection.class.php");
+	include_once(ROOT_PATH."/system/lib/loaderhelper.class.php");
 ?>

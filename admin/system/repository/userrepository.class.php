@@ -62,7 +62,7 @@
 
 			//EXECUTE
 			$result = $stmt->execute();
-			
+			$this->db->close();
 			return $result;
 
 			

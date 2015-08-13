@@ -1,7 +1,9 @@
 <?php include_once(ROOT_PATH."/system/model/user.class.php");?>
 <?php include_once(ROOT_PATH."/system/repository/userrepository.class.php");?>
+
 <?php
-	class AdminUsersController{
+	class AdminUserController{
+
 		private $userrepository;
 		public function __construct(){
 			$this->userrepository = new UserRepository();
@@ -9,13 +11,13 @@
 
 
 		public function index(){
-			//INDEX PAGE OF ADMIN CONTROLLING USERS TABLE
-			include_once(ROOT_PATH."/views/admin/adminusersview/index.php");
+			$view_page="adminusersview/index";
+			//LoaderHelper::view("admin/container");
+			//INDEX PAGE OF ADMIN CONTROLLING ALL USERS TABLE
+			include_once(ROOT_PATH."/views/admin/container.php");
 		}
 
-		public function general(){
-			include_once(ROOT_PATH."/views/admin/adminusersview/showgeneraluser.php");
-		}
+	
 		public function add(){
 			//PAGE TO ADD THE USER IN DATABASE BY ADMIN ITSELF
 			echo "add";
@@ -36,8 +38,9 @@
 		}
 
 	}
-	//OBJECT OF AdminUsersController
-	$adminuserscontroller = new AdminUsersController();
+	
+	//OBJECT OF adminusercontroller
+	$adminusercontroller = new AdminUserController();
 
 	//IF m IS SET, SET IT TO $method, ELSE DEFAULT IT TO index
 	if(isset($_GET['m'])){
@@ -47,28 +50,25 @@
 	}
 
 	switch($method){
+		
 		case "index":
-			$adminuserscontroller->index();
+			$adminusercontroller->index();
 			break;
 
 		case "add":
-			$adminuserscontroller->add();
+			$adminusercontroller->add();
 			break;
 
 		case "edit":
-			$adminuserscontroller->edit();
+			$adminusercontroller->edit();
 			break;
 		
 		case "delete":
-			$adminuserscontroller->delete();
-			break;
-
-		case "general":
-			$adminuserscontroller->general();
+			$adminusercontroller->delete();
 			break;
 
 		default:
-			$adminuserscontroller->index();		
+			$adminusercontroller->index();		
 	}
 
 ?>
