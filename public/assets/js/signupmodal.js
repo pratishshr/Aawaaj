@@ -31,7 +31,7 @@ $(document).on("ready",function(){
     }
     else{
       $("#submit_btn").attr('type', 'button');
-      alert("password and re-password not matching");
+      alert("Password does not match");
     }
   });
 

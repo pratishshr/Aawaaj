@@ -10,6 +10,7 @@
             </div>
             <div class="box-body">
 
+
             <?php if(isset($_GET['action']) && $_GET['action']=="delete"){ ?>
                      <div class="alert alert-danger" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -17,7 +18,25 @@
                         </button>
                         Deleted Succesfully!
                      </div> 
-            <?php  } ?>         
+            <?php  }elseif(isset($_GET['action']) && $_GET['action']=="add"){ ?>
+                     <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        Added Succesfully!
+                     </div>
+            <?php }elseif(isset($_GET['action']) && $_GET['action']=="edit"){ ?>     
+                     <div class="alert alert-info" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        Edited Succesfully!
+                     </div>
+
+            <?php } ?>
+
+
+                  
               <table class="table table-bordered table-hover table-striped">
                 <tr>
                   <th>ID</th>
@@ -28,6 +47,42 @@
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
+
+                 <?php 
+                $id=1;
+                foreach($this->generaluserrepository->get_all() as $user){
+                    
+                 ?>
+
+                <tr>
+                  <td><?php echo $id++?></td>
+                  <td><?php echo $user->get_user_name();?></td>
+                  <td><?php echo $user->get_first_name();?> <?php echo $user->get_last_name();?></td>
+                  <td><?php echo $user->get_contact_number();?></td>
+                  <td><?php echo $user->get_user_type();?></td>
+                  <?php if($user->get_user_status()==1){
+                    ?>
+                     <td><span class="label label-success">Active</span></td>
+                  
+                   <?php 
+                   }else{
+
+                ?>
+                  <td><span class="label label-danger">Inactive</span></td>
+                <?php
+                 }
+                 ?>
+                   
+                  
+                  <td><a href="<?php echo BASE_URL;?>/index.php?page=general&m=edit&id=<?php echo $user->get_user_id();?>" class="btn btn-primary btn-sm glyphicon glyphicon-pencil"></a> 
+                      <a href="<?php echo BASE_URL;?>/index.php?page=general&m=delete&id=<?php echo $user->get_user_id();?>" class="btn btn-danger btn-sm glyphicon glyphicon-trash" onclick="return confirm('Are you sure?')"></a></td>
+                </tr>
+
+
+                <?php
+                } 
+                  ?>
+
                 
 
                 

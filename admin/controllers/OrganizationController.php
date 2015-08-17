@@ -1,21 +1,20 @@
 <?php include_once(ROOT_PATH."/system/model/user.class.php");?>
 <?php include_once(ROOT_PATH."/system/repository/userrepository.class.php");?>
-
-<?php include_once(ROOT_PATH."/system/repository/generaluserrepository.class.php");?>
+<?php include_once(ROOT_PATH."/system/repository/organizationrepository.class.php");?>
 
 
 
 <?php
-	class GeneralUserController{
+	class OrganizationController{
 		private $userrepository;
-		private $generaluserrepository;
+		private $organizationrepository;
 		public function __construct(){
 			$this->userrepository = new UserRepository();
-			$this->generaluserrepository = new GeneralUserRepository();
+			$this->organizationrepository = new OrganizationRepository();
 		}
 
 		public function index(){
-			$view_page = "generaluserview/index";
+			$view_page = "organizationview/index";
 				
 			
 
@@ -50,6 +49,7 @@
 			$user->set_user_type($_POST['user_type']);
 			$user->set_user_status($_POST['user_status']);
 
+			
 			return $user;
 		}
 		public function delete(){
@@ -63,7 +63,7 @@
 	
 	}
 
-	$generalusercontroller = new GeneralUserController();
+	$organizationcontroller = new OrganizationController();
 
 	if(isset($_GET['m'])){
 		$method = $_GET['m'];
@@ -74,19 +74,19 @@
 	switch($method){
 
 		case 'index':
-			$generalusercontroller->index();
+			$organizationcontroller->index();
 			break;
 
 		case 'edit':
-			$generalusercontroller->edit();
+			$organizationcontroller->edit();
 			break;
 
 		case 'delete':
-			$generalusercontroller->delete();
+			$organizationcontroller->delete();
 			break;
 
 		default:
-			$generalusercontroller->index();	
+			$organizationcontroller->index();	
 			exit;
 	}
 

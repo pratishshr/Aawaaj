@@ -1,5 +1,5 @@
 <?php
-	class GeneralUserRepository{
+	class WelfareRepository{
 		private $db;
 
 		public function __construct(){
@@ -14,7 +14,7 @@
 			$this->db->connect();
 
 			//SELECT ALL QUERY
-			$sql = "SELECT user_id,user_name,first_name,last_name,contact_number,user_type,user_status,gen_id,age FROM user INNER JOIN generaluser ON user_id = u_id";
+			$sql = "SELECT user_id,user_name,first_name,last_name,contact_number,user_type,user_status,name,doe,img,address,service,objective FROM user INNER JOIN welfare ON user_id = u_id";
 			
 			//fetchquery
 			$result = $this->db->fetchquery($sql);
@@ -30,6 +30,12 @@
 				$user->set_contact_number($row['contact_number']);
 				$user->set_user_type($row['user_type']);
 				$user->set_user_status($row['user_status']);
+				$user->set_welf_name($row['name']);
+				$user->set_welf_doe($row['doe']);
+				$user->set_welf_img($row['img']);
+				$user->set_welf_address($row['address']);
+				$user->set_welf_objective($row['objective']);
+				$user->set_welf_service($row['service']);
 
 				array_push($user_list,$user);
 			}

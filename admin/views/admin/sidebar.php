@@ -30,9 +30,10 @@
                 <i class="glyphicon glyphicon-user"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
+                <li><a href="<?php echo BASE_URL?>/index.php?page=users"><i class="fa fa-circle-o"></i> All User</a></li>
                 <li><a href="<?php echo BASE_URL?>/index.php?page=general"><i class="fa fa-circle-o"></i> General User</a></li>
-                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Organization</a></li>
-                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Welfare</a></li>
+                <li><a href="<?php echo BASE_URL?>/index.php?page=org"><i class="fa fa-circle-o"></i> Organization</a></li>
+                <li><a href="<?php echo BASE_URL?>/index.php?page=welf"><i class="fa fa-circle-o"></i> Welfare</a></li>
               </ul>
             </li>
 
