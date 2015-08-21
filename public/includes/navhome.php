@@ -48,7 +48,7 @@
                     </li>
                     <?php global $session; if(!$session->isLoggedIn()){ ?>
                     <li>
-                        <a class="page-scroll" href="" data-toggle="modal" data-target="#signupModal">Sign Up</a>
+                        <a class="page-scroll" href="" data-toggle="modal" data-target="#signupModal" id="signup_btn">Sign Up</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="" data-toggle="modal" data-target="#loginModal">Login</a>
@@ -72,4 +72,3 @@
         </div>
         <!-- /.container -->
     </nav>
-    
