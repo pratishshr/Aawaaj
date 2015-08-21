@@ -11,7 +11,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        
+                        <h1 class="brand-heading">ROTARACT</h1>
+                        <p class="intro-text">Hawa Slogan <br/> Blah Blah Blah.</p>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
                     </div>
                 </div>
             </div>
