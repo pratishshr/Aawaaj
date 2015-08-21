@@ -40,9 +40,13 @@
 			$user->set_first_name($_POST['first_name']);
 			$user->set_last_name($_POST['last_name']);
 			$user->set_contact_number($_POST['contact_number']);
-			$user->set_user_type($_POST['user_type']);
+			if(isset($_POST['user_type'])){
+				$user->set_user_type($_POST['user_type']);
+			}
 			$user->set_user_status($_POST['user_status']);
+			if(isset($_POST['password'])){
 			$user->set_password($_POST['password']);
+			}
 
 			if($_POST['user_type'] == 'organization'){
 				

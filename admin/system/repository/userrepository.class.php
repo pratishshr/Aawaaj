@@ -192,7 +192,7 @@
 			$this->db->connect();
 
 			//INSERT QUERY
-			$sql = "UPDATE user SET user_name=?,first_name=?,last_name=?,contact_number=?,user_type=?,user_status=? WHERE user_id=?";
+			$sql = "UPDATE user SET user_name=?,first_name=?,last_name=?,contact_number=?,user_status=? WHERE user_id=?";
 
 			//PREPARE
 			$stmt = $this->db->initialize($sql);
@@ -207,7 +207,7 @@
 			$id=$user->get_user_id();
 	
 			//BIND
-			$stmt->bind_param("sssisii",$user_name,$first_name,$last_name,$contact_number,$user_type,$user_status,$id);
+			$stmt->bind_param("sssiii",$user_name,$first_name,$last_name,$contact_number,$user_status,$id);
 
 			//EXECUTE
 			$result = $stmt->execute();

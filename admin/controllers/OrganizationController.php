@@ -28,13 +28,13 @@
 				$user = $this->_map_posted_data();
 				$user->set_user_id($_POST['id']);
 				$this->userrepository->update($user);
-				header("Location: index.php?page=general&m=index&action=edit");
+				header("Location: index.php?page=org&m=index&action=edit");
 			}else{
 				$view_page = "adminusersview/edit";
 				$id = $_GET['id'];
 				$user = $this->userrepository->get_by_id($id);
 				if(is_null($user)){
-					header("Location: index.php?page=general&m=index");
+					header("Location: index.php?page=org&m=index");
 				}
 				include_once(ROOT_PATH."/views/admin/container.php");
 			}
@@ -57,7 +57,7 @@
 			$id = $_GET['id'];
 			$result = $this->userrepository->delete($id);
 			if($result = true){
-				header("Location: index.php?page=general&m=index&action=delete");
+				header("Location: index.php?page=org&m=index&action=delete");
 			}
 		}	
 	
