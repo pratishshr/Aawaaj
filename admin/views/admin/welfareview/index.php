@@ -3,7 +3,7 @@
            <!-- Default box -->
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Organization's Table</h3>
+              <h3 class="box-title">Welfare's Table</h3>
               <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
               </div>
@@ -85,8 +85,8 @@
                  ?>
                    
                   
-                  <td><a href="<?php echo BASE_URL;?>/index.php?page=general&m=edit&id=<?php echo $user->get_user_id();?>" class="btn btn-primary btn-sm glyphicon glyphicon-pencil"></a> 
-                      <a href="<?php echo BASE_URL;?>/index.php?page=general&m=delete&id=<?php echo $user->get_user_id();?>" class="btn btn-danger btn-sm glyphicon glyphicon-trash" onclick="return confirm('Are you sure?')"></a></td>
+                  <td><a href="<?php echo BASE_URL;?>/index.php?page=welf&m=edit&id=<?php echo $user->get_user_id();?>" class="btn btn-primary btn-sm glyphicon glyphicon-pencil"></a> 
+                      <a href="<?php echo BASE_URL;?>/index.php?page=welf&m=delete&id=<?php echo $user->get_user_id();?>" class="btn btn-danger btn-sm glyphicon glyphicon-trash" onclick="return confirm('Are you sure?')"></a></td>
                 </tr>
 
 

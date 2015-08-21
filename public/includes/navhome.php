@@ -1,6 +1,6 @@
 <?php require_once(ROOT_PATH."database/session.php") ?>
 <?php require_once(ROOT_PATH."app/controller/logincontroller.php") ?>
- <?php include_once(ROOT_PATH."app/view/loginmodal.php"); ?>
+<?php include_once(ROOT_PATH."app/view/loginmodal.php"); ?>
  <?php include_once(ROOT_PATH."app/view/signupmodal.php"); ?>
 
 

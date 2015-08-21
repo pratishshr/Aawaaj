@@ -35,6 +35,11 @@
                 <li><a href="<?php echo BASE_URL?>/index.php?page=org"><i class="fa fa-circle-o"></i> Organization</a></li>
                 <li><a href="<?php echo BASE_URL?>/index.php?page=welf"><i class="fa fa-circle-o"></i> Welfare</a></li>
               </ul>
+              <li class="active">
+              <a href="widgets.html">
+                <i class="fa fa-th"></i> <span>Admins</span>
+              </a>
+              </li>
             </li>
 
             <!-- AS THE WORK PROGRESSES THESE WILL BE IMPLEMENTED -->

@@ -29,6 +29,10 @@
                             <input type="email" class="form-control" name="user_name" id="first_name" placeholder="Username (Email)" value="<?php echo $user->get_user_name();?>">
                           </div>
                           <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="something" disabled>
+                          </div>
+                          <div class="form-group">
                             <label for="first_name">First Name</label>
                             <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" value="<?php echo $user->get_first_name();?>">
                           </div>
@@ -42,7 +46,7 @@
                           </div>
                           <div class="form-group">
                             <label for="user_type">User-Type</label>
-                            <select name="user_type" class="form-control">
+                            <select name="user_type" class="form-control" disabled>
                             	<option value="generalUser" <?php echo ($user->get_user_type() =='general user')?'selected':'';?>>General User</option>
                             	<option value="welfare" <?php echo ($user->get_user_type() =='welfare')?'selected':'';?>>Welfare</option>
                             	<option value="organization" <?php echo ($user->get_user_type() =='organization')?'selected':'';?>>Organization</option>
