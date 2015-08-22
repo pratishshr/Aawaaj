@@ -19,6 +19,7 @@
     <link href="<?php echo BASE_URL?>profile/assets/css/animate.css" rel="stylesheet">  
     <link href="<?php echo BASE_URL?>profile/assets/css/responsive.css" rel="stylesheet">
     <link href="<?php echo BASE_URL?>profile/assets/css/grayscale.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL?>profile/assets/css/custom-modification.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="<?php echo BASE_URL?>profile/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
