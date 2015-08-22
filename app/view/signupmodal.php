@@ -1,3 +1,5 @@
+
+
 <!-- <script src="//code.jquery.com/jquery.min.js"></script> -->
    <style type="text/css">
   .no {color:red; font-size: 12px;}
@@ -29,7 +31,8 @@ $(document).ready(function(){
 
 
 </script>
-    <script src="<?php echo BASE_URL?>/public/assets/js/jquery.js"></script>
+<script src="<?php echo BASE_URL?>/public/assets/js/jquery.js"></script>
+
 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -121,10 +124,13 @@ $(document).ready(function(){
             </div>
             <!-- form for welfare end -->
        
-           
-            <div class="form-group">
-              <input type="checkbox" name="terms" class="" required> I agree to <a href"#">Terms of Use</a>
+           <!--  recaptcha -->
+            <div class="g-recaptcha" data-sitekey="6LcungsTAAAAANuly3-xT5zE9QF-5fvndaxo2OCy"></div>
+            <br/>
+            <div class="form-group text-center">
+              <input type="checkbox" name="terms" required> I agree to <a href"#">Terms of Use</a>
             </div>
+            
 
             <div class="form-group text-left ">
               <input type="button" id="submit_btn" name="submit" class="btn btn-info btn-lg btn-block" value="Sign up">
