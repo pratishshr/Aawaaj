@@ -1,3 +1,5 @@
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
 <?php require_once(ROOT_PATH."database/session.php") ?>
 <?php require_once(ROOT_PATH."app/controller/logincontroller.php") ?>
 <?php include_once(ROOT_PATH."app/view/loginmodal.php"); ?>

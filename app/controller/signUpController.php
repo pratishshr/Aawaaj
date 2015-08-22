@@ -3,7 +3,7 @@
 		require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/phpmailer/sendmail.php");
 
 	class SignUpController{
-
+		
 		//Normal form Variables
 		private $firstName;
 		private $lastName;
@@ -11,6 +11,8 @@
 		private $password;
 		private $contactNumber;
 		private $userType;
+
+
 
 		//General User form variables
 		private $age = null;
@@ -34,6 +36,17 @@
 		private $path;
 
 		public function __construct(){
+			
+			//recaptcha
+			if(isset($_POST['g-recaptcha-response'])){
+	          $captcha=$_POST['g-recaptcha-response'];
+	          $recaptcha_secret = "6LcungsTAAAAAJs0QQtzf12E4scOoTwwlJaD0y2Z";
+	          $remote_ip = $_SERVER['REMOTE_ADDR'];
+	          $captcha_response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$recaptcha_secret."&response=".$captcha."&remoteip=".$remote_ip);
+	          $captcha_response = json_decode($captcha_response,true);
+	        }
+
+
 			//Initializing variables for normal form
 			$this->firstName = $_POST['first_name'];
 			$this->lastName = $_POST['last_name'];
@@ -59,8 +72,13 @@
 			$this->welfareService = $_POST['welfare_service'];
 			$this->welfareLogo = $this->addLogo('welfare_photo');
 			$this->welfareObjectives = $_POST['objectives_of_welfare'];
+
 			//Add data to database
+			if($captcha_response['success']===true){
 			$this->addToDatabase();
+			}else{
+				header("Location: ../view/signupform.php");
+			}
 		}
 		//fot all users
 		public function getFirstName(){

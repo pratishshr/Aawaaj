@@ -372,6 +372,10 @@ body {
     webkit-tap-highlight-color: rgba(255,255,255,.2);
 }
 
+.white-body{
+    background-color: #fff;
+}
+
 .modal-title{
         color: #000;
 }
@@ -391,13 +395,67 @@ body {
 
 }
 
+.black-color{
+    color:#000;
+}
 
+.red-color{
+    color: red;
+}
 
 
 form a{
     color: #000;
 }
 
+.navbar-simple {
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(255,255,255,.3);
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: #000;
+}
+
+.navbar-simple .navbar-brand {
+    font-weight: 700;
+}
+
+.navbar-simple .navbar-brand:focus {
+    outline: 0;
+}
+
+.navbar-simple .navbar-brand .navbar-toggle {
+    padding: 4px 6px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.navbar-simple .navbar-brand .navbar-toggle:focus,
+.navbar-simple .navbar-brand .navbar-toggle:active {
+    outline: 0;
+}
+
+.navbar-simple a {
+    color: #fff;
+}
+
+
+
+@media(min-width:768px) {
+    .navbar-simple {
+        padding: 0px;
+        border-bottom: 0;
+        letter-spacing: 1px;
+        background: #000;
+        margin-bottom: 40px;
+           }
+
+    .navbar-simple.top-nav-collapse {
+        padding: 0;
+        border-bottom: 1px solid rgba(255,255,255,.3);
+        background: #000;
+    }
+}
 
 
 
