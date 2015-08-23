@@ -6,6 +6,7 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 
 		private $connObj;
 		private $first_name=null;
+		private $last_name = null;
 		private $user_id = null;
 		private $user_type;
 		private $welfare_name;
@@ -28,6 +29,7 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 					
 					while($row = $getUser->fetch(PDO::FETCH_OBJ)){
 						$this->first_name = $row->first_name;
+						$this->last_name = $row->last_name;
 						$this->user_id = $row->user_id;
 						$this->user_type = $row->user_type;
 						$this->data_pass = $row->password;
@@ -62,6 +64,9 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 		
 		public function getFirstName(){
 			return $this->first_name;
+		}
+		public function getLastName(){
+			return $this->last_name;
 		}
 		public function getUserId(){
 			return $this->user_id;

@@ -5,27 +5,37 @@
 <?php require_once(ROOT_PATH."database/session.php") ?>   
 
 
-
     <header class="intro">
         <div class="intro-body">
-            <div class="container">
+          <div class="container">
+        
                 <div class="row">
+        
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">ROTARACT</h1>
-                        <p class="intro-text">Hawa Slogan <br/> Blah Blah Blah.</p>
+                    	 <?php global $session; if($session->isLoggedIn()){ 
+                    	 		 $firstName = $_SESSION['first_name'];
+                    	 		 $lastName = $_SESSION['last_name'];
+                    	 	?>
+                        <h1 class="brand-heading"><?php echo $firstName. " " . $lastName ?></h1>
+                         <?php 
+                        	}
+                        ?>
+                      <!--  <p class="intro-text">Rotaract ko Moto <br/> Blah Blah Blah</p> -->
                         <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                     </div>
                 </div>
+                <a href="#" id="change_cover"class="btn btn-primary pull-right">Change Cover</a>
+                
             </div>
         </div>
     </header>
 
     <!-- About Section -->
-    <section id="about" class="container content-section text-center">
+    <section id="about" class="content-section text-justify">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-lg-10 col-lg-offset-1">
                 <h2>ABOUT</h2>
                 <p>
                     <div class="row">

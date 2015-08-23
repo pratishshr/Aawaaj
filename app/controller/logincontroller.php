@@ -1,7 +1,7 @@
 <?php require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/session.php"); ?>
 
 <?php
-require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/loginModel.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/loginmodel.php");
 			
 			class LoginControl{
 				private $username;
@@ -26,14 +26,14 @@ require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/loginModel.php");
 						global $session;
 						//$this->firstName = $loginmodelobj->getFirstName();
 						if($loginmodelobj->getUserType()=="generalUser"){
-						$session->login($loginmodelobj->getUserId(),$loginmodelobj->getFirstName());
+						$session->generalUserLogin($loginmodelobj->getUserId(),$loginmodelobj->getFirstName(),$loginmodelobj->getLastName());
 						
 						}else if($loginmodelobj->getName()){
 							
 							$session->login($loginmodelobj->getUserId(),$loginmodelobj->getName());
 
 						}
-						header("Location: ../../public/index.php" );
+						header("Location: ../../profile/index.php" );
 					}else{
 						//if login not successful
 						echo "Redirect to login page giving some error";

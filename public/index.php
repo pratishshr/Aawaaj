@@ -22,7 +22,7 @@
     </header>
 
     <!-- About Section -->
-    <section id="about" class="container content-section text-center">
+    <section id="about" class="container content-section text-justify">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>ABOUT</h2>
@@ -34,7 +34,7 @@
     </section>
 
     <!-- Explore Section -->
-    <section id="download" class="container content-section text-center">
+    <section id="download" class="container content-section text-justify">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>EXPLORE</h2>
@@ -46,7 +46,7 @@
                         <h3>
                             <a href="#">Project Name</a>
                         </h3>
-                        <p>This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something.This is a project on something that helps someone and gets something something.This is a project on something that helps someone and gets something something.</p>
+                        <p>This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something.</p>
                     </div>
                     <div class="col-md-6">
                         <a href="#" class="thumbnail">
@@ -55,7 +55,7 @@
                         <h3>
                             <a href="#">Project Name</a>
                         </h3>
-                        <p>This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something.This is a project on something that helps someone and gets something something.This is a project on something that helps someone and gets something something.</p>
+                        <p>This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something.</p>
                     </div>
                    
                 </div>
