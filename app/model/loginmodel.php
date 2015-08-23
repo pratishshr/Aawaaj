@@ -1,6 +1,6 @@
 <?php
 
-require_once ($_SERVER['DOCUMENT_ROOT']."Aawaaj/database/connection.php");
+require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 
 	class LoginModel{
 

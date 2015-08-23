@@ -1,7 +1,7 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT']."Aawaaj/database/session.php"); ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/session.php"); ?>
 
 <?php
-require_once($_SERVER['DOCUMENT_ROOT']."Aawaaj/app/model/loginmodel.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/loginmodel.php");
 			
 			class LoginControl{
 				private $username;
