@@ -16,7 +16,7 @@
                     	 		 $firstName = $_SESSION['first_name'];
                     	 		 $lastName = $_SESSION['last_name'];
                     	 	?>
-                        <h1 class="brand-heading"><?php echo $firstName. " " . $lastName ?></h1>
+                        <h1 class="brand-heading"><?php echo $firstName. "\n" . $lastName ?></h1>
                          <?php 
                         	}
                         ?>
@@ -44,15 +44,15 @@
                         </div>
                         <table>
                             <tr>
-                                <th>Name of Organization:</th>
+                                <th><big class="info_list">Name of User :</big> <?php echo $firstName. " " . $lastName ?></th>
                                 <td></td>
                             </tr>
                             <tr>
-                                <th>DOE:</th>
+                                <th><big class="info_list">DOE :</big> </th>
                                 <td></td>
                             </tr>
                             <tr>
-                                <th>Slogan:</th>
+                                <th><big class="info_list">Slogan :</big> </th>
                                 <td></td>
                             </tr>
                         </table>
