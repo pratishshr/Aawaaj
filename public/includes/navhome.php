@@ -60,7 +60,12 @@
                             $firstName = $_SESSION['first_name'];
                             ?>
                             <li>
+<<<<<<< HEAD
                                 <a class = "page-scross" href="<?php echo BASE_URL?>/profile/index.php"><?php echo "Namaste, " . $firstName; ?></a>
+=======
+                                <a class="page-scross" href=""><?php echo "Namaste, " . $firstName; ?></a>
+                               
+>>>>>>> 35d55be5338ffd0148a6abc5942d20d2edd4a5d7
                            </li>
                            <li>
                                 <a class = "page-scross" href="<?php echo BASE_URL?>/database/session.php?id=Logout">Logout</a>
