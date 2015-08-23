@@ -59,7 +59,7 @@
                             $firstName = $_SESSION['first_name'];
                             ?>
                             <li>
-                                <a class = "page-scross" id="username_btn" href=""><?php echo "Namaste, " . $firstName; ?></a>
+                                <a class = "page-scross" id="username_btn" href="<?php echo BASE_URL?>/profile/index.php"><?php echo "Namaste, " . $firstName; ?></a>
                                   
                            </li>
                            <li>

@@ -12,8 +12,15 @@
                 <div class="row">
         
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">ROTARACT</h1>
-                        <p class="intro-text">Rotaract ko Moto <br/> Blah Blah Blah</p>
+                    	 <?php global $session; if($session->isLoggedIn()){ 
+                    	 		 $firstName = $_SESSION['first_name'];
+                    	 		 $lastName = $_SESSION['last_name'];
+                    	 	?>
+                        <h1 class="brand-heading"><?php echo $firstName. " " . $lastName ?></h1>
+                         <?php 
+                        	}
+                        ?>
+                      <!--  <p class="intro-text">Rotaract ko Moto <br/> Blah Blah Blah</p> -->
                         <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>

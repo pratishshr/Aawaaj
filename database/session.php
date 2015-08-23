@@ -29,11 +29,21 @@
 			return $this->logged_in;
 		}
 
-		public function login($userid,$firstname){
+		public function generalUserlogin($userid,$firstname,$lastname){
 			//database should find user based on username/password
 			if($userid){
 				$this->user_id  = $_SESSION['user_id'] = $userid;
 				$_SESSION['first_name'] = $firstname;
+				$_SESSION['last_name'] = $lastname;
+				$this->logged_in = true;
+				$this->firstName = $firstname;
+			}
+		}
+		public function login($userid,$firstname){
+			if($userid){
+				$this->user_id  = $_SESSION['user_id'] = $userid;
+				$_SESSION['first_name'] = $firstname;
+				//$_SESSION['last_name'] = $lastname;
 				$this->logged_in = true;
 				$this->firstName = $firstname;
 			}
