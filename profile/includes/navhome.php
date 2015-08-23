@@ -74,3 +74,12 @@
         </div>
         <!-- /.container -->
     </nav> 
+<script>
+    $("#username_btn").on("mouseover",function(){
+        $(this).html("Edit Profile");
+    });
+    $("#username_btn").on("mouseleave",function(){
+        $(this).html("<?php echo "Namaste, " . $firstName; ?>");
+    });
+
+</script>
