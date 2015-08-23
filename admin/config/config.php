@@ -9,7 +9,7 @@
 	define('HOSTNAME','localhost');
 	define('USERNAME','root');
 
-	define('PASSWORD','');
+	define('PASSWORD','alskdjf1');
 	//define('PASSWORD_SUJAN','alskdjf1');
 	//define('PASSWORD','damcare');
 	define('DATABASE','aawaaj');
