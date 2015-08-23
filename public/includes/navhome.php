@@ -60,7 +60,8 @@
                             $firstName = $_SESSION['first_name'];
                             ?>
                             <li>
-                                <a class = "page-scross" href=""><?php echo "Namaste, " . $firstName; ?></a>
+                                <a class="page-scross" href="" id="profile_btn"><?php echo "Namaste, " . $firstName; ?></a>
+                               
                            </li>
                            <li>
                                 <a class = "page-scross" href="<?php echo BASE_URL?>/database/session.php?id=Logout">Logout</a>
@@ -74,3 +75,12 @@
         </div>
         <!-- /.container -->
     </nav>
+<script>
+    $("#profile_btn").on("mouseover",function(){
+        $(this).html("Edit Profile");
+    });
+    $("#profile_btn").on("mouseleave",function(){
+        $(this).html("<?php echo "Namaste, " . $firstName; ?>");
+    });
+
+</script>

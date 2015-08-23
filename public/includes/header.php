@@ -12,7 +12,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo BASE_URL?>public/assets/css/bootstrap.min.css" rel="stylesheet">
-
+   
     <!-- Custom CSS -->
     <link href="<?php echo BASE_URL?>public/assets/css/grayscale.css" rel="stylesheet">
 
