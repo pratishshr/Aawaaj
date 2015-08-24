@@ -29,12 +29,13 @@
 			return $this->logged_in;
 		}
 
-		public function generalUserlogin($userid,$firstname,$lastname){
+		public function generalUserlogin($userid,$firstname,$lastname,$usertype){
 			//database should find user based on username/password
 			if($userid){
 				$this->user_id  = $_SESSION['user_id'] = $userid;
 				$_SESSION['first_name'] = $firstname;
 				$_SESSION['last_name'] = $lastname;
+				$_SESSION['user_type'] = $usertype;
 				$this->logged_in = true;
 				$this->firstName = $firstname;
 			}

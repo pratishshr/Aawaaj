@@ -1,8 +1,17 @@
 <?php include_once("config.php"); ?>
+<?php require_once(ROOT_PATH."database/session.php") ?> 
+<?php
+    global $session; 
+    if(!$session->isLoggedIn()){
+        header("location:../public/index.php");
+        exit();
+    }
+?>
+<?php var_dump($_SESSION)?>
 <?php include_once(ROOT_PATH."profile/includes/header.php") ?>
     <!-- Navigation -->
 <?php include_once(ROOT_PATH."profile/includes/navhome.php") ?>
-<?php require_once(ROOT_PATH."database/session.php") ?>   
+  
 
 
     <header class="intro">
@@ -12,9 +21,10 @@
                 <div class="row">
         
                     <div class="col-md-8 col-md-offset-2">
-                    	 <?php global $session; if($session->isLoggedIn()){ 
+                    	 <?php if($session->isLoggedIn()){ 
                     	 		 $firstName = $_SESSION['first_name'];
                     	 		 $lastName = $_SESSION['last_name'];
+                                 $usertype = $_SESSION['user_type'];
                     	 	?>
                         <h1 class="brand-heading"><?php echo $firstName. "\n" . $lastName ?></h1>
                          <?php 
@@ -44,7 +54,13 @@
                         </div>
                         <table>
                             <tr>
-                                <th><big class="info_list">Name of User :</big> <?php echo $firstName. " " . $lastName ?></th>
+                                <th><big class="info_list">Name of <?php if($usertype == 'generalUser')
+                                                                            echo 'User';
+                                                                        elseif($usertype == 'organization')
+                                                                            echo 'Organization';
+                                                                        else
+                                                                            echo 'Welfare';
+                                                                    ?> :</big> <?php echo $firstName. " " . $lastName ?></th>
                                 <td></td>
                             </tr>
                             <tr>
