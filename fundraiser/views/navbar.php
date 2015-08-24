@@ -1,7 +1,6 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-<?php require_once(ROOT_PATH."database/session.php") ?>
-<?php require_once(ROOT_PATH."app/controller/logincontroller.php") ?>
+
 <?php include_once(ROOT_PATH."app/view/loginmodal.php"); ?>
 <?php include_once(ROOT_PATH."app/view/signupmodal.php"); ?>
 
@@ -13,7 +12,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" href="<?php echo BASE_URL.'public/index.php';?>">
                     <i class="fa fa-play-circle"></i> <span class="light">Aawaaj</span>
                 </a>
             </div>
@@ -26,13 +25,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#download">Trending Now</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Explore</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="<?php echo BASE_URL.'fundraiser/index.php?page=fund';?>">Start Fundraiser</a>
+                        <a class="page-scroll" href="#">Start Fundraiser</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -48,28 +44,14 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <?php global $session; if(!$session->isLoggedIn()){ ?>
+                    
                     <li>
                         <a class="page-scroll" href="" data-toggle="modal" data-target="#signupModal" id="signup_btn">Sign Up</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="" data-toggle="modal" data-target="#loginModal">Login</a>
                     </li>
-                     <?php 
-                        }else{ 
-                            $firstName = $_SESSION['first_name'];
-                            ?>
-                            <li>
 
-                                <a class = "page-scross" href="<?php echo BASE_URL?>/profile/index.php"><?php echo "Namaste, " . $firstName; ?></a>
-
-                               
-                           </li>
-                           <li>
-                                <a class = "page-scross" href="<?php echo BASE_URL?>/database/session.php?id=Logout">Logout</a>
-                                </li>
-                            <?php
-                        }?>             
                 </ul>
                 
             </div>

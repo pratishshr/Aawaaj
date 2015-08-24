@@ -1,6 +1,6 @@
 <?php
-	define('BASE_URL','http://localhost/Aawaaj/admin');
-	define('ROOT_PATH',$_SERVER['DOCUMENT_ROOT']."/Aawaaj/admin");
+	define('BASE_URL','http://localhost/Aawaaj/');
+	define('ROOT_PATH',$_SERVER['DOCUMENT_ROOT']."/Aawaaj/");
 	define('PUBLIC_PATH',$_SERVER['DOCUMENT_ROOT']."/Aawaaj/public");
 	define('PUBLIC_PATH2',"http://localhost/Aawaaj/public");
 	
@@ -16,6 +16,6 @@
 
 	//INCLUDE ROUTES AND DATABASE CONNECTION CLASS
 	include_once(ROOT_PATH."/config/routes.php");
-	include_once(ROOT_PATH."/system/dbUtil/dbconnection.class.php");
-	include_once(ROOT_PATH."/system/lib/loaderhelper.class.php");
+	include_once(ROOT_PATH."/admin/system/dbUtil/dbconnection.class.php");
+	include_once(ROOT_PATH."/admin/system/lib/loaderhelper.class.php");
 ?>

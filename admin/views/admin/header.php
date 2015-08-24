@@ -6,16 +6,16 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.4 -->
-    <link href="<?php echo BASE_URL?>/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo BASE_URL?>admin/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
-    <link href="<?php echo BASE_URL?>/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo BASE_URL?>admin/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
-    <link href="<?php echo BASE_URL?>/assets/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo BASE_URL?>admin/assets/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="<?php echo BASE_URL.'/assets/'?>dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo BASE_URL.'admin/assets/'?>dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link href="<?php echo BASE_URL.'/assets/'?>dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo BASE_URL.'admin/assets/'?>dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
     
   </head>
@@ -25,7 +25,7 @@
 
       <header class="main-header">
         <!-- Logo -->
-        <a href="<?php echo BASE_URL;?>/index.php?page=admin" class="logo">
+        <a href="<?php echo BASE_URL;?>admin/index.php?page=admin" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>dm</span>
           <!-- logo for regular state and mobile devices -->
@@ -47,13 +47,13 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="<?php echo BASE_URL?>/assets/dist/img/user-pratish.jpg" class="user-image" alt="User Image" />
+                  <img src="<?php echo BASE_URL?>admin/assets/dist/img/user-pratish.jpg" class="user-image" alt="User Image" />
                   <span class="hidden-xs">Pratish Shrestha</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="<?php echo BASE_URL?>/assets/dist/img/user-pratish.jpg" class="img-circle" alt="User Image" />
+                    <img src="<?php echo BASE_URL?>admin/assets/dist/img/user-pratish.jpg" class="img-circle" alt="User Image" />
                     <p>
                       Pratish Shrestha - Web Developer
                     </p>
@@ -79,7 +79,7 @@
         </nav>
       </header>
 
-      <?php include_once(ROOT_PATH."/views/admin/sidebar.php");?>
+      <?php include_once(ROOT_PATH."admin/views/admin/sidebar.php");?>
      <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
       
