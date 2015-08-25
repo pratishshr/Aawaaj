@@ -6,4 +6,7 @@
 	$routes['general'] = 'GeneralUserController';
 	$routes['org'] = 'OrganizationController';
 	$routes['welf'] = 'WelfareController';
+
+	//fundraiser routes
+	$routes['fund'] = 'FundController';
 ?>

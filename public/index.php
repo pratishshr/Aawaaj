@@ -22,7 +22,7 @@
     </header>
 
     <!-- About Section -->
-    <section id="about" class="container content-section text-justify">
+    <section id="about" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>ABOUT</h2>
@@ -34,7 +34,7 @@
     </section>
 
     <!-- Explore Section -->
-    <section id="download" class="container content-section text-justify">
+    <section id="download" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>EXPLORE</h2>

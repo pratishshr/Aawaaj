@@ -1,6 +1,6 @@
-<?php include_once(ROOT_PATH."/system/model/user.class.php");?>
-<?php include_once(ROOT_PATH."/system/repository/userrepository.class.php");?>
-<?php include_once(ROOT_PATH."/system/repository/organizationrepository.class.php");?>
+<?php include_once(ROOT_PATH."admin/system/model/user.class.php");?>
+<?php include_once(ROOT_PATH."admin/system/repository/userrepository.class.php");?>
+<?php include_once(ROOT_PATH."admin/system/repository/organizationrepository.class.php");?>
 
 <?php
 	class AdminUserController{
@@ -15,7 +15,7 @@
 			$view_page="adminusersview/index";
 			//LoaderHelper::view("admin/container");
 			//INDEX PAGE OF ADMIN CONTROLLING ALL USERS TABLE
-			include_once(ROOT_PATH."/views/admin/container.php");
+			include_once(ROOT_PATH."admin/views/admin/container.php");
 		}
 
 	
@@ -29,7 +29,7 @@
 
 			}else{
 				$view_page ="adminusersview/add";
-				include_once(ROOT_PATH."/views/admin/container.php");
+				include_once(ROOT_PATH."admin/views/admin/container.php");
 				}
 		}
 
@@ -101,7 +101,7 @@
 				if(is_null($user)){
 					header("Location: index.php?page=admin&m=index");
 				}
-				include_once(ROOT_PATH."/views/admin/container.php");
+				include_once(ROOT_PATH."admin/views/admin/container.php");
 			}
 		}
 

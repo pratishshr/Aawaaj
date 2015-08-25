@@ -5,7 +5,7 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="<?php echo BASE_URL?>/assets/dist/img/user-pratish.jpg" class="img-circle" alt="User Image" />
+              <img src="<?php echo BASE_URL?>admin/assets/dist/img/user-pratish.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
               <p>Pratish Shrestha</p>
@@ -30,10 +30,10 @@
                 <i class="glyphicon glyphicon-user"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo BASE_URL?>/index.php?page=users"><i class="fa fa-circle-o"></i> All User</a></li>
-                <li><a href="<?php echo BASE_URL?>/index.php?page=general"><i class="fa fa-circle-o"></i> General User</a></li>
-                <li><a href="<?php echo BASE_URL?>/index.php?page=org"><i class="fa fa-circle-o"></i> Organization</a></li>
-                <li><a href="<?php echo BASE_URL?>/index.php?page=welf"><i class="fa fa-circle-o"></i> Welfare</a></li>
+                <li><a href="<?php echo BASE_URL?>admin/index.php?page=users"><i class="fa fa-circle-o"></i> All User</a></li>
+                <li><a href="<?php echo BASE_URL?>admin/index.php?page=general"><i class="fa fa-circle-o"></i> General User</a></li>
+                <li><a href="<?php echo BASE_URL?>admin/index.php?page=org"><i class="fa fa-circle-o"></i> Organization</a></li>
+                <li><a href="<?php echo BASE_URL?>admin/index.php?page=welf"><i class="fa fa-circle-o"></i> Welfare</a></li>
               </ul>
               <li class="active">
               <a href="widgets.html">

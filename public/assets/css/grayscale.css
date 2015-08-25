@@ -27,6 +27,7 @@ h6 {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
+
 }
 
 p {
@@ -40,6 +41,7 @@ p {
         margin: 0 0 35px;
         font-size: 20px;
         line-height: 1.6;
+        
     }
 }
 
@@ -181,10 +183,104 @@ a:focus {
     }
 
     .intro .intro-body .brand-heading {
-        font-size: 100px;
+        font-size: 80px;
     }
 
     .intro .intro-body .intro-text {
+        font-size: 26px;
+    }
+}
+
+ /*FOR FUNDRAISER*/
+.intro-fund {
+    display: table;
+    width: 100%;
+    height: auto;
+    padding: 100px 0;
+    text-align: center;
+    color: #fff;
+    background: url(../img/intro-fund.jpg) no-repeat bottom center scroll;
+    background-color: #000;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.intro-fund .intro-body {
+    display: table-cell;
+    vertical-align: middle;
+
+
+}
+
+.intro-fund .intro-body .brand-heading {
+    font-size: 40px;
+     
+}
+
+.intro-fund .intro-body .intro-text {
+    font-size: 18px;
+  
+}
+
+@media(min-width:768px) {
+    .intro-fund {
+        height: 100%;
+        padding: 0;
+    }
+
+    .intro-fund .intro-body .brand-heading {
+        font-size: 50px;
+    }
+
+    .intro-fund .intro-body .intro-text {
+        font-size: 26px;
+    }
+}
+ /*FOR FUNDRAISER CREATION*/
+
+.intro-fund-create {
+    display: table;
+    width: 100%;
+    height: auto;
+    padding: 100px 0;
+    text-align: left;
+    color: #fff;
+    background-color: #000;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.intro-fund-create .intro-body {
+    display: table-cell;
+    padding-top: 100px;
+
+
+}
+
+.intro-fund-create .intro-body .brand-heading {
+    font-size: 40px;
+     
+}
+
+.intro-fund-create .intro-body .intro-text {
+    font-size: 18px;
+  
+}
+
+@media(min-width:768px) {
+    .intro-fund-create {
+        height: 100%;
+        padding: 0;
+    }
+
+    .intro-fund-create .intro-body .brand-heading {
+        font-size: 50px;
+    }
+
+    .intro-fund-create .intro-body .intro-text {
         font-size: 26px;
     }
 }
@@ -311,7 +407,8 @@ a:focus {
 }
 
 .btn-default:hover,
-.btn-default:focus {
+.btn-default:focus,
+.btn-default.active{
     border: 1px solid #42dca3;
     outline: 0;
     color: #000;
@@ -459,3 +556,49 @@ form a{
 
 
 
+
+
+.carousel-control.left {
+    left: -100px;
+}
+.carousel-control.right {
+    right: -100px;
+}
+
+.carousel-indicators {
+   
+ 
+    bottom: 0px;
+  
+}
+
+/*MULTISTEP FORM*/
+
+/*form styles*/
+
+
+
+
+.panel-body{
+    position:relative;
+    height: auto;
+    height: 700px;
+    width: auto;
+}
+
+#msform fieldset {
+/*stacking fieldsets above each other*/
+    position: absolute;
+
+
+   
+}
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+display: none;
+}
+
+textarea {
+    resize: none;
+}
