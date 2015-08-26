@@ -3,7 +3,7 @@
 <?php require_once(ROOT_PATH."database/session.php") ?>
 <?php require_once(ROOT_PATH."app/controller/logincontroller.php") ?>
 <?php include_once(ROOT_PATH."app/view/loginmodal.php"); ?>
-<?php include_once(ROOT_PATH."app/view/signupmodal.php"); ?>
+ <?php include_once(ROOT_PATH."app/view/signupmodal.php"); ?>
 
 
  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -13,7 +13,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" href="<?php echo BASE_URL?>public">
                     <i class="fa fa-play-circle"></i> <span class="light">Aawaaj</span>
                 </a>
             </div>
@@ -26,16 +26,16 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="<?php echo BASE_URL?>public/index.php/#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Explore</a>
+                        <a class="page-scroll" href="<?php echo BASE_URL?>public/index.php/#download">Explore</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="<?php echo BASE_URL.'fundraiser/index.php?page=fund';?>">Start Fundraiser</a>
+                        <a class="page-scroll" href="<?php echo BASE_URL?>public/index.php/#">Start Fundraiser</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="<?php echo BASE_URL?>public/index.php/#contact">Contact</a>
                     </li>   
                     
                 </ul>

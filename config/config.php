@@ -1,6 +1,6 @@
 <?php
-	define('BASE_URL','http://localhost/Aawaaj/admin');
-	define('ROOT_PATH',$_SERVER['DOCUMENT_ROOT']."/Aawaaj/admin");
+	define('BASE_URL','http://localhost/Aawaaj/');
+	define('ROOT_PATH',$_SERVER['DOCUMENT_ROOT']."/Aawaaj/");
 	define('PUBLIC_PATH',$_SERVER['DOCUMENT_ROOT']."/Aawaaj/public");
 	define('PUBLIC_PATH2',"http://localhost/Aawaaj/public");
 	
@@ -9,13 +9,17 @@
 	define('HOSTNAME','localhost');
 	define('USERNAME','root');
 
+<<<<<<< HEAD:admin/config/config.php
 	define('PASSWORD','');
+=======
+	define('PASSWORD','damcare');
+>>>>>>> d9e1bd3a2957b03fad72516aa389287b20e68e97:config/config.php
 	//define('PASSWORD_SUJAN','alskdjf1');
 	//define('PASSWORD','damcare');
 	define('DATABASE','aawaaj');
 
 	//INCLUDE ROUTES AND DATABASE CONNECTION CLASS
 	include_once(ROOT_PATH."/config/routes.php");
-	include_once(ROOT_PATH."/system/dbUtil/dbconnection.class.php");
-	include_once(ROOT_PATH."/system/lib/loaderhelper.class.php");
+	include_once(ROOT_PATH."/admin/system/dbUtil/dbconnection.class.php");
+	include_once(ROOT_PATH."/admin/system/lib/loaderhelper.class.php");
 ?>

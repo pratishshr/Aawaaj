@@ -26,7 +26,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/loginmodel.php");
 						global $session;
 						//$this->firstName = $loginmodelobj->getFirstName();
 						if($loginmodelobj->getUserType()=="generalUser"){
-						$session->generalUserLogin($loginmodelobj->getUserId(),$loginmodelobj->getFirstName(),$loginmodelobj->getLastName());
+						$session->generalUserLogin($loginmodelobj->getUserId(),$loginmodelobj->getFirstName(),$loginmodelobj->getLastName(),$loginmodelobj->getUserType());
 						
 						}else if($loginmodelobj->getName()){
 							

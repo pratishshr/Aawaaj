@@ -46,7 +46,7 @@
                         <h3>
                             <a href="#">Project Name</a>
                         </h3>
-                        <p>This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something.This is a project on something that helps someone and gets something something.This is a project on something that helps someone and gets something something.</p>
+                        <p>This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something.</p>
                     </div>
                     <div class="col-md-6">
                         <a href="#" class="thumbnail">
@@ -55,7 +55,7 @@
                         <h3>
                             <a href="#">Project Name</a>
                         </h3>
-                        <p>This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something.This is a project on something that helps someone and gets something something.This is a project on something that helps someone and gets something something.</p>
+                        <p>This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something. This is a project on something that helps someone and gets something something.</p>
                     </div>
                    
                 </div>

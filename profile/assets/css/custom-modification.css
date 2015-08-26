@@ -1,0 +1,11 @@
+#change_cover {
+	opacity:0.5;
+}
+
+#change_cover:hover {
+    opacity: 1;
+}
+
+.info_list {
+	color: black;
+}
