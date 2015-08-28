@@ -243,7 +243,7 @@ a:focus {
 .intro-fund-create {
     display: table;
     width: 100%;
-    height: auto;
+    height: ;
     padding: 100px 0;
     text-align: left;
     color: #fff;
@@ -570,33 +570,6 @@ form a{
  
     bottom: 0px;
   
-}
-
-/*MULTISTEP FORM*/
-
-/*form styles*/
-
-
-
-
-.panel-body{
-    position:relative;
-    height: auto;
-    height: 700px;
-    width: auto;
-}
-
-#msform fieldset {
-/*stacking fieldsets above each other*/
-    position: absolute;
-
-
-   
-}
-
-/*Hide all except first fieldset*/
-#msform fieldset:not(:first-of-type) {
-display: none;
 }
 
 textarea {
