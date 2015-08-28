@@ -39,11 +39,27 @@
                 </ul>
                   <form class="navbar-form navbar-left" action="<?php echo BASE_URL?>app/view/search.php" method="post" role="search">
                  <div class="form-group">
-                    <input type="text" class="form-control" name="search" placeholder="Search">
+                    <input type="text" class="form-control" name="search" placeholder="Search" required>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+               
                 </form>
-
+                 <script>
+                         $(document).ready(function(){
+                         var elements = document.getElementsByTagName("INPUT");
+                         for (var i = 0; i < elements.length; i++){
+                         elements[i].oninvalid = function(e){
+                         e.target.setCustomValidity("");
+                         if (!e.target.validity.valid){
+                            e.target.setCustomValidity("Enter a Value");
+                         }
+                         };
+                         elements[i].oninput = function(e){
+                         e.target.setCustomValidity("");
+        };
+    }                
+    })
+    
+                     </script>
             </div>
            
     <!-- Sign up / Login -->
@@ -62,10 +78,9 @@
                     </li>
                      <?php 
                         }else{ 
-                            $firstName = $_SESSION['first_name'];
                             ?>
                             <li>
-                                <a class = "page-scross" id="username_btn" href="<?php echo BASE_URL?>/profile/index.php"><?php echo "Namaste, " . $firstName; ?></a>
+                                <a class = "page-scross" id="username_btn" href="<?php echo BASE_URL?>/profile/index.php">Namaste</a>
                                   
                            </li>
                            <li>
@@ -85,7 +100,7 @@
         $(this).html("Edit Profile");
     });
     $("#username_btn").on("mouseleave",function(){
-        $(this).html("<?php echo "Namaste, " . $firstName; ?>");
+        $(this).html("<?php echo "Namaste"?>");
     });
 
 </script>

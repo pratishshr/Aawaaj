@@ -7,7 +7,7 @@
         exit();
     }
 ?>
-<?php var_dump($_SESSION)?>
+
 <?php include_once(ROOT_PATH."profile/includes/header.php") ?>
     <!-- Navigation -->
 <?php include_once(ROOT_PATH."profile/includes/navhome.php") ?>
