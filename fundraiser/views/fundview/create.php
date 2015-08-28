@@ -17,16 +17,9 @@
                             <!-- ===================================== -->
                             <!-- MULTI STEP FORM FOR CREATE-->
 
-                            <form id="msform" class="black-color">
-                                <!-- fieldsets -->
-                                <fieldset class="col-xs-11 col-sm-10 col-md-10 col-md-offset-1 text-center">
-                                    <div class="form-top">
-                                        <div class="form-top-left">
-                                            <h3>Step 1 / 3</h3>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group">
+                            <form class="black-color">
+                                                                    
+                                    <div class="form-group ">
                                         <label for="type">Fundraiser Type:</label>
                                         </br>
                                         <div class="btn-group" data-toggle="buttons">
@@ -52,27 +45,10 @@
                                         <label for="amount">Description (in short):</label>
                                         <textarea class="form-control" id="textarea" placeholder="Description" maxlength="160"></textarea>
                                     </div>  
-
-                                     <input type="button" name="next" class="pull-right btn btn-default next action-button" value="Next" />
-                             
-                                </fieldset>
-                                
-                                <fieldset class="col-xs-11 col-sm-10 col-md-10 col-md-offset-1 text-center">
-                                    <div class="form-top">
-                                        <div class="form-top-left">
-                                            <h3>Step 2 / 3</h3>
-                                        </div>
-                                    </div>
                                     
                                     <div class="form-group">
-                                        <label for="type">Display Image (small):</label>
-                                        </br>
-                                        <input type="file" class="col-md-offset-4">
-                                    </div>  
-
-                                    <div class="form-group">
-                                        <label for="title">Campaign Image (large):</label>
-                                        <input type="file" class="col-md-offset-4">
+                                        <label for="title">Campaign Image:</label>
+                                        <input type="file" >
                                     </div>  
                                  
                                     <div class="form-group">
@@ -81,26 +57,15 @@
                                         <input type="url" class="form-control" id="videourl" placeholder="If you have a video about your campaign">
                                     </div>  
 
-                                                                      
-                                    <input type="button" name="previous" class="pull-left btn  btn-default previous action-button" value="Previous" />
-                                    <input type="button" name="next" class="pull-right btn  btn-default next action-button" value="Next" />
-                                </fieldset>
-                                
-                                <fieldset class="col-xs-11 col-sm-10 col-md-10 col-md-offset-1 text-center">
-                                    <div class="form-top">
-                                        <div class="form-top-left">
-                                            <h3>Step 3 / 3</h3>
-                                        </div>
-                                    </div>
-                                    
+                                                                  
                                     <div class="form-group">
                                         <label for="type">Details:</label>
-                                        <textarea class="form-control" name="textarea" rows="15" placeholder="Add Description of yout campaign"></textarea>
+                                        <textarea class="form-control" name="textarea" rows="10" placeholder="Add detail description of your campaign"></textarea>
                                     </div>  
 
-                                    <input type="button" name="previous" class="pull-left btn btn-default previous action-button" value="Previous" />
+                                    
                                     <input type="submit" name="submit" class="pull-right btn btn-primary submit action-button" value="Submit" />
-                                    </fieldset>
+                                    
                              </form>
                             <!-- MULTI STEP FORM FOR CREATE FUNDRAISER -->
                             <!-- ===================================== -->
