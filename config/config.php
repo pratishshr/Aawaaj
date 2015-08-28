@@ -9,7 +9,11 @@
 	define('HOSTNAME','localhost');
 	define('USERNAME','root');
 
+<<<<<<< HEAD:admin/config/config.php
+	define('PASSWORD','');
+=======
 	define('PASSWORD','damcare');
+>>>>>>> d9e1bd3a2957b03fad72516aa389287b20e68e97:config/config.php
 	//define('PASSWORD_SUJAN','alskdjf1');
 	//define('PASSWORD','damcare');
 	define('DATABASE','aawaaj');
