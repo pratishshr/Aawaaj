@@ -26,13 +26,16 @@ require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/loginmodel.php");
 						global $session;
 						//$this->firstName = $loginmodelobj->getFirstName();
 						if($loginmodelobj->getUserType()=="generalUser"){
-						$session->generalUserLogin($loginmodelobj->getUserId(),$loginmodelobj->getFirstName(),$loginmodelobj->getLastName(),$loginmodelobj->getUserType());
-						
-						}else if($loginmodelobj->getName()){
-							
-							$session->login($loginmodelobj->getUserId(),$loginmodelobj->getName());
-
+							$session->generalUserLogin($loginmodelobj->getUserId(),$loginmodelobj->getFirstName(),$loginmodelobj->getLastName(),$loginmodelobj->getUserType());
 						}
+						elseif ($loginmodelobj->getUserType()=="organization") {
+							if($loginmodelobj->getName($this->username)){
+								$session->organizationLogin($loginmodelobj->getUserId(),$loginmodelobj->getOrganizationName(),$loginmodelobj->getUserType());
+						}}
+						elseif ($loginmodelobj->getUserType()=="welfare") {
+							if($loginmodelobj->getName($this->username)){
+								$session->welfareLogin($loginmodelobj->getUserId(),$loginmodelobj->getWelfareName(),$loginmodelobj->getUserType());
+						}}
 						header("Location: ../../profile/index.php" );
 					}else{
 						//if login not successful
