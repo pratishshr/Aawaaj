@@ -47,6 +47,7 @@
 			//database should find organization based on username/password
 			if($userid){
 				$this->user_id  = $_SESSION['user_id'] = $userid;
+				$_SESSION['first_name'] = $firstname;
 				$_SESSION['organization_name'] = $organizationName;
 				$_SESSION['user_type'] = $usertype;
 				$this->logged_in = true;
@@ -58,6 +59,7 @@
 			//database should find organization based on username/password
 			if($userid){
 				$this->user_id  = $_SESSION['user_id'] = $userid;
+				$_SESSION['first_name'] = $firstname;
 				$_SESSION['welfare_name'] = $welfareName;
 				$_SESSION['user_type'] = $usertype;
 				$this->logged_in = true;

@@ -58,6 +58,14 @@
     <section id="about" class="content-section text-justify">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1">
+            <?php
+                    if($usertype == 'organization'){
+                        echo '<a href="'.BASE_URL.'app/controller/PostProject.php" class="btn btn-info pull-right">Post Project</a>';
+                    }
+                    elseif ($usertype == 'welfare'){
+                        echo '<a href="'.BASE_URL.'app/controller/PostRequirement.php" class="btn btn-info pull-right">Post Requirement</a>';
+                    }
+                ?>
                 <h2>ABOUT</h2>
                 <p>
                     <div class="row">
