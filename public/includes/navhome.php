@@ -1,6 +1,7 @@
+<?php require_once(ROOT_PATH."database/session.php") ?>
+
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-<?php require_once(ROOT_PATH."database/session.php") ?>
 <?php require_once(ROOT_PATH."app/controller/logincontroller.php") ?>
 <?php include_once(ROOT_PATH."app/view/loginmodal.php"); ?>
 <?php include_once(ROOT_PATH."app/view/signupmodal.php"); ?>
@@ -39,12 +40,37 @@
                     </li>   
                     
                 </ul>
+<<<<<<< HEAD
                 <form class="navbar-form navbar-left " action="<?php echo BASE_URL?>app/view/search.php" method="post" role="search">
                  <div class="col-xs-2">
                     <input style="background:none; opacity=0.5; color:white;" type="text" class="form-control" name="search" value="Search">
                 </div>
                 
+=======
+                <form class="navbar-form navbar-left" name="form1" action="<?php echo BASE_URL?>app/view/search.php" method="post" role="search">
+                 <div class="form-group">
+                    <input type="text" class="form-control" id="subb" name="search" placeholder="Search" required>
+                </div>
+               
+>>>>>>> f10c13882ba93d5141f57e0c68661bd9239467da
                 </form>
+                  <script>
+                         $(document).ready(function(){
+                         var elements = document.getElementsByTagName("INPUT");
+                         for (var i = 0; i < elements.length; i++){
+                         elements[i].oninvalid = function(e){
+                         e.target.setCustomValidity("");
+                         if (!e.target.validity.valid){
+                            e.target.setCustomValidity("Enter a Value");
+                         }
+                         };
+                         elements[i].oninput = function(e){
+                         e.target.setCustomValidity("");
+        };
+    }                
+    })
+    
+                     </script>
 
             </div>
 
@@ -68,7 +94,7 @@
                             ?>
                             <li>
 
-                                <a class = "page-scross" href="<?php echo BASE_URL?>/profile/index.php"><?php echo "Namaste, " . $firstName; ?></a>
+                                <a class = "page-scross" href="<?php echo BASE_URL?>/profile/index.php">Namaste</a>
 
                                
                            </li>

@@ -41,9 +41,32 @@
                 </ul>
                 <form class="navbar-form navbar-left" action="<?php echo BASE_URL?>app/view/search.php" method="post" role="search">
                  <div class="form-group">
+<<<<<<< HEAD
                     <input style="background:none; opacity=0.5; color:white;" type="text" class="form-control" name="search" placeholder="Search">
                 </div>
+=======
+                    <input type="text" class="form-control" name="search" placeholder="Search" required>
+                </div>
+                
+>>>>>>> f10c13882ba93d5141f57e0c68661bd9239467da
                 </form>
+                 <script>
+                         $(document).ready(function(){
+                         var elements = document.getElementsByTagName("INPUT");
+                         for (var i = 0; i < elements.length; i++){
+                         elements[i].oninvalid = function(e){
+                         e.target.setCustomValidity("");
+                         if (!e.target.validity.valid){
+                            e.target.setCustomValidity("Enter a Value");
+                         }
+                         };
+                         elements[i].oninput = function(e){
+                         e.target.setCustomValidity("");
+        };
+    }                
+    })
+    
+                     </script>
 
             </div>
 

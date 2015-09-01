@@ -19,8 +19,7 @@
 	 	
 	 	$results = new SearchModel(); 
 	 	if ($results->find($find)==null) {
-	 		echo "No Search Results Found";
-	 		
+      
 	 	}
 	 	else{
 

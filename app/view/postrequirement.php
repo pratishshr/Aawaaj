@@ -1,3 +1,6 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/session.php"); ?>
+<?php include_once(ROOT_PATH."public/includes/header.php");?>
+
 
    	
 
@@ -10,7 +13,7 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                             <div class="page-header text-center">
-                              <h1 class="black-color">Create a Fundraiser<br/>
+                              <h1 class="black-color">Post Requirement<br/>
                               <small>Raise funds for a Non-Profit or Personal Projects</small></h1>
                             </div>  
                             

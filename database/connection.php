@@ -19,8 +19,14 @@ class Connection{
 			try{
 
 
+<<<<<<< HEAD
 				$this->handler = new PDO("mysql:host=127.0.0.1;dbname=aawaaj","root","");
 
+=======
+				$this->handler = new PDO("mysql:host=127.0.0.1;dbname=aawaaj","root","alskdjf1");
+
+				//$this->handler = new PDO("mysql:host=127.0.0.1;dbname=aawaaj","root","damcare");
+>>>>>>> f10c13882ba93d5141f57e0c68661bd9239467da
 
 
 				//$this->handler = new PDO(DB_SERVER.SEPARATOR."dbname=".DB_NAME,DB_USER,DB_PASSWORD);
