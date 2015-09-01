@@ -13,13 +13,13 @@
 		}
 
 
-		public function insertGeneralUser($firstName,$lastName,$email,$password,$contactNumber,$userType,$age){
+		public function insertGeneralUser($firstName,$lastName,$email,$password,$contactNumber,$userType,$age,$hashedKey){
 			
 			$handler = $this->connObj->handler;
 			$handler->beginTransaction();
-			$userInsertQuery = "INSERT INTO user (user_name, first_name, last_name, contact_number, user_type) VALUES (?,?,?,?,?)";
+			$userInsertQuery = "INSERT INTO user (user_name, first_name, last_name, contact_number, user_type,user_hash) VALUES (?,?,?,?,?,?)";
 			$userInsert = $handler->prepare($userInsertQuery);
-			if($commit = ($userInsert->execute(array($email,$firstName,$lastName,$contactNumber,$userType)))){
+			if($commit = ($userInsert->execute(array($email,$firstName,$lastName,$contactNumber,$userType,$hashedKey)))){
 
 				$userId = $handler->lastInsertId();
 				$passInsertQuery = "INSERT INTO password (password, u_id) VALUES (?,?)";
@@ -45,12 +45,12 @@
 			}
 		}
 
-		public function insertOrganizationUser($firstName,$lastName,$email,$password,$contactNumber,$userType,$orgName,$orgDoe,$orgAdd,$orgLogo,$orgObj){
+		public function insertOrganizationUser($firstName,$lastName,$email,$password,$contactNumber,$userType,$orgName,$orgDoe,$orgAdd,$orgLogo,$orgObj,$hashedKey){
 			$handler = $this->connObj->handler;
 			$handler->beginTransaction();
-			$userInsertQuery = "INSERT INTO user (user_name, first_name, last_name, contact_number, user_type) VALUES (?,?,?,?,?)";
+			$userInsertQuery = "INSERT INTO user (user_name, first_name, last_name, contact_number, user_type,user_hash) VALUES (?,?,?,?,?,?)";
 			$userInsert = $handler->prepare($userInsertQuery);
-			if($userInsert->execute(array($email,$firstName,$lastName,$contactNumber,$userType))){
+			if($userInsert->execute(array($email,$firstName,$lastName,$contactNumber,$userType,$hashedKey))){
 
 				$userId = $handler->lastInsertId();
 				$passInsertQuery = "INSERT INTO password (password, u_id) VALUES (?,?)";
@@ -75,12 +75,12 @@
 				return 0;
 			}
 		}
-		public function insertWelfareUser($firstName,$lastName,$email,$password,$contactNumber,$userType,$welfName,$welfDoe,$welfAdd,$welfServ,$welfLogo,$welfObj){
+		public function insertWelfareUser($firstName,$lastName,$email,$password,$contactNumber,$userType,$welfName,$welfDoe,$welfAdd,$welfServ,$welfLogo,$welfObj,$hashedKey){
 			$handler = $this->connObj->handler;
 			$handler->beginTransaction();
-			$userInsertQuery = "INSERT INTO user (user_name, first_name, last_name, contact_number, user_type) VALUES (?,?,?,?,?)";
+			$userInsertQuery = "INSERT INTO user (user_name, first_name, last_name, contact_number, user_type,user_hash) VALUES (?,?,?,?,?,?)";
 			$userInsert = $handler->prepare($userInsertQuery);
-			if($userInsert->execute(array($email,$firstName,$lastName,$contactNumber,$userType))){
+			if($userInsert->execute(array($email,$firstName,$lastName,$contactNumber,$userType,$hashedKey))){
 
 				$userId = $handler->lastInsertId();
 				$passInsertQuery = "INSERT INTO password (password, u_id) VALUES (?,?)";

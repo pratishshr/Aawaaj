@@ -31,11 +31,11 @@ class SendMail{
 
 		//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 		//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-		//$mail->isHTML(true);                                  // Set email format to HTML
+		$mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Aawaaj Activation Code';
-$mail->Body    = "Your Activation Key is <a href=\"http://localhost/Aawaaj/app/controller/confirmfunction.php?user={$this->fname}&id={$this->key}\">Here</a>";
-//$mail->AltBody = "";
+$mail->Body    = "Your Activation Key is <a href=\"http://localhost/Aawaaj/app/controller/signupconfirmcontroller.php?user={$this->fname}&id={$this->key}\">Here</a>";
+//$mail->AltBody = "Click on the given link to activate: ";
 
 if(!$mail->send()) {
     echo 'Message could not be sent.';
