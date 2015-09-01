@@ -15,7 +15,7 @@
 
 	//define('PASSWORD','damcare');
 
-	define('PASSWORD','');
+	define('PASSWORD','damcare');
 
 
 	//define('PASSWORD','damcare');
