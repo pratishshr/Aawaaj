@@ -9,9 +9,18 @@
 	define('HOSTNAME','localhost');
 	define('USERNAME','root');
 
+<<<<<<< HEAD
 	define('PASSWORD','damcare');
+=======
+<<<<<<< HEAD
+
+	define('PASSWORD','');
+=======
+	define('PASSWORD','alskdjf1');
+>>>>>>> 972d88b6d404fc3f52cf032195226cfbcef71a7e
 
 	//define('PASSWORD','damcare');
+>>>>>>> f10c13882ba93d5141f57e0c68661bd9239467da
 
 	//define('PASSWORD_SUJAN','alskdjf1');
 	//define('PASSWORD','damcare');

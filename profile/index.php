@@ -7,7 +7,6 @@
         exit();
     }
 ?>
-
 <?php include_once(ROOT_PATH."profile/includes/header.php") ?>
     <!-- Navigation -->
 <?php include_once(ROOT_PATH."profile/includes/navhome.php") ?>
@@ -21,12 +20,25 @@
                 <div class="row">
         
                     <div class="col-md-8 col-md-offset-2">
-                    	 <?php if($session->isLoggedIn()){ 
-                    	 		 $firstName = $_SESSION['first_name'];
-                    	 		 $lastName = $_SESSION['last_name'];
-                                 $usertype = $_SESSION['user_type'];
+                    	 <?php if($session->isLoggedIn()){
+                                    if($_SESSION['user_type'] == 'generalUser'){ 
+                            	 		 $displayName = $_SESSION['first_name'].' '.$_SESSION['last_name'];
+                                         $usertype = $_SESSION['user_type'];
+                                         $header_style = "";
+                                    }
+                                    elseif($_SESSION['user_type'] == 'organization'){ 
+                                         $displayName = $_SESSION['organization_name'];
+                                         $usertype = $_SESSION['user_type'];
+                                         $header_style = 'style="font-size:3em"';
+                                    }
+                                    elseif($_SESSION['user_type'] == 'welfare'){ 
+                                         $displayName = $_SESSION['welfare_name'];
+                                         $usertype = $_SESSION['user_type'];
+                                         $header_style = 'style="font-size:3em"';
+                                    }
+
                     	 	?>
-                        <h1 class="brand-heading"><?php echo $firstName. "\n" . $lastName ?></h1>
+                        <h1 class="brand-heading" <?=$header_style?>><?php echo $displayName;?></h1>
                          <?php 
                         	}
                         ?>
@@ -46,6 +58,14 @@
     <section id="about" class="content-section text-justify">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1">
+            <?php
+                    if($usertype == 'organization'){
+                        echo '<a href="'.BASE_URL.'app/controller/PostProject.php" class="btn btn-info pull-right">Post Project</a>';
+                    }
+                    elseif ($usertype == 'welfare'){
+                        echo '<a href="'.BASE_URL.'app/controller/PostRequirement.php" class="btn btn-info pull-right">Post Requirement</a>';
+                    }
+                ?>
                 <h2>ABOUT</h2>
                 <p>
                     <div class="row">
@@ -60,7 +80,7 @@
                                                                             echo 'Organization';
                                                                         else
                                                                             echo 'Welfare';
-                                                                    ?> :</big> <?php echo $firstName. " " . $lastName ?></th>
+                                                                    ?> :</big> <?php echo $displayName ?></th>
                                 <td></td>
                             </tr>
                             <tr>

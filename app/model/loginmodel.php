@@ -7,10 +7,10 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 		private $connObj;
 		private $first_name=null;
 		private $last_name = null;
+		private $organization_name = null;
 		private $user_id = null;
 		private $user_type;
-		private $welfare_name;
-		private $organization_name;
+		private $welfare_name = null;
 		private $data_pass;
 
 		function __construct(Connection $connObj){
@@ -44,26 +44,62 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 				return false;
 			}
 		}
-		public function getName(){
+		public function getName($username){
+				
 			$handler = $this->connObj->handler;
 			if($this->getUserType()=="welfare"){
 				$userQuery = "SELECT name FROM user,welfare WHERE user.user_id = welfare.u_id LIMIT 1";
 				$getUser = $handler->query($userQuery);
 					while($row = $getUser->fetch(PDO::FETCH_OBJ)){
 						return $this->welfare_name = $row->name;
-				}
-			}else if($this->getUserType()=="organization"){
-				$userQuery = "SELECT name FROM user,organization WHERE user.user_id = organization.u_id LIMIT 1";
-				$getUser = $handler->query($userQuery);
-					while($row = $getUser->fetch(PDO::FETCH_OBJ)){
-						return $this->organization_name = $row->name;
-				}
+					}
 			}
-			return false;
+			elseif($this->getUserType()=="organization"){
+				$userQuery = "SELECT name FROM user,organization WHERE user.user_id = organization.u_id AND user.user_name=? AND user.user_status=? LIMIT 1";
+				
+				$getUser = $handler->prepare($userQuery);
+				if($getUser->execute(array($username,1))){
+					if($getUser->rowCount()==0){
+						return false;
+					}
+					else{
+						while($row = $getUser->fetch(PDO::FETCH_OBJ)){
+							$this->organization_name = $row->name;
+							return true;						
+						}
+					}
+				}
+			
+			}
+			elseif($this->getUserType()=="welfare"){
+				$userQuery = "SELECT name FROM user,welfare WHERE user.user_id = welfare.u_id AND user.user_name=? AND user.user_status=? LIMIT 1";
+				
+				$getUser = $handler->prepare($userQuery);
+				if($getUser->execute(array($username,1))){
+					if($getUser->rowCount()==0){
+						return false;
+					}
+					else{
+						while($row = $getUser->fetch(PDO::FETCH_OBJ)){
+							$this->welfare_name = $row->name;
+							return true;						
+						}
+					}
+				}
+			
+			}
+				return false;
+			
 		}
 		
 		public function getFirstName(){
 			return $this->first_name;
+		}
+		public function getOrganizationName(){
+			return $this->organization_name;
+		}
+		public function getWelfareName(){
+			return $this->welfare_name;
 		}
 		public function getLastName(){
 			return $this->last_name;
