@@ -44,6 +44,7 @@ require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
 				return false;
 			}
 		}
+		
 		public function getName($username){
 				
 			$handler = $this->connObj->handler;
