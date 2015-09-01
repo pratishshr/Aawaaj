@@ -1,16 +1,20 @@
 <?php
-	 define("ROOT_PATH",$_SERVER['DOCUMENT_ROOT']."/Aawaaj/");
-	 define("BASE_URL","http://localhost/Aawaaj/");
+  require_once("../../config/config.php");
 	 require_once(ROOT_PATH."public/includes/header.php");
 	 require_once(ROOT_PATH."public/includes/navsearch.php");
 	 require_once(ROOT_PATH."app/model/list.class.php");
 	 require_once(ROOT_PATH."app/model/searchmodel.php");?>
+
 	
 	 <section class="container content-section text-center">
 <?php
 	 if (isset($_POST['search'])) {
 	 	$find=$_POST['search'];
-	 	//for accepting character from 0-9 and a-z  only
+    if ($find==null) {
+      echo "Nothing Entered";
+    }
+    else{
+	 	//for accepting character from 0-9 and a-z  only 
 	 	$find=preg_replace("#[^0-9a-z]#i","", $find);
 	 	
 	 	$results = new SearchModel(); 
@@ -18,61 +22,40 @@
 	 		echo "No Search Results Found";
 	 		
 	 	}
-	 	else{?>
+	 	else{
 
-
-	 	 <table class="table">
-                <tr>
-                <th>ID</th>   
-                <th>Name</th>
-                <th>User Type</th>
-                <th>Status</th>
-                 <?php 
-                $id=1;
-                foreach($results->find($find) as $user){
-                    
-                 ?>
-
-                <tr>
-                  <td><?php echo $id++?></td>
-
-                  <td><a href="<?php echo BASE_URL?>profile"><?php echo $user->get_first_name();?> <?php echo $user->get_last_name();?> </a></td>
-                  <td><?php echo $user->get_user_type();?></td>
-                  <?php if($user->get_status()==1){
-                    ?>
-                     <td><span class="label label-success">Active</span></td>
-                  
-                   <?php 
-                   }else{
-
-                ?>
-                  <td><span class="label label-danger">Inactive</span></td>
-                <?php
-                 }
-                 ?>
-                   
-                  
-                <?php
-                } 
-                  ?>
-                  </tr>
-
+          $id=1; ?>
+           <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>EXPLORE</h2>
+                 <div class="row">
+            
+            <?php
+          foreach($results->find($find) as $user){
+?>
+              <div class="col-sm-6 col-md-4">
+              <a href="<?php echo BASE_URL?>profile" class="thumbnail">
+                <img class="img-responsive" src="<?php echo BASE_URL?>profile/images/rotlogo.png" alt="...">
+                </a>
+                
+                  <h3><?php echo $user->get_first_name();?> <?php echo $user->get_last_name();?></h3>
+                  <p><?php echo $user->get_user_type(); ?></p>
+                  <p><a href="<?php echo BASE_URL?>profile" class="btn btn-primary" role="button">View Profile</a></p>
+                
+            
+            </div> 
+    <?php }
+    ?></div>
+    </div>
+    </div>
+          
                 
 
-                
-
-                
-
-              </table> 
+              
               <?php } ?> 
-              </div>
-              </body><?php
-
-
-
-
-
-	 }
+              <?php
+          	 }
+            }
 ?>
 </section>
  <footer>

@@ -39,11 +39,11 @@
                     </li>   
                     
                 </ul>
-                <form class="navbar-form navbar-left" action="<?php echo BASE_URL?>app/view/search.php" method="post" role="search">
-                 <div class="form-group">
-                    <input type="text" class="form-control" name="search" placeholder="Search">
+                <form class="navbar-form navbar-left " action="<?php echo BASE_URL?>app/view/search.php" method="post" role="search">
+                 <div class="col-xs-2">
+                    <input style="background:none; opacity=0.5; color:white;" type="text" class="form-control" name="search" value="Search">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                
                 </form>
 
             </div>
