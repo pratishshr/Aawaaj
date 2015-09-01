@@ -13,7 +13,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <a class="navbar-brand page-scroll" href="<?php echo BASE_URL?>public">
+                <a class="navbar-brand page-scroll" href="<?php echo BASE_URL?>public/index.php">
                     <i class="fa fa-play-circle"></i> <span class="light">Aawaaj</span>
                 </a>
             </div>
@@ -32,7 +32,7 @@
                         <a class="page-scroll" href="<?php echo BASE_URL?>public/index.php/#download">Explore</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="<?php echo BASE_URL?>public/index.php/#">Start Fundraiser</a>
+                        <a class="page-scroll" href="<?php echo BASE_URL.'fundraiser/index.php?page=fund';?>">Start Fundraiser</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="<?php echo BASE_URL?>public/index.php/#contact">Contact</a>
