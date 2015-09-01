@@ -256,15 +256,15 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="<?php echo BASE_URL?>profile/assets/js/jquery.js"></script>
-   
-        <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo BASE_URL?>profile/assets/js/bootstrap.min.js"></script>
     <script src="<?php echo BASE_URL?>profile/assets/js/main.js"></script>
     <script src="<?php echo BASE_URL?>profile/assets/js/coundown-timer.js"></script>
     <script src="<?php echo BASE_URL?>profile/assets/js/respond.min.js"></script>
     <script src="<?php echo BASE_URL?>profile/assets/js/modernizr.custom.86080.js"></script>
-
+    <script src="<?php echo BASE_URL?>profile/assets/js/jquery.js"></script>
+   
+        <!-- Bootstrap Core JavaScript -->
+    <script src="<?php echo BASE_URL?>profile/assets/js/bootstrap.min.js"></script>
+   
     <!-- Plugin JavaScript -->
     <script src="<?php echo BASE_URL?>profile/assets/js/jquery.easing.min.js"></script>
 

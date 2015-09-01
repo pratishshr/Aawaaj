@@ -14,7 +14,9 @@
 
 			//DATABASE CONNECTION
 
-		
+			//$this->db= new mysqli("localhost","root","damcare","aawaaj");
+
+
 			$this->db= new mysqli(HOSTNAME,USERNAME,PASSWORD,DATABASE);
 
 
