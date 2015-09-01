@@ -19,14 +19,14 @@
 	 	
 	 	$results = new SearchModel(); 
 	 	if ($results->find($find)==null) {
-      
+      echo "No search results found";
 	 	}
 	 	else{
 
           $id=1; ?>
            <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>EXPLORE</h2>
+                <h2>Search Results</h2>
                  <div class="row">
             
             <?php

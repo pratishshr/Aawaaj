@@ -9,14 +9,11 @@
 	define('HOSTNAME','localhost');
 	define('USERNAME','root');
 
-<<<<<<< HEAD
 
 	define('PASSWORD','');
-=======
-	define('PASSWORD','alskdjf1');
+	// define('PASSWORD','alskdjf1');
 
 	//define('PASSWORD','damcare');
->>>>>>> f10c13882ba93d5141f57e0c68661bd9239467da
 
 	//define('PASSWORD_SUJAN','alskdjf1');
 	//define('PASSWORD','damcare');
