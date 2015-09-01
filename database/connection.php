@@ -17,12 +17,8 @@ class Connection{
 		public function open_connection(){
 
 			try{
-
-<<<<<<< HEAD
-				$this->handler = new PDO("mysql:host=127.0.0.1;dbname=aawaaj","root","");
-=======
 				$this->handler = new PDO("mysql:host=127.0.0.1;dbname=aawaaj","root","damcare");
->>>>>>> d9e1bd3a2957b03fad72516aa389287b20e68e97
+
 
 
 				//$this->handler = new PDO(DB_SERVER.SEPARATOR."dbname=".DB_NAME,DB_USER,DB_PASSWORD);
