@@ -134,7 +134,6 @@ $(document).ready(function(){
 	       
 	           <!--  recaptcha -->
 	            <div class="g-recaptcha" data-sitekey="6LcungsTAAAAANuly3-xT5zE9QF-5fvndaxo2OCy"></div>
-	            <div class="red-color">Wrong CAPTCHA! Please retry</div>
 	            <br/>
 	            <div class="form-group black-color text-center">
 	              <input type="checkbox" name="terms" required> I agree to <a href"#">Terms of Use</a>

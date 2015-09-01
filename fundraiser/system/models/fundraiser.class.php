@@ -72,5 +72,14 @@
 			$this->details = $details;
 		}
 
+		public function get_u_id(){
+			return $this->u_id;
+		}
+
+		public function set_u_id($u_id){
+			$this->u_id = $u_id;
+		}
+
+
 	}
 ?>

@@ -1,4 +1,4 @@
-        <script src="<?php echo BASE_URL?>/assets/plugins/jQuery/jQuery-2.1.4.min.js" type="text/javascript"></script>
+        <script src="<?php echo BASE_URL?>admin/assets/plugins/jQuery/jQuery-2.1.4.min.js" type="text/javascript"></script>
 
 
         <!-- Content Header (Page header) -->

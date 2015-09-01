@@ -45,12 +45,27 @@
                         <a href="#page-top"></a>
                     </li>
                     
+                  <?php global $session; if(!$session->isLoggedIn()){ ?>
                     <li>
-                        <a class="page-scroll" href="" data-toggle="modal" data-target="#signupModal" id="signup_btn">Sign Up</a>
+                        <a class="page-scroll" href="" data-toggle="modal" data-target="#signupModal">Sign Up</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="" data-toggle="modal" data-target="#loginModal">Login</a>
                     </li>
+                     <?php 
+                        }else{ 
+                            ?>
+                            <li>
+                                <a class = "page-scross" id="username_btn" href="<?php echo BASE_URL?>profile/index.php">Namaste</a>
+                                  
+                           </li>
+                           <li>
+                                <a class = "page-scross" href="<?php echo BASE_URL;?>database/session.php?id=Logout">Logout</a>
+                                </li>
+                    <?php
+                        }
+
+                    ?>             
 
                 </ul>
                 

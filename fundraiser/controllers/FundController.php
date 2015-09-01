@@ -1,3 +1,4 @@
+<?php require_once(ROOT_PATH."database/session.php") ?> 
 <?php include_once(ROOT_PATH."fundraiser/system/models/fundraiser.class.php");?>
 <?php include_once(ROOT_PATH."fundraiser/system/repositories/fundrepository.class.php");?>
 
@@ -15,6 +16,13 @@
 		}
 
 		public function create(){
+
+			global $session; 
+		    if(!$session->isLoggedIn()){
+		        header("location: ".BASE_URL."app/view/signupform.php");
+	        	exit();
+	        	}
+
 			if(isset($_POST) && isset($_POST['submit'])){
 				$fund = $this->_map_posted_data();
 				$id = $this->fundrepository->insert($fund);

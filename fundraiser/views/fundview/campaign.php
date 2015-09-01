@@ -37,6 +37,7 @@
 						                <div>Project Goal: Rs. <?php echo $fund->get_amount();?></div>
 						                <br/>
 						                <a href="javascript:void(0)" class="btn btn-lg btn-info">Donate Now</a>
+                                        
 						            </div>
 						        
 						        <!-- /.row -->
