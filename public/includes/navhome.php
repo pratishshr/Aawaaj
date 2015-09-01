@@ -40,9 +40,10 @@
                     </li>   
                     
                 </ul>
+             
                 <form class="navbar-form navbar-left" name="form1" action="<?php echo BASE_URL?>app/view/search.php" method="post" role="search">
                  <div class="form-group">
-                    <input type="text" class="form-control" id="subb" name="search" placeholder="Search" required>
+                    <input style="background:none; opacity=0.5; color:white;" type="text" class="form-control" id="subb" name="search" placeholder="Search" required>
                 </div>
                
                 </form>
@@ -86,12 +87,12 @@
                             ?>
                             <li>
 
-                                <a class = "page-scross" href="<?php echo BASE_URL?>/profile/index.php">Namaste</a>
+                                <a class = "page-scross" href="<?php echo BASE_URL?>profile/index.php">Namaste</a>
 
                                
                            </li>
                            <li>
-                                <a class = "page-scross" href="<?php echo BASE_URL?>/database/session.php?id=Logout">Logout</a>
+                                <a class = "page-scross" href="<?php echo BASE_URL?>database/session.php?id=Logout">Logout</a>
                                 </li>
                             <?php
                         }?>             

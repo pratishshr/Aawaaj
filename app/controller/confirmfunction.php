@@ -2,6 +2,16 @@
 require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/SignUpModel.php");
 
 class ConfirmUserName{
+	// private $username;
+	// private $id;
+	// if(isset($_GET['user']) && isset($_GET['id'])){
+	// 	$username = $_GET['user'];		
+	// }else{
+	// 	header("Location: ../../public/index.php");
+	// }
+
+
+
 	public $user;
 	function __construct(){
 		$action=$_POST['action'];
