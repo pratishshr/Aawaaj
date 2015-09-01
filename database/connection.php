@@ -1,4 +1,6 @@
-<?php 
+
+<?php
+
 require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/initialize.php");
 
 class Connection{
@@ -17,13 +19,8 @@ class Connection{
 		public function open_connection(){
 
 			try{
+
 				$this->handler = new PDO("mysql:host=127.0.0.1;dbname=aawaaj","root","damcare");
-
-
-
-				//$this->handler = new PDO(DB_SERVER.SEPARATOR."dbname=".DB_NAME,DB_USER,DB_PASSWORD);
-				//$this->handler = new PDO("mysql:host=127.0.0.1;dbname=aawaaj","root","damcare");
-				//$this->handler = new PDO(DB_SERVER.SEPARATOR."dbname=".DB_NAME,DB_USER,DB_PASSWORD_SUJAN);
 
 				$this->handler->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 			

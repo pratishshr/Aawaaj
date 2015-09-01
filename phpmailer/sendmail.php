@@ -2,9 +2,11 @@
 require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/phpmailer/PHPMailerAutoload.php");
 class SendMail{
 	public $key;
+	public $fname;
 
-	public function generateKey($firstName){
-		$this->key = $firstName."abcd";
+	public function generateKey($hashedKey,$firstName){
+		$this->key = $hashedKey;
+		$this->fname= $firstName;
 	}
 	public function send($email,$firstName,$lastName){
 		$mail = new PHPMailer;
@@ -32,8 +34,8 @@ class SendMail{
 		//$mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Aawaaj Activation Code';
-$mail->Body    = "Your Activation Key is <b>{$this->key}</b>";
-$mail->AltBody = "Your Activation Key is {$this->key}";
+$mail->Body    = "Your Activation Key is <a href=\"http://localhost/Aawaaj/app/controller/confirmfunction.php?user={$this->fname}&id={$this->key}\">Here</a>";
+//$mail->AltBody = "";
 
 if(!$mail->send()) {
     echo 'Message could not be sent.';
