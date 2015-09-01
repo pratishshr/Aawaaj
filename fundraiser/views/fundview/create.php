@@ -15,59 +15,60 @@
                             </div>  
                             
                             <!-- ===================================== -->
-                            <!-- MULTI STEP FORM FOR CREATE-->
+                            <!-- FORM FOR CREATE FUNDRAISER-->
 
-                            <form class="black-color">
+                            <form class="black-color" action="" method="post" enctype="multipart/form-data">
                                                                     
                                     <div class="form-group ">
                                         <label for="type">Fundraiser Type:</label>
                                         </br>
                                         <div class="btn-group" data-toggle="buttons">
-                                          <label class="btn btn-default">
-                                            <input type="radio" name="options" id="option1" autocomplete="off"> Personal                                  </label>
-                                          <label class="btn btn-default">
-                                            <input type="radio" name="options" id="option2" autocomplete="off"> Non-Profit
+                                          <label class="btn btn-default"  disabled>
+                                            <input type="radio" name="fundraiser_type" id="option1" autocomplete="off" value="personal"><strike>Personal</strike>
+                                          </label>
+                                          <label class="btn btn-default active">
+                                            <input type="radio" name="fundraiser_type" id="option2" autocomplete="off" value="non_profit" checked> Non-Profit
                                           </label>
                                         </div>
                                     </div>  
 
                                     <div class="form-group">
                                         <label for="title">Title:</label>
-                                        <input type="text" class="form-control" id="title" placeholder="Title" maxlength="50">
+                                        <input type="text" class="form-control" id="title" name="title" placeholder="Title" maxlength="50">
                                     </div>  
                                  
                                     <div class="form-group">
                                         <label for="amount">Amount to be raised:</label>
-                                        <input type="number" class="form-control" id="amount" placeholder="Amount (at least Rs.10000)" min="10000">
+                                        <input type="number" class="form-control" name="amount" id="amount" placeholder="Amount (at least Rs.10000)" min="10000">
                                     </div>  
 
                                     <div class="form-group">
                                         <label for="amount">Description (in short):</label>
-                                        <textarea class="form-control" id="textarea" placeholder="Description" maxlength="160"></textarea>
+                                        <textarea class="form-control" id="textarea" name="description" placeholder="Description" maxlength="160"></textarea>
                                     </div>  
                                     
                                     <div class="form-group">
                                         <label for="title">Campaign Image:</label>
-                                        <input type="file" >
+                                        <input type="file" name="image" accept="image/*">
                                     </div>  
                                  
                                     <div class="form-group">
                                         <label for="amount">Video URL <small>(Youtube)</small>:</label>
 
-                                        <input type="url" class="form-control" id="videourl" placeholder="If you have a video about your campaign">
+                                        <input type="url" name="video_url" class="form-control" id="videourl" placeholder="If you have a video about your campaign">
                                     </div>  
 
                                                                   
                                     <div class="form-group">
                                         <label for="type">Details:</label>
-                                        <textarea class="form-control" name="textarea" rows="10" placeholder="Add detail description of your campaign"></textarea>
+                                        <textarea class="form-control" name="details" rows="10" placeholder="Add detail description of your campaign"></textarea>
                                     </div>  
 
                                     
                                     <input type="submit" name="submit" class="pull-right btn btn-primary submit action-button" value="Submit" />
                                     
                              </form>
-                            <!-- MULTI STEP FORM FOR CREATE FUNDRAISER -->
+                            <!-- FORM FOR CREATE FUNDRAISER -->
                             <!-- ===================================== -->
                          
                           </div>

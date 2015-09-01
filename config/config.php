@@ -7,17 +7,12 @@
 
 	//DEFINE DATABASE CONSTANTS
 	define('HOSTNAME','localhost');
+
 	define('USERNAME','root');
 
+	define('PASSWORD','damcare');
 
 
-	define('PASSWORD','alskdjf1');
-
-	//define('PASSWORD','damcare');
-
-	
-
-	
 	define('DATABASE','aawaaj');
 
 	//INCLUDE ROUTES AND DATABASE CONNECTION CLASS
