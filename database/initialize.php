@@ -5,6 +5,6 @@ define("SEPARATOR",";");
 define("DB_NAME", "aawaaj");
 define("DB_USER", "root");
 //define("DB_PASSWORD_SUJAN","");
-define("DB_PASSWORD","");
+define("DB_PASSWORD","damcare");
 	
 ?>

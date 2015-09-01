@@ -13,7 +13,11 @@
 			$finding = array();
 
 			//DATABASE CONNECTION
+<<<<<<< HEAD
+			$this->db= new mysqli("localhost","root","damcare","aawaaj");
+=======
 			$this->db= new mysqli(HOSTNAME,USERNAME,PASSWORD,DATABASE);
+>>>>>>> 972d88b6d404fc3f52cf032195226cfbcef71a7e
 
 			//SELECT ALL QUERY
 			$sql = "SELECT * FROM user WHERE first_name LIKE '%$find%' OR last_name LIKE '%$find%'";

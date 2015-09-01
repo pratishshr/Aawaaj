@@ -78,11 +78,11 @@
                         }else{ 
                             ?>
                             <li>
-                                <a class = "page-scross" id="username_btn" href="<?php echo BASE_URL?>/profile/index.php">Namaste</a>
+                                <a class = "page-scross" id="username_btn" href="<?php echo BASE_URL?>profile/index.php">Namaste</a>
                                   
                            </li>
                            <li>
-                                <a class = "page-scross" href="<?php echo BASE_URL?>/database/session.php?id=Logout">Logout</a>
+                                <a class = "page-scross" href="<?php echo BASE_URL?>database/session.php?id=Logout">Logout</a>
                                 </li>
                             <?php
                         }?>             

@@ -10,8 +10,13 @@
 	define('USERNAME','root');
 
 
-	define('PASSWORD','');
+
 	// define('PASSWORD','alskdjf1');
+
+	//define('PASSWORD','damcare');
+
+	define('PASSWORD','');
+
 
 	//define('PASSWORD','damcare');
 
