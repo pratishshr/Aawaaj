@@ -139,6 +139,11 @@
 		public function getWelfareObjectives(){
 			return $this->welfareObjectives;
 		}
+		public function getHashedkey(){
+			$myKey = md5($this->getEmail());
+			return $myKey;
+		}
+
 
 		//Function to keep the logo in the directory
 		public function addLogo($type){
@@ -173,7 +178,7 @@
 				$genSuccess = $signUpModelObj->insertGeneralUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getAge());
 
 				if($genSuccess){
-					$sendmail->generateKey($this->getFirstName());
+					$sendmail->generateKey($this->getHashedkey(),$this->getFirstName());
 					$sendmail->send($this->getEmail(),$this->getFirstName(),$this->getLastName());
 					header('location:../view/signUpConfirm.php?email='.$this->getEmail());					
 					
