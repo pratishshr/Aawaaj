@@ -12,7 +12,7 @@
     <!-- Ionicons -->
     <link href="<?php echo BASE_URL?>admin/assets/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="<?php echo BASE_URL.'admin/assets/'?>dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo .'admin/assets/'?>dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link href="<?php echo BASE_URL.'admin/assets/'?>dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />

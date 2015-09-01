@@ -17,12 +17,11 @@
 			}else{
 				//do something
 			} 
-			if(!empty($_GET)){
+			if(isset($_GET['id'])){
 				if($_GET['id']=="Logout"){
 				$this->logout();
-				header("Location: ../../public/index.php" );
 				}
-				header("Location: ../public/index.php" );
+				
 			}
 
 		}
@@ -84,6 +83,7 @@
 			unset($_SESSION['user_id']);
 			unset($this->user_id);
 			$this->logged_in = false;
+			header("Location: http://localhost/aawaaj/public");
 		}
 
 		private function verifyLogin(){
