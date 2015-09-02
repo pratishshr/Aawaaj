@@ -34,7 +34,7 @@ class SendMail{
 		$mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Aawaaj Activation Code';
-$mail->Body    = "Your Activation Key is <a href=\"http://localhost/Aawaaj/app/controller/signupconfirmcontroller.php?user={$this->fname}&id={$this->key}\">Here</a>";
+$mail->Body    = "Hello {$firstName} {$lastName},<br/>Your Activation Key is <a href=\"http://localhost/Aawaaj/app/controller/signupconfirmcontroller.php?user={$this->fname}&id={$this->key}\">Here</a>";
 //$mail->AltBody = "Click on the given link to activate: ";
 
 if(!$mail->send()) {
