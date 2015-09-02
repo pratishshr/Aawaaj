@@ -36,7 +36,26 @@
 						                </p>
 						                <div>Project Goal: Rs. <?php echo $fund->get_amount();?></div>
 						                <br/>
-						                <a href="javascript:void(0)" class="btn btn-lg btn-info">Donate Now</a>
+                                        <!-- DONATE BUTTON -->
+                                        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                                        <!-- Identify your business so that you can collect the payments. -->
+                                        <input type="hidden" name="business" value="donations@aawaaj.com">
+
+                                        <!-- Specify a Donate button. -->
+                                        <input type="hidden" name="cmd" value="_donations">
+
+                                        <!-- Specify details about the contribution -->
+                                        <input type="hidden" name="item_name" value="Bouddhanatch Reconstruction">
+                                        <input type="hidden" name="item_number" value="Fall Cleanup Campaign">
+                                        <input type="hidden" name="amount" value="25.00">
+                                        <input type="hidden" name="currency_code" value="USD">
+                                    	
+                                        <!--return type-->
+                                        <input type="hidden" name="return" value="http://localhost/aawaaj">
+                                        <input type="hidden" name="cancel_return" value="http://localhost/aawaaj/fundraiser">
+                                        <input type="submit" name="submit" value="Donate Now" class="btn btn-lg btn-info">
+                                        </form>
+                                        <!--DONATE BUTTON END-->
                                         
 						            </div>
 						        
