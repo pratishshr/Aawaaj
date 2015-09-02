@@ -39,25 +39,25 @@
                 </ul>
                   <form class="navbar-form navbar-left" name="form1" action="<?php echo BASE_URL?>app/view/search.php" method="post" role="search">
                  <div class="form-group">
-                    <input style="background:none; opacity=0.5; color:white;" type="text" class="form-control" id="subb" name="search" placeholder="Search" required>
+                    <input style="background:none; opacity=0.5; color:white;" type="text" class="form-control" id="subb" name="search" placeholder="Search" >
                 </div>
                  <script>
-                         $(document).ready(function(){
-                         var elements = document.getElementsByTagName("INPUT");
-                         for (var i = 0; i < elements.length; i++){
-                         elements[i].oninvalid = function(e){
-                         e.target.setCustomValidity("");
-                         if (!e.target.validity.valid){
-                            e.target.setCustomValidity("Enter a Value");
-                         }
-                         };
-                         elements[i].oninput = function(e){
-                         e.target.setCustomValidity("");
-        };
-    }                
-    })
+    //                      $(document).ready(function(){
+    //                      var elements = document.getElementsByTagName("INPUT");
+    //                      for (var i = 0; i < elements.length; i++){
+    //                      elements[i].oninvalid = function(e){
+    //                      e.target.setCustomValidity("");
+    //                      if (!e.target.validity.valid){
+    //                         e.target.setCustomValidity("Enter a Value");
+    //                      }
+    //                      };
+    //                      elements[i].oninput = function(e){
+    //                      e.target.setCustomValidity("");
+    //     };
+    // }                
+    // })
     
-                     </script>
+                      </script>
             </div>
            
     <!-- Sign up / Login -->

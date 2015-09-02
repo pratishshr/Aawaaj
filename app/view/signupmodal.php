@@ -46,7 +46,7 @@ $(document).ready(function(){
         <h4 class="modal-title" id="myModalLabel">Sign up</h4>
       </div>
       <div class="modal-body">
-        <form class="form-group" id="frm" name="frm" action="<?php echo BASE_URL?>/app/controller/signUpController.php" method="post" enctype="multipart/form-data">
+        <form class="form-group" id="frm" name="frm" action="<?php echo BASE_URL?>app/controller/signUpController.php" method="post" enctype="multipart/form-data">
             <div class="form-group row">
               <div class="col-md-6">
                 <input type="text" name="first_name" class="form-control input-lg" placeholder="First Name" required/>
