@@ -1,6 +1,7 @@
 <?php
 		require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/SignUpModel.php");
 		require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/phpmailer/sendmail.php");
+		require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/libraries/password.php");
 
 	class SignUpController{
 		
