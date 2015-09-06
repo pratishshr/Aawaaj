@@ -8,11 +8,18 @@
 		private $image;
 		private $video_url;
 		private $details;
-
+		private $id;
 		public function __construct(){
 
 		}
 
+		public function get_id(){
+			return $this->id;
+		}
+
+		public function set_id($id){
+			$this->id = $id;
+		}
 		public function get_fundraiser_type(){
 			return $this->fundraiser_type;
 		}
