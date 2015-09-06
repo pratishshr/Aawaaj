@@ -17,9 +17,11 @@ $(document).on("ready",function(){
   $("#re_password").on("keyup",function(){
     if($(this).val()!=$("#password").val()){
       $("#re_password_div").attr('class', 'form-group has-error');
+      $("#password_message").html("Password and Re-password mis-match").attr("class","no");
     }
     else{
       $("#re_password_div").attr('class', 'form-group');
+      $("#password_message").html("Password and Re-password matching").attr("class","yes");
     }
   });
 

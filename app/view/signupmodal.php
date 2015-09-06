@@ -26,11 +26,13 @@ $(document).ready(function(){
       }
     });
 
-  })
+  });
 
   $("#signup_btn").on("click",function(){
     $("#frm")[0].reset();
     $("#message").html("");
+    $("#password_message").html("");
+    $("#organization, #welfare").hide();
   });
 });
 
@@ -64,6 +66,7 @@ $(document).ready(function(){
             </div>
             <div id="re_password_div" class="form-group">
               <input type="password" id="re_password" name="re_password" class="form-control input-lg" placeholder="Retype Password" required/>
+              <div id="password_message" class=""></div>
             </div>
             <div class="form-group">
               <input type="number" name="contact_number" class="form-control input-lg" placeholder="Contact Number" size="3" required/>
