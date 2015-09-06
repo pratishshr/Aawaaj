@@ -105,7 +105,7 @@
 			$details = $fund->get_details();
 			$id = $_SESSION['user_id'];
 			//BIND
-			$stmt->bid_param("ssissssi",$fundraiser_type,$title,$amount,$description,$image,$video_url,$details,$id);
+			$stmt->bind_param("ssissssi",$fundraiser_type,$title,$amount,$description,$image,$video_url,$details,$id);
 
 			//EXECUTE
 			$stmt->execute();
