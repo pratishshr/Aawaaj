@@ -22,7 +22,7 @@
 			//STORE IN OBJECT AND SEND TO VIEW
 			while($row = $result->fetch_assoc()){
 				$fund =  new Fundraiser();
-
+				$fund->set_id($row['id']);
 				$fund->set_title($row['title']);
 				$fund->set_fundraiser_type($row['fundraiser_type']);
 				$fund->set_amount($row['amount']);
@@ -69,6 +69,7 @@
 				//instantiate object
 				$fund = new Fundraiser();
 
+				$fund->set_id($id);
 				$fund->set_title($title);
 				$fund->set_fundraiser_type($fundraiser_type);
 				$fund->set_amount($amount);

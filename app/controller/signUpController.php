@@ -1,6 +1,7 @@
 <?php
 		require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/SignUpModel.php");
 		require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/phpmailer/sendmail.php");
+		require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/libraries/password.php");
 
 	class SignUpController{
 		
@@ -190,11 +191,15 @@
 				
 				$orgSuccess = $signUpModelObj->insertOrganizationUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getOrganizationName(),$this->getOrganizationDoe(),$this->getOrganizationAddress(),$this->getOrganizationLogo(),$this->getOrganizationObjectives(),$this->getHashedkey());
 		 		if($orgSuccess){
+		 			$sendmail->generateKey($this->getHashedkey(),$this->getFirstName());
+					$sendmail->send($this->getEmail(),$this->getFirstName(),$this->getLastName());
 					header('location:../view/signUpConfirm.php?email='.$this->getEmail());					
 		 		}
 		 	}elseif ($this->userType == "welfare") {
 		 		$welfSuccess = $signUpModelObj->insertWelfareUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getWelfareName(),$this->getWelfareDoe(),$this->getWelfareAddress(),$this->getWelfareService(),$this->getWelfareLogo(),$this->getWelfareObjectives(),$this->getHashedkey());
 		 		if($welfSuccess){
+		 			$sendmail->generateKey($this->getHashedkey(),$this->getFirstName());
+					$sendmail->send($this->getEmail(),$this->getFirstName(),$this->getLastName());
 					header('location:../view/signUpConfirm.php?email='.$this->getEmail());					
 		 		}
 		 	}

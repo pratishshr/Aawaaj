@@ -229,13 +229,13 @@
                             <div class="status alert alert-success" style="display: none"></div>
                             <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+                                    <input type="text" name="name" class="form-control"placeholder="Name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="email" class="form-control" required="required" placeholder="Email ID">
+                                    <input type="email" name="email" class="form-control"  placeholder="Email ID">
                                 </div>
                                 <div class="form-group">
-                                    <textarea name="message" id="message" required="required" class="form-control" rows="4" placeholder="Enter your message"></textarea>
+                                    <textarea name="message" id="message"  class="form-control" rows="4" placeholder="Enter your message"></textarea>
                                 </div>                        
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary pull-right">Send</button>

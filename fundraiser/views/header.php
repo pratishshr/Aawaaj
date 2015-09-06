@@ -22,4 +22,4 @@
 </head><!--/head-->
 
 
-<?php include_once(ROOT_PATH."fundraiser/views/navbar.php");
+<?php include_once(ROOT_PATH."fundraiser/views/navbar.php"); ?>

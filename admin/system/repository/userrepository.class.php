@@ -56,7 +56,7 @@
 			$stmt->execute();
 
 			//BIND RESULT
-			$stmt->bind_result($user_id,$user_name,$first_name,$last_name,$contact_number,$user_type,$user_status);
+			$stmt->bind_result($user_id,$user_name,$first_name,$last_name,$contact_number,$user_type,$user_status,$user_hash);
 
 			while($stmt->fetch()){
 			//instantiate object
