@@ -1,4 +1,4 @@
-<?php include_once("config.php"); ?>
+<?php include_once("../config/config.php"); ?>
 <?php include_once(ROOT_PATH."public/includes/header.php") ?>
     <!-- Navigation -->
 <?php include_once(ROOT_PATH."public/includes/navhome.php") ?>

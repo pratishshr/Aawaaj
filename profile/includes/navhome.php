@@ -35,12 +35,11 @@
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>   
-                    
+                    <li>
+                         <a class="page-scroll" href="<?php echo BASE_URL.'app/view/search.php';?>">Search</a>
+                    </li>   
                 </ul>
-                  <form class="navbar-form navbar-left" name="form1" action="<?php echo BASE_URL?>app/view/search.php" method="post" role="search">
-                 <div class="form-group">
-                    <input style="background:none; opacity=0.5; color:white;" type="text" class="form-control" id="subb" name="search" placeholder="Search" >
-                </div>
+                 
                  <script>
     //                      $(document).ready(function(){
     //                      var elements = document.getElementsByTagName("INPUT");

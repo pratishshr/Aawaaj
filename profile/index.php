@@ -1,4 +1,4 @@
-<?php include_once("config.php"); ?>
+<?php include_once("../config/config.php"); ?>
 <?php require_once(ROOT_PATH."database/session.php") ?> 
 <?php
     global $session; 
