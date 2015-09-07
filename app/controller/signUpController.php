@@ -1,7 +1,8 @@
 <?php
-		require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/SignUpModel.php");
-		require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/phpmailer/sendmail.php");
-		require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/libraries/password.php");
+		require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php");
+		require_once(ROOT_PATH."app/model/SignUpModel.php");
+		require_once(ROOT_PATH."phpmailer/sendmail.php");
+		require_once(ROOT_PATH."libraries/password.php");
 
 	class SignUpController{
 		
@@ -140,10 +141,7 @@
 		public function getWelfareObjectives(){
 			return $this->welfareObjectives;
 		}
-		public function getHashedkey(){
-			$myKey = md5($this->getEmail());
-			return $myKey;
-		}
+		
 
 
 		//Function to keep the logo in the directory
@@ -156,9 +154,9 @@
 
    			 if(in_array($picture_type, $allowed_type)){
    			 	if($type=="organization_logo"){
-   			 		$this->path = $_SERVER['DOCUMENT_ROOT']."/Aawaaj/public/pictures/orgPictures/1".$picture_name ;
+   			 		$this->path = PUBLIC_PATH."/pictures/orgPictures/1".$picture_name ;
    			 	}else{
-   			 		$this->path = $_SERVER['DOCUMENT_ROOT']."/Aawaaj/public/pictures/welfPictures/1".$picture_name ;
+   			 		$this->path = PUBLIC_PATH."/pictures/welfPictures/1".$picture_name ;
    			 	}
    			 }else {
    			 	$error[] = 'File Type Not Allowed';
@@ -176,12 +174,12 @@
 		public function addToDatabase(){
 			global $signUpModelObj,$sendmail;
 			if ($this->userType == "generalUser"){
-				$genSuccess = $signUpModelObj->insertGeneralUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getAge(),$this->getHashedkey());
+				$genSuccess = $signUpModelObj->insertGeneralUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getAge(),$sendmail->generateKey($this->getEmail()));
 
 				if($genSuccess){
-					$sendmail->generateKey($this->getHashedkey(),$this->getFirstName());
-					$sendmail->send($this->getEmail(),$this->getFirstName(),$this->getLastName());
-					header('location:../view/signUpConfirm.php?email='.$this->getEmail());					
+					$sendmail->generateKey($this->getEmail());
+					$sendmail->send($this->getFirstName(),$this->getLastName());
+					header('location:'.BASE_URL.'app/view/signUpConfirm.php?email='.$this->getEmail().'&fname='.$this->getFirstName().'&lname='.$this->getLastName());					
 					
 				}
 				else{
@@ -191,16 +189,16 @@
 				
 				$orgSuccess = $signUpModelObj->insertOrganizationUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getOrganizationName(),$this->getOrganizationDoe(),$this->getOrganizationAddress(),$this->getOrganizationLogo(),$this->getOrganizationObjectives(),$this->getHashedkey());
 		 		if($orgSuccess){
-		 			$sendmail->generateKey($this->getHashedkey(),$this->getFirstName());
-					$sendmail->send($this->getEmail(),$this->getFirstName(),$this->getLastName());
-					header('location:../view/signUpConfirm.php?email='.$this->getEmail());					
+		 			$sendmail->generateKey($this->getEmail());
+					$sendmail->send($this->getFirstName(),$this->getLastName());
+					header('location:'.BASE_URL.'app/view/signUpConfirm.php?email='.$this->getEmail().'&fname='.$this->getFirstName().'&lname='.$this->getLastName());					
 		 		}
 		 	}elseif ($this->userType == "welfare") {
 		 		$welfSuccess = $signUpModelObj->insertWelfareUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getWelfareName(),$this->getWelfareDoe(),$this->getWelfareAddress(),$this->getWelfareService(),$this->getWelfareLogo(),$this->getWelfareObjectives(),$this->getHashedkey());
 		 		if($welfSuccess){
-		 			$sendmail->generateKey($this->getHashedkey(),$this->getFirstName());
-					$sendmail->send($this->getEmail(),$this->getFirstName(),$this->getLastName());
-					header('location:../view/signUpConfirm.php?email='.$this->getEmail());					
+		 			$sendmail->generateKey($this->getEmail());
+					$sendmail->send($this->getFirstName(),$this->getLastName());
+					header('location:'.BASE_URL.'app/view/signUpConfirm.php?email='.$this->getEmail().'&fname='.$this->getFirstName().'&lname='.$this->getLastName());					
 		 		}
 		 	}
 		}

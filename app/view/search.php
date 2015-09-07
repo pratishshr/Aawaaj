@@ -1,5 +1,5 @@
 <?php
-  require_once("../../config/config.php");
+   require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php");
 	 require_once(ROOT_PATH."public/includes/header.php");
 	 require_once(ROOT_PATH."public/includes/navsearch.php");
 	 require_once(ROOT_PATH."app/model/list.class.php");

@@ -1,7 +1,7 @@
 <?php
-
-require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
-require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/libraries/password.php");
+require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php");
+require_once (ROOT_PATH."database/connection.php");
+require_once(ROOT_PATH."libraries/password.php");
 
 	class LoginModel{
 

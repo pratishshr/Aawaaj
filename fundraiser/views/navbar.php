@@ -12,7 +12,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <a class="navbar-brand page-scroll" href="<?php echo BASE_URL.'public/index.php';?>">
+                <a class="navbar-brand page-scroll" href="<?php echo BASE_URL.'home/index.php';?>">
                     <i class="fa fa-play-circle"></i> <span class="light">Aawaaj</span>
                 </a>
             </div>

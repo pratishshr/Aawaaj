@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-5 col-md-offset-6">
                         <h1 class="brand-heading">FUNDRAISER</h1>
-                        <p class="intro-text">Help you idiot!</p>
+                        <p class="intro-text">Help those in need!</p>
                         <a href="<?php echo BASE_URL."fundraiser/index.php?page=fund&m=create";?>" class="btn btn-danger btn-lg"> CREATE FUNDRAISER </a>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
             
             <div class="col-md-4">
                 <a href="#" class="thumbnail">
-                    <img class="img-responsive" src="<?php echo BASE_URL?>/public/assets/img/thumb1.jpg" alt="">
+                    <img class="img-responsive" src="<?php echo BASE_URL?>/home/assets/img/thumb1.jpg" alt="">
                 </a>
                 <h3>
                     <a href="#" >Project Name</a>
@@ -48,7 +48,7 @@
 
             <div class="col-md-4">
                 <a href="#" class="thumbnail">
-                    <img class="img-responsive" src="<?php echo BASE_URL?>/public/assets/img/thumb2.jpg" alt="">
+                    <img class="img-responsive" src="<?php echo BASE_URL?>/home/assets/img/thumb2.jpg" alt="">
                 </a>
                 <h3>
                     <a href="#">Project Name</a>
@@ -58,7 +58,7 @@
 
             <div class="col-md-4">
                 <a href="#" class="thumbnail">
-                    <img class="img-responsive" src="<?php echo BASE_URL?>/public/assets/img/thumb2.jpg" alt="">
+                    <img class="img-responsive" src="<?php echo BASE_URL?>/home/assets/img/thumb2.jpg" alt="">
                 </a>
                 <h3>
                     <a href="#">Project Name</a>
@@ -72,7 +72,7 @@
             
             <div class="col-md-4">
                 <a href="#" class="thumbnail">
-                    <img class="img-responsive" src="<?php echo BASE_URL?>/public/assets/img/thumb2.jpg" alt="">
+                    <img class="img-responsive" src="<?php echo BASE_URL?>/home/assets/img/thumb2.jpg" alt="">
                 </a>
                 <h3>
                     <a href="#">Project Name</a>
@@ -82,7 +82,7 @@
 
             <div class="col-md-4">
                 <a href="#" class="thumbnail">
-                    <img class="img-responsive" src="<?php echo BASE_URL?>/public/assets/img/thumb2.jpg" alt="">
+                    <img class="img-responsive" src="<?php echo BASE_URL?>/home/assets/img/thumb2.jpg" alt="">
                 </a>
                 <h3>
                     <a href="#">Project Name</a>
@@ -92,7 +92,7 @@
 
             <div class="col-md-4">
                 <a href="#" class="thumbnail">
-                    <img class="img-responsive" src="<?php echo BASE_URL?>/public/assets/img/thumb1.jpg" alt="">
+                    <img class="img-responsive" src="<?php echo BASE_URL?>/home/assets/img/thumb1.jpg" alt="">
                 </a>
                 <h3>
                     <a href="#">Project Name</a>

@@ -34,17 +34,21 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="<?php echo BASE_URL?>public/assets/js/jquery.js"></script>
+    <script src="<?php echo BASE_URL?>home/assets/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo BASE_URL?>public/assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo BASE_URL?>home/assets/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="<?php echo BASE_URL?>public/assets/js/jquery.easing.min.js"></script>
+    <script src="<?php echo BASE_URL?>home/assets/js/jquery.easing.min.js"></script>
 
     
     <!-- Custom Theme JavaScript -->
-    <script src="<?php echo BASE_URL?>public/assets/js/grayscale.js"></script>
+    <script src="<?php echo BASE_URL?>home/assets/js/grayscale.js"></script>
+
+     <!-- Social Buttons-->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55ed40faf3fac01b" async="async"></script>
+
 
 </body>
 

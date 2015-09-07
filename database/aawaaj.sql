@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.0.10.10
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 03, 2015 at 10:04 PM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Host: 127.9.143.2:3306
+-- Generation Time: Sep 07, 2015 at 05:25 PM
+-- Server version: 5.5.45
+-- PHP Version: 5.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `aawaaj`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `donations`
+--
+
+CREATE TABLE IF NOT EXISTS `donations` (
+  `pay_id` int(11) NOT NULL AUTO_INCREMENT,
+  `item_name` varchar(255) NOT NULL,
+  `payment_amount` int(11) NOT NULL,
+  `txn_id` int(11) NOT NULL,
+  `payer_email` varchar(255) NOT NULL,
+  `item_number` int(11) NOT NULL,
+  PRIMARY KEY (`pay_id`),
+  KEY `item_number` (`item_number`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `donations`
+--
+
+INSERT INTO `donations` (`pay_id`, `item_name`, `payment_amount`, `txn_id`, `payer_email`, `item_number`) VALUES
+(1, 'check', 10, 9, 'pratishshr@gmail.com', 38);
 
 -- --------------------------------------------------------
 
@@ -38,14 +62,18 @@ CREATE TABLE IF NOT EXISTS `fundraiser` (
   `u_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `u_id` (`u_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
 --
 -- Dumping data for table `fundraiser`
 --
 
 INSERT INTO `fundraiser` (`id`, `fundraiser_type`, `title`, `amount`, `description`, `image`, `video_url`, `details`, `u_id`) VALUES
-(36, 'non_profit', 'again teststest', 850000, 'TEST AGAIN THIS IS TEST', 'http://localhost/Aawaaj//fundraiser/campaign_images/6777248-best-hd-wallpapers.jpg', '', 'TEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TEST', 234);
+(36, 'non_profit', 'again teststest', 850000, 'TEST AGAIN THIS IS TEST', 'http://localhost/Aawaaj//fundraiser/campaign_images/6777248-best-hd-wallpapers.jpg', '', 'TEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TEST', 234),
+(37, 'non_profit', 'check check', 80000, 'asdfasdf', 'http://aawaaj-pratishshr.rhcloud.com//fundraiser/campaign_images/intro-bg.jpg', 'http://www.youtube.com/embed/Hkn06J2HNk4', 'asdfasdf test test', 234),
+(38, 'non_profit', 'check', 6506060, 'check check', 'http://aawaaj-pratishshr.rhcloud.com//fundraiser/campaign_images/intro-bg.jpg', 'http://www.youtube.com/embed/dqVrIBkhqOo', 'check checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck check', 234),
+(39, 'non_profit', '', 0, '', 'http://aawaaj-pratishshr.rhcloud.com//fundraiser/campaign_images/', '', '', 234),
+(40, 'non_profit', 'fundraiser', 10000000, 'fundraiser description', 'http://aawaaj-pratishshr.rhcloud.com//fundraiser/campaign_images/', 'http://www.youtube.com/embed/BU49KDMR1AY', 'details', 240);
 
 -- --------------------------------------------------------
 
@@ -60,14 +88,15 @@ CREATE TABLE IF NOT EXISTS `generaluser` (
   `u_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`gen_id`),
   KEY `u_id` (`u_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `generaluser`
 --
 
 INSERT INTO `generaluser` (`gen_id`, `age`, `type`, `u_id`) VALUES
-(15, NULL, 'generalUser', 234);
+(15, NULL, 'generalUser', 234),
+(17, NULL, 'generalUser', 240);
 
 -- --------------------------------------------------------
 
@@ -86,14 +115,7 @@ CREATE TABLE IF NOT EXISTS `organization` (
   `u_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`org_id`),
   KEY `u_id` (`u_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `organization`
---
-
-INSERT INTO `organization` (`org_id`, `name`, `doe`, `img`, `address`, `objective`, `type`, `u_id`) VALUES
-(2, 'Rotaract', '1994-01-01', 'E:/wamp/www//Aawaaj/public/pictures/orgPictures/111840342_10200714849270344_1026442813_o.jpg', 'Rotaract', 'asdf', 'organization', 238);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -107,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `password` (
   `u_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`p_id`),
   KEY `u_id` (`u_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=94 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=96 ;
 
 --
 -- Dumping data for table `password`
@@ -115,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `password` (
 
 INSERT INTO `password` (`p_id`, `password`, `u_id`) VALUES
 (89, '$2y$12$hioOjjnBmCMxrXJ2cLcKiuFsJAMn4pC8td6RK.IeYo28ByVVKT252', 234),
-(93, '$2y$12$GZEcOFM1N.tiB49w0T8gH.D/k7/BS4RfZsHHXJSAqfG5h8fWF0AQm', 238);
+(95, '$2y$12$63B7vglG481rr5TT24IQNuGCcWHb7CKdrYybeHA8PbEqF7wrEhiVS', 240);
 
 -- --------------------------------------------------------
 
@@ -134,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `user_hash` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_name` (`user_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=239 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=241 ;
 
 --
 -- Dumping data for table `user`
@@ -142,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`user_id`, `user_name`, `first_name`, `last_name`, `contact_number`, `user_type`, `user_status`, `user_hash`) VALUES
 (234, 'vanroshr@gmail.com', 'Pratish', 'Shrestha', 2147483647, 'generalUser', 1, '96601e150a9f349302964aa3ffd92afd'),
-(238, 'org@org.com', 'Rotaract', 'org', 2147483647, 'organization', 1, 'b94308dd4591117626fd18796073be44');
+(240, 'kushalraj93@gmail.com', 'kushal', 'rajbhandari', 2147483647, 'generalUser', 1, 'fe99e03e9148d7a38d31424450633177');
 
 -- --------------------------------------------------------
 
@@ -162,11 +184,17 @@ CREATE TABLE IF NOT EXISTS `welfare` (
   `u_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`welf_id`),
   KEY `u_id` (`u_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `donations`
+--
+ALTER TABLE `donations`
+  ADD CONSTRAINT `donations_ibfk_1` FOREIGN KEY (`item_number`) REFERENCES `fundraiser` (`id`);
 
 --
 -- Constraints for table `fundraiser`
