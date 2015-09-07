@@ -4,6 +4,8 @@ require_once (ROOT_PATH."database/connection.php");
 	class SignUpConfirm{
 		private $connObj;
 		private $codeName;
+		public $firstname;
+		public $lastname;
 
 		function __construct(Connection $connObj){
 			$this->connObj = $connObj;
@@ -34,6 +36,38 @@ require_once (ROOT_PATH."database/connection.php");
 						}
 					}
 			}
+		}
+		public function getFirstName($user){
+			$handler = $this->connObj->handler;
+				$userQuery = "SELECT * FROM user WHERE user.user_name=? LIMIT 1";
+				$getUser = $handler->prepare($userQuery);
+				if($getUser->execute(array($user))){
+					if($getUser->rowCount()==0){
+						return false;
+					}
+					else{
+						 while($row = $getUser->fetch(PDO::FETCH_OBJ)){
+						 	$this->firstname = $row->first_name;
+						 	}
+						 	return $this->firstname;
+					}
+				}
+		}	
+		public function getLastName($user){
+			$handler = $this->connObj->handler;
+				$userQuery = "SELECT * FROM user WHERE user.user_name=? LIMIT 1";
+				$getUser = $handler->prepare($userQuery);
+				if($getUser->execute(array($user))){
+					if($getUser->rowCount()==0){
+						return false;
+					}
+					else{
+						 while($row = $getUser->fetch(PDO::FETCH_OBJ)){
+						 	$this->lastname = $row->last_name;
+						 	}
+						 	return $this->lastname;
+					}
+				}
 		}	
 	}
 	global $connObj;

@@ -119,7 +119,7 @@
 			}	
 		}
 		public function checkNonActivatedUser($user){
-			$status=NULL;
+			
 			$handler = $this->connObj->handler;
 			$userQuery = "SELECT * FROM user WHERE user.user_name=? LIMIT 1";
 			$getUser = $handler->prepare($userQuery);
@@ -131,9 +131,14 @@
 					while($row = $getUser->fetch(PDO::FETCH_OBJ)){
 						$status = $row->user_status;
 					}
-					if($status==0){
+					if($status==1){
 						return true;
 					}
+					else {
+						return false;
+					}
+				echo "error ayo";
+				exit;	
 				}
 			}	
 		}

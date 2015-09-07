@@ -25,7 +25,6 @@
 
 ?>
 <form action="<?php echo PUBLIC_PATH2;?>/index.php">
-
 <div class="text-center"><button type="submit" class="btn btn-lg btn-default">Home</button></div>
 </form>
 </div>
