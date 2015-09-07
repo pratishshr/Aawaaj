@@ -6,11 +6,15 @@
 	
 
 	//DEFINE DATABASE CONSTANTS
+	define("DB_SERVER", "mysql:host=127.0.0.1");
+
+	define("DB_NAME", ";dbname=aawaaj");
+
 	define('HOSTNAME','localhost');
 
 	define('USERNAME','root');
 
-	define('PASSWORD','');
+	define('PASSWORD','damcare');
 
 
 	define('DATABASE','aawaaj');

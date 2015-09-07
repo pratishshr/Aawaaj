@@ -1,7 +1,8 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/session.php"); ?>
+<?php require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php"); ?>
+<?php require_once(ROOT_PATH."database/session.php"); ?>
 
 <?php
-require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/loginmodel.php");
+require_once(ROOT_PATH."app/model/loginmodel.php");
 			
 			class LoginControl{
 				private $username;
@@ -36,10 +37,10 @@ require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/loginmodel.php");
 							if($loginmodelobj->getName($this->username)){
 								$session->welfareLogin($loginmodelobj->getUserId(),$loginmodelobj->getWelfareName(),$loginmodelobj->getUserType());
 						}}
-						header("Location: ../../profile/index.php" );
+						header("Location: ".BASE_URL."profile/index.php");
 					}else{
 						//if login not successful
-						echo "Redirect to login page giving some error";
+						header("LOCATION: ".PUBLIC_PATH2."/index.php");
 					}
 				}
 				

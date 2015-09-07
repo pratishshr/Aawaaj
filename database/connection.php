@@ -1,7 +1,7 @@
 
 <?php
 
-require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/initialize.php");
+require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php");
 
 class Connection{
 	private $connection;
@@ -20,7 +20,7 @@ class Connection{
 
 			try{
 
-				$this->handler = new PDO("mysql:host=127.0.0.1;dbname=aawaaj","root","");
+				$this->handler = new PDO(DB_SERVER.DB_NAME,USERNAME,PASSWORD);
 
 				$this->handler->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 			

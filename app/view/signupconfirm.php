@@ -1,5 +1,6 @@
-<?php include_once("../../public/config.php"); ?>
-<?php include_once(ROOT_PATH."public/includes/header.php"); ?>
+<?php require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php"); ?>
+<?php include_once(PUBLIC_PATH."/includes/header.php"); ?>
+<?php include_once(ROOT_PATH."phpmailer/sendmail.php"); ?>
 
 
 
@@ -7,7 +8,24 @@
 <p class="text-center">Email Confirmation</p>
 <hr/>
 <p> An activation link has been sent to your email address.</p>
-<form action="<?php echo BASE_URL?>public/index.php"
+<?php 
+	if(isset($_GET['email']) && isset($_GET['fname']) && isset($_GET['lname'])){
+		global $sendmail;
+		$email = $_GET['email'];
+		$firstname = $_GET['fname'];
+		$lastname = $_GET['lname'];
+		$sendmail->generateKey($email);
+		?>
+		<p><a href="<?php echo BASE_URL.'app/view/signUpConfirm.php?email='.$email.'&fname='.$firstname.'&lname='.$lastname;?>" onclick="<?php $sendmail->send($firstname,$lastname);?>">Resend Confirmation</a></p>
+		<?php
+	}
+	else {
+		header("Location:".PUBLIC_PATH2.'/index.php');
+	}
+
+?>
+<form action="<?php echo PUBLIC_PATH2;?>/index.php">
+
 <div class="text-center"><button type="submit" class="btn btn-lg btn-default">Home</button></div>
 </form>
 </div>

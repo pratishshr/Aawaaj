@@ -2,13 +2,16 @@
 require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/phpmailer/PHPMailerAutoload.php");
 class SendMail{
 	public $key;
-	public $fname;
+	public $email;
 
-	public function generateKey($hashedKey,$firstName){
-		$this->key = $hashedKey;
-		$this->fname= $firstName;
+	public function generateKey($email){
+		
+		$this->email= $email;
+		$myKey = md5($email);
+		$this->key = $myKey;
+		return $myKey;
 	}
-	public function send($email,$firstName,$lastName){
+	public function send($firstName,$lastName){
 		$mail = new PHPMailer;
 
 		//$mail->SMTPDebug = 3;                               // Enable verbose debug output
@@ -23,7 +26,7 @@ class SendMail{
 
 		$mail->From = 'aawaaj@hotmail.com';
 		$mail->FromName = 'Aawaaj';
-		$mail->addAddress($email, $firstName." ".$lastName);     // Add a recipient
+		$mail->addAddress($this->email, $firstName." ".$lastName);     // Add a recipient
 		//$mail->addAddress('ellen@example.com');               // Name is optional
 		//$mail->addReplyTo('info@example.com', 'Information');
 		//$mail->addCC('cc@example.com');
@@ -34,7 +37,7 @@ class SendMail{
 		$mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Aawaaj Activation Code';
-$mail->Body    = "Hello {$firstName} {$lastName},<br/>Your Activation Key is <a href=\"http://localhost/Aawaaj/app/controller/signupconfirmcontroller.php?user={$this->fname}&id={$this->key}\">Here</a>";
+$mail->Body    = "Hello {$firstName} {$lastName},<br/>Your Activation Key is <a href=\"http://localhost/Aawaaj/app/controller/signupconfirmcontroller.php?user={$firstName}&id={$this->key}\">Here</a>";
 //$mail->AltBody = "Click on the given link to activate: ";
 
 if(!$mail->send()) {

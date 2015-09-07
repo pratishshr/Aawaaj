@@ -1,9 +1,6 @@
-
-
-
-<?php include_once("../../public/config.php"); ?>
+<?php require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php"); ?>
 	
-<?php include_once(ROOT_PATH."public/includes/header.php") ?>
+<?php include_once(PUBLIC_PATH."/includes/header.php") ?>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" class="white-body">
 
 <?php include_once("simplenav.php");?>
@@ -39,7 +36,7 @@ $(document).ready(function(){
 
 
 </script>
-<script src="<?php echo BASE_URL?>/public/assets/js/jquery.js"></script>
+<script src="<?php echo PUBLIC_PATH2?>/assets/js/jquery.js"></script>
 
 
 <div class="container col-md-6 col-md-offset-3">
@@ -151,4 +148,4 @@ $(document).ready(function(){
       </div>
 </div>      
 
-<script src="<?php echo BASE_URL;?>/public/assets/js/signupmodal.js"></script>
+<script src="<?php echo PUBLIC_PATH2;?>/assets/js/signupmodal.js"></script>

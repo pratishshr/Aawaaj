@@ -1,5 +1,6 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/SignUpModel.php");
+require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php");
+require_once(ROOT_PATH."app/model/SignUpModel.php");
 
 class ConfirmUserName{
 	// private $username;

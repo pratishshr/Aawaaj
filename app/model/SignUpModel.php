@@ -1,6 +1,6 @@
 <?php 
-	
-	require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/connection.php");
+	require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php");
+	require_once (ROOT_PATH."database/connection.php");
 
 
 	class SignUpModel{
@@ -115,6 +115,25 @@
 				}
 				else{
 					return false;
+				}
+			}	
+		}
+		public function checkNonActivatedUser($user){
+			$status=NULL;
+			$handler = $this->connObj->handler;
+			$userQuery = "SELECT * FROM user WHERE user.user_name=? LIMIT 1";
+			$getUser = $handler->prepare($userQuery);
+			if($getUser->execute(array($user))){
+				if($getUser->rowCount()==0){
+					return false;
+				}
+				else{
+					while($row = $getUser->fetch(PDO::FETCH_OBJ)){
+						$status = $row->user_status;
+					}
+					if($status==0){
+						return true;
+					}
 				}
 			}	
 		}
