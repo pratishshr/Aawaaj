@@ -1,30 +1,9 @@
-
-<?php require_once(ROOT_PATH."database/session.php") ?> 
-<?php include_once(ROOT_PATH."fundraiser/system/models/paypal.class.php");?>
-<?php include_once(ROOT_PATH."fundraiser/system/repositories/payrepository.class.php");?>
-
 <?php
-	class PayController{
-
-		private $payrepository;
-		
-		public function __construct(){
-			$this->payrepository =  new PayRepository();
-			
-		}
-
-		public function index(){
-		
-			$this->ipn();
-		}
-
-		private function ipn(){
 			// CONFIG: Enable debug mode. This means we'll log requests into 'ipn.log' in the same directory.
 			// Especially useful if you encounter network errors or other intermittent problems with IPN (validation).
 			// Set this to 0 once you go live or don't require logging.
-			
 			define("DEBUG", 1);
-
+			
 			// Set to 0 once you're ready to go live
 			define("USE_SANDBOX", 1);
 
@@ -61,7 +40,7 @@
 
 			// Post IPN data back to PayPal to validate the IPN data is genuine
 			// Without this step anyone can fake IPN data
-
+			
 			if(USE_SANDBOX == true) {
 				$paypal_url = "https://www.sandbox.paypal.com/cgi-bin/webscr";
 			} else {
@@ -136,30 +115,24 @@
 				$item_name = $_POST['item_name'];
 				$item_number = $_POST['item_number'];
 				$payment_status = $_POST['payment_status'];
-				$payment_amount = $_POST['mc_gross'];
+				$r = $_POST['mc_gross'];
 				$payment_currency = $_POST['mc_currency'];
 				$txn_id = $_POST['txn_id'];
 				$receiver_email = $_POST['receiver_email'];
 				$payer_email = $_POST['payer_email'];
-				
+					
 				//INSERT ACTIONS HERE
 				if($payment_status=="Completed"){
-					
 					$pay = new Paypal();
-					
-					$pay->set_item_number($item_number);
-					
-					$pay->set_item_name($item_name);
-	
-					$pay->set_payment_amount($payment_amount);
-	
-					$pay->set_txn_id($txn_id);
 
+					$pay->set_item_name($item_name);
+					$pay->set_payment_amount($payment_amount);
+					$pay->set_txn_id($txn_id);
+					$pay->set_receiver_email($receiver_email);
 					$pay->set_payer_email($payer_email);
-	
+
 					$this->payrepository->insert($pay);
 
-					error_log(date('[Y-m-d H:i e] '). "DATABASE PROB" . PHP_EOL, 3, LOG_FILE);
 				}	
 				
 
@@ -173,28 +146,4 @@
 					error_log(date('[Y-m-d H:i e] '). "Invalid IPN: $req" . PHP_EOL, 3, LOG_FILE);
 				}
 			}
-
-		}
-	}
-
-	
-		$paycontroller = new PayController();
-
-		if(isset($_GET['m'])){
-			$method = $_GET['m'];
-		}else{
-			$method = "index";
-		}
-
-		switch($method){
-
-			case "index":
-				$paycontroller->index();
-				break;
-
-			default:
-				$paycontroller->index();
-				break;
-		}
-
-?>		
+?>			

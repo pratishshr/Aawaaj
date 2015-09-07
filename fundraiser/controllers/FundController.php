@@ -26,8 +26,6 @@
 			if(isset($_POST) && isset($_POST['submit'])){
 				$fund = $this->_map_posted_data();
 				$id = $this->fundrepository->insert($fund);
-			
-
 				header("Location: index.php?page=fund&m=campaign&id=$id");
 			}else{
 			$view_page = "fundview/create";
@@ -83,7 +81,8 @@
 
 		}
 
-	
+		
+			
 	}	
 
 		$fundcontroller = new FundController();
@@ -108,9 +107,6 @@
 				$fundcontroller->campaign();
 				break;
 
-			case "checkdonations":
-				$fundcontroller->checkdonations();
-				break;
 			default:
 				$fundcontroller->index();
 				break;

@@ -30,7 +30,7 @@
 
 						            <div class="col-md-4">
 						            	<h2>Amount Raised:
-						            	<br/> Rs. 0</h2>
+						            	<br/> Rs. 0 </h2>
 
 						            	
                                         <br/><br/>
@@ -50,15 +50,15 @@
                                         <input type="hidden" name="cmd" value="_donations">
 
                                         <!-- Specify details about the contribution -->
-                                        <input type="hidden" name="item_name" value="Bouddhanatch Reconstruction">
-                                        <input type="hidden" name="item_number" value="Fall Cleanup Campaign">
+                                        <input type="hidden" name="item_name" value="<?php echo $fund->get_title();?>">
+                                        <input type="hidden" name="item_number" value="<?php echo $fund->get_id();?>">
                                        
                                         <input type="hidden" name="currency_code" value="USD">
                                     	
                                         <!--return type-->
-                                        <input type="hidden" name="notify_url" value="<?php echo ROOT_PATH.'fundraiser/index.php?page=fund&m=campaign&id=$fund->get_id()';?>">
-                                        <input type="hidden" name="return" value="<?php echo ROOT_PATH.'fundraiser/index.php?page=fund&m=campaign&id=$fund->get_id()';?>">
-                                        <input type="hidden" name="cancel_return" value="<?php echo ROOT_PATH.'fundraiser/index.php?page=fund&m=campaign&id=$fund->get_id()';?>">
+                                        <input type="hidden" name="notify_url" value="<?php echo BASE_URL.'fundraiser/index.php?page=paypal';?>">
+                                        <input type="hidden" name="return" value="<?php echo BASE_URL.'fundraiser/index.php?page=fund&m=campaign&id='.$fund->get_id();?>">
+                                        <input type="hidden" name="cancel_return" value="<?php echo BASE_URL.'fundraiser/index.php?page=fund&m=campaign&id='.$fund->get_id();?>">
                                         <input type="submit" name="submit" value="Donate Now" class="btn btn-lg btn-primary">
                                         </form>
                                         <!--DONATE BUTTON END-->
