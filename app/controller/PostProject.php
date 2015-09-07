@@ -1,4 +1,4 @@
-<?php require_once('../../config/config.php');?>
+<?php require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php");;?>
 <?php
 
 class PostProject{

@@ -1,9 +1,7 @@
-
-
-
-<?php include_once("../../public/config.php"); ?>
+<?php require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php"); ?>
 	
-<?php include_once(ROOT_PATH."public/includes/header.php") ?>
+<?php include_once(PUBLIC_PATH."/includes/header.php") ?>
+<?php require_once(ROOT_PATH."app/controller/confirmfunction.php");
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" class="white-body">
 
 <?php include_once("simplenav.php");?>
@@ -39,7 +37,7 @@ $(document).ready(function(){
 
 
 </script>
-<script src="<?php echo BASE_URL?>/public/assets/js/jquery.js"></script>
+<script src="<?php echo PUBLIC_PATH2?>/assets/js/jquery.js"></script>
 
 
 <div class="container col-md-6 col-md-offset-3">
@@ -141,7 +139,9 @@ $(document).ready(function(){
 	            
 
 	            <div class="form-group text-left ">
-	              <input type="button" id="submit_btn" name="submit" class="btn btn-info btn-lg btn-block" value="Sign up">
+	           
+	              <input type="button" id="submit_btn" name="submit" class="btn btn-info btn-lg btn-block" value="Sign up" disabled>
+	              
 	            </div>
 	            <div class="modal-footer"></div>
 	          </form>
@@ -151,4 +151,5 @@ $(document).ready(function(){
       </div>
 </div>      
 
-<script src="<?php echo BASE_URL;?>/public/assets/js/signupmodal.js"></script>
+
+<script src="<?php echo PUBLIC_PATH2;?>/assets/js/signupmodal.js"></script>

@@ -1,5 +1,6 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/database/session.php"); ?>
-<?php include_once(ROOT_PATH."public/includes/header.php");?>
+<?php require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php"); ?>
+<?php require_once(ROOT_PATH."database/session.php"); ?>
+<?php include_once(PUBLIC_PATH."/includes/header.php");?>
 
 
    	

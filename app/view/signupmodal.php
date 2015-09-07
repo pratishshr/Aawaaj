@@ -38,7 +38,7 @@ $(document).ready(function(){
 
 
 </script>
-<script src="<?php echo BASE_URL?>/public/assets/js/jquery.js"></script>
+<script src="<?php echo PUBLIC_PATH2?>/assets/js/jquery.js"></script>
 
 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -150,4 +150,4 @@ $(document).ready(function(){
     </div>
   </div>
 </div>
-<script src="<?php echo BASE_URL;?>/public/assets/js/signupmodal.js"></script>
+<script src="<?php echo PUBLIC_PATH2;?>/assets/js/signupmodal.js"></script>

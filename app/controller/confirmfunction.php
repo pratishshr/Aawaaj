@@ -1,5 +1,7 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT']."/Aawaaj/app/model/SignUpModel.php");
+require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php");
+require_once(ROOT_PATH."app/model/SignUpModel.php");
+require_once(ROOT_PATH."app/model/signupconfirmmodel.php");
 
 class ConfirmUserName{
 	// private $username;
@@ -13,6 +15,7 @@ class ConfirmUserName{
 
 
 	public $user;
+	private $state=0;
 	function __construct(){
 		$action=$_POST['action'];
 
@@ -23,13 +26,27 @@ class ConfirmUserName{
 		}
 	}
 	public function checkUserName($user){
-		global $signUpModelObj;
-		$validUser = $signUpModelObj->checkValid($this->user);
-		if($validUser){
+		global $signUpModelObj,$confirmSignUpModelObj,$sendmail;
+		$nonExistingUser = $signUpModelObj->checkValid($this->user);
+		$activeStatus = $signUpModelObj->checkNonActivatedUser($this->user);
+		if($nonExistingUser){
 			echo "<span class='yes'>{$this->user} is available </span>";
-		}else{
-			echo"<span class='no'>{$this->user} is not available</span>";
+			$state = 1;
+		}elseif (!$nonExistingUser) {
+			if(!$activeStatus)
+			{
+				$firstname = $confirmSignUpModelObj->getFirstName($this->user);
+				$lastname = $confirmSignUpModelObj->getLastName($this->user);
+				echo "<span class='no'>{$this->user} already exists " . "<a style=\"color:red;\" href=\"" . BASE_URL . "app/view/signUpConfirm.php?email=" . $this->user . "&fname=" . $firstname . "&lname=" . $lastname . "\">Click To Activate</a></span>";
+				$state=0;
+			}else{
+			echo "<span class='no'>{$this->user} is not available</span>";
+			$state=0;
+			}
 		}
+	}
+	public function getState(){
+		return $this->state;
 	}
 }
 $confirmusername = new ConfirmUserName();
