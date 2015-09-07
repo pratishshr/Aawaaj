@@ -46,6 +46,9 @@
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo BASE_URL?>public/assets/js/grayscale.js"></script>
 
+    <!-- Social Buttons-->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55ed40faf3fac01b" async="async"></script>
+
 </body>
 
 </html>

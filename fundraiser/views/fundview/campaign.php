@@ -4,13 +4,15 @@
         <div class="intro-body">
             <div class="container">
                 <div class="row">
+                    
+                        
                             <!-- ===================================== -->
                             <!-- FUNDRAISER-->
 
 						        <!-- Portfolio Item Heading -->
 						        <div class="row">
 						            <div class="col-lg-12">
-						                <h1 class="page-header"> 
+						                <h1 class="page-header text-center"> 
 						                	<?php echo ucfirst($fund->get_title());?>
 						                	<small class="white-color">(<?php echo $fund->get_fundraiser_type();?>)</small>
 						                </h1>
@@ -29,12 +31,15 @@
 						            <div class="col-md-4">
 						            	<h2>Amount Raised:
 						            	<br/> Rs. 0</h2>
+
 						            	
+                                        <br/><br/>
 						                <h3>Project Description</h3>
 						                <p>
 						                	<?php echo ucfirst($fund->get_description());?>
 						                </p>
-						                <div>Project Goal: Rs. <?php echo $fund->get_amount();?></div>
+						                <div><b>Project Goal: Rs. <?php echo $fund->get_amount();?></b></div>
+
 						                <br/>
                                         <!-- DONATE BUTTON -->
                                         <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
@@ -51,12 +56,17 @@
                                         <input type="hidden" name="currency_code" value="USD">
                                     	
                                         <!--return type-->
-                                        <input type="hidden" name="return" value="http://localhost/aawaaj/fundraiser/index.php?page=fund&m=campaign&id=<?php echo $fund->get_id();?>">
-                                        <input type="hidden" name="cancel_return" value="http://localhost/aawaaj/fundraiser/index.php?page=fund&m=checkdonations">
-                                        <input type="submit" name="submit" value="Donate Now" class="btn btn-lg btn-info">
+                                        <input type="hidden" name="notify_url" value="<?php echo ROOT_PATH.'fundraiser/index.php?page=fund&m=campaign&id=$fund->get_id()';?>">
+                                        <input type="hidden" name="return" value="<?php echo ROOT_PATH.'fundraiser/index.php?page=fund&m=campaign&id=$fund->get_id()';?>">
+                                        <input type="hidden" name="cancel_return" value="<?php echo ROOT_PATH.'fundraiser/index.php?page=fund&m=campaign&id=$fund->get_id()';?>">
+                                        <input type="submit" name="submit" value="Donate Now" class="btn btn-lg btn-primary">
                                         </form>
                                         <!--DONATE BUTTON END-->
-                                        
+                                        <br/>
+                                        <!-- Social Buttons -->
+                                        <div class="col-md-8">
+                                        <div class="addthis_sharing_toolbox"></div>
+                                        </div>
 						            </div>
 						        
 						        <!-- /.row -->
@@ -78,8 +88,7 @@
 
                             <!-- FUNDRAISER -->
                             <!-- ===================================== -->
-                         
-                         
+                    
                 
 	       
 

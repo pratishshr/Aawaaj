@@ -83,20 +83,7 @@
 
 		}
 
-		public function checkdonations(){
-			
-			if(isset($_GET['tx']))
-				{
-				$tx = $_GET['tx'];
-				$ID = $_GET['cm'];
-				$amount = $_GET['amt'];
-				$currency = $_GET['cc'];
-				$identity = '0iMIW7w4OXAed9Tvz6l9fpUY8B-E_WtE3toU7sT5gIzDJc9uPUgt9sVCN30'; 
-
-
-				}
-
-		}
+	
 	}	
 
 		$fundcontroller = new FundController();
