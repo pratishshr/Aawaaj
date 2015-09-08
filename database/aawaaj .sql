@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10.10
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: 127.9.143.2:3306
--- Generation Time: Sep 07, 2015 at 05:25 PM
--- Server version: 5.5.45
--- PHP Version: 5.3.3
+-- Host: localhost
+-- Generation Time: Sep 08, 2015 at 07:39 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -95,8 +95,8 @@ CREATE TABLE IF NOT EXISTS `generaluser` (
 --
 
 INSERT INTO `generaluser` (`gen_id`, `age`, `type`, `u_id`) VALUES
-(15, NULL, 'generalUser', 234),
-(17, NULL, 'generalUser', 240);
+(15, 22, 'generalUser', 234),
+(17, 21, 'generalUser', 240);
 
 -- --------------------------------------------------------
 
@@ -138,6 +138,29 @@ CREATE TABLE IF NOT EXISTS `password` (
 INSERT INTO `password` (`p_id`, `password`, `u_id`) VALUES
 (89, '$2y$12$hioOjjnBmCMxrXJ2cLcKiuFsJAMn4pC8td6RK.IeYo28ByVVKT252', 234),
 (95, '$2y$12$63B7vglG481rr5TT24IQNuGCcWHb7CKdrYybeHA8PbEqF7wrEhiVS', 240);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profile`
+--
+
+CREATE TABLE IF NOT EXISTS `profile` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `u_id` int(11) NOT NULL,
+  `profile_photo` varchar(255) NOT NULL,
+  `about` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `u_id` (`u_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`id`, `u_id`, `profile_photo`, `about`) VALUES
+(1, 234, 'sharingan.jpg', 'Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People Helping People '),
+(2, 240, 'disco_dancer_sajan.jpg', 'disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer disco dancer ');
 
 -- --------------------------------------------------------
 
@@ -219,6 +242,12 @@ ALTER TABLE `organization`
 --
 ALTER TABLE `password`
   ADD CONSTRAINT `password_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `profile`
+--
+ALTER TABLE `profile`
+  ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`);
 
 --
 -- Constraints for table `welfare`

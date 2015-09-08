@@ -13,6 +13,7 @@ class ProfileRepository{
 
 		$this->db->connect();
 		
+		// GET DATA FROM USER TABLE
 		$sql = "SELECT * from user where user_hash=? LIMIT 1";
 
 		// prepared statement is returned
@@ -41,23 +42,45 @@ class ProfileRepository{
 			$profile->set_user_status($user_status);
 		}
 
+		// GET DATA FROM PROFILE TABLE
+		$sql = "SELECT profile_photo,about from profile where u_id=? LIMIT 1";
+
+		// prepared statement is returned
+		$stmt = $this->db->initialize($sql);
+
+		//bind
+		$stmt->bind_param("i",$user_id);
+
+		//execution of query
+		$stmt->execute();
+
+		//bind the result obtained by executing query
+		$stmt->bind_result($profile_photo,$about);
+
+		//fetch result
+		while($stmt->fetch()){
+			//now create object of model so that its setter function can be used
+			$profile->set_profile_photo($profile_photo);
+			$profile->set_about($about);
+		}
+
+		// GET DATA FROM GENERALUSER/ORGANIZATION/WELFARE TABLE BASE ON USER TYPE
 		if($user_type == "generalUser"){
-			$sql = "SELECT gen_id,age from generaluser where u_id=? LIMIT 1";
+			$sql = "SELECT age from generaluser where u_id=? LIMIT 1";
 
 			// prepared statement is returned
 			$stmt = $this->db->initialize($sql);
 
 			//bind
-			$stmt->bind_param("s",$user_id);
+			$stmt->bind_param("i",$user_id);
 
 			//execution of query
 			$stmt->execute();
 
 			//bind the result obtained by executing query
-			$stmt->bind_result($gen_id,$age);
+			$stmt->bind_result($age);
 
 			while($stmt->fetch()){
-				$profile->set_gen_id($gen_id);
 				$profile->set_age($age);
 			}
 		}
@@ -69,7 +92,7 @@ class ProfileRepository{
 			$stmt = $this->db->initialize($sql);
 
 			//bind
-			$stmt->bind_param("s",$user_id);
+			$stmt->bind_param("i",$user_id);
 
 			//execution of query
 			$stmt->execute();
@@ -93,7 +116,7 @@ class ProfileRepository{
 			$stmt = $this->db->initialize($sql);
 
 			//bind
-			$stmt->bind_param("s",$user_id);
+			$stmt->bind_param("i",$user_id);
 
 			//execution of query
 			$stmt->execute();

@@ -2,12 +2,9 @@
 
 class Profile{
 
-	private $id;
-	private $single_user_id;
+	private $profile_photo;
 	private $about;
-	private $profile_picture;
-	private $cover_picture;
-
+	
 	private $user_id;
 	private $user_name;
 	private $first_name;
@@ -16,7 +13,6 @@ class Profile{
 	private $user_type;
 	private $user_status;
 	
-	private $gen_id;
 	private $age;
 	
 	private $name;
@@ -31,20 +27,12 @@ class Profile{
 
 	}
 
-	public function get_id(){
-		return $this->id;
+	public function get_profile_photo(){
+		return $this->profile_photo;
 	}
 
-	public function set_id($id){
-		$this->id = $id;
-	}
-
-	public function get_single_user_id(){
-		return $this->single_user_id;
-	}
-
-	public function set_single_user_id($single_user_id){
-		$this->single_user_id = $single_user_id;
+	public function set_profile_photo($profile_photo){
+		$this->profile_photo = $profile_photo;
 	}
 
 	public function get_about(){
@@ -54,23 +42,6 @@ class Profile{
 	public function set_about($about){
 		$this->about = $about;
 	}
-
-	public function get_profile_picture(){
-		return $this->profile_picture;
-	}
-
-	public function set_profile_picture($profile_picture){
-		$this->profile_picture = $profile_picture;
-	}
-
-	public function get_cover_picture(){
-		return $this->cover_picture;
-	}
-
-	public function set_cover_picture($cover_picture){
-		$this->cover_picture = $cover_picture;
-	}
-
 	public function get_user_id(){
 		return $this->user_id;
 	}
@@ -127,15 +98,6 @@ class Profile{
 	public function set_user_status($user_status){
 		$this->user_status = $user_status;
 	}
-	
-	public function get_gen_id(){
-		return $this->gen_id;
-	}
-
-	public function set_gen_id($gen_id){
-		$this->gen_id = $gen_id;
-	}
-
 	
 	public function get_age(){
 		return $this->get_age;

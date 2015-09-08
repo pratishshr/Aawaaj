@@ -14,7 +14,6 @@ class ProfileController{
 	
 	public function index($u_id){
 		$result = $this->repository->get_by_id($u_id);
-		
 		if($result == NULL){
 			//if id=jpt
 			$this->error_page();
@@ -27,9 +26,8 @@ class ProfileController{
 			exit();
 		}
 		else{
-			$data = array('user_id'=>$result->get_user_id(),'user_name'=>$result->get_user_name(),'first_name'=>$result->get_first_name(),'last_name'=>$result->get_last_name(),'contact_number'=>$result->get_contact_number(),'user_type'=>$result->get_user_type());
+			$data = array('profile_photo'=>$result->get_profile_photo(),'about'=>$result->get_about(),'user_id'=>$result->get_user_id(),'user_name'=>$result->get_user_name(),'first_name'=>$result->get_first_name(),'last_name'=>$result->get_last_name(),'contact_number'=>$result->get_contact_number(),'user_type'=>$result->get_user_type());
 			if($result->get_user_type() == "generalUser"){
-				$data['gen_id']=$result->get_gen_id();
 				$data['age']=$result->get_age();
 			}
 			else{
