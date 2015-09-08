@@ -29,7 +29,7 @@
 				$paypal->set->txn_id($row['txn_id']);
 				$paypal->set->payer_email($row['payer_email']);
 				
-				array_push($fund_list,$paypal);
+				array_push($$pay_list,$paypal);
 			}
 			$this->db->close();
 			return $pay_list;
@@ -65,14 +65,14 @@
 
 			while($stmt->fetch()){
 				//instantiate object
-				$fund = new Fundraiser();
+				$paypal = new Paypal();
 
-				$fund->set_pay_id($pay_id);
-				$fund->set_item_name($item_name);
-				$fund->set_payment_amount($payment_amount);
-				$fund->set_txn_id($txn_id);
-				$fund->set_payer_email($payer_email);
-				$fund->set_item_number($item_number);
+				$paypal->set_pay_id($pay_id);
+				$paypal->set_item_name($item_name);
+				$paypal->set_payment_amount($payment_amount);
+				$paypal->set_txn_id($txn_id);
+				$paypal->set_payer_email($payer_email);
+				$paypal->set_item_number($item_number);
 			
 			}
 				//CLOSE CONNECTION
@@ -81,7 +81,9 @@
 		}
 
 		public function insert($pay){
-			
+			//ARRAY OBJECT PASS GARNA
+			$pay_list = array();
+
 			//DATABASE CONNECTION
 			$this->db->connect();
 			
@@ -104,14 +106,8 @@
 
 			$item_number = $pay->get_item_number();
 
-			error_log(date('[Y-m-d H:i e] ').'pay id='. $pay_id. PHP_EOL, 3, LOG_FILE);
-			error_log(date('[Y-m-d H:i e] ').'item_name='. $item_name. PHP_EOL, 3, LOG_FILE);
-			error_log(date('[Y-m-d H:i e] ').'payment_amount ='. $payment_amount. PHP_EOL, 3, LOG_FILE);
-			error_log(date('[Y-m-d H:i e] ').'txn_id ='. $txn_id. PHP_EOL, 3, LOG_FILE);
-			error_log(date('[Y-m-d H:i e] ').'payer_email ='. $payer_email. PHP_EOL, 3, LOG_FILE);
-			error_log(date('[Y-m-d H:i e] ').'item_number ='. $item_number. PHP_EOL, 3, LOG_FILE);
 			//BIND
-			$stmt->bind_param("siisi",$item_name,$payment_amount,$txn_id,$payer_email,$item_number);
+			$stmt->bind_param("sdisi",$item_name,$payment_amount,$txn_id,$payer_email,$item_number);
 				
 			//EXECUTE
 			$stmt->execute();
@@ -120,4 +116,38 @@
 			$this->db->close();
 
 		}	
+
+		public function totalFund($item_number){
+
+			$pay = null;
+
+			//DATABASE CONNECTION
+			$this->db->connect();
+
+			//SELECT BY ID
+			$sql = "SELECT * FROM donations WHERE item_number=?";
+
+			//PREPARE
+			$stmt = $this->db->initialize($sql);
+
+			//BIND
+			$stmt->bind_param("i",$item_number);
+
+			//EXECUTE
+			$stmt->execute();
+
+			//BIND RESULT
+			$stmt->bind_result($pay_id,$item_name,$payment_amount,$txn_id,$payer_email,$item_number);
+
+			$total = 0;
+			while($stmt->fetch()){
+				
+				
+				$total += $payment_amount;
+			
+			}
+				//CLOSE CONNECTION
+				$this->db->close();
+				return $total;
+		}
 }		
