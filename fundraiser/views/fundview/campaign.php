@@ -149,7 +149,7 @@
             
             <div class="col-md-4">
                 <a href="#" class="thumbnail">
-                    <img class="img-responsive" src="<?php echo BASE_URL?>/public/assets/img/thumb2.jpg" alt="">
+                    <img class="img-responsive" src="<?php echo PUBLIC_PATH2?>/assets/img/thumb2.jpg" alt="">
                 </a>
                 <h3>
                     <a href="#">Project Name</a>
@@ -159,7 +159,7 @@
 
             <div class="col-md-4">
                 <a href="#" class="thumbnail">
-                    <img class="img-responsive" src="<?php echo BASE_URL?>/public/assets/img/thumb2.jpg" alt="">
+                    <img class="img-responsive" src="<?php echo PUBLIC_PATH2?>/assets/img/thumb2.jpg" alt="">
                 </a>
                 <h3>
                     <a href="#">Project Name</a>
@@ -169,7 +169,7 @@
 
             <div class="col-md-4">
                 <a href="#" class="thumbnail">
-                    <img class="img-responsive" src="<?php echo BASE_URL?>/public/assets/img/thumb1.jpg" alt="">
+                    <img class="img-responsive" src="<?php echo PUBLIC_PATH2?>/assets/img/thumb1.jpg" alt="">
                 </a>
                 <h3>
                     <a href="#">Project Name</a>

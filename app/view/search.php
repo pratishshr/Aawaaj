@@ -1,7 +1,7 @@
 <?php
    require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php");
-	 require_once(ROOT_PATH."public/includes/header.php");
-	 require_once(ROOT_PATH."public/includes/navsearch.php");
+	 require_once(PUBLIC_PATH."/includes/header.php");
+	 require_once(PUBLIC_PATH."/includes/navsearch.php");
 	 require_once(ROOT_PATH."app/model/list.class.php");
 	 require_once(ROOT_PATH."app/model/searchmodel.php");?>
 
@@ -64,17 +64,17 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="<?php echo BASE_URL?>public/assets/js/jquery.js"></script>
+    <script src="<?php echo PUBLIC_PATH2?>/assets/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo BASE_URL?>public/assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo PUBLIC_PATH2?>/assets/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="<?php echo BASE_URL?>public/assets/js/jquery.easing.min.js"></script>
+    <script src="<?php echo PUBLIC_PATH2?>/assets/js/jquery.easing.min.js"></script>
 
     
     <!-- Custom Theme JavaScript -->
-    <script src="<?php echo BASE_URL?>public/assets/js/grayscale.js"></script>
+    <script src="<?php echo PUBLIC_PATH2?>/assets/js/grayscale.js"></script>
 
 </body>
 

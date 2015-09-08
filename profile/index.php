@@ -3,7 +3,7 @@
 <?php
     global $session; 
     if(!$session->isLoggedIn()){
-        header("location:../public/index.php");
+        header("location:".PUBLIC_PATH2."/index.php");
         exit();
     }
 ?>

@@ -83,7 +83,7 @@
 			unset($_SESSION['user_id']);
 			unset($this->user_id);
 			$this->logged_in = false;
-			header("Location: http://localhost/aawaaj/public");
+			header("Location: http://localhost/aawaaj/home");
 		}
 
 		private function verifyLogin(){

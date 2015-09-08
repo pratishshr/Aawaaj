@@ -23,7 +23,7 @@ $(document).ready(function(){
       data: form_data,
       success: function(result){
         $("#message").html(result);
-      }
+        }
     });
 
   });
@@ -141,7 +141,8 @@ $(document).ready(function(){
             
 
             <div class="form-group text-left ">
-              <input type="button" id="submit_btn" name="submit" class="btn btn-info btn-lg btn-block" value="Sign up">
+              <input type="button" id="submit_btn" name="submit" class="btn btn-info btn-lg btn-block" value="Sign up" >
+          
             </div>
             <div class="modal-footer"></div>
           </form>

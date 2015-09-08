@@ -1,8 +1,8 @@
 <?php
 	define('BASE_URL','http://localhost/Aawaaj/');
 	define('ROOT_PATH',$_SERVER['DOCUMENT_ROOT']."/Aawaaj/");
-	define('PUBLIC_PATH',$_SERVER['DOCUMENT_ROOT']."/Aawaaj/public");
-	define('PUBLIC_PATH2',"http://localhost/Aawaaj/public");
+	define('PUBLIC_PATH',$_SERVER['DOCUMENT_ROOT']."/Aawaaj/home");
+	define('PUBLIC_PATH2',"http://localhost/Aawaaj/home");
 	
 
 	//DEFINE DATABASE CONSTANTS

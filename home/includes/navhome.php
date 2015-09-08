@@ -1,3 +1,4 @@
+<?php require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php"); ?>
 <?php require_once(ROOT_PATH."database/session.php") ?>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">

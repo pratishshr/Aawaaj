@@ -11,7 +11,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <a class="navbar-brand page-scroll" href="<?php echo BASE_URL?>public">
+                <a class="navbar-brand page-scroll" href="<?php echo BASE_URL?>home">
                     <i class="fa fa-play-circle"></i> Aawaaj
                 </a>
             </div>
@@ -36,7 +36,7 @@
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>   
                     <li>
-                         <a class="page-scroll" href="<?php echo BASE_URL.'app/view/search.php';?>">Search</a>
+                         <a class="page-scroll" href="<?php echo BASE_URL.'search/view/search.php';?>">Search</a>
                     </li>   
                 </ul>
                  
