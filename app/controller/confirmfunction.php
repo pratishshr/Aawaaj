@@ -37,7 +37,7 @@ class ConfirmUserName{
 			{
 				$firstname = $confirmSignUpModelObj->getFirstName($this->user);
 				$lastname = $confirmSignUpModelObj->getLastName($this->user);
-				echo "<span class='no'>{$this->user} already exists " . "<a style=\"color:red;\" href=\"" . BASE_URL . "app/view/signUpConfirm.php?email=" . $this->user . "&fname=" . $firstname . "&lname=" . $lastname . "\">Click To Activate</a></span>";
+				echo "<span class='no'>{$this->user} already exists " . "<a style=\"color:red;\" href=\"" . BASE_URL . "app/view/signUpConfirm.php?email=" . $this->user . "&fname=" . $firstname . "&lname=" . $lastname . "\">Activate Now</a></span>";
 				$state=0;
 			}else{
 			echo "<span class='no'>{$this->user} is not available</span>";
