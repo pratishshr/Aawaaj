@@ -32,7 +32,7 @@ $(document).ready(function(){
       }
     });
 
-  })
+  });
 });
 
 
@@ -140,7 +140,7 @@ $(document).ready(function(){
 
 	            <div class="form-group text-left ">
 	           
-	              <input type="button" id="submit_btn" name="submit" class="btn btn-info btn-lg btn-block" value="Sign up" disabled>
+	              <input type="button" id="submit_btn" name="submit" class="btn btn-info btn-lg btn-block" value="Sign up">
 	              
 	            </div>
 	            <div class="modal-footer"></div>

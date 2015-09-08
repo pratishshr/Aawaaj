@@ -17,8 +17,10 @@ class ConfirmUserName{
 	public $user;
 	private $state=0;
 	function __construct(){
+		$action = null;
+		if(isset($_POST['action'])){
 		$action=$_POST['action'];
-
+	}
 		if($action=='check_username'){
 			$this->user = $_POST['username']; 
 			if(($this->user)!="")
