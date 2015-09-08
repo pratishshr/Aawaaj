@@ -1,7 +1,7 @@
 <?php require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php"); ?>
 	
 <?php include_once(PUBLIC_PATH."/includes/header.php") ?>
-<?php require_once(ROOT_PATH."app/controller/confirmfunction.php");
+<?php require_once(ROOT_PATH."app/controller/confirmfunction.php"); ?>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" class="white-body">
 
 <?php include_once("simplenav.php");?>
