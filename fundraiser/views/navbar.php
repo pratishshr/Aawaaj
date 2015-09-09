@@ -28,7 +28,7 @@
                         <a class="page-scroll" href="#download">Trending Now</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#">Start Fundraiser</a>
+                        <a class="page-scroll" href="<?php echo BASE_URL.'fundraiser/index.php?page=fund';?>">Start Fundraiser</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>

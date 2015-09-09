@@ -79,13 +79,17 @@
 
 			$payList = $this->payrepository->get_by_id($id); //Details of those who donated on particular fundraiser
 
-			$amount = $fund->get_amount();
-	        $percentage = floor(($total/$amount)*100); 	  //percentage of donation completed
-
+			
+	       
 
 				if(!is_null($fund)){
+				
+				$amount = $fund->get_amount();
+				$percentage = floor(($total/$amount)*100); 	  //percentage of donation completed	
 				include_once(ROOT_PATH."fundraiser/views/container.php");
 				}else{
+
+
 					header("Location: index.php?page=fund&m=index");
 				}
 
