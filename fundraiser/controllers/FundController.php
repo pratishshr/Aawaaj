@@ -1,7 +1,7 @@
 <?php require_once(ROOT_PATH."database/session.php") ?> 
 <?php include_once(ROOT_PATH."fundraiser/system/models/fundraiser.class.php");?>
 <?php include_once(ROOT_PATH."fundraiser/system/repositories/fundrepository.class.php");?>
-
+<?php include_once(ROOT_PATH."fundraiser/system/models/paypal.class.php");?>
 <?php include_once(ROOT_PATH."fundraiser/system/repositories/payrepository.class.php");?>
 
 <?php
@@ -71,9 +71,18 @@
 			if(isset($_GET['id'])){
 			$view_page = "fundview/campaign";
 			$id = $_GET['id'];
-			$fund = $this->fundrepository->get_by_id($id);
-			$allfund = $this->fundrepository->get_all();
-			$total = $this->payrepository->totalFund($id);
+			$fund = $this->fundrepository->get_by_id($id);  //single fundraiser
+
+			$allfund = $this->fundrepository->get_all(); //All fundraiser availablr
+
+			$total = $this->payrepository->totalFund($id); //Total amount donated to a particular fundraiser
+
+			$payList = $this->payrepository->get_by_id($id); //Details of those who donated on particular fundraiser
+
+			$amount = $fund->get_amount();
+	        $percentage = floor(($total/$amount)*100); 	  //percentage of donation completed
+
+
 				if(!is_null($fund)){
 				include_once(ROOT_PATH."fundraiser/views/container.php");
 				}else{
