@@ -31,6 +31,7 @@
 				
 				array_push($$pay_list,$paypal);
 			}
+
 			$this->db->close();
 			return $pay_list;
 
@@ -42,27 +43,30 @@
 			$this->db->close();
 		}
 
-		public function get_by_id($id){
+		public function get_by_id($item_number){
 			$pay = null;
+
+			//ARRAY OBJECT PASS GARNA
+			$pay_list = array();
 
 			//DATABASE CONNECTION
 			$this->db->connect();
 
 			//SELECT BY ID
-			$sql = "SELECT * FROM donations WHERE id=?";
+			$sql = "SELECT * FROM donations WHERE item_number=?";
 
 			//PREPARE
 			$stmt = $this->db->initialize($sql);
-
+			
 			//BIND
-			$stmt->bind_param("i",$id);
+			$stmt->bind_param("i",$item_number);
 
 			//EXECUTE
 			$stmt->execute();
 
 			//BIND RESULT
 			$stmt->bind_result($pay_id,$item_name,$payment_amount,$txn_id,$payer_email,$item_number);
-
+			
 			while($stmt->fetch()){
 				//instantiate object
 				$paypal = new Paypal();
@@ -73,11 +77,13 @@
 				$paypal->set_txn_id($txn_id);
 				$paypal->set_payer_email($payer_email);
 				$paypal->set_item_number($item_number);
-			
+				array_push($pay_list,$paypal);
 			}
 				//CLOSE CONNECTION
 				$this->db->close();
-				return $pay;
+				
+
+				return $pay_list;
 		}
 
 		public function insert($pay){
