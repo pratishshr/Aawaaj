@@ -30,8 +30,10 @@
       						            </div>
 
       						            <div class="col-md-3">
-      						            	<h2>Amount Raised:
-      						            	<br/>$ <?php echo $total;?> </h2>
+      						            	<h3>Amount Raised:</h3>
+      						            	<h2>$<?php echo $total;?><small>USD</small>
+                                <br/>
+                                <small> <?php echo $remaining?> <?php echo ($remaining>0)?"days":"day";?> remaining</small></h2>  
       		            	                <div class="progress">
                                                 <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="<?php echo $percentage;?>" aria-valuemin="0" aria-valuemax="100"
                                                      style="width: <?php echo $percentage;?>%;
@@ -41,7 +43,7 @@
                                               </div>
                                               
       						                
-      						                <div><b>Project Goal: Rs. <?php echo $fund->get_amount();?></b></div>
+      						                <div><b><span class="glyphicon glyphicon-flag"></span> Project Goal: $<?php echo $fund->get_amount();?></b></div>
 
       						                <br/>
                                               <!-- DONATE BUTTON -->
@@ -62,7 +64,7 @@
                                               <input type="hidden" name="notify_url" value="<?php echo BASE_URL.'fundraiser/index.php?page=paypal';?>">
                                               <input type="hidden" name="return" value="<?php echo BASE_URL.'fundraiser/index.php?page=fund&m=campaign&id='.$fund->get_id();?>">
                                               <input type="hidden" name="cancel_return" value="<?php echo BASE_URL.'fundraiser/index.php?page=fund&m=campaign&id='.$fund->get_id();?>">
-                                              <input type="submit" name="submit" value="Donate Now" class="btn btn-lg btn-primary form-control input-lg">
+                                              <input type="submit" name="submit" value="DONATE NOW" class="btn btn-lg btn-primary form-control input-lg">
                                               </form>
                                               <!--DONATE BUTTON END-->
                                               <br/>
@@ -83,7 +85,7 @@
 						   <div class="panel panel-default col-md-8 black-color">
                 <div class="panel-body">
                     <div class="text-center">
-                                        <hr/>
+                          <hr/>
 						            	<h2>Description</h2>
 						            	<hr>
 						            	<p> <?php echo $fund->get_details();?> </p>
@@ -91,7 +93,7 @@
                             <hr/>
                             <?php 
                             $video_url = $fund->get_video_url();
-                            
+
                             if(!empty($video_url)){ ?>                 
 							            	<h2>Campaign Video</h2>
                                              <hr/>
@@ -108,25 +110,25 @@
                <div class="col-md-4">
                    <div class="panel panel-default black-color">
                     <div class-"panel-body">  
-                        <div class="text-center">
+                       
+                        <br/>
                         <hr/>
-                          <h2>Recent Donations</h2>
-                        <hr/>  
+                        <h2 class="text-center">Recent Donations</h2>
+                        
                           <div class="scroll">
+                            <table class="table table-striped table-hover">
                             <?php foreach($payList as $pay){ ?>
-
-                              <p>
-                              $<?php echo $pay->get_payment_amount();?>
-                              <br/>
-                              <?php echo $pay->get_payer_email();?>
-                              </p>
-                               <hr/>
-
+                            <tr>
+                              <td><?php echo $pay->get_payer_email();?>
+                                  <br/>
+                                  <strong>$<?php echo $pay->get_payment_amount();?></td></strong>
+                            </tr>
                               <?php 
                                 }
-                              ?>  
+                              ?> 
+                            </table>   
                           </div>
-                        </div>
+                        
                      </div>
                    </div>    
                </div>   
