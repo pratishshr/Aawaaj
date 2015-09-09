@@ -37,7 +37,8 @@ require_once(ROOT_PATH."app/model/loginmodel.php");
 							if($loginmodelobj->getName($this->username)){
 								$session->welfareLogin($loginmodelobj->getUserId(),$loginmodelobj->getWelfareName(),$loginmodelobj->getUserType());
 						}}
-						header("Location: ".BASE_URL."profile/index.php");
+						$ehash = md5($this->getUserName());
+						header("Location: ".BASE_URL."profile/index.php?id=".$ehash);
 					}else{
 						//if login not successful
 						header("LOCATION: ".PUBLIC_PATH2."/index.php");

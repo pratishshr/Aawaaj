@@ -39,6 +39,7 @@
 				$_SESSION['user_type'] = $usertype;
 				$this->logged_in = true;
 				$this->firstName = $firstname;
+			
 			}
 		}
 
