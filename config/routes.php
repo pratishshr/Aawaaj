@@ -10,4 +10,6 @@
 	//fundraiser routes
 	$routes['fund'] = 'FundController';
 	$routes['profile'] = 'ProfileController';
+	$routes['projects'] = 'ProjectController';
+	$routes['requirements'] = 'RequirementController';
 ?>

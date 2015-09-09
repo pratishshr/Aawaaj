@@ -77,9 +77,9 @@
                      <?php 
                         }else{ 
                             $logged = true;
-                        if($_SESSION['user_id'] == $data['user_id']){
+                        /*if($_SESSION['user_id'] == $data['user_id']){
                             $user_profile = true;
-                        }
+                        }*/
                         ?>
                             <li>
 

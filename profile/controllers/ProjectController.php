@@ -4,15 +4,17 @@
 
 <?php
 
-class ProfileController{
+class ProjectController{
 
 	private $repository;
 	private $data = array();
 	public function __construct(){
-		$this->repository = new ProfileRepository();
+		//$this->repository = new ProjectRepository();
 	}
 	
 	public function index($u_id){
+		include_once(ROOT_PATH.'profile/views/container.php');
+		exit();
 		$result = $this->repository->get_by_id($u_id);
 		if($result == NULL){
 			//if id=jpt
@@ -46,8 +48,12 @@ class ProfileController{
 		}
 	}
 
-	public function edit(){
-		echo "profile edit page";
+	public function add(){
+		echo "project add page";
+	}
+
+	public function selectProject(){
+		echo "particular project view page";
 	}
 
 	public function error_page(){
@@ -57,7 +63,7 @@ class ProfileController{
 }
 
 
-$profile_controller = new ProfileController();
+$project_controller = new ProjectController();
 
 if(isset($_GET['id'])){
 	$user_profile_id = $_GET['id'];
@@ -73,28 +79,35 @@ if(isset($_GET['id'])){
 		if(isset($_GET['m'])){
 			$method = $_GET['m'];
 			switch ($method) {
-				case 'edit':
-					$profile_controller->edit();
+				case 'add':
+					$project_controller->add();
 					break;
 				
 				default:
-					$profile_controller->error_page();
+					$project_controller->error_page();
 					break;
 			}
 		}
 		else{
-			$profile_controller->index($user_profile_id);
+			$project_controller->index($user_profile_id);
 		}
 		break;
 	
 		default:
 		if(isset($_GET['m'])){
-			$profile_controller->error_page();
+			$project_controller->error_page();
 		}
-		
-		$profile_controller->index($user_profile_id);
+
+		$project_controller->index($user_profile_id);
 		break;
 	}
+
+	if(isset($_GET['p_id'])){
+		$p_id = $_GET['p_id'];
+		$project_controller->selectProject($user_profile_id,$p_id);
+	}
+
+
 }
 else{
 	$profile_controller->error_page();
