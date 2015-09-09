@@ -31,7 +31,7 @@
 
       						            <div class="col-md-3">
       						            	<h2>Amount Raised:
-      						            	<br/>Rs. <?php echo $total;?> </h2>
+      						            	<br/>$ <?php echo $total;?> </h2>
       		            	                <div class="progress">
                                                 <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="<?php echo $percentage;?>" aria-valuemin="0" aria-valuemax="100"
                                                      style="width: <?php echo $percentage;?>%;
@@ -67,7 +67,7 @@
                                               <!--DONATE BUTTON END-->
                                               <br/>
                                               <!-- Social Buttons -->
-                                              <div class="col-md-10">
+                                              <div class="col-md-12">
                                               <b>Share:</b>
                                               <div class="addthis_sharing_toolbox"></div>
                                               </div>
@@ -87,33 +87,45 @@
 						            	<h2>Description</h2>
 						            	<hr>
 						            	<p> <?php echo $fund->get_details();?> </p>
-						            
-                                             <hr/>
+		            
+                            <hr/>
+                            <?php 
+                            $video_url = $fund->get_video_url();
+                            
+                            if(!empty($video_url)){ ?>                 
 							            	<h2>Campaign Video</h2>
                                              <hr/>
 							            	<div class="embed-responsive embed-responsive-16by9">
 	  									    		<iframe class="embed-responsive-item" src="<?php echo $fund->get_video_url();?>"></iframe>
 											      </div>	
+                           <?php 
+                            }
+                           ?> 
 									       	
 						        </div>
                 </div>
                </div>
                <div class="col-md-4">
                    <div class="panel panel-default black-color">
-                    <div class-"panel-body">
+                    <div class-"panel-body">  
                         <div class="text-center">
                         <hr/>
                           <h2>Recent Donations</h2>
                         <hr/>  
-                        <?php foreach($payList as $pay){ ?>
+                          <div class="scroll">
+                            <?php foreach($payList as $pay){ ?>
 
+                              <p>
+                              $<?php echo $pay->get_payment_amount();?>
+                              <br/>
+                              <?php echo $pay->get_payer_email();?>
+                              </p>
+                               <hr/>
 
-                        <p><?php echo $pay->get_payer_email();?> donated <?php echo $pay->get_payment_amount();?>$</p>
-                        <hr/>
-
-                        <?php 
-                          }
-                        ?>  
+                              <?php 
+                                }
+                              ?>  
+                          </div>
                         </div>
                      </div>
                    </div>    
