@@ -49,7 +49,6 @@ class ProjectController{
 
 	public function add(){
 		include_once(ROOT_PATH.'profile/views/container.php');
-		exit();
 	}
 
 	public function selectProject(){
@@ -95,6 +94,7 @@ if(isset($_GET['id'])){
 		default:
 		if(isset($_GET['m'])){
 			$project_controller->error_page();
+			exit();
 		}
 
 		$project_controller->index($user_profile_id);

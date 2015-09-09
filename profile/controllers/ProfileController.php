@@ -90,6 +90,7 @@ if(isset($_GET['id'])){
 		default:
 		if(isset($_GET['m'])){
 			$profile_controller->error_page();
+			exit();
 		}
 		
 		$profile_controller->index($user_profile_id);
