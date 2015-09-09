@@ -155,6 +155,7 @@
    			 if(in_array($picture_type, $allowed_type)){
    			 	if($type=="organization_logo"){
    			 		$this->path = PUBLIC_PATH."/pictures/orgPictures/1".$picture_name ;
+   			 		
    			 	}else{
    			 		$this->path = PUBLIC_PATH."/pictures/welfPictures/1".$picture_name ;
    			 	}

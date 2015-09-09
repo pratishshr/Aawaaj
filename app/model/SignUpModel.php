@@ -56,7 +56,8 @@
 				$passInsertQuery = "INSERT INTO password (password, u_id) VALUES (?,?)";
 				$passInsert = $handler->prepare($passInsertQuery);
 				if($passInsert->execute(array($password,$userId))){
-					$orgInsertQuery = "INSERT INTO organization (name, doe, img, address, objective, type, u_id) VALUES (?,?,?,?,?,?,?)";
+					try{$orgInsertQuery = "INSERT INTO organization (name, doe, img, address, objective, type, u_id) VALUES (?,?,?,?,?,?,?)";
+					
 					$orgInsert = $handler->prepare($orgInsertQuery);
 					if($orgInsert->execute(array($orgName,$orgDoe,$orgLogo,$orgAdd,$orgObj,$userType,$userId))){
 						$handler->commit();
@@ -65,6 +66,9 @@
 					}else{
 						$handler->rollback();
 						return 0;
+					}
+				}catch(PDOException $e){
+						header("Location:".PUBLIC_PATH2."/index.php");
 					}
 				}else{
 					$handler->rollback();
