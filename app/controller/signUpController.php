@@ -149,6 +149,7 @@
 			 $picture_tmp =  $_FILES["{$type}"]['tmp_name'];
    			 $picture_name = $_FILES["{$type}"]['name'];
    			 $picture_type = $_FILES["{$type}"]['type'];
+   			 $savepath = BASE_URL."/pictures/orgPictures/1";
    			 
    			 $allowed_type = array('image/png','image/gif','image/jpeg','image/jpg');
 
@@ -167,6 +168,7 @@
    			 	//show the type of error in view class
    			 }else{
    			 	move_uploaded_file($picture_tmp, $this->path);
+   			 	$this->path = $savepath.$picture_name;
    			 }
    			 return $this->path;
 		}

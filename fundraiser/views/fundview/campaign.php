@@ -1,11 +1,7 @@
-
-      
- <header class="intro-fund-create">
+<header class="intro-fund-create">
         <div class="intro-body">
             <div class="container">
                 <div class="row">
-                    
-                        
                         <!-- ===================================== -->
                         <!-- FUNDRAISER-->
                         <div class="panel panel-default">
@@ -28,7 +24,6 @@
       						            <div class="col-md-8">
       						                <img class="img-responsive" src="<?php echo $fund->get_image();?>" alt=""><!-- 750 x 500-->
       						            </div>
-
       						            <div class="col-md-3">
       						            	<h3>Amount Raised:</h3>
       						            	<h2>$<?php echo $total;?><small>USD</small>
@@ -41,10 +36,7 @@
                                                   <?php echo $percentage;?>%
                                                 </div>
                                               </div>
-                                              
-      						                
       						                <div><b><span class="glyphicon glyphicon-flag"></span> Project Goal: $<?php echo $fund->get_amount();?></b></div>
-
       						                <br/>
                                               <!-- DONATE BUTTON -->
                                               <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">

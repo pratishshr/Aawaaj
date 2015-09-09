@@ -45,7 +45,6 @@ class ProfileController{
 			//var_dump($data);
 		}
 	}
-
 	public function edit(){
 		echo "profile edit page";
 	}
