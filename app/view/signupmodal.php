@@ -5,7 +5,7 @@
   .no {color:red; font-size: 12px;}
   .yes{color:green;font-size:12px;}
 </style>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL?>home/assets/js/jquery.js"></script>
 
 <script type="text/javascript">
   

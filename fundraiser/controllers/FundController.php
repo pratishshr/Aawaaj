@@ -2,12 +2,16 @@
 <?php include_once(ROOT_PATH."fundraiser/system/models/fundraiser.class.php");?>
 <?php include_once(ROOT_PATH."fundraiser/system/repositories/fundrepository.class.php");?>
 
+<?php include_once(ROOT_PATH."fundraiser/system/repositories/payrepository.class.php");?>
+
 <?php
 	class FundController{
 
 		private $fundrepository;
+		private $payrepository;
 		public function __construct(){
-			$this->fundrepository =  new fundrepository();
+			$this->fundrepository =  new FundRepository();
+			$this->payrepository = new PayRepository();
 		}
 
 		public function index(){
@@ -69,6 +73,7 @@
 			$id = $_GET['id'];
 			$fund = $this->fundrepository->get_by_id($id);
 			$allfund = $this->fundrepository->get_all();
+			$total = $this->payrepository->totalFund($id);
 				if(!is_null($fund)){
 				include_once(ROOT_PATH."fundraiser/views/container.php");
 				}else{
