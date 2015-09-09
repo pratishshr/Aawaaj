@@ -19,14 +19,33 @@
                                     <div class="form-group ">
                                         <label for="type">Project Type:</label>
                                         </br>
-                                        <div class="btn-group" data-toggle="buttons">
-                                          <label class="btn btn-default">
-                                            <input type="radio" name="options" id="option1" autocomplete="off"> Single-Day                                  </label>
-                                          <label class="btn btn-default">
-                                            <input type="radio" name="options" id="option2" autocomplete="off"> Multiple-Days
-                                          </label>
+                                        <div class="btn-group" data-toggle="buttons" id="options_btn">
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" autocomplete="off" value="single"> Single-Day 
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" name="options" autocomplete="off" value="multiple"> Multiple-Days 
+                                            </label>
                                         </div>
-                                    </div>  
+                                    </div>
+
+                                    <div class="form-group" id="single_date_div">
+                                        <label for="single_date">Date:</label>
+                                        <input type="date" class="form-control" id="single_date">
+                                    </div>
+
+                                    <div id="date_range">                                    
+                                        <div class="form-group">
+                                            <label for="multiple_date_a">Date Range:</label>
+                                            <input type="date" class="form-control" id="multiple_date_a">
+                                        </div>
+
+                                        <label>To</label>
+                                        
+                                        <div class="form-group">
+                                            <input type="date" class="form-control" id="multiple_date_b">
+                                        </div> 
+                                    </div>
 
                                     <div class="form-group">
                                         <label for="title">Title:</label>
@@ -34,10 +53,15 @@
                                     </div>  
                                  
                                     <div class="form-group">
-                                        <label for="amount">Objectives:</label>
-                                        <textarea class="form-control" id="textarea" placeholder="Objectives" maxlength="160"></textarea>
+                                        <label for="objectives">Objectives:</label>
+                                        <textarea class="form-control" id="objectives" placeholder="Objectives" maxlength="160"></textarea>
                                     </div>  
-                                        
+                                    
+                                    <div class="form-group">
+                                        <label for="short_desc">Description (Short):</label>
+                                        <textarea class="form-control" id="short_desc" placeholder="Description (Short)" maxlength="160"></textarea>
+                                    </div>
+
                                     <div class="form-group">
                                         <label for="loction">Location:</label>
                                         <input type="text" class="form-control" id="location" placeholder="Location" maxlength="100">
@@ -119,14 +143,14 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="amount">Video URL <small>(Youtube)</small>:</label>
+                                        <label for="videourl">Video URL <small>(Youtube)</small>:</label>
 
                                         <input type="url" class="form-control" id="videourl" placeholder="If you have a video about your project">
                                     </div>  
                                                                   
                                     <div class="form-group">
-                                        <label for="description">Description:</label>
-                                        <textarea class="form-control" name="textarea" rows="10" placeholder="Add detail description of your project"></textarea>
+                                        <label for="details">Details:</label>
+                                        <textarea class="form-control" name="details" id="details" rows="10" placeholder="Add detail description of your project"></textarea>
                                     </div>  
 
                                     
@@ -149,6 +173,8 @@
 
     <script>
     $(document).on("ready",function(){
+        $("#requirement2,#requirement3,#requirement4,#requirement5,#volunteers_no,#org_list,#single_date_div,#date_range").hide();
+        
         var requirement2 = $("#requirement2");
         var requirement3 = $("#requirement3");
         var requirement4 = $("#requirement4");
@@ -168,9 +194,7 @@
         var o4_status = 1;
         var o5_status = 1;
 
-
-        $("#requirement2,#requirement3,#requirement4,#requirement5,#volunteers_no,#org_list").hide();
-
+       
         $("#btn_plus").on("click",function(){
             if(r5_status){
                 if(r4_status){
@@ -279,6 +303,19 @@
                     org2.slideUp().val('');
                     o2_status = 1;
                 }
+            }
+        });
+
+        $("input:radio[name='options']").on("change",function(){
+            if($(this).val() == "single"){
+                $("#date_range").slideUp();
+                $("#multiple_date_a,#multiple_date_b").val('');
+                $("#single_date_div").slideDown();
+            }
+            else if($(this).val() == "multiple"){
+                $("#single_date_div").slideUp();
+                $("#single_date").val('');
+                $("#date_range").slideDown();
             }
         });
 
