@@ -30,38 +30,41 @@
 			return $this->logged_in;
 		}
 
-		public function generalUserLogin($userid,$firstname,$lastname,$usertype){
+		public function generalUserLogin($userid,$firstname,$lastname,$usertype,$userhash){
 			//database should find user based on username/password
 			if($userid){
 				$this->user_id  = $_SESSION['user_id'] = $userid;
 				$_SESSION['first_name'] = $firstname;
 				$_SESSION['last_name'] = $lastname;
 				$_SESSION['user_type'] = $usertype;
+				$_SESSION['user_hash'] = $userhash;
 				$this->logged_in = true;
 				$this->firstName = $firstname;
 			
 			}
 		}
 
-		public function organizationLogin($userid,$organizationName,$usertype){
+		public function organizationLogin($userid,$organizationName,$usertype,$userhash){
 			//database should find organization based on username/password
 			if($userid){
 				$this->user_id  = $_SESSION['user_id'] = $userid;
 				$_SESSION['first_name'] = $firstname;
 				$_SESSION['organization_name'] = $organizationName;
 				$_SESSION['user_type'] = $usertype;
+				$_SESSION['user_hash'] = $userhash;
 				$this->logged_in = true;
 				$this->organization_name = $organizationName;
 			}
 		}
 
-		public function welfareLogin($userid,$welfareName,$usertype){
+		public function welfareLogin($userid,$welfareName,$usertype,$userhash){
 			//database should find organization based on username/password
 			if($userid){
 				$this->user_id  = $_SESSION['user_id'] = $userid;
 				$_SESSION['first_name'] = $firstname;
 				$_SESSION['welfare_name'] = $welfareName;
 				$_SESSION['user_type'] = $usertype;
+				$_SESSION['user_hash'] = $userhash;
 				$this->logged_in = true;
 				$this->welfare_name = $welfareName;
 			}

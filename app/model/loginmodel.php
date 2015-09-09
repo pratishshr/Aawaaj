@@ -13,6 +13,7 @@ require_once(ROOT_PATH."libraries/password.php");
 		private $user_type;
 		private $welfare_name = null;
 		private $data_pass;
+		private $hashed;
 
 		function __construct(Connection $connObj){
 			$this->connObj = $connObj;
@@ -34,6 +35,7 @@ require_once(ROOT_PATH."libraries/password.php");
 						$this->user_id = $row->user_id;
 						$this->user_type = $row->user_type;
 						$this->data_pass = $row->password;
+						$this->hashed = $row->user_hash;
 
 					}
 					$pwd=$this->data_pass;
@@ -112,7 +114,9 @@ require_once(ROOT_PATH."libraries/password.php");
 		public function getUserType(){
 			return $this->user_type;
 		}
-
+		public function getHashed(){
+			return $this->hashed;
+		}
 
 	}
 	global $connObj;

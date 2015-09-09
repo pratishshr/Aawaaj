@@ -63,8 +63,8 @@ if(isset($_GET['id'])){
 	$user_profile_id = $_GET['id'];
 
 	$user = NULL;
-	if(isset($_SESSION['user_id'])){
-		$user = $_SESSION['user_id'];
+	if(isset($_SESSION['user_hash'])){
+		$user = $_SESSION['user_hash'];
 	}
 
 	switch ($user_profile_id) {

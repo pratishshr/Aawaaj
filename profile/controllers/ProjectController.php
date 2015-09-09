@@ -13,8 +13,7 @@ class ProjectController{
 	}
 	
 	public function index($u_id){
-		include_once(ROOT_PATH.'profile/views/container.php');
-		exit();
+		
 		$result = $this->repository->get_by_id($u_id);
 		if($result == NULL){
 			//if id=jpt
@@ -49,7 +48,8 @@ class ProjectController{
 	}
 
 	public function add(){
-		echo "project add page";
+		include_once(ROOT_PATH.'profile/views/container.php');
+		exit();
 	}
 
 	public function selectProject(){
@@ -67,30 +67,29 @@ $project_controller = new ProjectController();
 
 if(isset($_GET['id'])){
 	$user_profile_id = $_GET['id'];
-
 	$user = NULL;
-	if(isset($_SESSION['user_id'])){
-		$user = $_SESSION['user_id'];
+	if(isset($_SESSION['user_hash'])){
+		$user = $_SESSION['user_hash'];
 	}
 
 	switch ($user_profile_id) {
 		case $user:
 		
-		if(isset($_GET['m'])){
-			$method = $_GET['m'];
-			switch ($method) {
-				case 'add':
-					$project_controller->add();
-					break;
-				
-				default:
-					$project_controller->error_page();
-					break;
+			if(isset($_GET['m']) && $_SESSION['user_type'] == "organization"){
+				$method = $_GET['m'];
+				switch ($method) {
+					case 'add':
+						$project_controller->add();
+						break;
+					
+					default:
+						$project_controller->error_page();
+						break;
+				}
 			}
-		}
-		else{
-			$project_controller->index($user_profile_id);
-		}
+			else{
+				$project_controller->index($user_profile_id);
+			}
 		break;
 	
 		default:

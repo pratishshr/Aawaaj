@@ -5,6 +5,9 @@ if(isset($_GET['id'])){
         
         if($_GET['page'] == 'projects' || $_GET['page'] == 'requirements'){
             $page = $_GET['page'];
+            if(isset($_GET['m']) && $_GET['m'] == 'add'){
+            	$page.='_add';
+            }
         }
     }
 
