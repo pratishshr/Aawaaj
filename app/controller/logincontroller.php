@@ -27,15 +27,15 @@ require_once(ROOT_PATH."app/model/loginmodel.php");
 						global $session;
 						//$this->firstName = $loginmodelobj->getFirstName();
 						if($loginmodelobj->getUserType()=="generalUser"){
-							$session->generalUserLogin($loginmodelobj->getUserId(),$loginmodelobj->getFirstName(),$loginmodelobj->getLastName(),$loginmodelobj->getUserType());
+							$session->generalUserLogin($loginmodelobj->getUserId(),$loginmodelobj->getFirstName(),$loginmodelobj->getLastName(),$loginmodelobj->getUserType(),$loginmodelobj->getHashed());
 						}
 						elseif ($loginmodelobj->getUserType()=="organization") {
 							if($loginmodelobj->getName($this->username)){
-								$session->organizationLogin($loginmodelobj->getUserId(),$loginmodelobj->getOrganizationName(),$loginmodelobj->getUserType());
+								$session->organizationLogin($loginmodelobj->getUserId(),$loginmodelobj->getOrganizationName(),$loginmodelobj->getUserType(),$loginmodelobj->getHashed());
 						}}
 						elseif ($loginmodelobj->getUserType()=="welfare") {
 							if($loginmodelobj->getName($this->username)){
-								$session->welfareLogin($loginmodelobj->getUserId(),$loginmodelobj->getWelfareName(),$loginmodelobj->getUserType());
+								$session->welfareLogin($loginmodelobj->getUserId(),$loginmodelobj->getWelfareName(),$loginmodelobj->getUserType(),$loginmodelobj->getHashed());
 						}}
 						$ehash = md5($this->getUserName());
 						header("Location: ".BASE_URL."profile/index.php?id=".$ehash);
