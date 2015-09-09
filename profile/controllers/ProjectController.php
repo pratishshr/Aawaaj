@@ -75,21 +75,21 @@ if(isset($_GET['id'])){
 	switch ($user_profile_id) {
 		case $user:
 		
-		if(isset($_GET['m'])){
-			$method = $_GET['m'];
-			switch ($method) {
-				case 'add':
-					$project_controller->add();
-					break;
-				
-				default:
-					$project_controller->error_page();
-					break;
+			if(isset($_GET['m']) && $_SESSION['user_type'] == "organization"){
+				$method = $_GET['m'];
+				switch ($method) {
+					case 'add':
+						$project_controller->add();
+						break;
+					
+					default:
+						$project_controller->error_page();
+						break;
+				}
 			}
-		}
-		else{
-			$project_controller->index($user_profile_id);
-		}
+			else{
+				$project_controller->index($user_profile_id);
+			}
 		break;
 	
 		default:
