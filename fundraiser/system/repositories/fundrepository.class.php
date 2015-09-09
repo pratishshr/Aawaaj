@@ -26,6 +26,7 @@
 				$fund->set_title($row['title']);
 				$fund->set_fundraiser_type($row['fundraiser_type']);
 				$fund->set_amount($row['amount']);
+				$fund->set_end_date($row['end_date']);
 				$fund->set_description($row['description']);
 				$fund->set_image($row['image']);
 				$fund->set_video_url($row['video_url']);
@@ -63,7 +64,7 @@
 			$stmt->execute();
 
 			//BIND RESULT
-			$stmt->bind_result($id,$fundraiser_type,$title,$amount,$description,$image,$video_url,$details,$u_id);
+			$stmt->bind_result($id,$fundraiser_type,$title,$amount,$end_date,$description,$image,$video_url,$details,$u_id);
 
 			while($stmt->fetch()){
 				//instantiate object
@@ -73,6 +74,7 @@
 				$fund->set_title($title);
 				$fund->set_fundraiser_type($fundraiser_type);
 				$fund->set_amount($amount);
+				$fund->set_end_date($end_date);
 				$fund->set_description($description);
 				$fund->set_image($image);
 				$fund->set_video_url($video_url);
@@ -90,7 +92,7 @@
 			$this->db->connect();
 
 			//INSERT QUERY
-			$sql = "INSERT INTO fundraiser(fundraiser_type,title,amount,description,image,video_url,details,u_id) values(?,?,?,?,?,?,?,?)";
+			$sql = "INSERT INTO fundraiser(fundraiser_type,title,amount,end_date,description,image,video_url,details,u_id) values(?,?,?,?,?,?,?,?,?)";
 
 			//PREPARE
 			$stmt = $this->db->initialize($sql);
@@ -99,13 +101,14 @@
 			$fundraiser_type = $fund->get_fundraiser_type();
 			$title = $fund->get_title();
 			$amount = $fund->get_amount();
+			$end_date = $fund->get_end_date();
 			$description = $fund->get_description();
 			$image = $fund->get_image();
 			$video_url = $fund->get_video_url();
 			$details = $fund->get_details();
 			$id = $_SESSION['user_id'];
 			//BIND
-			$stmt->bind_param("ssissssi",$fundraiser_type,$title,$amount,$description,$image,$video_url,$details,$id);
+			$stmt->bind_param("ssisssssi",$fundraiser_type,$title,$amount,$end_date,$description,$image,$video_url,$details,$id);
 
 			//EXECUTE
 			$stmt->execute();

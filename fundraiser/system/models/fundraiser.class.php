@@ -4,6 +4,7 @@
 		private $fundraiser_type;
 		private $title;
 		private $amount;
+		private $end_date;
 		private $description;
 		private $image;
 		private $video_url;
@@ -44,6 +45,15 @@
 		public function set_amount($amount){
 			$this->amount = $amount;
 		}
+
+		public function get_end_date(){
+			return $this->end_date;
+		}
+
+		public function set_end_date($end_date){
+			$this->end_date = $end_date;
+		}
+
 
 		public function get_description(){
 			return $this->description;

@@ -39,7 +39,12 @@
                                  
                                     <div class="form-group">
                                         <label for="amount">Amount to be raised:</label>
-                                        <input type="number" class="form-control" name="amount" id="amount" placeholder="Amount (at least Rs.100)" min="100" required>
+                                        <input type="number" class="form-control" name="amount" id="amount" placeholder="Amount (at least $100)" min="100" required>
+                                    </div>  
+
+                                    <div class="form-group">
+                                        <label for="enddate">Fundraiser End Date:</label>
+                                        <input type="date" class="form-control" name="end_date" id="end_date" max="9999-12-31" required>
                                     </div>  
 
                                     <div class="form-group">
@@ -58,7 +63,7 @@
                                         <input type="url"  name="video_url" class="form-control" id="videourl" placeholder="If you have a video about your campaign">
                                     </div>  
 
-                                                                  
+                                                                                                   
                                     <div class="form-group">
                                         <label for="type">Details:</label>
                                         <textarea class="form-control" name="details" rows="10" placeholder="Add detail description of your campaign" required></textarea>

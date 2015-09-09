@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2015 at 01:35 PM
+-- Generation Time: Sep 09, 2015 at 09:34 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -35,15 +35,17 @@ CREATE TABLE IF NOT EXISTS `donations` (
   `item_number` int(11) NOT NULL,
   PRIMARY KEY (`pay_id`),
   KEY `item_number` (`item_number`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `donations`
 --
 
 INSERT INTO `donations` (`pay_id`, `item_name`, `payment_amount`, `txn_id`, `payer_email`, `item_number`) VALUES
-(1, 'check', 1000, 9, 'pratishshr@gmail.com', 44),
-(2, 'check', 200, 9, 'sujanshr@gmail.com', 44);
+(1, 'check', 1000, 9, 'pratishshr@gmail.com', 36),
+(2, 'check', 200, 9, 'sujanshr@gmail.com', 36),
+(3, 'check', 200, 9, 'malakar@gmail.com', 36),
+(4, 'check', 200, 9, 'romit@gmail.com', 36);
 
 -- --------------------------------------------------------
 
@@ -56,6 +58,7 @@ CREATE TABLE IF NOT EXISTS `fundraiser` (
   `fundraiser_type` varchar(10) NOT NULL,
   `title` varchar(55) NOT NULL,
   `amount` int(11) NOT NULL DEFAULT '10000',
+  `end_date` date NOT NULL,
   `description` varchar(175) NOT NULL,
   `image` varchar(100) NOT NULL,
   `video_url` varchar(500) DEFAULT NULL,
@@ -63,24 +66,26 @@ CREATE TABLE IF NOT EXISTS `fundraiser` (
   `u_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `u_id` (`u_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=50 ;
 
 --
 -- Dumping data for table `fundraiser`
 --
 
-INSERT INTO `fundraiser` (`id`, `fundraiser_type`, `title`, `amount`, `description`, `image`, `video_url`, `details`, `u_id`) VALUES
-(36, 'non_profit', 'again teststest', 850000, 'TEST AGAIN THIS IS TEST', 'http://localhost/Aawaaj//fundraiser/campaign_images/6777248-best-hd-wallpapers.jpg', '', 'TEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TEST', 234),
-(37, 'non_profit', 'check check', 80000, 'asdfasdf', 'http://aawaaj-pratishshr.rhcloud.com//fundraiser/campaign_images/intro-bg.jpg', 'http://www.youtube.com/embed/Hkn06J2HNk4', 'asdfasdf test test', 234),
-(38, 'non_profit', 'check', 6506060, 'check check', 'http://aawaaj-pratishshr.rhcloud.com//fundraiser/campaign_images/intro-bg.jpg', 'http://www.youtube.com/embed/dqVrIBkhqOo', 'check checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck check', 234),
-(39, 'non_profit', '', 0, '', 'http://aawaaj-pratishshr.rhcloud.com//fundraiser/campaign_images/', '', '', 234),
-(40, 'non_profit', 'fundraiser', 10000000, 'fundraiser description', 'http://aawaaj-pratishshr.rhcloud.com//fundraiser/campaign_images/', 'http://www.youtube.com/embed/BU49KDMR1AY', 'details', 240),
-(41, 'non_profit', '', 0, '', 'http://localhost/Aawaaj//fundraiser/campaign_images/', 'http://google.com', '', 234),
-(43, 'non_profit', 'Yiniharulai Paisa chayo', 1000, 'Paisa chayo re yiniharu lai . .a. sf asdf ', 'http://localhost/Aawaaj//fundraiser/campaign_images/37ffc62f6a2937af2bca341471e4810cd84672ee48dde171', '', 'Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf ', 234),
-(44, 'non_profit', 'Yiniharulai Paisa chayo', 5000, 'yiniharulai paisa chayo re alkdf;akldjf adf.a .df asdf/ asdf a', 'http://localhost/Aawaaj//fundraiser/campaign_images/photo.jpg', NULL, 'yiniharulai paisa chayo re alkdf;akldjf adf.a .df asdf/ asdf ayiniharulai paisa chayo re alkdf;akldjf adf.a .df asdf/ asdf ayiniharulai paisa chayo re alkdf;akldjf adf.a .df asdf/ asdf ayiniharulai paisa chayo re alkdf;akldjf adf.a .df asdf/ asdf ayiniharulai paisa chayo re alkdf;akldjf adf.a .df asdf/ asdf a', 234),
-(45, 'non_profit', 'asdfasdf', 10000, '13123123', 'http://localhost/Aawaaj//fundraiser/campaign_images/2.1.jpg', '', 'asdfadsf', 234),
-(46, 'non_profit', 'asdfasdf', 10000, '13123123', 'http://localhost/Aawaaj//fundraiser/campaign_images/2.1.jpg', '', 'asdfadsf', 234),
-(47, 'non_profit', 'asdfasdf', 10000, '13123123', 'http://localhost/Aawaaj//fundraiser/campaign_images/2.1.jpg', 'http://asdfasdf.com', 'asdfadsf', 234);
+INSERT INTO `fundraiser` (`id`, `fundraiser_type`, `title`, `amount`, `end_date`, `description`, `image`, `video_url`, `details`, `u_id`) VALUES
+(36, 'non_profit', 'again teststest', 5000, '0000-00-00', 'TEST AGAIN THIS IS TEST', 'http://localhost/Aawaaj//fundraiser/campaign_images/6777248-best-hd-wallpapers.jpg', '', 'TEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TESTTEST AGAIN THIS IS TEST', 234),
+(37, 'non_profit', 'check check', 80000, '0000-00-00', 'asdfasdf', 'http://aawaaj-pratishshr.rhcloud.com//fundraiser/campaign_images/intro-bg.jpg', 'http://www.youtube.com/embed/Hkn06J2HNk4', 'asdfasdf test test', 234),
+(38, 'non_profit', 'check', 6506060, '0000-00-00', 'check check', 'http://aawaaj-pratishshr.rhcloud.com//fundraiser/campaign_images/intro-bg.jpg', 'http://www.youtube.com/embed/dqVrIBkhqOo', 'check checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck checkcheck check', 234),
+(39, 'non_profit', '', 0, '0000-00-00', '', 'http://aawaaj-pratishshr.rhcloud.com//fundraiser/campaign_images/', '', '', 234),
+(40, 'non_profit', 'fundraiser', 10000000, '0000-00-00', 'fundraiser description', 'http://aawaaj-pratishshr.rhcloud.com//fundraiser/campaign_images/', 'http://www.youtube.com/embed/BU49KDMR1AY', 'details', 240),
+(41, 'non_profit', '', 0, '0000-00-00', '', 'http://localhost/Aawaaj//fundraiser/campaign_images/', 'http://google.com', '', 234),
+(43, 'non_profit', 'Yiniharulai Paisa chayo', 1000, '0000-00-00', 'Paisa chayo re yiniharu lai . .a. sf asdf ', 'http://localhost/Aawaaj//fundraiser/campaign_images/37ffc62f6a2937af2bca341471e4810cd84672ee48dde171', '', 'Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf Paisa chayo re yiniharu lai . .a. sf asdf ', 234),
+(44, 'non_profit', 'Yiniharulai Paisa chayo', 5000, '0000-00-00', 'yiniharulai paisa chayo re alkdf;akldjf adf.a .df asdf/ asdf a', 'http://localhost/Aawaaj//fundraiser/campaign_images/photo.jpg', NULL, 'yiniharulai paisa chayo re alkdf;akldjf adf.a .df asdf/ asdf ayiniharulai paisa chayo re alkdf;akldjf adf.a .df asdf/ asdf ayiniharulai paisa chayo re alkdf;akldjf adf.a .df asdf/ asdf ayiniharulai paisa chayo re alkdf;akldjf adf.a .df asdf/ asdf ayiniharulai paisa chayo re alkdf;akldjf adf.a .df asdf/ asdf a', 234),
+(45, 'non_profit', 'asdfasdf', 10000, '0000-00-00', '13123123', 'http://localhost/Aawaaj//fundraiser/campaign_images/2.1.jpg', '', 'asdfadsf', 234),
+(46, 'non_profit', 'asdfasdf', 10000, '0000-00-00', '13123123', 'http://localhost/Aawaaj//fundraiser/campaign_images/2.1.jpg', '', 'asdfadsf', 234),
+(47, 'non_profit', 'asdfasdf', 10000, '0000-00-00', '13123123', 'http://localhost/Aawaaj//fundraiser/campaign_images/2.1.jpg', 'http://asdfasdf.com', 'asdfadsf', 234),
+(48, 'non_profit', 'check', 2000, '2016-12-12', '20check date', 'http://localhost/Aawaaj//fundraiser/campaign_images/6777248-best-hd-wallpapers.jpg', '', 'checkin date', 234),
+(49, 'non_profit', 'check', 2000, '2016-12-12', '20check date', 'http://localhost/Aawaaj//fundraiser/campaign_images/6777248-best-hd-wallpapers.jpg', '', 'checkin date', 234);
 
 -- --------------------------------------------------------
 

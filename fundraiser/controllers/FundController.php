@@ -44,6 +44,7 @@
 			$fund->set_fundraiser_type($_POST['fundraiser_type']);
 			$fund->set_title($_POST['title']);
 			$fund->set_amount($_POST['amount']);
+			$fund->set_end_date($_POST['end_date']);
 			$fund->set_description($_POST['description']);
 
 			//embedding youtube url
@@ -79,13 +80,22 @@
 
 			$payList = $this->payrepository->get_by_id($id); //Details of those who donated on particular fundraiser
 
-			
+			$payList = array_reverse($payList);
 	       
 
 				if(!is_null($fund)){
 				
 				$amount = $fund->get_amount();
 				$percentage = floor(($total/$amount)*100); 	  //percentage of donation completed	
+				$end_date = $fund->get_end_date();
+			
+				//CALCULATE DAYS LEFT
+				$current_date = new DateTime(date('Y-m-d'), new DateTimeZone('Asia/Kathmandu'));
+				$end_date = new DateTime($end_date, new DateTimeZone('Asia/Kathmandu'));
+				$interval = $current_date->diff($end_date);
+				$remaining = $interval->format('%a');
+
+
 				include_once(ROOT_PATH."fundraiser/views/container.php");
 				}else{
 
