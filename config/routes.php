@@ -9,6 +9,9 @@
 
 	//fundraiser routes
 	$routes['fund'] = 'FundController';
+	$routes['paypal'] = 'Paypal';
+
+	//profile routes
 	$routes['profile'] = 'ProfileController';
 	$routes['projects'] = 'ProjectController';
 	$routes['requirements'] = 'RequirementController';
