@@ -35,6 +35,7 @@
 					$list->set_last_name($row['last_name']);
 					$list->set_user_type($row['user_type']);
 					$list->set_status($row['user_status']);
+					$list->set_user_hash($row['user_hash']);
 					array_push($finding, $list);
 
 				
@@ -61,6 +62,7 @@
 					$list->set_fundraiser_type($row['fundraiser_type']);
 					$list->set_amount($row['amount']);
 					$list->set_image($row['image']);
+					$list->set_fund_id($row['id']);
 					array_push($finding, $list);
 		}
 	}
