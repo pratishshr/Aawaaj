@@ -1,4 +1,4 @@
-<div class="container text-center col-md-9 panel">
+<div class="container text-center col-md-9 panel panel-default">
 	<form method="post" action="">
         <div class="form-group">
         <label >Search</label>
@@ -34,15 +34,15 @@
                 foreach($fundraisers as $fund){ 
                  ?>
                     <div class="col-sm-6 col-md-4">
-	                    <a href="#" class="thumbnail">
+	                    <a href="<?php echo BASE_URL?>fundraiser/index.php?page=fund&m=campaign&id=<?php echo $fund->get_fund_id();?>" class="thumbnail">
                       <img class="img-responsive" src="<?php echo $fund->get_image();?>" alt="...">
                       </a>
                       
                         <h4><?php echo $fund->get_title();?></h4>
                         <h4>Amount : <?php echo $fund->get_amount();?></h4>
                         <p><?php echo $fund->get_fundraiser_type(); ?></p>
-                        <h5><?php echo $fund->get_description(); ?></h5>
-                        <p><a href="#" class="btn btn-primary" role="button">View Fundraiser</a></p>
+                        
+                        <p><a href="<?php echo BASE_URL?>fundraiser/index.php?page=fund&m=campaign&id=<?php echo $fund->get_fund_id();?>" class="btn btn-primary" role="button">View Fundraiser</a></p>
                       
                     </div> 
           <?php }
