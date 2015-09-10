@@ -1,74 +1,75 @@
-<?php require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php");?>
+<?php require_once(ROOT_PATH."database/session.php") ?>
+<?php require_once(ROOT_PATH."app/controller/logincontroller.php") ?>
+<?php
+ require_once(ROOT_PATH."search/model/SearchList.class.php");?>
+<?php require_once(ROOT_PATH."search/system/repositories/searchrepository.class.php");?>
 <?php
 
 	class SearchController{
-		private $db;
+		
+		private $searchrepository;
 
 		public function __construct(){
-				
+			$this->searchrepository = new SearchRepository();
 		}
 
-		public function find_users($find){
-			//ARRAY OBJECT HARU PASS GARNA
-			$finding = array();
-
-			//DATABASE CONNECTION
-
+		public function index(){
 			
-
-			$this->db= new mysqli(HOSTNAME,USERNAME,PASSWORD,DATABASE);
-
-
-			//SELECT ALL QUERY
-			$sql = "SELECT * FROM user WHERE first_name LIKE '%$find%' OR last_name LIKE '%$find%'";
-	 		$result=$this->db->query($sql);
-	 		$count=mysqli_num_rows($result);
-	 		if($count==0){
-	 			$finding=null;
-	 		
-	 		}
-	 		else{
-	 			while($row = $result->fetch_assoc()){
-	 				$list=new SearchList();
-					$list->set_user_id($row['user_id']);
-					$list->set_first_name($row['first_name']);
-					$list->set_last_name($row['last_name']);
-					$list->set_user_type($row['user_type']);
-					$list->set_status($row['user_status']);
-					$list->set_user_hash($row['user_hash']);
-					array_push($finding, $list);
-
-				
-			}
+			$view_page = "index";
+			include_once(ROOT_PATH."search/view/container.php");
+			
 		}
-			$this->db->close();
-			return $finding;
-		
+
+		public function users(){
+
+			$view_page = "users";
+			include_once(ROOT_PATH."search/view/container.php");
+
+		}
+
+		public function fundraisers(){
+
+			$view_page = "fundraisers";
+			include_once(ROOT_PATH."search/view/container.php");
+
+		}
+
+		public function projects(){
+
+			$view_page = "projects";
+			include_once(ROOT_PATH."search/view/container.php");
+
+		}
+
+
 	}
-	public function find_fundraisers($find){
-		$finding = array();
-		$this->db=new mysqli(HOSTNAME,USERNAME,PASSWORD,DATABASE);
-		$sql="SELECT * FROM fundraiser WHERE title LIKE '%$find%' ";
-		$result=$this->db->query($sql);
-		$count=mysqli_num_rows($result);
-		if($count==0){
-			$finding=null;
+
+		$searchcontroller =  new SearchController();
+		if(isset($_GET['m'])){
+			$method =  $_GET['m'];
+
+		}else{
+			$method = "index";
 		}
-		else{
-			while($row = $result->fetch_assoc()){
-	 				$list=new SearchList();
-					$list->set_title($row['title']);
-					$list->set_description($row['description']);
-					$list->set_fundraiser_type($row['fundraiser_type']);
-					$list->set_amount($row['amount']);
-					$list->set_image($row['image']);
-					$list->set_fund_id($row['id']);
-					array_push($finding, $list);
+		switch($method){
+			case "index":
+
+			$searchcontroller->index();
+			
+			break;
+			case "users":
+			$searchcontroller->users();
+			break;
+			case "fundraisers":
+			$searchcontroller->fundraisers();
+			break;
+			case "projects":
+			$searchcontroller->projects();
+			break;
+			default:
+			$searchcontroller->index();
+			break;
 		}
-	}
-			$this->db->close();
-			return $finding;
-}
-}
+
 
 ?>
