@@ -32,6 +32,7 @@
 				$fund->set_video_url($row['video_url']);
 				$fund->set_details($row['details']);
 
+				
 				array_push($fund_list,$fund);
 			}
 			$this->db->close();
