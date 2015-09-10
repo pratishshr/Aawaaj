@@ -48,13 +48,13 @@
                   <?php
                 foreach($results->find_users($find) as $user){?>
                     <div class="col-sm-6 col-md-4">
-                    <a href="<?php echo BASE_URL?>profile" class="thumbnail">
+                    <a href="<?php echo BASE_URL?>profile/index.php?id=<?php echo $user->get_user_hash();?>" class="thumbnail">
                       <img class="img-responsive" src="<?php echo BASE_URL?>profile/images/rotlogo.png" alt="...">
                       </a>
                       
                         <h3><?php echo $user->get_first_name();?> <?php echo $user->get_last_name();?></h3>
                         <p><?php echo $user->get_user_type(); ?></p>
-                        <p><a href="<?php echo BASE_URL?>profile" class="btn btn-primary" role="button">View Profile</a></p>
+                        <p><a href="<?php echo BASE_URL?>profile/index.php?id=<?php echo $user->get_user_hash();?>" class="btn btn-primary" role="button">View Profile</a></p>
                       
                   
                   </div> 
@@ -80,7 +80,7 @@
                   <?php
                 foreach($results->find_fundraisers($find) as $user){?>
                     <div class="col-sm-6 col-md-4">
-                    <a href="<?php echo BASE_URL?>profile" class="thumbnail">
+                    <a href="<?php echo BASE_URL?>fundraiser/index.php?page=fund&m=campaign&id=<?php echo $user->get_fund_id();?>" class="thumbnail">
                       <img class="img-responsive" src="<?php echo $user->get_image();?>" alt="...">
                       </a>
                       
@@ -88,7 +88,7 @@
                         <h4>Amount : <?php echo $user->get_amount();?></h4>
                         <p><?php echo $user->get_user_type(); ?></p>
                         <h5><?php echo $user->get_description(); ?></h5>
-                        <p><a href="<?php echo BASE_URL?>profile" class="btn btn-primary" role="button">View Fundraiser</a></p>
+                        <p><a href="<?php echo BASE_URL?>fundraiser/index.php?page=fund&m=campaign&id=<?php echo $user->get_fund_id();?>" class="btn btn-primary" role="button">View Fundraiser</a></p>
                       
                   
                   </div> 
@@ -121,13 +121,13 @@
                  <div class="row">
                  <?php foreach($results->find_users($find) as $user){?>
                     <div class="col-sm-6 col-md-4">
-                    <a href="<?php echo BASE_URL?>profile" class="thumbnail">
+                    <a href="<?php echo BASE_URL?>profile/index.php?id=<?php echo $user->get_user_hash();?>" class="thumbnail">
                       <img class="img-responsive" src="<?php echo BASE_URL?>profile/images/rotlogo.png" alt="...">
                       </a>
                       
                         <h3><?php echo $user->get_first_name();?> <?php echo $user->get_last_name();?></h3>
                         <p><?php echo $user->get_user_type(); ?></p>
-                        <p><a href="<?php echo BASE_URL?>profile" class="btn btn-primary" role="button">View Profile</a></p>
+                        <p><a href="<?php echo BASE_URL?>profile/index.php?id=<?php echo $user->get_user_hash();?>" class="btn btn-primary" role="button">View Profile</a></p>
                       
                   
                   </div> 
@@ -147,7 +147,7 @@
             <?php
           foreach($results->find_fundraisers($find) as $user){ ?>
               <div class="col-sm-6 col-md-4">
-              <a href="<?php echo BASE_URL?>profile" class="thumbnail">
+              <a href="<?php echo BASE_URL?>fundraiser/index.php?page=fund&m=campaign&id=<?php echo $user->get_fund_id();?>" class="thumbnail">
                 <img class="img-responsive" src="<?php echo $user->get_image();?>" alt="...">
                 </a>
                 
@@ -155,7 +155,7 @@
                   <h4>Amount : <?php echo $user->get_amount();?></h4>
                   <p><?php echo $user->get_user_type(); ?></p>
                   <h5><?php echo $user->get_description(); ?></h5>
-                  <p><a href="<?php echo BASE_URL?>profile" class="btn btn-primary" role="button">View Fundraiser</a></p>
+                  <p><a href="<?php echo BASE_URL?>fundraiser/index.php?page=fund&m=campaign&id=<?php echo $user->get_fund_id();?>" class="btn btn-primary" role="button">View Fundraiser</a></p>
                 
             
             </div> 
