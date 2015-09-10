@@ -44,7 +44,7 @@
 
                                     <div class="form-group">
                                         <label for="enddate">Fundraiser End Date:</label>
-                                        <input type="date" class="form-control" name="end_date" id="end_date" max="9999-12-31" required>
+                                        <input type="date" class="form-control" name="end_date" id="end_date"  min="<?php echo date("Y-m-d"); ?>" max="2200-12-31" required>
                                     </div>  
 
                                     <div class="form-group">

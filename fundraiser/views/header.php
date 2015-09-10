@@ -19,6 +19,9 @@
     <!-- google recaptcha -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
+    <!-- Facebook -->
+    <div id="fb-root"></div>
+    <script src="<?php echo BASE_URL?>home/assets/js/facebook.js"></script>
 </head><!--/head-->
 
 
