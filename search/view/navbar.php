@@ -13,7 +13,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <a class="navbar-brand page-scroll" href="<?php echo BASE_URL?>public/index.php">
+                <a class="navbar-brand page-scroll" href="<?php echo BASE_URL?>home/index.php">
                     <i class="fa fa-play-circle"></i> <span class="light">Aawaaj</span>
                 </a>
             </div>
@@ -26,16 +26,16 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="<?php echo BASE_URL?>public/index.php/#about">About</a>
+                        <a class="page-scroll" href="<?php echo BASE_URL?>home/index.php/#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="<?php echo BASE_URL?>public/index.php/#download">Explore</a>
+                        <a class="page-scroll" href="<?php echo BASE_URL?>home/index.php/#download">Explore</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="<?php echo BASE_URL.'fundraiser/index.php?page=fund';?>">Start Fundraiser</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="<?php echo BASE_URL?>public/index.php/#contact">Contact</a>
+                        <a class="page-scroll" href="<?php echo BASE_URL?>home/index.php/#contact">Contact</a>
                     </li>   
                     
                 </ul>
