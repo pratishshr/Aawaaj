@@ -77,13 +77,15 @@
                      <?php 
                         }else{ 
                             $logged = true;
-                        /*if($_SESSION['user_id'] == $data['user_id']){
+                        if(isset($data)){
+                        if($_SESSION['user_id'] == $data['user_id']){
                             $user_profile = true;
-                        }*/
+                        }
+                    }
                         ?>
                             <li>
 
-                                <a class = "page-scross" href="<?php echo BASE_URL?>profile/index.php">Namaste</a>
+                                <a class = "page-scross" href="<?php echo BASE_URL.'profile/index.php?id='.$_SESSION['user_hash']?>">Namaste</a>
 
                                
                            </li>

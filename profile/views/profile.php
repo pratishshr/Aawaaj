@@ -39,7 +39,7 @@
                                     <span class="sr-only">Toggle Dropdown</span>
                                   </a href="#">
                                   <ul class="dropdown-menu text-left" role="menu">
-                                    <li><a href="#"><span class="fa fa-envelope pull-right"></span> Send an email </a></li>
+                                    <li><a href="<?php echo BASE_URL.'/profile/index.php?id='.$_SESSION['user_hash'].'&page=projects&m=add'?>"><span class="fa fa-envelope pull-right"></span> Add a project </a></li>
                                     <li><a href="#"><span class="fa fa-list pull-right"></span> Add or remove from a list  </a></li>
                                     <li class="divider"></li>
                                     <li><a href="#"><span class="fa fa-warning pull-right"></span>Report this user for spam</a></li>

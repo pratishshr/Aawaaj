@@ -12,6 +12,7 @@ class Profile{
 	private $contact_number;
 	private $user_type;
 	private $user_status;
+	private $user_hash;
 	
 	private $age;
 	
@@ -98,6 +99,15 @@ class Profile{
 	public function set_user_status($user_status){
 		$this->user_status = $user_status;
 	}
+	
+	public function get_user_hash(){
+		return $this->user_hash;
+	}
+
+	public function set_user_hash($user_hash){
+		$this->user_hash = $user_hash;
+	}
+	
 	
 	public function get_age(){
 		return $this->get_age;
