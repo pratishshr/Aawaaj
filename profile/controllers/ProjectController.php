@@ -41,6 +41,10 @@ class ProjectController{
 				$data['service']=$result->get_service();
 			}
 		}
+		if($data['user_type'] != "organization"){
+			$this->error_page();
+			exit();
+		}
 		echo "View Project by this user here";
 	}
 
@@ -70,21 +74,26 @@ if(isset($_GET['id'])){
 
 	switch ($user_profile_id) {
 		case $user:
-		
-			if(isset($_GET['m']) && $_SESSION['user_type'] == "organization"){
-				$method = $_GET['m'];
-				switch ($method) {
-					case 'add':
-						$project_controller->add();
-						break;
+			if($_SESSION['user_type'] == "organization"){
+				if(isset($_GET['m'])){
+					$method = $_GET['m'];
 					
-					default:
-						$project_controller->error_page();
-						break;
+					switch ($method) {
+						case 'add':
+							$project_controller->add();
+							break;
+						
+						default:
+							$project_controller->error_page();
+							break;
+					}
+				}
+				else{
+					$project_controller->index($user_profile_id);	
 				}
 			}
 			else{
-				$project_controller->index($user_profile_id);
+				$project_controller->error_page();
 			}
 		break;
 	
