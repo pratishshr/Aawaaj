@@ -1,4 +1,10 @@
-<?php $user_type=$data['user_type'];?>
+<?php
+$user_type=$data['user_type'];
+$user_profile = false;
+if($logged && $_SESSION['user_hash'] == $data['user_hash']){
+    $user_profile = true;
+}
+?>
 <div class="container black-color">
     <div class="row">
         <div class="container-fluid">
@@ -26,6 +32,7 @@
             </div>            
             <div class="col-xs-12 divider text-center">
                 <?php
+                    if($logged && $user_profile){
                         if($user_type == "generalUser"){
                 ?>
                             <div class="col-xs-12 col-sm-4 emphasis">
@@ -39,10 +46,9 @@
                 ?>
                             <div class="col-xs-12 col-sm-4 emphasis">
                                 <h2><strong>43</strong></h2>                    
-                                <p><small>Snippets</small></p>
+                                <p><small>Projects</small></p>
                                 <div class="btn-group dropup btn-block">
-                                  <a href="#" type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options </button>
-                                  <a href="#" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                  <a href="javascript:void(0)" type="button" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown"> Projects </button>
                                     <span class="caret"></span>
                                     <span class="sr-only">Toggle Dropdown</span>
                                   </a href="#">
@@ -81,6 +87,7 @@
                             </div>
                 <?php  
                         }
+                    }
                 ?>
 
                 <div class="col-xs-12 col-sm-4 emphasis">

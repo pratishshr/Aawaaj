@@ -67,7 +67,9 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <?php global $session; if(!$session->isLoggedIn()){ ?>
+                    <?php global $session; 
+                    $logged = false;
+                    if(!$session->isLoggedIn()){ ?>
                     <li>
                         <a class="page-scroll" href="" data-toggle="modal" data-target="#signupModal" id="signup_btn">Sign Up</a>
                     </li>
@@ -77,9 +79,6 @@
                      <?php 
                         }else{ 
                             $logged = true;
-                        /*if($_SESSION['user_id'] == $data['user_id']){
-                            $user_profile = true;
-                        }*/
                         ?>
                             <li>
 

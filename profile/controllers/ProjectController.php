@@ -1,4 +1,4 @@
-<?php require_once(ROOT_PATH."database/session.php") ?> 
+<?php require_once(ROOT_PATH."database/session.php");?> 
 <?php include_once(ROOT_PATH."profile/system/models/profile.class.php");?>
 <?php include_once(ROOT_PATH."profile/system/repositories/profilerepository.class.php");?>
 
@@ -6,15 +6,13 @@
 
 class ProjectController{
 
-	private $repository;
-	private $data = array();
+	private $profile_repository;
 	public function __construct(){
-		//$this->repository = new ProjectRepository();
+		$this->profile_repository = new ProfileRepository();
 	}
 	
 	public function index($u_id){
-		
-		$result = $this->repository->get_by_id($u_id);
+		$result = $this->profile_repository->get_by_id($u_id);
 		if($result == NULL){
 			//if id=jpt
 			$this->error_page();
@@ -42,9 +40,8 @@ class ProjectController{
 			if($result->get_user_type() == "welfare"){
 				$data['service']=$result->get_service();
 			}
-			include_once(ROOT_PATH.'profile/views/container.php');
-			//var_dump($data);
 		}
+		echo "View Project by this user here";
 	}
 
 	public function add(){
@@ -109,5 +106,5 @@ if(isset($_GET['id'])){
 
 }
 else{
-	$profile_controller->error_page();
+	$project_controller->error_page();
 }
