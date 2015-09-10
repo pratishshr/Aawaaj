@@ -1,19 +1,19 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-<?php require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php"); ?>
-<?php require_once(ROOT_PATH."database/session.php") ?>
-<?php require_once(ROOT_PATH."app/controller/logincontroller.php") ?>
+
+
+
 <?php include_once(ROOT_PATH."app/view/loginmodal.php"); ?>
  <?php include_once(ROOT_PATH."app/view/signupmodal.php"); ?>
 
 
- <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+ <header class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container ">
             <div class="navbar-header ">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <a class="navbar-brand page-scroll" href="<?php echo PUBLIC_PATH2?>/index.php">
+                <a class="navbar-brand page-scroll" href="<?php echo BASE_URL?>home/index.php">
                     <i class="fa fa-play-circle"></i> <span class="light">Aawaaj</span>
                 </a>
             </div>
@@ -26,16 +26,16 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="<?php echo PUBLIC_PATH2?>/index.php/#about">About</a>
+                        <a class="page-scroll" href="<?php echo BASE_URL?>home/index.php/#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="<?php echo PUBLIC_PATH2?>/index.php/#download">Explore</a>
+                        <a class="page-scroll" href="<?php echo BASE_URL?>home/index.php/#download">Explore</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="<?php echo BASE_URL.'fundraiser/index.php?page=fund';?>">Start Fundraiser</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="<?php echo PUBLIC_PATH2?>/index.php/#contact">Contact</a>
+                        <a class="page-scroll" href="<?php echo BASE_URL?>home/index.php/#contact">Contact</a>
                     </li>   
                     
                 </ul>
@@ -78,4 +78,4 @@
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-    </nav>
+    </header>

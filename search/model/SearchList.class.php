@@ -14,7 +14,6 @@
 		private $image;
 		private $fund_id;
 
-
 		public function __construct(){
 
 		}
@@ -34,6 +33,9 @@
 		public function get_status(){
 			return $this->status;
 		}
+		public function get_user_hash(){
+			return $this->user_hash;
+		}
 		public function set_user_id($user_id){
 			$this->user_id=$user_id;
 		}
@@ -48,9 +50,6 @@
 		}
 		public function set_status($status){
 			$this->status=$status;
-		}
-		public function get_user_hash(){
-			return $this->user_hash;
 		}
 		public function set_user_hash($user_hash){
 			$this->user_hash=$user_hash;
@@ -87,11 +86,11 @@
 		public function get_image(){
 			return $this->image;
 		}
-		public function get_fund_id(){
-			return $this->fund_id;
-		}
 		public function set_fund_id($fund_id){
 			$this->fund_id=$fund_id;
+		}
+		public function get_fund_id(){
+			return $this->fund_id;
 		}
 	}
 

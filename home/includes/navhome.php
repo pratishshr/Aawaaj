@@ -40,7 +40,7 @@
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>   
                     <li>
-                        <a class="page-scroll" href="<?php echo BASE_URL.'search/view/search.php';?>">Search</a>
+                        <a class="page-scroll" href="<?php echo BASE_URL.'search/';?>">Search</a>
                     </li>   
                     
                 </ul>
