@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2015 at 05:54 PM
+-- Generation Time: Sep 10, 2015 at 11:15 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `generaluser` (
   `age` int(11) DEFAULT NULL,
   `type` enum('generalUser') NOT NULL,
   `u_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `generaluser`
@@ -102,7 +102,8 @@ CREATE TABLE IF NOT EXISTS `generaluser` (
 
 INSERT INTO `generaluser` (`gen_id`, `age`, `type`, `u_id`) VALUES
 (15, 22, 'generalUser', 234),
-(17, 21, 'generalUser', 240);
+(17, 21, 'generalUser', 240),
+(18, NULL, 'generalUser', 241);
 
 -- --------------------------------------------------------
 
@@ -119,7 +120,14 @@ CREATE TABLE IF NOT EXISTS `organization` (
   `objective` text NOT NULL,
   `type` enum('organization') NOT NULL,
   `u_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `organization`
+--
+
+INSERT INTO `organization` (`org_id`, `name`, `doe`, `img`, `address`, `objective`, `type`, `u_id`) VALUES
+(1, 'Rotaract Club of Kathmandu', '1996-11-06', 'http://localhost/Aawaaj//pictures/orgPictures/111665693_1162046073812294_3657191041260779426_n.jpg', 'Thapathali, Kathmandu', 'increase professionalism and community service', 'organization', 242);
 
 -- --------------------------------------------------------
 
@@ -143,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `password` (
 `p_id` int(11) NOT NULL,
   `password` varchar(100) NOT NULL,
   `u_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `password`
@@ -151,7 +159,9 @@ CREATE TABLE IF NOT EXISTS `password` (
 
 INSERT INTO `password` (`p_id`, `password`, `u_id`) VALUES
 (89, '$2y$12$hioOjjnBmCMxrXJ2cLcKiuFsJAMn4pC8td6RK.IeYo28ByVVKT252', 234),
-(95, '$2y$12$63B7vglG481rr5TT24IQNuGCcWHb7CKdrYybeHA8PbEqF7wrEhiVS', 240);
+(95, '$2y$12$63B7vglG481rr5TT24IQNuGCcWHb7CKdrYybeHA8PbEqF7wrEhiVS', 240),
+(96, '$2y$12$F64YPeFSEegcE/tsfsgHFu4S1sjtMqXkKsR/qdqwVA0dh18VKJ9Ve', 241),
+(97, '$2y$12$kcKyaEE/EAeaCq0983uMbeIjmaU040U0uFm.kvSwrkH29eKWOEsR6', 242);
 
 -- --------------------------------------------------------
 
@@ -183,9 +193,9 @@ INSERT INTO `profile` (`id`, `u_id`, `profile_photo`, `about`) VALUES
 CREATE TABLE IF NOT EXISTS `projects` (
 `project_id` int(11) NOT NULL,
   `start_date` date NOT NULL,
-  `end_date` int(11) NOT NULL,
+  `end_date` date NOT NULL,
   `title` varchar(55) NOT NULL,
-  `objectives` int(255) NOT NULL,
+  `objectives` varchar(255) NOT NULL,
   `short_desc` varchar(255) NOT NULL,
   `location` varchar(100) NOT NULL,
   `budget` int(11) DEFAULT NULL,
@@ -225,7 +235,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `user_type` enum('generalUser','organization','welfare') NOT NULL,
   `user_status` tinyint(1) NOT NULL,
   `user_hash` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=241 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=243 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
@@ -233,7 +243,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`user_id`, `user_name`, `first_name`, `last_name`, `contact_number`, `user_type`, `user_status`, `user_hash`) VALUES
 (234, 'vanroshr@gmail.com', 'Pratish', 'Shrestha', 2147483647, 'generalUser', 1, '96601e150a9f349302964aa3ffd92afd'),
-(240, 'kushalraj93@gmail.com', 'kushal', 'rajbhandari', 2147483647, 'generalUser', 1, 'fe99e03e9148d7a38d31424450633177');
+(240, 'kushalraj93@gmail.com', 'kushal', 'rajbhandari', 2147483647, 'generalUser', 1, 'fe99e03e9148d7a38d31424450633177'),
+(241, 'rom_amgai@hotmail.com', 'Romit', 'Amgai', 123123123, 'generalUser', 1, '3c471e3b86dfc3a428364631ffef09fe'),
+(242, 'rtrromitamgai@gmail.com', 'Romit', 'Amgai', 123123123, 'organization', 1, '2195c48231fa43bf9470b23e7648548d');
 
 -- --------------------------------------------------------
 
@@ -341,17 +353,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50;
 -- AUTO_INCREMENT for table `generaluser`
 --
 ALTER TABLE `generaluser`
-MODIFY `gen_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+MODIFY `gen_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `organization`
 --
 ALTER TABLE `organization`
-MODIFY `org_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `org_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `password`
 --
 ALTER TABLE `password`
-MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=96;
+MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=98;
 --
 -- AUTO_INCREMENT for table `profile`
 --
@@ -366,7 +378,7 @@ MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=241;
+MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=243;
 --
 -- AUTO_INCREMENT for table `welfare`
 --

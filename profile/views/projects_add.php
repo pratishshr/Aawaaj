@@ -8,13 +8,13 @@
                             <div class="panel-body">
                             <div class="page-header text-center">
                               <h1 class="black-color">Create Project<br/>
-                              <small>Raise funds for a Non-Profit or Personal Projects</small></h1>
+                              <small>Please Enter All The Necessary Details For Your Projects</small></h1>
                             </div>  
                             
                             <!-- ===================================== -->
                             <!-- MULTI STEP FORM FOR CREATE-->
 
-                            <form class="black-color">
+                            <form class="black-color" action="" method="POST" enctype="multipart/form-data">
                                                                     
                                     <div class="form-group ">
                                         <label for="type">Project Type:</label>
@@ -31,121 +31,121 @@
 
                                     <div class="form-group" id="single_date_div">
                                         <label for="single_date">Date:</label>
-                                        <input type="date" class="form-control" id="single_date">
+                                        <input type="date" class="form-control" id="single_date" name="single_date">
                                     </div>
 
                                     <div id="date_range">                                    
                                         <div class="form-group">
                                             <label for="multiple_date_a">Date Range:</label>
-                                            <input type="date" class="form-control" id="multiple_date_a">
+                                            <input type="date" class="form-control" id="multiple_date_a" name="start_date">
                                         </div>
 
                                         <label>To</label>
                                         
                                         <div class="form-group">
-                                            <input type="date" class="form-control" id="multiple_date_b">
+                                            <input type="date" class="form-control" id="multiple_date_b" name="end_date">
                                         </div> 
                                     </div>
 
                                     <div class="form-group">
                                         <label for="title">Title:</label>
-                                        <input type="text" class="form-control" id="title" placeholder="Title" maxlength="50">
+                                        <input type="text" class="form-control" id="title" placeholder="Title" maxlength="50" name="project_title">
                                     </div>  
                                  
                                     <div class="form-group">
                                         <label for="objectives">Objectives:</label>
-                                        <textarea class="form-control" id="objectives" placeholder="Objectives" maxlength="160"></textarea>
+                                        <textarea class="form-control" id="objectives" placeholder="Objectives" maxlength="160" name="project_objectives"></textarea>
                                     </div>  
                                     
                                     <div class="form-group">
                                         <label for="short_desc">Description (Short):</label>
-                                        <textarea class="form-control" id="short_desc" placeholder="Description (Short)" maxlength="160"></textarea>
+                                        <textarea class="form-control" id="short_desc" placeholder="Description (Short)" maxlength="160" name="short_desc"></textarea>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="loction">Location:</label>
-                                        <input type="text" class="form-control" id="location" placeholder="Location" maxlength="100">
+                                        <input type="text" name="location" class="form-control" id="location" placeholder="Location" maxlength="100">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="budget">Estimated Budget:</label>
-                                        <input type="number" class="form-control" id="budget" placeholder="Budget">
+                                        <input type="number" class="form-control" id="budget" placeholder="Budget" name="amount">
                                     </div>
                                     
                                     <div class="form-group">
                                         <label for="requirement1">Requirements (upto 5):</label> <a href="javascript:void(0)" class="btn btn-success btn-sm" id="btn_plus"><span class="fa fa-plus"></span></a> <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="btn_minus"><span class="fa fa-minus"></span></a>
-                                        <input type="text" class="form-control" id="requirement1" placeholder="Requirement 1" maxlength="200" required>
+                                        <input type="text" class="form-control" id="requirement1" placeholder="Requirement 1" maxlength="200" name="requirement1" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="requirement2" placeholder="Requirement 2" maxlength="200">
+                                        <input type="text" class="form-control" id="requirement2" placeholder="Requirement 2" name="requirement2" maxlength="200">
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="requirement3" placeholder="Requirement 3" maxlength="200">
+                                        <input type="text" class="form-control" id="requirement3" placeholder="Requirement 3" name="requirement3" maxlength="200">
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="requirement4" placeholder="Requirement 4" maxlength="200">
+                                        <input type="text" class="form-control" id="requirement4" placeholder="Requirement 4" name="requirement4" maxlength="200">
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="requirement5" placeholder="Requirement 5" maxlength="200">
+                                        <input type="text" class="form-control" id="requirement5" placeholder="Requirement 5" name="requirement5" maxlength="200">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="volunteers">Need Volunteers:</label>
-                                        <input type="checkbox" class="" id="volunteers" value="1">
+                                        <input type="checkbox" class="" id="volunteers" name="cb_volunteer">
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="number" class="form-control" id="volunteers_no" placeholder="Number of Voluteers (at least 1)" min="1" value="1">
+                                        <input type="number" class="form-control" name="number_volunteer" id="volunteers_no" placeholder="Number of Voluteers (at least 1)" min="1" value="1">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="org_involved">Other Organizations Involved:</label>
-                                        <input type="checkbox" class="" id="org_involved" value="1">
+                                        <input type="checkbox" class="" id="org_involved" value="1" name="cb_otherorg">
                                     </div>
 
                                     <div id="org_list">
                                         
                                         <div class="form-group">
                                             <label for="org1">Organization (upto 5):</label> <a href="javascript:void(0)" class="btn btn-success btn-sm" id="org_plus"><span class="fa fa-plus"></span></a> <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="org_minus"><span class="fa fa-minus"></span></a>
-                                            <input type="text" class="form-control" id="org1" placeholder="Organization 1" maxlength="200">
+                                            <input type="text" class="form-control" id="org1" placeholder="Organization 1" maxlength="200" name="organization1">
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="org2" placeholder="Organization 2" maxlength="200">
+                                            <input type="text" class="form-control" id="org2" placeholder="Organization 2" maxlength="200" name="organization2">
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="org3" placeholder="Organization 3" maxlength="200">
+                                            <input type="text" class="form-control" id="org3" placeholder="Organization 3" maxlength="200" name="organization3">
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="org4" placeholder="Organization 4" maxlength="200">
+                                            <input type="text" class="form-control" id="org4" placeholder="Organization 4" maxlength="200" name="organization4">
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="org5" placeholder="Organization 5" maxlength="200">
+                                            <input type="text" class="form-control" id="org5" placeholder="Organization 5" maxlength="200" name="organization5">
                                         </div>   
 
                                     </div>
 
                                     <div class="form-group">
                                         <label for="banner_image">Banner Image:</label>
-                                        <input type="file" accept="image/*" id="banner_image">
+                                        <input type="file" accept="image/*" id="banner_image" name="banner_image">
                                     </div>  
                                  
                                     <div class="form-group">
                                         <label for="proposal">Upload Project Proposal:</label>
-                                        <input type="file" id="proposal">
+                                        <input type="file" id="proposal" name="project_proposal">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="videourl">Video URL <small>(Youtube)</small>:</label>
 
-                                        <input type="url" class="form-control" id="videourl" placeholder="If you have a video about your project">
+                                        <input type="url" name="project_video" class="form-control" id="videourl" placeholder="If you have a video about your project">
                                     </div>  
                                                                   
                                     <div class="form-group">
@@ -157,7 +157,7 @@
                                     <input type="submit" name="submit" class="pull-right btn btn-primary submit action-button" value="Submit" />
                                     
                              </form>
-                            <!-- MULTI STEP FORM FOR CREATE FUNDRAISER -->
+                            <!-- FORM FOR CREATE PROJECT -->
                             <!-- ===================================== -->
                          
                           </div>
