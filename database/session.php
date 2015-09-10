@@ -86,6 +86,7 @@
 		public function logout(){
 			unset($_SESSION['user_id']);
 			unset($this->user_id);
+			session_destroy();
 			$this->logged_in = false;
 			header("Location: http://localhost/aawaaj/home");
 		}

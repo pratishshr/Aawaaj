@@ -1,4 +1,4 @@
-<?php require_once(ROOT_PATH."database/session.php") ?> 
+<?php require_once(ROOT_PATH."database/session.php");?> 
 <?php include_once(ROOT_PATH."profile/system/models/profile.class.php");?>
 <?php include_once(ROOT_PATH."profile/system/repositories/profilerepository.class.php");?>
 
@@ -26,7 +26,7 @@ class ProfileController{
 			exit();
 		}
 		else{
-			$data = array('profile_photo'=>$result->get_profile_photo(),'about'=>$result->get_about(),'user_id'=>$result->get_user_id(),'user_name'=>$result->get_user_name(),'first_name'=>$result->get_first_name(),'last_name'=>$result->get_last_name(),'contact_number'=>$result->get_contact_number(),'user_type'=>$result->get_user_type());
+			$data = array('profile_photo'=>$result->get_profile_photo(),'about'=>$result->get_about(),'user_id'=>$result->get_user_id(),'user_name'=>$result->get_user_name(),'first_name'=>$result->get_first_name(),'last_name'=>$result->get_last_name(),'contact_number'=>$result->get_contact_number(),'user_type'=>$result->get_user_type(),'user_hash'=>$result->get_user_hash());
 			if($result->get_user_type() == "generalUser"){
 				$data['age']=$result->get_age();
 			}
@@ -45,6 +45,7 @@ class ProfileController{
 			//var_dump($data);
 		}
 	}
+	
 	public function edit(){
 		echo "profile edit page";
 	}

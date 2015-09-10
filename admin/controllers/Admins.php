@@ -1,20 +1,19 @@
-<?php include_once(ROOT_PATH."admin/system/model/user.class.php");?>
-<?php include_once(ROOT_PATH."admin/system/repository/userrepository.class.php");?>
-<?php include_once(ROOT_PATH."admin/system/repository/organizationrepository.class.php");?>
+<?php include_once(ROOT_PATH."admin/system/model/admin.class.php");?>
+<?php include_once(ROOT_PATH."admin/system/repository/adminrepository.class.php");?>
 <?php require_once(ROOT_PATH."admin/controllers/AdminController.php");?>
 
 <?php
-	class AdminUserController extends AdminController{
+	class Admins extends AdminController{
 
-		private $userrepository;
+		private $adminrepository;
 		public function __construct(){
 			parent::__construct();
-			$this->userrepository = new UserRepository();
+			$this->adminrepository = new AdminRepository();
 		}
 
 
 		public function index(){
-			$view_page="adminusersview/index";
+			$view_page="adminsview/index";
 			//LoaderHelper::view("admin/container");
 			//INDEX PAGE OF ADMIN CONTROLLING ALL USERS TABLE
 			include_once(ROOT_PATH."admin/views/admin/container.php");
@@ -119,7 +118,7 @@
 	}
 	
 	//OBJECT OF adminusercontroller
-	$adminusercontroller = new AdminUserController();
+	$admins = new Admins();
 
 	//IF m IS SET, SET IT TO $method, ELSE DEFAULT IT TO index
 	if(isset($_GET['m'])){
@@ -131,15 +130,15 @@
 	switch($method){
 		
 		case "index":
-			$adminusercontroller->index();
+			$admins->index();
 			break;
 
 		case "add":
-			$adminusercontroller->add();
+			$admins->add();
 			break;
 
 		case "edit":
-			$adminusercontroller->edit();
+			$admins->edit();
 			break;
 		
 		case "delete":

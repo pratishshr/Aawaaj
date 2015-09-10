@@ -40,6 +40,7 @@ class ProfileRepository{
 			$profile->set_contact_number($contact_number);
 			$profile->set_user_type($user_type);
 			$profile->set_user_status($user_status);
+			$profile->set_user_hash($user_hash);
 		}
 
 		// GET DATA FROM PROFILE TABLE
