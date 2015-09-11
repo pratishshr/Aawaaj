@@ -1,10 +1,13 @@
-<div class="container text-center col-md-9 panel panel-default">
-	<form method="post" action="">
+<div class="container text-center col-md-9">
+	
+    <form method="post" action="">
         <div class="form-group">
         <label >Search</label>
         <input type="text" class="form-control" name="search" placeholder="Search" required>
         </div> 
     </form>
+    
+    
 	<?php
 
 	if(!empty($_POST['search'])){
@@ -33,13 +36,13 @@
                  <?php
                 foreach($fundraisers as $fund){ 
                  ?>
-                    <div class="col-sm-6 col-md-4">
-	                    <a href="<?php echo BASE_URL?>fundraiser/index.php?page=fund&m=campaign&id=<?php echo $fund->get_fund_id();?>" class="thumbnail">
-                      <img class="img-responsive" src="<?php echo $fund->get_image();?>" alt="...">
+                    <div class="col-md-4">
+	                    <a href="<?php echo BASE_URL?>fundraiser/index.php?page=fund&m=campaign&id=<?php echo $fund->get_fund_id();?>" class="">
+                      <img class="img-responsive img-circle show-profile-image" src="<?php echo $fund->get_image();?>" alt="...">
                       </a>
-                      
+                        <br>
                         <h4><?php echo $fund->get_title();?></h4>
-                        <h4>Amount : <?php echo $fund->get_amount();?></h4>
+                        <h4>Amount<br><?php echo $fund->get_amount();?></h4>
                         <p><?php echo $fund->get_fundraiser_type(); ?></p>
                         
                         <p><a href="<?php echo BASE_URL?>fundraiser/index.php?page=fund&m=campaign&id=<?php echo $fund->get_fund_id();?>" class="btn btn-primary" role="button">View Fundraiser</a></p>
