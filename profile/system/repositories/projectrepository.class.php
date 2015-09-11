@@ -51,11 +51,13 @@ class ProjectRepository{
 		$this->database->close();
 		return $project_list;
 	}
+
 	public function get_last_id(){
 		$this->database->connect();
 		return $this->database->insert_id();
 		$this->database->close();
 	}
+	
 	public function get_by_id($project_id){
 		$proj = null;
 
