@@ -84,7 +84,7 @@
 			$password = $admin->get_password();
 		
 			//PASSWORD HASSING USING BCRYPT
-			$password=password_hash($pass,PASSWORD_BCRYPT,array('cost'=>12));
+			$password=password_hash($password,PASSWORD_BCRYPT,array('cost'=>12));
 	
 			//BIND
 			$stmt->bind_param("ss",$username,$password);

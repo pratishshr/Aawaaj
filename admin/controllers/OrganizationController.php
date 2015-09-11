@@ -1,14 +1,16 @@
 <?php include_once(ROOT_PATH."admin/system/model/user.class.php");?>
 <?php include_once(ROOT_PATH."admin/system/repository/userrepository.class.php");?>
 <?php include_once(ROOT_PATH."admin/system/repository/organizationrepository.class.php");?>
+<?php require_once(ROOT_PATH."admin/core/Admin_Controller.php");?>
 
 
 
 <?php
-	class OrganizationController{
+	class OrganizationController extends AdminController{
 		private $userrepository;
 		private $organizationrepository;
 		public function __construct(){
+			parent::__construct();
 			$this->userrepository = new UserRepository();
 			$this->organizationrepository = new OrganizationRepository();
 		}

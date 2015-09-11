@@ -5,14 +5,14 @@
 <?php include_once(ROOT_PATH."app/view/signupmodal.php"); ?>
 
 
- <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+ <nav class="navbar navbar-custom navbar-fixed-top" role="navigation" style="background:black;">
         <div class="container ">
             <div class="navbar-header ">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" href="<?php echo BASE_URL.'home/'?>">
                     <i class="fa fa-play-circle"></i> <span class="light">Aawaaj</span>
                 </a>
             </div>

@@ -582,3 +582,14 @@ textarea {
     overflow-x: hidden;
     height: 210px;
 }
+
+.show-profile-image{
+    height:200px;
+    width:200px;
+      box-shadow: 0px 0px 20px black;
+}
+
+.show-profile-image:hover{
+    z-index: -1;
+    box-shadow: 0px 0px 30px black;
+}

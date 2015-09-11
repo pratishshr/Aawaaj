@@ -58,7 +58,7 @@
 
 			$this->db->connect();
 
-			$sql = "SELECT * FROM user WHERE first_name LIKE '%$find%' OR last_name LIKE '%$find%'";
+			$sql = "SELECT * FROM user , profile  WHERE (first_name LIKE '%$find%' OR last_name LIKE '%$find%') AND user.user_id=profile.u_id";
 			
 			$result = $this->db->fetchquery($sql);
 
@@ -76,6 +76,7 @@
 					$list->set_user_type($row['user_type']);
 					$list->set_status($row['user_status']);
 					$list->set_user_hash($row['user_hash']);
+					$list->set_user_image($row['profile_photo']);
 					array_push($search_list, $list);
 				}
 			}
