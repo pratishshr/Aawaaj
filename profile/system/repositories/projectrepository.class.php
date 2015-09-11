@@ -20,7 +20,7 @@ class ProjectRepository{
 		
 		else
 		{
-			$sql = "SELECT * FROM projects,organization where projects.project_id = organization.org_id and organization.org_id={$id}";
+			$sql = "SELECT * FROM projects,organization where projects._id = organization.org_id and organization.org_id={$id}";
 		}
 		//Fetch Query
 		$result = $this->database->fetchquery($sql);

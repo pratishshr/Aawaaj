@@ -61,6 +61,7 @@ class ProjectController{
 	public function save(){
 		// yo thau ma project save huna aaucha
 		// yei bata feri "index.php" ma falne jun chai profile ma jancha
+		
 		$proj = new Project();
 		if(isset($_POST['single_date'])){
 			$proj->setStart_date($_POST['single_date']);
@@ -183,6 +184,7 @@ class ProjectController{
 			$proj->setDetail("");
 		}
 		$proj->setStatus(1);
+		$id = $this->projectrepository->insert($proj);
 		return $proj;
 
 	}
@@ -220,6 +222,7 @@ if(isset($_GET['id'])){
 
 						case 'save':
 							$project_controller->save();
+							break;
 						
 						default:
 							$project_controller->error_page();
@@ -231,7 +234,7 @@ if(isset($_GET['id'])){
 				}
 				if(isset($_POST) && isset($_POST['submit'])){
 					$project_controller->save();
-					$id = $this->projectrepository->insert($proj);
+					
 					header("Location: index.php?id={$user}");
 				}
 				else{
