@@ -212,7 +212,13 @@
 		}
 
 
-		
+		public function get_user_hash(){
+			return $this->user_hash;
+		}
+
+		public function set_user_hash($user_hash){
+			$this->user_hash = $user_hash;
+		}
 
 
 	}

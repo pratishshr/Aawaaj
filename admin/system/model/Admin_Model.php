@@ -7,6 +7,7 @@
 		private $last_name;
 		private $email;
 		private $image;
+		private $user_hash;
 
 		public function __construct(){
 
@@ -68,4 +69,6 @@
 		public function set_image($image){
 			$this->image = $image;
 		}
+
+	
 	}

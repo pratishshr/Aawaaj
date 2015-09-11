@@ -29,8 +29,8 @@
 			if(isset($_POST['submit'])){
 				//MAP DATA
 				$user_model = $this->_map_posted_data();
-				$this->userrepository->insert($user);
-				header("Location: index.php?page=admin&m=index&action=add");
+				$this->userrepository->insert($user_model);
+				header("Location: index.php?page=user&m=index&action=add");
 
 			}else{
 				$view_page ="adminusersview/add";
@@ -98,13 +98,13 @@
 				$user_model = $this->_map_posted_data();
 				$user_model->set_user_id($_POST['id']);
 				$this->userrepository->update($user_model);
-				header("Location: index.php?page=admin&m=index&action=edit");
+				header("Location: index.php?page=user&m=index&action=edit");
 			}else{
 				$view_page = "adminusersview/edit";
 				$id = $_GET['id'];
-				$user_model = $this->userrepository->get_by_id($id);
-				if(is_null($user_model)){
-					header("Location: index.php?page=admin&m=index");
+				$user= $this->userrepository->get_by_id($id);
+				if(is_null($user)){
+					header("Location: index.php");
 				}
 				include_once(ROOT_PATH."admin/views/admin/container.php");
 			}
@@ -115,7 +115,7 @@
 			$id = $_GET['id'];
 			$result = $this->userrepository->delete($id);
 			if($result = true){
-				header("Location: index.php?page=admin&m=index&action=delete");
+				header("Location: index.php?page=user&m=index&action=delete");
 			}
 		}
 

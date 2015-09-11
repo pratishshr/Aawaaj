@@ -30,6 +30,7 @@
 				$user_model->set_contact_number($row['contact_number']);
 				$user_model->set_user_type($row['user_type']);
 				$user_model->set_user_status($row['user_status']);
+				$user_model->set_user_hash($row['user_hash']);
 
 				array_push($user_list,$user_model);
 			}
@@ -39,7 +40,7 @@
 
 
 		public function get_by_id($id){
-			$user = null;
+			$user_model = null;
 			//DATABASE CONNECTION
 			$this->db->connect();
 
@@ -69,9 +70,10 @@
 			$user_model->set_contact_number($contact_number);
 			$user_model->set_user_type($user_type);
 			$user_model->set_user_status($user_status);
+			$user_model->set_user_hash($user_hash);
 		}
 			$this->db->close();
-			return $user;
+			return $user_model;
 
 
 	}
@@ -81,7 +83,7 @@
 			$this->db->connect();
 
 			//INSERT QUERY
-			$sql = "INSERT INTO user(user_name,first_name,last_name,contact_number,user_type,user_status) values(?,?,?,?,?,?)";
+			$sql = "INSERT INTO user(user_name,first_name,last_name,contact_number,user_type,user_status,user_hash) values(?,?,?,?,?,?,?)";
 
 			//PREPARE
 			$stmt = $this->db->initialize($sql);
@@ -97,9 +99,10 @@
 
 			//PASSWORD HASSING USING BCRYPT
 			$password=password_hash($pass,PASSWORD_BCRYPT,array('cost'=>12));
-	
+			$user_hash = password_hash($user_name,PASSWORD_BCRYPT,array('cost'=>12));
+
 			//BIND
-			$stmt->bind_param("sssisi",$user_name,$first_name,$last_name,$contact_number,$user_type,$user_status);
+			$stmt->bind_param("sssisis",$user_name,$first_name,$last_name,$contact_number,$user_type,$user_status,$user_hash);
 
 			//EXECUTE
 			$stmt->execute();
