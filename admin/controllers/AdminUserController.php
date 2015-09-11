@@ -1,7 +1,7 @@
 <?php include_once(ROOT_PATH."admin/system/model/user.class.php");?>
 <?php include_once(ROOT_PATH."admin/system/repository/userrepository.class.php");?>
 <?php include_once(ROOT_PATH."admin/system/repository/organizationrepository.class.php");?>
-<?php require_once(ROOT_PATH."admin/controllers/AdminController.php");?>
+<?php require_once(ROOT_PATH."admin/core/Admin_Controller.php");?>
 
 <?php
 	class AdminUserController extends AdminController{

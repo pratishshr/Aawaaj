@@ -49,22 +49,22 @@
 
                                     <div class="form-group">
                                         <label for="title">Title:</label>
-                                        <input type="text" class="form-control" id="title" placeholder="Title" maxlength="50" name="project_title">
+                                        <input type="text" class="form-control" id="title" placeholder="Title" maxlength="50" name="project_title" required>
                                     </div>  
                                  
                                     <div class="form-group">
                                         <label for="objectives">Objectives:</label>
-                                        <textarea class="form-control" id="objectives" placeholder="Objectives" maxlength="160" name="project_objectives"></textarea>
+                                        <textarea class="form-control" id="objectives" placeholder="Objectives" maxlength="160" name="project_objectives" required></textarea>
                                     </div>  
                                     
                                     <div class="form-group">
                                         <label for="short_desc">Description (Short):</label>
-                                        <textarea class="form-control" id="short_desc" placeholder="Description (Short)" maxlength="160" name="short_desc"></textarea>
+                                        <textarea class="form-control" id="short_desc" placeholder="Description (Short)" maxlength="160" name="short_desc" required></textarea>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="loction">Location:</label>
-                                        <input type="text" name="location" class="form-control" id="location" placeholder="Location" maxlength="100">
+                                        <input type="text" name="location" class="form-control" id="location" placeholder="Location" maxlength="100" required>
                                     </div>
 
                                     <div class="form-group">
@@ -104,14 +104,14 @@
 
                                     <div class="form-group">
                                         <label for="org_involved">Other Organizations Involved:</label>
-                                        <input type="checkbox" class="" id="org_involved" value="1" name="cb_otherorg">
+                                        <input type="checkbox" class="" id="org_involved" name="cb_otherorg">
                                     </div>
 
                                     <div id="org_list">
                                         
                                         <div class="form-group">
                                             <label for="org1">Organization (upto 5):</label> <a href="javascript:void(0)" class="btn btn-success btn-sm" id="org_plus"><span class="fa fa-plus"></span></a> <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="org_minus"><span class="fa fa-minus"></span></a>
-                                            <input type="text" class="form-control" id="org1" placeholder="Organization 1" maxlength="200" name="organization1">
+                                            <input type="text" class="form-control" id="org1" placeholder="Organization 1" maxlength="200" name="organization1" required>
                                         </div>
 
                                         <div class="form-group">

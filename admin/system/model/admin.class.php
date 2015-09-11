@@ -1,5 +1,5 @@
 <?php
-	class User{
+	class Admin{
 		private $id;
 		private $username;
 		private $password;
@@ -30,7 +30,7 @@
 
 		}
 
-		public function setpassword($password){
+		public function set_password($password){
 			$this->password = $password;
 		}
 

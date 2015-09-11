@@ -153,7 +153,7 @@ if($logged && $_SESSION['user_hash'] == $data['user_hash']){
                             <div class="col-xs-12 col-sm-4 emphasis">
                                 <h2><strong> 20,7K </strong></h2>                    
                                 <p><small>Fundraisers</small></p>
-                                <a href="<?php echo BASE_URL.'/profile/index.php?id='.$_SESSION['user_hash'].'&page=fundraisers'?>" class="btn btn-primary btn-block">View Fundraisers</a> 
+                                <a href="<?php echo BASE_URL.'/profile/index.php?id='.$data['user_hash'].'&page=fundraisers'?>" class="btn btn-primary btn-block">View Fundraisers</a> 
                             </div>
                 <?php
                         }
