@@ -1,7 +1,7 @@
 <?php require_once(ROOT_PATH."database/session.php");?> 
 <?php include_once(ROOT_PATH."profile/system/models/profile.class.php");?>
 <?php include_once(ROOT_PATH."profile/system/models/project.class.php"); ?>
-<?php include_once(ROOT_PATH."profile/system/repositories/projectrepository.class.php")
+<?php include_once(ROOT_PATH."profile/system/repositories/projectrepository.class.php");?>
 <?php include_once(ROOT_PATH."profile/system/repositories/profilerepository.class.php");?>
 
 <?php
@@ -54,6 +54,11 @@ class ProjectController{
 		include_once(ROOT_PATH.'profile/views/container.php');
 	}
 
+	public function save(){
+		// yo thau ma project save huna aaucha
+		// yei bata feri "index.php" ma falne jun chai profile ma jancha
+	}
+
 	public function selectProject(){
 		echo "particular project view page";
 	}
@@ -92,6 +97,9 @@ if(isset($_GET['id'])){
 				}
 				else{
 					$project_controller->index($user_profile_id);	
+				}
+				if(isset($_POST['submit'])){
+					$project_controller->save();
 				}
 			}
 			else{
