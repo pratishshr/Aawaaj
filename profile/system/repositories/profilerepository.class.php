@@ -67,7 +67,7 @@ class ProfileRepository{
 
 		// GET DATA FROM GENERALUSER/ORGANIZATION/WELFARE TABLE BASE ON USER TYPE
 		if($user_type == "generalUser"){
-			$sql = "SELECT age from generaluser where u_id=? LIMIT 1";
+			$sql = "SELECT gen_id,age from generaluser where u_id=? LIMIT 1";
 
 			// prepared statement is returned
 			$stmt = $this->db->initialize($sql);
@@ -79,15 +79,16 @@ class ProfileRepository{
 			$stmt->execute();
 
 			//bind the result obtained by executing query
-			$stmt->bind_result($age);
+			$stmt->bind_result($profile_id,$age);
 
 			while($stmt->fetch()){
 				$profile->set_age($age);
+				$profile->set_profile_id($profile_id);
 			}
 		}
 
 		elseif($user_type == "organization"){
-			$sql = "SELECT name,doe,img,address,objective from organization where u_id=? LIMIT 1";
+			$sql = "SELECT org_id,name,doe,img,address,objective from organization where u_id=? LIMIT 1";
 
 			// prepared statement is returned
 			$stmt = $this->db->initialize($sql);
@@ -99,9 +100,10 @@ class ProfileRepository{
 			$stmt->execute();
 
 			//bind the result obtained by executing query
-			$stmt->bind_result($name,$doe,$img,$address,$objective);
+			$stmt->bind_result($profile_id,$name,$doe,$img,$address,$objective);
 
 			while($stmt->fetch()){
+				$profile->set_profile_id($profile_id);
 				$profile->set_name($name);
 				$profile->set_doe($doe);
 				$profile->set_img($img);
@@ -111,7 +113,7 @@ class ProfileRepository{
 		}
 
 		elseif($user_type == "welfare"){
-			$sql = "SELECT name,doe,img,address,service,objective from welfare where u_id=? LIMIT 1";
+			$sql = "SELECT welf_id,name,doe,img,address,service,objective from welfare where u_id=? LIMIT 1";
 
 			// prepared statement is returned
 			$stmt = $this->db->initialize($sql);
@@ -123,9 +125,10 @@ class ProfileRepository{
 			$stmt->execute();
 
 			//bind the result obtained by executing query
-			$stmt->bind_result($name,$doe,$img,$address,$service,$objective);
+			$stmt->bind_result($profile_id,$name,$doe,$img,$address,$service,$objective);
 
 			while($stmt->fetch()){
+				$prifle->set_profile_id($profile_id);
 				$profile->set_name($name);
 				$profile->set_doe($doe);
 				$profile->set_img($img);
