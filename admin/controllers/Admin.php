@@ -36,7 +36,18 @@
 
 			$admin_model = new Admin_Model();
 			$admin_model->set_username($_POST['username']);
-					
+			$admin_model->set_first_name($_POST['first_name']);
+			$admin_model->set_last_name($_POST['last_name']);
+			$admin_model->set_email($_POST['email']);
+
+			$filename = $_FILES['image']['name'];
+			$path = ROOT_PATH. "admin/images/";
+			
+			move_uploaded_file($_FILES['image']['tmp_name'], $path.$filename);
+			
+			$savepath = BASE_URL."admin/images/";
+			$admin_model->set_image($savepath.$filename);
+
 			if(isset($_POST['password'])){
 			$admin_model->set_password($_POST['password']);
 			}

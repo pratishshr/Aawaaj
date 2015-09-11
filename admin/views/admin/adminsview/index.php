@@ -53,7 +53,9 @@
               <table class="table table-bordered table-hover table-striped">
                 <tr>
                   <th>ID</th>
+                  <th>Name </th>
                   <th>Username</th>
+                  <td>Email</td>
                  
                 </tr>
 
@@ -67,7 +69,9 @@
 
                 <tr>
                   <td><?php echo $id++?></td>
+                  <td><?php echo $admin->get_first_name();?> <?php echo $admin->get_last_name();?></td>
                   <td><?php echo $admin->get_username();?></td>
+                  <td><?php echo $admin->get_email();?></td>
                 </tr>
 
 

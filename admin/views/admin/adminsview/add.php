@@ -30,7 +30,7 @@
                   <!-- ===================================== -->
                   <!-- Eta Rakhe content -->
 
-                        <form id= "adduser" class="col-md-offset-4 col-xs-4" action="" method="post">
+                        <form id= "adduser" class="col-md-offset-4 col-xs-4" action="" method="post" enctype="multipart/form-data">
                           <div class="form-group" id="username_div">
                             <label for="username">Username</label>
                             <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
@@ -45,6 +45,29 @@
                             <input type="password" class="form-control" name="password_again" id="password_again" placeholder="Retype Password" required>
                              <span id="password_sign" class="" aria-hidden="true"></span>
                           </div>
+                           <div class="form-group" >
+                            <label for="first_name">First Name</label>
+                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" required>
+             
+                          </div>
+                           <div class="form-group">
+                            <label for="last_name">Last name</label>
+                            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" required>
+                  
+                          </div>
+
+                          <div class="form-group">
+                            <label for="last_name">E-mail</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="last_name">Profile Picture</label>
+                            <input type="file"  accept="image/*" class="form-control" name="image" required>
+                          </div>
+
+
+
 
                           
                           <button type="submit" id="submit" name="submit" class="btn btn-primary">Submit</button>

@@ -31,6 +31,7 @@
 	
 				if(password_verify($password,$passwordhash)){
 					Session::set('loggin',true);
+					Session::set('username',$username);
 				}else{
 					include_once(ROOT_PATH."admin/views/admin/login.php");	
 		    		exit;

@@ -47,15 +47,16 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="<?php echo BASE_URL?>admin/assets/dist/img/user-pratish.jpg" class="user-image" alt="User Image" />
-                  <span class="hidden-xs">Pratish Shrestha</span>
+                  <img src="<?php echo $image;?>" class="user-image" alt="User Image" />
+                  <span class="hidden-xs"><?php echo $username;?></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="<?php echo BASE_URL?>admin/assets/dist/img/user-pratish.jpg" class="img-circle" alt="User Image" />
+                    <img src="<?php echo $image;?>" class="img-circle" alt="User Image" />
                     <p>
-                      Pratish Shrestha - Web Developer
+                     <?php echo $first_name.' '.$last_name;?> <br/>
+                     <?php echo $email; ?>
                     </p>
                   </li>
                 

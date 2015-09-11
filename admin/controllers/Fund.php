@@ -2,6 +2,8 @@
 <?php include_once(ROOT_PATH."fundraiser/system/models/paypal.class.php");?>
 <?php include_once(ROOT_PATH."fundraiser/system/repositories/fundrepository.class.php");?>
 <?php include_once(ROOT_PATH."fundraiser/system/repositories/payrepository.class.php");?>
+<?php include_once(ROOT_PATH."admin/system/model/Admin_Model.php");?>
+<?php include_once(ROOT_PATH."admin/system/repository/adminrepository.class.php");?>
 
 <?php require_once(ROOT_PATH."admin/core/Auth_Controller.php");?>
 
@@ -10,11 +12,12 @@
 
 		private $fundrepository;
 		private $payrepository;
-
+		private $adminrepository;
 		public function __construct(){
 			parent::__construct();
 			$this->fundrepository = new FundRepository();
 			$this->payrepository =  new PayRepository();
+			$this->adminrepository = new AdminRepository();
 		}
 
 
