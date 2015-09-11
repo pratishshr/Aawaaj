@@ -11,6 +11,15 @@ if($logged && $_SESSION['user_hash'] == $data['user_hash']){
          <div class="well profile">
             <div class="col-sm-12">
                 <div class="col-xs-12 col-sm-8">
+                    <br/>
+                    <h2><strong>About: </strong></h2>
+                    <p class="text-justify"><?=$data['about']?></p>
+                </div>             
+                <div class="col-xs-12 col-sm-4 text-center">
+                    <figure>
+                        <img src="<?=BASE_URL.'/home/pictures/profile/'.$data['profile_photo']?>" alt="" class="img-responsive img-circle img-thumbnail profile-picture">
+                    </figure>
+                    <hr color="white">
                     <h2><?php
                             if($user_type == "generalUser"){
                                 echo $data['first_name'].' '.$data['last_name'];
@@ -20,14 +29,7 @@ if($logged && $_SESSION['user_hash'] == $data['user_hash']){
                             }
                         ?>
                     </h2>
-                    <h4><kbd><?=$data['user_type']?></kbd></h4>
-                    <p><strong>About: </strong></p>
-                    <p class="text-justify"><?=$data['about']?></p>
-                </div>             
-                <div class="col-xs-12 col-sm-4 text-center">
-                    <figure>
-                        <img src="<?=BASE_URL.'/home/pictures/profile/'.$data['profile_photo']?>" alt="" class="img-responsive img-circle img-thumbnail profile-picture">
-                    </figure>
+                    
                 </div>
             </div>            
             <div class="col-xs-12 divider text-center">
