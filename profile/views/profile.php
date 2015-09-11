@@ -31,7 +31,9 @@ if($logged && $_SESSION['user_hash'] == $data['user_hash']){
                 </div>
             </div>            
             <div class="col-xs-12 divider text-center">
+               
                 <?php
+                    // FIRST MODULE - FOR LOGGED IN USER
                     if($logged && $user_profile){
                         if($user_type == "generalUser"){
                 ?>
@@ -83,10 +85,35 @@ if($logged && $_SESSION['user_hash'] == $data['user_hash']){
                     }
                     else{
                         // else for first block
+                        if($user_type == "generalUser"){
+                ?>
+                            <div class="col-xs-12 col-sm-4 emphasis">
+                            </div>
+                <?php
+                        }
+                        elseif($user_type == "organization"){
+                ?>
+                        <div class="col-xs-12 col-sm-4 emphasis">
+                            <h2><strong> 20,7K </strong></h2>                    
+                            <p><small>Projects</small></p>
+                            <a href="<?php echo BASE_URL.'/profile/index.php?id='.$data['user_hash'].'&page=projects'?>" class="btn btn-primary btn-block">View Projects</a> 
+                        </div>
+                <?php
+                        }
+                        elseif($user_type == "welfare"){
+                ?>
+                        <div class="col-xs-12 col-sm-4 emphasis">
+                            <h2><strong> 20,7K </strong></h2>                    
+                            <p><small>Requirements</small></p>
+                            <a href="<?php echo BASE_URL.'/profile/index.php?id='.$data['user_hash'].'&page=requirements'?>" class="btn btn-primary btn-block">View Requirements</a> 
+                        </div>
+                <?php
+                        }
                     }
                 ?>
 
                 <?php
+                    // SECOND MODULE - FOR LOGGED IN USER
                     if($logged && $user_profile){
                         if($user_type == "generalUser"){
                 ?>
@@ -119,10 +146,20 @@ if($logged && $_SESSION['user_hash'] == $data['user_hash']){
                     }
                     else{
                         // else for second block
+                        if($user_type == "generalUser"){
+                ?>
+                            <div class="col-xs-12 col-sm-4 emphasis">
+                                <h2><strong> 20,7K </strong></h2>                    
+                                <p><small>Fundraisers</small></p>
+                                <a href="<?php echo BASE_URL.'/profile/index.php?id='.$_SESSION['user_hash'].'&page=fundraisers'?>" class="btn btn-primary btn-block">View Fundraisers</a> 
+                            </div>
+                <?php
+                        }
                     }
                 ?>
                 
                 <?php
+                    // THIRD MODULE - FOR LOGGED IN USER
                     if($logged && $user_profile){
                 ?>
                         <div class="col-xs-12 col-sm-4 emphasis">
