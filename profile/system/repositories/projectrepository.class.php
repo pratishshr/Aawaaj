@@ -64,11 +64,45 @@ class ProjectRepository{
 			$proj->setDetail($detail);
 			$proj->setStatus($status);
 			$proj->setUid($u_id);
+
+			// FOR GETTING REQUIREMENTS OF CURRENT PROJECT IN LOOP
+			$sql = "SELECT requirement FROM requirements as r,projects as p where p.project_id = r.project_id and p.project_id=?";
+			
+			// prepared statement is returned
+			$stmt = $this->database->initialize($sql);
+
+			//bind
+			$stmt->bind_param("i",$project_id);
+
+			//execution of query
+			$stmt->execute();
+
+			//bind the result obtained by executing query
+			$stmt->bind_result($requirement);
+			while($stmt->fetch()){
+				$proj->setRequirement($requirement);
+			}
+
+			// FOR GETTING ORGANIZATIONS INVOLVED OF CURRENT PROJECT IN LOOP
+			$sql = "SELECT organization_name FROM otherorg as o,projects as p where p.project_id = o.project_id and p.project_id=?";
+			
+			// prepared statement is returned
+			$stmt = $this->database->initialize($sql);
+
+			//bind
+			$stmt->bind_param("i",$project_id);
+
+			//execution of query
+			$stmt->execute();
+
+			//bind the result obtained by executing query
+			$stmt->bind_result($organization_name);
+			while($stmt->fetch()){
+				$proj->setRequirement($organization_name);
+			}
+
 			array_push($project_list, $proj);
 		}
-		$sql = "SELECT * FROM requirements,projects where projects.project_id = requirements.project_id and projects.project_id={proj->getProject_id()}";
-		
-
 		
 		$this->database->close();
 		return $project_list;
