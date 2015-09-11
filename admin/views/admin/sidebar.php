@@ -36,7 +36,7 @@
                 <li><a href="<?php echo BASE_URL?>admin/index.php?page=welf"><i class="fa fa-circle-o"></i> Welfare</a></li>
               </ul>
               <li class="active">
-              <a href="<?php echo BASE_URL?>admin/index.php?page=admins">
+              <a href="<?php echo BASE_URL?>admin/index.php?page=admin">
                 <i class="fa fa-th"></i> <span>Admins</span>
               </a>
               </li>

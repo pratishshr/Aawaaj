@@ -141,9 +141,34 @@
 			$result = $stmt->execute();
 			$this->db->close();
 			return $result;
+		}
 
+		public function check_username($username){
+			//DATABASE CONNECTION
+			$this->db->connect();
+
+			//DELETE QUERY
+			$sql = "SELECT * FROM admins WHERE username=? ";
+		
+			//PREPARE
+			$stmt = $this->db->initialize($sql);
 			
+			//BIND
+			$stmt->bind_param("s",$username);
 
+			//EXECUTE
+			$result = $stmt->execute();
+			$value=null;
+			//BIND RESULT
+			$stmt->bind_result($id,$username,$password);
+
+			while($stmt->fetch()){
+				echo json_encode(array('exists' => true));
+				exit;
+			}
+			echo json_encode(array('exists' => false));
+			$this->db->close();
+			
 		}
 	}
 ?>

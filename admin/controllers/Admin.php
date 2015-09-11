@@ -27,7 +27,7 @@
 				header("Location: index.php?page=admin&m=index&action=add");
 
 			}else{
-				$view_page ="adminview/add";
+				$view_page ="adminsview/add";
 				include_once(ROOT_PATH."admin/views/admin/container.php");
 				}
 		}
@@ -62,6 +62,12 @@
 				}
 				include_once(ROOT_PATH."admin/views/admin/container.php");
 			}
+		}
+
+		public function check(){
+			$username = $_POST['username'];
+			$this->adminrepository->check_username($username);
+		 	
 		}
 
 		public function delete(){
@@ -102,6 +108,11 @@
 		case "delete":
 			$admin->delete();
 			break;
+
+		case "check":
+			$admin->check();
+			break;
+		
 		case "logout":
 			$admin->logout();
 
