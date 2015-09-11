@@ -1,15 +1,17 @@
-	<?php include_once(ROOT_PATH."admin/system/model/user.class.php");?>
+<?php include_once(ROOT_PATH."admin/system/model/user.class.php");?>
 <?php include_once(ROOT_PATH."admin/system/repository/userrepository.class.php");?>
-
+<?php require_once(ROOT_PATH."admin/core/Admin_Controller.php");?>
 <?php include_once(ROOT_PATH."admin/system/repository/generaluserrepository.class.php");?>
 
 
 
+
 <?php
-	class GeneralUserController{
+	class GeneralUserController extends AdminController{
 		private $userrepository;
 		private $generaluserrepository;
 		public function __construct(){
+			parent::__construct();
 			$this->userrepository = new UserRepository();
 			$this->generaluserrepository = new GeneralUserRepository();
 		}
