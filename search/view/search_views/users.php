@@ -35,7 +35,7 @@
                          ?>
                             <div class="col-sm-6 col-md-4">
         	                    <a href="<?php echo BASE_URL?>profile/index.php?id=<?php echo $user->get_user_hash();?>" class="thumbnail">
-        	                    	<img class="img-responsive" src="<?php echo BASE_URL?>profile/images/rotlogo.png" alt="...">
+        	                    	<img class="img-responsive" src="<?php echo BASE_URL?>home/pictures/profile/<?php echo $user->get_user_image();?>" alt="...">
         	                    </a>                      
         	                    <h3><?php echo $user->get_first_name();?> <?php echo $user->get_last_name();?></h3>
         	                    <p><?php echo $user->get_user_type(); ?></p>
