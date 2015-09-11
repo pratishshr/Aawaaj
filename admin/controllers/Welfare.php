@@ -25,45 +25,6 @@
 			include_once(ROOT_PATH."admin/views/admin/container.php");
 		}
 
-		public function edit(){
-			//PAGE TO EDIT THE USER ALREADY IN THE DATABASE
-			if(isset($_POST['submit'])){
-				//MAP DATA
-				$user_model = $this->_map_posted_data();
-				$usermodel->set_user_id($_POST['id']);
-				$this->userrepository->update($user_model);
-				header("Location: index.php?page=welf&m=index&action=edit");
-			}else{
-				$view_page = "adminusersview/edit";
-				$id = $_GET['id'];
-				$user = $this->userrepository->get_by_id($id);
-				if(is_null($user)){
-					header("Location: index.php?page=welf&m=index");
-				}
-				include_once(ROOT_PATH."admin/views/admin/container.php");
-			}
-		}
-
-		private function _map_posted_data(){
-			$user_model = new User();
-			$user_model->set_user_name($_POST['user_name']);
-			$user_model->set_first_name($_POST['first_name']);
-			$user_model->set_last_name($_POST['last_name']);
-			$user_model->set_contact_number($_POST['contact_number']);
-			$user_model->set_user_type($_POST['user_type']);
-			$user_model->set_user_status($_POST['user_status']);
-
-			
-			return $user_model;
-		}
-		public function delete(){
-			//DELETE THE USER CURRENTLY IN THE DATABASE
-			$id = $_GET['id'];
-			$result = $this->userrepository->delete($id);
-			if($result = true){
-				header("Location: index.php?page=welf&m=index&action=delete");
-			}
-		}	
 	
 	}
 
@@ -81,13 +42,6 @@
 			$welfare->index();
 			break;
 
-		case 'edit':
-			$welfare->edit();
-			break;
-
-		case 'delete':
-			$welfare->delete();
-			break;
 
 		default:
 			$welfare->index();	
