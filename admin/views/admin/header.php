@@ -10,7 +10,7 @@
     <!-- Font Awesome Icons -->
     <link href="<?php echo BASE_URL?>admin/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
-    <link href="<?php echo BASE_URL?>admin/assets/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="<?php echo BASE_URL?>admin/assets/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins

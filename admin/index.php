@@ -6,7 +6,7 @@
 	if(isset($_GET['page'])){
 		$page = $_GET['page'];		
 	}else{
-		$page = "user";
+		$page = "home";
 	}
 
 	//CHECK TO SEE IF THE KEY IS AVAILABLE IN THE ROUTES , IF SO ROUTE IS TO THAT PAGE ELSE TO DEFAULT PAGE

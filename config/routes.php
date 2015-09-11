@@ -7,6 +7,7 @@
 	$routes['org'] = 'Organization';
 	$routes['welf'] = 'Welfare';
 	$routes['admin'] = "Admin";
+	$routes['home'] = "Home";
 
 	//fundraiser routes
 	$routes['fund'] = 'FundController';
