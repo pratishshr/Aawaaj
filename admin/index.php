@@ -1,5 +1,6 @@
 <?php include_once("../config/config.php");?>
 <?php include_once("helpers/session.php");?>
+<?php require_once(ROOT_PATH."libraries/password.php");?>
 
 <?php
 	//IF THE KEY PAGE EXISTS IN THE URL SET IT TO THAT PAGE ELSE DEFAULT IT TO ausers,i.e,USERS TABLE

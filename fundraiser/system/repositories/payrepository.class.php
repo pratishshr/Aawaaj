@@ -156,4 +156,32 @@
 				$this->db->close();
 				return $total;
 		}
+
+		public function total(){
+
+			$pay = null;
+
+			//DATABASE CONNECTION
+			$this->db->connect();
+
+			//SELECT BY ID
+			$sql = "SELECT * FROM donations";
+
+			//fetchquery
+			$result = $this->db->fetchquery($sql);		
+
+			$total = 0;
+			while($row = $result->fetch_assoc()){
+				
+				
+				$total += $row['payment_amount'];
+			
+			}
+				//CLOSE CONNECTION
+				$this->db->close();
+				return $total;
+		}
+
+
+		
 }		

@@ -237,5 +237,24 @@
 			
 
 		}
+
+		public function count(){
+		
+
+			//DATABASE CONNECTION
+			$this->db->connect();
+
+			//SELECT ALL QUERY
+			$sql = "SELECT * FROM user";
+
+			//fetchquery
+			$result = $this->db->fetchquery($sql);
+
+			
+			$this->db->close();
+			return $result->num_rows;
+
+			
+		}
 	}
 ?>

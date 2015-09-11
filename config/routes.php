@@ -8,7 +8,8 @@
 	$routes['welf'] = 'Welfare';
 	$routes['admin'] = "Admin";
 	$routes['home'] = "Home";
-
+	$routes['fundraiser'] = "Fund";
+ 
 	//fundraiser routes
 	$routes['fund'] = 'FundController';
 	$routes['paypal'] = 'Paypal';

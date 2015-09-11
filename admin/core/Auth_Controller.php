@@ -25,8 +25,8 @@
 				$username = $_POST['username'];
 				$password = $_POST['password'];
 
-				$adminmodel = new Admin_Model();
-				$passwordhash = $adminmodel->get_hash($username);
+				$authmodel = new Auth_Model();
+				$passwordhash = $authmodel->get_hash($username);
 				
 	
 				if(password_verify($password,$passwordhash)){

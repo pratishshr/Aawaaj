@@ -273,6 +273,25 @@ class ProjectRepository{
 		//Close the connection
 		$this->database->close();
 	}
+
+	public function count(){
+		
+
+			//DATABASE CONNECTION
+			$this->database->connect();
+
+			//SELECT ALL QUERY
+			$sql = "SELECT * FROM projects";
+
+			//fetchquery
+			$result = $this->database->fetchquery($sql);
+
+			
+			$this->database->close();
+			return $result->num_rows;
+
+			
+		}
 }
 
 

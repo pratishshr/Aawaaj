@@ -40,7 +40,7 @@ if(isset($_GET['page'])){
             <li class="header">MAIN NAVIGATION</li>
             <li class="<?php echo ($active)?('active'):'';?> treeview">
               <a href="#">
-                <i class="glyphicon glyphicon-user"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-users"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo BASE_URL?>admin/index.php?page=user"><i class="fa fa-circle-o"></i> All User</a></li>
@@ -48,9 +48,14 @@ if(isset($_GET['page'])){
                 <li><a href="<?php echo BASE_URL?>admin/index.php?page=org"><i class="fa fa-circle-o"></i> Organization</a></li>
                 <li><a href="<?php echo BASE_URL?>admin/index.php?page=welf"><i class="fa fa-circle-o"></i> Welfare</a></li>
               </ul>
-              <li class="active">
+              <li>
               <a href="<?php echo BASE_URL?>admin/index.php?page=admin">
-                <i class="fa fa-th"></i> <span>Admins</span>
+                <i class="fa fa-user"></i> <span>Admins</span>
+              </a>
+              </li>
+              <li>
+              <a href="<?php echo BASE_URL?>admin/index.php?page=fundraiser">
+                <i class="fa fa-credit-card"></i> <span>Fundraisers</span>
               </a>
               </li>
             </li>
