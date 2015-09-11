@@ -7,16 +7,21 @@ class ProjectRepository{
 	public function __construct(){
 		$this->database = new DbConnection();
 	}
-	public function get_all(){
+	public function get_all($id=null){
 
 		$project_list = array();
 
 		//Database Connect
 		$this->database->connect();
-
+		if($id==null){
 		//mysql query to select all
 		$sql = "SELECT * FROM projects";
-
+		}
+		
+		else
+		{
+			$sql = "SELECT * FROM projects,organization where projects.project_id = organization.org_id and organization.org_id={$id}";
+		}
 		//Fetch Query
 		$result = $this->database->fetchquery($sql);
 
@@ -41,6 +46,7 @@ class ProjectRepository{
 		}
 		$sql = "SELECT * FROM requirements,projects where projects.prooject_id = requirements.project_id and projects.project_id={proj->getProject_id()}";
 		
+
 		
 		$this->database->close();
 		return $project_list;
@@ -114,15 +120,153 @@ class ProjectRepository{
 		$video_url = $proj->getVideourl();
 		$detail = $proj->getDetail();
 		$status = $proj->getStatus();
-		$project_id = $_SESSION['user_id'];
+		$u_id = $_SESSION['user_id'];
 
 		//BIND 
 		$statement->bind_param("ssssssiissssii",$start_date,$end_date,$title,$objectives,$short_desc,$location,$budget,$volunteer,$banner_image,$project_proposal,$video_url,$detail,$status,$u_id);
-		$statement->execute();
-
+		
+		if(!$statement->execute()){
+			echo "Query Execution Failed";
+			exit;
+		}
+		else{
+			$sq = "SELECT project_id from projects";
+			$result = $this->database->fetchquery($sq);
+			while ($row = $result->fetch_assoc()) {
+			$pro = new Project();
+			$pro->setProject_id($row['project_id']);
+		}
+		if($proj->getRequirement1()!=""){
 		$sql="INSERT into requirements(requirement,project_id) VALUES(?,?)";
-		//$statement = $this->database->initialize($sql);
+		$statement = $this->database->initialize($sql);
+		$require = $proj->getRequirement1();
+		$project_id = $pro->getProject_id();
 
+		$statement->bind_param("si",$require,$project_id);
+
+		if(!$statement->execute()){
+			echo "requirement problem";
+			exit;
+		}
+		}
+		if($proj->getRequirement2()!=""){
+		$sql="INSERT into requirements(requirement,project_id) VALUES(?,?)";
+		$statement = $this->database->initialize($sql);
+		$require = $proj->getRequirement2();
+		$project_id = $pro->getProject_id();
+
+		$statement->bind_param("si",$require,$project_id);
+
+		if(!$statement->execute()){
+			echo "requirement2 problem";
+			exit;
+		}
+		}
+		if($proj->getRequirement3()!=""){
+		$sql="INSERT into requirements(requirement,project_id) VALUES(?,?)";
+		$statement = $this->database->initialize($sql);
+		$require = $proj->getRequirement3();
+		$project_id = $pro->getProject_id();
+
+		$statement->bind_param("si",$require,$project_id);
+
+		if(!$statement->execute()){
+			echo "requirement problem";
+			exit;
+		}
+		}
+		if($proj->getRequirement4()!=""){
+		$sql="INSERT into requirements(requirement,project_id) VALUES(?,?)";
+		$statement = $this->database->initialize($sql);
+		$require = $proj->getRequirement4();
+		$project_id = $pro->getProject_id();
+
+		$statement->bind_param("si",$require,$project_id);
+
+		if(!$statement->execute()){
+			echo "requirement problem";
+			exit;
+		}
+		}
+		if($proj->getRequirement5()!=""){
+		$sql="INSERT into requirements(requirement,project_id) VALUES(?,?)";
+		$statement = $this->database->initialize($sql);
+		$require = $proj->getRequirement5();
+		$project_id = $pro->getProject_id();
+
+		$statement->bind_param("si",$require,$project_id);
+
+		if(!$statement->execute()){
+			echo "requirement problem";
+			exit;
+		}
+		}
+		if($proj->getOrganization1()!=""){
+		$sql="INSERT into organizations(organization,project_id) VALUES(?,?)";
+		$statement = $this->database->initialize($sql);
+		$organize = $proj->getOrganization1();
+		$project_id = $pro->getProject_id();
+
+		$statement->bind_param("si",$organize,$project_id);
+
+		if(!$statement->execute()){
+			echo "requirement problem";
+			exit;
+		}
+		}
+		if($proj->getOrganization2()!=""){
+		$sql="INSERT into organizations(organization,project_id) VALUES(?,?)";
+		$statement = $this->database->initialize($sql);
+		$organize = $proj->getOrganization2();
+		$project_id = $pro->getProject_id();
+
+		$statement->bind_param("si",$organize,$project_id);
+
+		if(!$statement->execute()){
+			echo "requirement problem";
+			exit;
+		}
+		}
+		if($proj->getOrganization3()!=""){
+		$sql="INSERT into organizations(organization,project_id) VALUES(?,?)";
+		$statement = $this->database->initialize($sql);
+		$organize = $proj->getOrganization3();
+		$project_id = $pro->getProject_id();
+
+		$statement->bind_param("si",$organize,$project_id);
+
+		if(!$statement->execute()){
+			echo "requirement problem";
+			exit;
+		}
+		}
+		if($proj->getOrganization4()!=""){
+		$sql="INSERT into organizations(organization,project_id) VALUES(?,?)";
+		$statement = $this->database->initialize($sql);
+		$organize = $proj->getOrganization4();
+		$project_id = $pro->getProject_id();
+
+		$statement->bind_param("si",$organize,$project_id);
+
+		if(!$statement->execute()){
+			echo "requirement problem";
+			exit;
+		}
+		}
+		if($proj->getOrganization5()!=""){
+		$sql="INSERT into organizations(organization,project_id) VALUES(?,?)";
+		$statement = $this->database->initialize($sql);
+		$organize = $proj->getOrganization5();
+		$project_id = $pro->getProject_id();
+
+		$statement->bind_param("si",$organize,$project_id);
+
+		if(!$statement->execute()){
+			echo "requirement problem";
+			exit;
+		}
+		}
+	}
 
 		return $this->database->insert_id();
 
