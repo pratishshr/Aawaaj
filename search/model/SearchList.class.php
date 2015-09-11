@@ -6,6 +6,7 @@
 		private $user_type;
 		private $status;
 		private $user_hash;
+		private $user_image;
 
 		private $title;
 		private $description;
@@ -36,6 +37,9 @@
 		public function get_user_hash(){
 			return $this->user_hash;
 		}
+		public function get_user_image(){
+			return $this->user_image;
+		}
 		public function set_user_id($user_id){
 			$this->user_id=$user_id;
 		}
@@ -53,6 +57,9 @@
 		}
 		public function set_user_hash($user_hash){
 			$this->user_hash=$user_hash;
+		}
+		public function set_user_image($user_image){
+			$this->user_image=$user_image;
 		}
 
 

@@ -12,7 +12,13 @@ body
 .profile-picture{
     width:300px;
     height:300px;
+    box-shadow: 0px 0px 20px black;
 }
+.profile-picture:hover{
+    box-shadow: 0px 0px 30px black;
+    z-index: -1;
+}
+    
 figcaption.ratings
 {
     margin-top:20px;

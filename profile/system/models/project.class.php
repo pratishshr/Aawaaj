@@ -19,6 +19,16 @@ class Project
 		private $videourl;
 		private $detail;
 		private $status;
+		private $requirement1;
+		private $requirement2;
+		private $requirement3;
+		private $requirement4;
+		private $requirement5;
+		private $organization1;
+		private $organization2;
+		private $organization3;
+		private $organization4;
+		private $organization5;
 		private $uid;
 
 	function __construct()
@@ -169,7 +179,86 @@ class Project
 		 {
 		     return $this->uid;
 		 }
-		 
+		 public function getRequiement1()
+		 {
+		 	return $this->requirement1;
+		 }
+		 public function setRequirement1($requirement)
+		 {
+		 	$this->requirement1 = $requirement;
+		 }
+		 public function getRequiement2()
+		 {
+		 	return $this->requirement2;
+		 }
+		 public function setRequirement2($requirement)
+		 {
+		 	$this->requirement2 = $requirement;
+		 }
+		 public function getRequiement3()
+		 {
+		 	return $this->requirement3;
+		 }
+		 public function setRequirement3($requirement)
+		 {
+		 	$this->requirement3 = $requirement;
+		 }
+		 public function getRequiement4()
+		 {
+		 	return $this->requirement4;
+		 }
+		 public function setRequirement4($requirement)
+		 {
+		 	$this->requirement4 = $requirement;
+		 }
+		 public function getRequiement5()
+		 {
+		 	return $this->requirement5;
+		 }
+		 public function setRequirement5($requirement)
+		 {
+		 	$this->requirement5 = $requirement;
+		 }
+		 public function getOrganization1()
+		 {
+		 	return $this->organization1;
+		 }
+		 public function setOrganization1($organization)
+		 {
+		 	$this->organization1 = $organization;
+		 }
+		 public function getOrganization2()
+		 {
+		 	return $this->organization2;
+		 }
+		 public function setOrganization2($organization)
+		 {
+		 	$this->organization2 = $organization;
+		 }
+		 public function getOrganization3()
+		 {
+		 	return $this->organization3;
+		 }
+		 public function setOrganization3($organization)
+		 {
+		 	$this->organization3 = $organization;
+		 }
+		 public function getOrganization4()
+		 {
+		 	return $this->organization4;
+		 }
+		 public function setOrganization4($organization)
+		 {
+		 	$this->organization4 = $organization;
+		 }
+		 public function getOrganization5()
+		 {
+		 	return $this->organization5;
+		 }
+		 public function setOrganization5($organization)
+		 {
+		 	$this->organization5 = $organization;
+		 }
 		 public function setUid($uid)
 		 {
 		     $this->uid = $uid;
