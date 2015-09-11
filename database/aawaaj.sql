@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2015 at 11:15 PM
--- Server version: 5.6.21
--- PHP Version: 5.5.19
+-- Generation Time: Sep 11, 2015 at 11:38 AM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,17 +23,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admins`
+--
+
+CREATE TABLE IF NOT EXISTS `admins` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `donations`
 --
 
 CREATE TABLE IF NOT EXISTS `donations` (
-`pay_id` int(11) NOT NULL,
+  `pay_id` int(11) NOT NULL AUTO_INCREMENT,
   `item_name` varchar(255) NOT NULL,
   `payment_amount` int(11) NOT NULL,
   `txn_id` int(11) NOT NULL,
   `payer_email` varchar(255) NOT NULL,
-  `item_number` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `item_number` int(11) NOT NULL,
+  PRIMARY KEY (`pay_id`),
+  KEY `item_number` (`item_number`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `donations`
@@ -52,7 +67,7 @@ INSERT INTO `donations` (`pay_id`, `item_name`, `payment_amount`, `txn_id`, `pay
 --
 
 CREATE TABLE IF NOT EXISTS `fundraiser` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `fundraiser_type` varchar(10) NOT NULL,
   `title` varchar(55) NOT NULL,
   `amount` int(11) NOT NULL DEFAULT '10000',
@@ -61,8 +76,10 @@ CREATE TABLE IF NOT EXISTS `fundraiser` (
   `image` varchar(100) NOT NULL,
   `video_url` varchar(500) DEFAULT NULL,
   `details` text NOT NULL,
-  `u_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+  `u_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `u_id` (`u_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=50 ;
 
 --
 -- Dumping data for table `fundraiser`
@@ -90,11 +107,13 @@ INSERT INTO `fundraiser` (`id`, `fundraiser_type`, `title`, `amount`, `end_date`
 --
 
 CREATE TABLE IF NOT EXISTS `generaluser` (
-`gen_id` int(11) NOT NULL,
+  `gen_id` int(11) NOT NULL AUTO_INCREMENT,
   `age` int(11) DEFAULT NULL,
   `type` enum('generalUser') NOT NULL,
-  `u_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+  `u_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`gen_id`),
+  KEY `u_id` (`u_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `generaluser`
@@ -112,15 +131,17 @@ INSERT INTO `generaluser` (`gen_id`, `age`, `type`, `u_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `organization` (
-`org_id` int(11) NOT NULL,
+  `org_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(40) NOT NULL,
   `doe` varchar(20) NOT NULL,
   `img` varchar(100) NOT NULL,
   `address` varchar(60) NOT NULL,
   `objective` text NOT NULL,
   `type` enum('organization') NOT NULL,
-  `u_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `u_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`org_id`),
+  KEY `u_id` (`u_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `organization`
@@ -138,7 +159,9 @@ INSERT INTO `organization` (`org_id`, `name`, `doe`, `img`, `address`, `objectiv
 CREATE TABLE IF NOT EXISTS `otherorg` (
   `oorg_id` int(11) NOT NULL,
   `organization_name` varchar(255) NOT NULL,
-  `org_id` int(11) NOT NULL
+  `org_id` int(11) NOT NULL,
+  PRIMARY KEY (`oorg_id`),
+  KEY `org_id` (`org_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -148,10 +171,12 @@ CREATE TABLE IF NOT EXISTS `otherorg` (
 --
 
 CREATE TABLE IF NOT EXISTS `password` (
-`p_id` int(11) NOT NULL,
+  `p_id` int(11) NOT NULL AUTO_INCREMENT,
   `password` varchar(100) NOT NULL,
-  `u_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=latin1;
+  `u_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`p_id`),
+  KEY `u_id` (`u_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=98 ;
 
 --
 -- Dumping data for table `password`
@@ -170,11 +195,13 @@ INSERT INTO `password` (`p_id`, `password`, `u_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `profile` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `u_id` int(11) NOT NULL,
   `profile_photo` varchar(255) NOT NULL,
-  `about` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `about` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `u_id` (`u_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `profile`
@@ -191,7 +218,7 @@ INSERT INTO `profile` (`id`, `u_id`, `profile_photo`, `about`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `projects` (
-`project_id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL AUTO_INCREMENT,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `title` varchar(55) NOT NULL,
@@ -205,8 +232,10 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `video_url` varchar(500) DEFAULT NULL,
   `detail` text NOT NULL,
   `status` int(11) NOT NULL,
-  `u_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `u_id` int(11) NOT NULL,
+  PRIMARY KEY (`project_id`),
+  KEY `u_id` (`u_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -217,7 +246,9 @@ CREATE TABLE IF NOT EXISTS `projects` (
 CREATE TABLE IF NOT EXISTS `requirements` (
   `requirement_id` int(11) NOT NULL,
   `requirement` varchar(255) NOT NULL,
-  `project_id` int(11) NOT NULL
+  `project_id` int(11) NOT NULL,
+  PRIMARY KEY (`requirement_id`),
+  KEY `project_id` (`project_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -227,15 +258,17 @@ CREATE TABLE IF NOT EXISTS `requirements` (
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-`user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(30) NOT NULL,
   `first_name` varchar(20) NOT NULL,
   `last_name` varchar(20) NOT NULL,
   `contact_number` int(30) NOT NULL,
   `user_type` enum('generalUser','organization','welfare') NOT NULL,
   `user_status` tinyint(1) NOT NULL,
-  `user_hash` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=243 DEFAULT CHARSET=latin1;
+  `user_hash` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_name` (`user_name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=243 ;
 
 --
 -- Dumping data for table `user`
@@ -254,7 +287,7 @@ INSERT INTO `user` (`user_id`, `user_name`, `first_name`, `last_name`, `contact_
 --
 
 CREATE TABLE IF NOT EXISTS `welfare` (
-`welf_id` int(11) NOT NULL,
+  `welf_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(40) NOT NULL,
   `doe` varchar(20) NOT NULL,
   `img` varchar(100) NOT NULL,
@@ -262,128 +295,11 @@ CREATE TABLE IF NOT EXISTS `welfare` (
   `service` varchar(30) NOT NULL,
   `objective` text NOT NULL,
   `type` enum('welfare') NOT NULL,
-  `u_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `u_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`welf_id`),
+  KEY `u_id` (`u_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `donations`
---
-ALTER TABLE `donations`
- ADD PRIMARY KEY (`pay_id`), ADD KEY `item_number` (`item_number`);
-
---
--- Indexes for table `fundraiser`
---
-ALTER TABLE `fundraiser`
- ADD PRIMARY KEY (`id`), ADD KEY `u_id` (`u_id`);
-
---
--- Indexes for table `generaluser`
---
-ALTER TABLE `generaluser`
- ADD PRIMARY KEY (`gen_id`), ADD KEY `u_id` (`u_id`);
-
---
--- Indexes for table `organization`
---
-ALTER TABLE `organization`
- ADD PRIMARY KEY (`org_id`), ADD KEY `u_id` (`u_id`);
-
---
--- Indexes for table `otherorg`
---
-ALTER TABLE `otherorg`
- ADD PRIMARY KEY (`oorg_id`), ADD KEY `org_id` (`org_id`);
-
---
--- Indexes for table `password`
---
-ALTER TABLE `password`
- ADD PRIMARY KEY (`p_id`), ADD KEY `u_id` (`u_id`);
-
---
--- Indexes for table `profile`
---
-ALTER TABLE `profile`
- ADD PRIMARY KEY (`id`), ADD KEY `u_id` (`u_id`);
-
---
--- Indexes for table `projects`
---
-ALTER TABLE `projects`
- ADD PRIMARY KEY (`project_id`), ADD KEY `u_id` (`u_id`);
-
---
--- Indexes for table `requirements`
---
-ALTER TABLE `requirements`
- ADD PRIMARY KEY (`requirement_id`), ADD KEY `project_id` (`project_id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
- ADD PRIMARY KEY (`user_id`), ADD UNIQUE KEY `user_name` (`user_name`);
-
---
--- Indexes for table `welfare`
---
-ALTER TABLE `welfare`
- ADD PRIMARY KEY (`welf_id`), ADD KEY `u_id` (`u_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `donations`
---
-ALTER TABLE `donations`
-MODIFY `pay_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `fundraiser`
---
-ALTER TABLE `fundraiser`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50;
---
--- AUTO_INCREMENT for table `generaluser`
---
-ALTER TABLE `generaluser`
-MODIFY `gen_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
---
--- AUTO_INCREMENT for table `organization`
---
-ALTER TABLE `organization`
-MODIFY `org_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `password`
---
-ALTER TABLE `password`
-MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=98;
---
--- AUTO_INCREMENT for table `profile`
---
-ALTER TABLE `profile`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `projects`
---
-ALTER TABLE `projects`
-MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=243;
---
--- AUTO_INCREMENT for table `welfare`
---
-ALTER TABLE `welfare`
-MODIFY `welf_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -392,61 +308,61 @@ MODIFY `welf_id` int(11) NOT NULL AUTO_INCREMENT;
 -- Constraints for table `donations`
 --
 ALTER TABLE `donations`
-ADD CONSTRAINT `donations_ibfk_1` FOREIGN KEY (`item_number`) REFERENCES `fundraiser` (`id`);
+  ADD CONSTRAINT `donations_ibfk_1` FOREIGN KEY (`item_number`) REFERENCES `fundraiser` (`id`);
 
 --
 -- Constraints for table `fundraiser`
 --
 ALTER TABLE `fundraiser`
-ADD CONSTRAINT `fundraiser_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`);
+  ADD CONSTRAINT `fundraiser_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`);
 
 --
 -- Constraints for table `generaluser`
 --
 ALTER TABLE `generaluser`
-ADD CONSTRAINT `generaluser_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `generaluser_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `organization`
 --
 ALTER TABLE `organization`
-ADD CONSTRAINT `organization_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `organization_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `otherorg`
 --
 ALTER TABLE `otherorg`
-ADD CONSTRAINT `otherorg_ibfk_1` FOREIGN KEY (`org_id`) REFERENCES `projects` (`project_id`);
+  ADD CONSTRAINT `otherorg_ibfk_1` FOREIGN KEY (`org_id`) REFERENCES `projects` (`project_id`);
 
 --
 -- Constraints for table `password`
 --
 ALTER TABLE `password`
-ADD CONSTRAINT `password_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `password_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `profile`
 --
 ALTER TABLE `profile`
-ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`);
+  ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`);
 
 --
 -- Constraints for table `projects`
 --
 ALTER TABLE `projects`
-ADD CONSTRAINT `cons_orgtoproj` FOREIGN KEY (`u_id`) REFERENCES `organization` (`org_id`);
+  ADD CONSTRAINT `cons_orgtoproj` FOREIGN KEY (`u_id`) REFERENCES `organization` (`org_id`);
 
 --
 -- Constraints for table `requirements`
 --
 ALTER TABLE `requirements`
-ADD CONSTRAINT `requirements_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`project_id`);
+  ADD CONSTRAINT `requirements_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`project_id`);
 
 --
 -- Constraints for table `welfare`
 --
 ALTER TABLE `welfare`
-ADD CONSTRAINT `welfare_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `welfare_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
