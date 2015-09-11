@@ -54,7 +54,7 @@
                 <tr>
                   <th>ID</th>
                   <th>Username</th>
-                  <th>Action</th>
+                 
                 </tr>
 
                 
@@ -68,11 +68,6 @@
                 <tr>
                   <td><?php echo $id++?></td>
                   <td><?php echo $admin->get_username();?></td>
-                
-                   
-                  
-                  <td><a href="<?php echo BASE_URL;?>admin/index.php?page=admin&m=edit&id=<?php echo $admin->get_id();?>" class="btn btn-primary btn-sm glyphicon glyphicon-pencil"></a> 
-                      <a href="<?php echo BASE_URL;?>admin/index.php?page=admin&m=delete&id=<?php echo $admin->get_id();?>" class="btn btn-danger btn-sm glyphicon glyphicon-trash" onclick="return confirm('Are you sure?')"></a></td>
                 </tr>
 
 

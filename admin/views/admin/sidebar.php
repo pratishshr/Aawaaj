@@ -1,3 +1,16 @@
+<?php
+if(isset($_GET['page'])){
+  $page = $_GET['page'];
+  if($page =="user" || $page =="general" || $page =="org" || $page =="welf"){
+    $active = true;
+  }else{
+    $active = false;
+  }
+}else{
+  $active = false;
+}
+  
+?>
 <!-- Left side column. contains the sidebar -->
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
@@ -25,7 +38,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview">
+            <li class="<?php echo ($active)?('active'):'';?> treeview">
               <a href="#">
                 <i class="glyphicon glyphicon-user"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
