@@ -21,7 +21,9 @@
                   <th>ID</th>
                   <th>Title</th>
                   <th>Started By</th>
+                  <th>Project Goal</th>
                   <th>Fund Raised</th>
+                  <th>Remaining Days</th>
                   
                 </tr>
 
@@ -33,14 +35,21 @@
 
                    $total = $this->payrepository->totalFund($fund->get_id());
                    $user = $this->fundrepository->getUser($fund->get_u_id());
-                
+                   //CALCULATE DAYS LEFT
+                  $current_date = new DateTime(date('Y-m-d'), new DateTimeZone('Asia/Kathmandu'));
+                  $end_date = new DateTime($fund->get_end_date(), new DateTimeZone('Asia/Kathmandu'));
+                  $interval = $current_date->diff($end_date);
+                  $remaining = $interval->format('%a');
+                  
                  ?>
 
                 <tr>
                   <td><?php echo $id++?></td>
                   <td><a href="<?php echo BASE_URL.'admin/index.php?page=fundraiser&m=donations&id='.$fund->get_id().'&title='.$fund->get_title();?>"><?php echo $fund->get_title();?></a></td>
                   <td><?php echo $user;?></td>
+                  <td>$<?php echo $fund->get_amount();?> </td>
                   <td>$<?php echo $total;?></td>
+                  <td><?php echo $remaining;?></td>
                 </tr>  
 
 
