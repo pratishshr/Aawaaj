@@ -17,6 +17,7 @@ class ProjectController{
 	
 	public function index($u_id){
 		$result = $this->profile_repository->get_by_id($u_id);
+
 		if($result == NULL){
 			//if id=jpt
 			$this->error_page();
@@ -49,6 +50,7 @@ class ProjectController{
 			$this->error_page();
 			exit();
 		}
+		//$result_project = $this->projectrepository->get_all($data['']);
 		echo "View Project by this user here";
 	}
 
@@ -215,6 +217,9 @@ if(isset($_GET['id'])){
 						case 'add':
 							$project_controller->add();
 							break;
+
+						case 'save':
+							$project_controller->save();
 						
 						default:
 							$project_controller->error_page();
