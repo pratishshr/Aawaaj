@@ -37,10 +37,11 @@ class ProjectRepository{
 			$proj->setDetail($row['detail']);
 			$proj->setStatus($row['status']);
 			$proj->setUid($row['u_id']);
-
-
 			array_push($project_list, $proj);
 		}
+		$sql = "SELECT * FROM requirements,projects where projects.prooject_id = requirements.project_id and projects.project_id={proj->getProject_id()}";
+		
+		
 		$this->database->close();
 		return $project_list;
 	}

@@ -1,5 +1,7 @@
 <?php require_once(ROOT_PATH."database/session.php");?> 
 <?php include_once(ROOT_PATH."profile/system/models/profile.class.php");?>
+<?php include_once(ROOT_PATH."profile/system/models/project.class.php"); ?>
+<?php include_once(ROOT_PATH."profile/system/repositories/projectrepository.class.php")
 <?php include_once(ROOT_PATH."profile/system/repositories/profilerepository.class.php");?>
 
 <?php
