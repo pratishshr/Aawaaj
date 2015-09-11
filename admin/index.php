@@ -6,15 +6,13 @@
 	if(isset($_GET['page'])){
 		$page = $_GET['page'];		
 	}else{
-		$page = "admin";
+		$page = "user";
 	}
 
 	//CHECK TO SEE IF THE KEY IS AVAILABLE IN THE ROUTES , IF SO ROUTE IS TO THAT PAGE ELSE TO DEFAULT PAGE
 	if(array_key_exists($page, $routes)){
 		include_once(ROOT_PATH."admin/controllers/".$routes[$page].".php");
 
-	}else{
-		include_once(ROOT_PATH."admin/controllers/AdminUserController.php");
 	}
 ?>
 

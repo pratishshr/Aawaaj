@@ -1,13 +1,14 @@
 <?php require_once(ROOT_PATH."admin/helpers/session.php"); ?>
-<?php require_once(ROOT_PATH."admin/core/Admin_Model.php"); ?>
+<?php require_once(ROOT_PATH."admin/core/Auth_Model.php"); ?>
 
 <?php 
 	
-	class AdminController{
+	class Auth_Controller{
 
 		public function __construct(){
 			
 			Session::init();
+		
 			if(Session::get('loggin') == false){
 				$this->login();				
 			}

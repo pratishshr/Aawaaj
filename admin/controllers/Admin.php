@@ -1,9 +1,9 @@
-<?php include_once(ROOT_PATH."admin/system/model/admin.class.php");?>
+<?php include_once(ROOT_PATH."admin/system/model/Admin_Model.php");?>
 <?php include_once(ROOT_PATH."admin/system/repository/adminrepository.class.php");?>
-<?php require_once(ROOT_PATH."admin/core/Admin_Controller.php");?>
+<?php require_once(ROOT_PATH."admin/core/Auth_Controller.php");?>
 
 <?php
-	class Admins extends AdminController{
+	class Admin extends Auth_Controller{
 
 		private $adminrepository;
 		public function __construct(){
@@ -24,24 +24,24 @@
 				//MAP DATA
 				$admin = $this->_map_posted_data();
 				$this->adminrepository->insert($admin);
-				header("Location: index.php?page=admins&m=index&action=add");
+				header("Location: index.php?page=admin&m=index&action=add");
 
 			}else{
-				$view_page ="adminsview/add";
+				$view_page ="adminview/add";
 				include_once(ROOT_PATH."admin/views/admin/container.php");
 				}
 		}
 
 		private function _map_posted_data(){
 
-			$admin = new Admin();
-			$admin->set_username($_POST['username']);
+			$admin_model = new Admin_Model();
+			$admin_model->set_username($_POST['username']);
 					
 			if(isset($_POST['password'])){
-			$admin->set_password($_POST['password']);
+			$admin_model->set_password($_POST['password']);
 			}
 
-			return $admin;
+			return $admin_model;
 		}
 
 
@@ -76,7 +76,7 @@
 	}
 	
 	//OBJECT OF adminusercontroller
-	$admins = new Admins();
+	$admin = new Admin();
 
 	//IF m IS SET, SET IT TO $method, ELSE DEFAULT IT TO index
 	if(isset($_GET['m'])){
@@ -88,25 +88,25 @@
 	switch($method){
 		
 		case "index":
-			$admins->index();
+			$admin->index();
 			break;
 
 		case "add":
-			$admins->add();
+			$admin->add();
 			break;
 
 		case "edit":
-			$admins->edit();
+			$admin->edit();
 			break;
 		
 		case "delete":
-			$admins->delete();
+			$admin->delete();
 			break;
 		case "logout":
-			$admins->logout();
+			$admin->logout();
 
 		default:
-			$admins->index();		
+			$admin->index();		
 	}
 
 ?>

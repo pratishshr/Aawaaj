@@ -21,13 +21,13 @@
 
 			//STORE IN OBJECT AND SEND TO VIEW
 			while($row = $result->fetch_assoc()){
-				$user = new Admin();
+				$admin_model = new Admin_Model();
 
-				$user->set_id($row['id']);
-				$user->set_username($row['username']);
-				$user->set_password($row['password']);
+				$admin_model->set_id($row['id']);
+				$admin_model->set_username($row['username']);
+				$admin_model->set_password($row['password']);
 				
-				array_push($admin_list,$user);
+				array_push($admin_list,$admin_model);
 			}
 			$this->db->close();
 			return $admin_list;
@@ -56,15 +56,15 @@
 
 			while($stmt->fetch()){
 			//instantiate object
-			$user = new User();
+			$admin_model = new Admin_Model();
 
-			$user->set_id($id);
-			$user->set_username($username);
-			$user->set_password($password);
+			$admin_model->set_id($id);
+			$admin_model->set_username($username);
+			$admin_model->set_password($password);
 			
 		}
 			$this->db->close();
-			return $user;
+			return $admin_model;
 
 
 	}

@@ -1,10 +1,10 @@
-<?php include_once(ROOT_PATH."admin/system/model/user.class.php");?>
+<?php include_once(ROOT_PATH."admin/system/model/User_Model.php");?>
 <?php include_once(ROOT_PATH."admin/system/repository/userrepository.class.php");?>
 <?php include_once(ROOT_PATH."admin/system/repository/organizationrepository.class.php");?>
-<?php require_once(ROOT_PATH."admin/core/Admin_Controller.php");?>
+<?php require_once(ROOT_PATH."admin/core/Auth_Controller.php");?>
 
 <?php
-	class AdminUserController extends AdminController{
+	class User extends Auth_Controller{
 
 		private $userrepository;
 		public function __construct(){
@@ -25,7 +25,7 @@
 			//PAGE TO ADD THE USER IN DATABASE BY ADMIN ITSELF
 			if(isset($_POST['submit'])){
 				//MAP DATA
-				$user = $this->_map_posted_data();
+				$user_model = $this->_map_posted_data();
 				$this->userrepository->insert($user);
 				header("Location: index.php?page=admin&m=index&action=add");
 
@@ -37,26 +37,26 @@
 
 		private function _map_posted_data(){
 
-			$user = new User();
-			$user->set_user_name($_POST['user_name']);
-			$user->set_first_name($_POST['first_name']);
-			$user->set_last_name($_POST['last_name']);
-			$user->set_contact_number($_POST['contact_number']);
+			$user_model = new User_Model();
+			$user_model->set_user_name($_POST['user_name']);
+			$user_model->set_first_name($_POST['first_name']);
+			$user_model->set_last_name($_POST['last_name']);
+			$user_model->set_contact_number($_POST['contact_number']);
 			if(isset($_POST['user_type'])){
-				$user->set_user_type($_POST['user_type']);
+				$user_model->set_user_type($_POST['user_type']);
 			}
-			$user->set_user_status($_POST['user_status']);
+			$user_model->set_user_status($_POST['user_status']);
 			if(isset($_POST['password'])){
-			$user->set_password($_POST['password']);
+			$user_model->set_password($_POST['password']);
 			}
 
 			if($_POST['user_type'] == 'organization'){
 				
-				$user->set_name($_POST['name']);
-				$user->set_doe($_POST['doe']);
+				$user_model->set_name($_POST['name']);
+				$user_model->set_doe($_POST['doe']);
 				
-				$user->set_address($_POST['address']);
-				$user->set_objective($_POST['objective']);
+				$user_model->set_address($_POST['address']);
+				$user_model->set_objective($_POST['objective']);
 				//store file
 				$filename = $_FILES['img']['name'];
 				$path = PUBLIC_PATH. "/pictures/orgPictures/";
@@ -64,15 +64,15 @@
 				move_uploaded_file($_FILES['img']['tmp_name'], $path.$filename);
 				
 				$savepath = PUBLIC_PATH2."/pictures/orgPictures/";
-				$user->set_img($savepath.$filename);
+				$user_model->set_img($savepath.$filename);
 				
 			
 			}elseif($_POST['user_type'] == 'welfare'){
-				$user->set_welf_name($_POST['welf_name']);
-				$user->set_welf_doe($_POST['welf_doe']);
-				$user->set_welf_service($_POST['welf_service']);
-				$user->set_welf_address($_POST['welf_address']);
-				$user->set_welf_objective($_POST['welf_objective']);
+				$user_model->set_welf_name($_POST['welf_name']);
+				$user_model->set_welf_doe($_POST['welf_doe']);
+				$user_model->set_welf_service($_POST['welf_service']);
+				$user_model->set_welf_address($_POST['welf_address']);
+				$user_model->set_welf_objective($_POST['welf_objective']);
 				//store file
 				$filename = $_FILES['img']['name'];
 				$path = PUBLIC_PATH. "/pictures/welfPictures/";
@@ -80,11 +80,11 @@
 				move_uploaded_file($_FILES['img']['tmp_name'], $path.$filename);
 				
 				$savepath = PUBLIC_PATH2."/pictures/welfPictures/";
-				$user->set_welf_img($savepath.$filename);
+				$user_model->set_welf_img($savepath.$filename);
 				
 			}
 			
-			return $user;
+			return $user_model;
 		}
 
 
@@ -92,15 +92,15 @@
 			//PAGE TO EDIT THE USER ALREADY IN THE DATABASE
 			if(isset($_POST['submit'])){
 				//MAP DATA
-				$user = $this->_map_posted_data();
-				$user->set_user_id($_POST['id']);
-				$this->userrepository->update($user);
+				$user_model = $this->_map_posted_data();
+				$user_model->set_user_id($_POST['id']);
+				$this->userrepository->update($user_model);
 				header("Location: index.php?page=admin&m=index&action=edit");
 			}else{
 				$view_page = "adminusersview/edit";
 				$id = $_GET['id'];
-				$user = $this->userrepository->get_by_id($id);
-				if(is_null($user)){
+				$user_model = $this->userrepository->get_by_id($id);
+				if(is_null($user_model)){
 					header("Location: index.php?page=admin&m=index");
 				}
 				include_once(ROOT_PATH."admin/views/admin/container.php");
@@ -118,8 +118,8 @@
 
 	}
 	
-	//OBJECT OF adminusercontroller
-	$adminusercontroller = new AdminUserController();
+	//OBJECT OF alluser
+	$user = new User();
 
 	//IF m IS SET, SET IT TO $method, ELSE DEFAULT IT TO index
 	if(isset($_GET['m'])){
@@ -131,23 +131,23 @@
 	switch($method){
 		
 		case "index":
-			$adminusercontroller->index();
+			$user->index();
 			break;
 
 		case "add":
-			$adminusercontroller->add();
+			$user->add();
 			break;
 
 		case "edit":
-			$adminusercontroller->edit();
+			$user->edit();
 			break;
 		
 		case "delete":
-			$adminusercontroller->delete();
+			$user->delete();
 			break;
 
 		default:
-			$adminusercontroller->index();		
+			$user->index();		
 	}
 
 ?>

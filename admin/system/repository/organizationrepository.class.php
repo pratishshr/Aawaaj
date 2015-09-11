@@ -21,22 +21,22 @@
 
 			//STORE IN OBJECT AND SEND TO VIEW
 			while($row = $result->fetch_assoc()){
-				$user = new User();
+				$user_model = new User_Model();
 
-				$user->set_user_id($row['user_id']);
-				$user->set_user_name($row['user_name']);
-				$user->set_first_name($row['first_name']);
-				$user->set_last_name($row['last_name']);
-				$user->set_contact_number($row['contact_number']);
-				$user->set_user_type($row['user_type']);
-				$user->set_user_status($row['user_status']);
-				$user->set_name($row['name']);
-				$user->set_doe($row['doe']);
-				$user->set_img($row['img']);
-				$user->set_address($row['address']);
-				$user->set_objective($row['objective']);
+				$user_model->set_user_id($row['user_id']);
+				$user_model->set_user_name($row['user_name']);
+				$user_model->set_first_name($row['first_name']);
+				$user_model->set_last_name($row['last_name']);
+				$user_model->set_contact_number($row['contact_number']);
+				$user_model->set_user_type($row['user_type']);
+				$user_model->set_user_status($row['user_status']);
+				$user_model->set_name($row['name']);
+				$user_model->set_doe($row['doe']);
+				$user_model->set_img($row['img']);
+				$user_model->set_address($row['address']);
+				$user_model->set_objective($row['objective']);
 
-				array_push($user_list,$user);
+				array_push($user_list,$user_model);
 			}
 			$this->db->close();
 			return $user_list;
