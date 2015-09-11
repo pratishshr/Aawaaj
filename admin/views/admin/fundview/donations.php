@@ -7,7 +7,7 @@
            <!-- Default box -->
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">All Fundraisers</h3>
+              <h3 class="box-title">All Donations in "<?php echo strtoupper($title)?>"</h3>
               <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
               </div>
@@ -19,28 +19,22 @@
               <table class="table table-bordered table-hover table-striped">
                 <tr>
                   <th>ID</th>
-                  <th>Title</th>
-                  <th>Started By</th>
-                  <th>Fund Raised</th>
-                  
+                  <th>Doner Email</th>
+                  <th>Donation Amount</th>
                 </tr>
 
                 
 
                 <?php 
-                $id=1;
-                foreach($this->fundrepository->get_all() as $fund){
+                $count=1;
+                foreach($this->payrepository->get_by_id($id) as $pay){
 
-                   $total = $this->payrepository->totalFund($fund->get_id());
-                   $user = $this->fundrepository->getUser($fund->get_u_id());
-                
-                 ?>
+                 ?> 
 
                 <tr>
-                  <td><?php echo $id++?></td>
-                  <td><a href="<?php echo BASE_URL.'admin/index.php?page=fundraiser&m=donations&id='.$fund->get_id().'&title='.$fund->get_title();?>"><?php echo $fund->get_title();?></a></td>
-                  <td><?php echo $user;?></td>
-                  <td>$<?php echo $total;?></td>
+                  <td><?php echo $count++?></td>
+                  <td><?php echo $pay->get_payer_email();?></a></td>
+                  <td>$<?php echo $pay->get_payment_amount();?></td>
                 </tr>  
 
 

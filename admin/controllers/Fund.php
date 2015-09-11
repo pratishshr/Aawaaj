@@ -1,4 +1,5 @@
 <?php include_once(ROOT_PATH."fundraiser/system/models/fundraiser.class.php");?>
+<?php include_once(ROOT_PATH."fundraiser/system/models/paypal.class.php");?>
 <?php include_once(ROOT_PATH."fundraiser/system/repositories/fundrepository.class.php");?>
 <?php include_once(ROOT_PATH."fundraiser/system/repositories/payrepository.class.php");?>
 
@@ -22,6 +23,12 @@
 			include_once(ROOT_PATH."admin/views/admin/container.php");
 		}
 
+		public function donations(){
+			$id = $_GET['id'];
+			$title = $_GET['title'];
+			$view_page="fundview/donations";
+			include_once(ROOT_PATH."admin/views/admin/container.php");
+		}
 	
 		
 	}
@@ -42,9 +49,12 @@
 			$fund->index();
 			break;
 
+		case "donations":
+			$fund->donations();
+			break;
 
 		default:
-			$fundr->index();		
+			$fund->index();		
 	}
 
 ?>
