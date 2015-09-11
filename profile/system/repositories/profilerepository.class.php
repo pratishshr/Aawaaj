@@ -111,7 +111,7 @@ class ProfileRepository{
 		}
 
 		elseif($user_type == "welfare"){
-			$sql = "SELECT name,doe,img,address,service,objective from organization where u_id=? LIMIT 1";
+			$sql = "SELECT name,doe,img,address,service,objective from welfare where u_id=? LIMIT 1";
 
 			// prepared statement is returned
 			$stmt = $this->db->initialize($sql);
