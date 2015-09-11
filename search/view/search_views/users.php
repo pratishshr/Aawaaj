@@ -1,4 +1,4 @@
-<div class="container text-center col-md-9 panel">
+<div class="container text-center col-md-9 ">
 	<form method="post" action="">
         <div class="form-group">
         <label >Search</label>
@@ -33,9 +33,9 @@
                          <?php
                         foreach($users as $user){ 
                          ?>
-                            <div class="col-sm-6 col-md-4">
-        	                    <a href="<?php echo BASE_URL?>profile/index.php?id=<?php echo $user->get_user_hash();?>" class="thumbnail">
-        	                    	<img class="img-responsive" src="<?php echo BASE_URL?>home/pictures/profile/<?php echo $user->get_user_image();?>" alt="...">
+                            <div class="col-md-4">
+        	                    <a href="<?php echo BASE_URL?>profile/index.php?id=<?php echo $user->get_user_hash();?>" class="">
+        	                    	<img class="img-responsive img-circle show-profile-image" src="<?php echo BASE_URL?>home/pictures/profile/<?php echo $user->get_user_image();?>" alt="...">
         	                    </a>                      
         	                    <h3><?php echo $user->get_first_name();?> <?php echo $user->get_last_name();?></h3>
         	                    <p><?php echo $user->get_user_type(); ?></p>
