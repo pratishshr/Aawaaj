@@ -1,12 +1,10 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-
-
 <?php include_once(ROOT_PATH."app/view/loginmodal.php"); ?>
- <?php include_once(ROOT_PATH."app/view/signupmodal.php"); ?>
+<?php include_once(ROOT_PATH."app/view/signupmodal.php"); ?>
 
 
- <header class="navbar navbar-custom navbar-fixed-top" role="navigation">
+ <nav class="navbar navbar-custom navbar-fixed-top" role="navigation" style="background:black">
         <div class="container ">
             <div class="navbar-header ">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -78,4 +76,4 @@
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-    </header>
+    </nav>

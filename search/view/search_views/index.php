@@ -1,5 +1,5 @@
 
-<div class="container text-center col-md-9 panel panel-default">
+<div class="container text-center col-md-9 ">
     
     <form method="post" action="">
         <div class="form-group">
@@ -34,14 +34,17 @@
                  <?php
                 foreach($users as $user){ 
                  ?>
-                    <div class="col-md-5">
+                    <div class="col-md-4">
 	                    <a href="<?php echo BASE_URL?>profile/index.php?id=<?php echo $user->get_user_hash();?>" class="">
 	                    	
                         <img class="img-circle img-thumbnail show-profile-image" src="<?php echo BASE_URL?>home/pictures/profile/<?php echo $user->get_user_image();?>" alt="...">
 	                    
-                      </a>                      
-	                    <h3><?php echo $user->get_first_name();?> <?php echo $user->get_last_name();?></h3>
-	                    <p><?php echo $user->get_user_type(); ?></p>
+                      </a> 
+                      <br><br>
+                      <div>                    
+	                    <h4><?php echo $user->get_first_name();?> <?php echo $user->get_last_name();?></h4></div>
+                      <div>
+                      <h5><?php echo $user->get_user_type(); ?></h5></div>
 	                    <p><a href="<?php echo BASE_URL?>profile/index.php?id=<?php echo $user->get_user_hash();?>" class="btn btn-primary" role="button">View Profile</a></p>
                     </div> 
           <?php }
@@ -61,12 +64,13 @@
                  <?php
                 foreach($fundraisers as $fund){ 
                  ?>
-                    <div class="col-sm-6 col-md-4">
+                    <div class="col-md-4">
 	                    <a href="<?php echo BASE_URL?>fundraiser/index.php?page=fund&m=campaign&id=<?php echo $fund->get_fund_id();?>" class="">
                       <figure>
-                      <img class="img-responsive img-circle show-profile-image" height="200" width="500" src="<?php echo $fund->get_image();?>" alt="...">
+                      <img class="img-responsive img-circle show-profile-image" src="<?php echo $fund->get_image();?>" alt="...">
                       </figure>
                       </a>
+                      <br>
                       
                         <h4><?php echo $fund->get_title();?></h4>
                         <h5>Amount : <?php echo $fund->get_amount();?></h5>

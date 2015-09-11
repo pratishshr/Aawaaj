@@ -14,7 +14,7 @@
 
 	define('USERNAME','root');
 
-	define('PASSWORD','damcare');
+	define('PASSWORD','');
 
 
 	define('DATABASE','aawaaj');
