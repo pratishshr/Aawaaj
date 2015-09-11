@@ -2,7 +2,8 @@
 <?php include_once(ROOT_PATH."admin/system/repository/userrepository.class.php");?>
 <?php require_once(ROOT_PATH."admin/core/Auth_Controller.php");?>
 <?php include_once(ROOT_PATH."admin/system/repository/generaluserrepository.class.php");?>
-
+<?php include_once(ROOT_PATH."admin/system/model/Admin_Model.php");?>
+<?php include_once(ROOT_PATH."admin/system/repository/adminrepository.class.php");?>
 
 
 
@@ -10,10 +11,12 @@
 	class GeneralUser extends Auth_Controller{
 		private $userrepository;
 		private $generaluserrepository;
+		private $adminrepository;
 		public function __construct(){
 			parent::__construct();
 			$this->userrepository = new UserRepository();
 			$this->generaluserrepository = new GeneralUserRepository();
+			$this->adminrepository = new AdminRepository();
 		}
 
 		public function index(){
