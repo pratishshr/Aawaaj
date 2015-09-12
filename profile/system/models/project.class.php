@@ -179,7 +179,7 @@ class Project
 		 {
 		     return $this->uid;
 		 }
-		 public function getRequiement()
+		 public function getRequirement()
 		 {
 		 	return $this->requirement;
 		 }
