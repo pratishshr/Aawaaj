@@ -3,6 +3,7 @@
 <?php
  require_once(ROOT_PATH."search/model/SearchList.class.php");?>
 <?php require_once(ROOT_PATH."search/system/repositories/searchrepository.class.php");?>
+<?php require_once(ROOT_PATH."libraries/Zebra_Pagination.php") ?>
 <?php
 
 	class SearchController{
