@@ -16,6 +16,8 @@
     <!-- Plugin JavaScript -->
     <script src="<?php echo BASE_URL?>home/assets/js/jquery.easing.min.js"></script>
 
+    <script type="text/javascript" src="<?php echo BASE_URL?>home/assets/js/zebra_pagination.js"></script>
+
     
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo BASE_URL?>home/assets/js/grayscale.js"></script>
