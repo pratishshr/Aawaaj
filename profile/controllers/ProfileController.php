@@ -47,7 +47,38 @@ class ProfileController{
 	}
 	
 	public function edit($id){
-		include_once(ROOT_PATH.'profile/views/container.php');
+		if(isset($_POST) && isset($_POST['submit'])){
+			$foto = false;
+			$profile = $this->_map_posted_data();
+			if(isset($_POST['foto'])){
+				$foto = true;
+			}
+			$this->repository->update($profile,$foto);
+			
+			header("Location: index.php?id=".$_SESSION['user_hash']);
+		}
+		else{
+			$profile_to_edit = $this->repository->get_edit_profile($id);
+			include_once(ROOT_PATH.'profile/views/container.php');
+		}
+	
+	}
+
+	private function _map_posted_data(){
+			$profile = new Profile();
+
+			$profile->set_id($_POST['id']);
+			$profile->set_about($_POST['about']);
+			
+			//for file
+			if(isset($_POST['foto'])){
+				$filename = $_FILES['image']['name'];
+				$path = ROOT_PATH."/home/pictures/profile/";
+				move_uploaded_file($_FILES['image']['tmp_name'], $path.$filename);
+				$profile->set_profile_photo($filename);
+			}
+			return $profile;
+
 	}
 
 	public function error_page(){

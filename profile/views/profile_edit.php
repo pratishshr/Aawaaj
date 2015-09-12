@@ -17,21 +17,26 @@
                             <!-- ===================================== -->
                             <!-- FORM FOR EDIT PROFILE-->
 
-                            <form class="black-color" action="" method="post" enctype="multipart/form-data">
-                                                                    
+                            <form id="frm" class="black-color" action="" method="post" enctype="multipart/form-data">
+                                    
                                     <div class="form-group">
-                                        <label for="profile_photo">Profile Photo:</label>
-                                        <input type="file" name="profile_photo" accept="image/*" required>
+                                        <label for="foto">Edit Photo?:</label>
+                                        <input type="checkbox" value="1" name="foto" id="foto"/>
+                                    </div>
+
+                                    <div class="form-group" id="profile_photo">
+                                        <label for="image">Profile Photo:</label>
+                                        <input type="file" name="image" accept="image/*">
                                     </div>  
                                                                                                 
                                     <div class="form-group">
                                         <label for="about">About:</label>
-                                        <textarea class="form-control" name="about" rows="10" placeholder="Write Something About Yourself or Your Organization" required></textarea>
+                                        <textarea class="form-control" name="about" id="about" rows="10" placeholder="Write Something About Yourself or Your Organization" required><?php echo $profile_to_edit->get_about();?></textarea>
                                     </div>  
 
-                                    
+                                    <input type="button" id="reset" class="btn btn-danger" value="Reset"/>
                                     <input type="submit" name="submit" class="pull-right btn btn-primary submit action-button" value="Submit" />
-                                    <input type="hidded" name="id" value="<?=$id?>"/>
+                                    <input type="hidden" name="id" value="<?=$id?>"/>
                              </form>
                             <!-- FORM FOR CREATE FUNDRAISER -->
                             <!-- ===================================== -->
@@ -46,3 +51,18 @@
         </div>
     </header>
 	<!--/#home-->
+
+    <script>
+    $(document).on("ready",function(){
+
+        $("#profile_photo").hide();
+
+        $("#reset").on("click",function(){
+            $("#about").val('');
+        });
+
+        $("#foto").on("change",function(){
+            $("#profile_photo").slideToggle();
+        });
+    });
+    </script>

@@ -63,17 +63,20 @@ class ProjectController{
 		// yei bata feri "index.php" ma falne jun chai profile ma jancha
 		
 		$proj = new Project();
-		if(isset($_POST['single_date'])){
+		if(isset($_POST['single_date']) && $_POST['single_date']!=""){
 			$proj->setStart_date($_POST['single_date']);
 		}else if(isset($_POST['start_date'])){
+			echo "start date";
 			$proj->setStart_date($_POST['start_date']);
 			if(isset($_POST['end_date'])){
+				
 				$proj->setEnd_date($_POST['end_date']);
 			}
 			else{
 				$proj->setEnd_date("");
 			}	
 		}else{
+			
 			$proj->setStart_date("");
 			$proj->setEnd_date("");
 		}
@@ -185,7 +188,7 @@ class ProjectController{
 		}
 		$proj->setStatus(1);
 		$id = $this->projectrepository->insert($proj);
-		return $proj;
+		
 
 	}
 	
@@ -222,6 +225,7 @@ if(isset($_GET['id'])){
 
 						case 'save':
 							$project_controller->save();
+							header("Location: index.php?id={$user}");
 							break;
 						
 						default:
@@ -229,14 +233,11 @@ if(isset($_GET['id'])){
 							break;
 					}
 				}
-				else{
-					$project_controller->index($user_profile_id);	
-				}
-				if(isset($_POST) && isset($_POST['submit'])){
-					$project_controller->save();
+				
+				// if(isset($_POST) && isset($_POST['submit'])){
 					
-					header("Location: index.php?id={$user}");
-				}
+					
+				// }
 				else{
 					$project_controller->error_page();
 				}

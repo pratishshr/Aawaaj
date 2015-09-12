@@ -143,4 +143,63 @@ class ProfileRepository{
 		return $profile;
 	}
 
+	public function get_edit_profile($p_id){
+		$this->db->connect();
+		$profile = NULL;
+
+		$sql = "SELECT * FROM profile WHERE u_id=?";
+
+		// prepare sql statement
+		$stmt = $this->db->initialize($sql);
+
+		// bind $stmt to certain parameters
+		$stmt->bind_param("i",$p_id);
+
+		// execute the query
+		$stmt->execute();
+
+		// bind the result to certain variables
+		$stmt->bind_result($id,$u_id,$profile_photo,$about);
+
+		while($stmt->fetch()){
+			$profile = new Profile();
+			
+			$profile->set_id($id);
+			$profile->set_u_id($u_id);
+			$profile->set_profile_photo($profile_photo);
+			$profile->set_about($about);		
+		}
+
+		$this->db->close();
+		return $profile;
+	}
+
+	public function update($profile,$foto){
+		$this->db->connect();
+		if($foto){
+			$sql = "UPDATE profile SET profile_photo=?,about=? WHERE u_id=?";
+			
+			$stmt = $this->db->initialize($sql);
+			$profile_photo = $profile->get_profile_photo();
+			$about = $profile->get_about();
+			$id = $profile->get_id();
+			
+			$stmt->bind_param("ssi",$profile_photo,$about,$id);
+		}
+		else{
+			$sql = "UPDATE profile SET about=? WHERE u_id=?";	
+			
+			$stmt = $this->db->initialize($sql);
+			$about = $profile->get_about();
+			$id = $profile->get_id();
+			
+			$stmt->bind_param("si",$about,$id);
+		}
+
+		$stmt->execute();
+
+		$this->db->close();
+
+	}
+
 }
