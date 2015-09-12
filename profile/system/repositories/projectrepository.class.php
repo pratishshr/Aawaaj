@@ -37,6 +37,7 @@ class ProjectRepository{
 			//bind
 			$stmt->bind_param("i",$id);
 
+
 			//execution of query
 			$stmt->execute();
 
@@ -199,6 +200,9 @@ class ProjectRepository{
 		$status = $proj->getStatus();
 		$u_id = $_SESSION['user_id'];
 
+		$tryql = "SELECT org_id from organization,user where user.user_id = organization.u_id and user.user_id={$u_id}";
+		$
+
 		//BIND 
 		$statement->bind_param("ssssssiissssii",$start_date,$end_date,$title,$objectives,$short_desc,$location,$budget,$volunteer,$banner_image,$project_proposal,$video_url,$detail,$status,$u_id);
 		
@@ -207,7 +211,7 @@ class ProjectRepository{
 			exit;
 		}
 		else{
-			$sq = "SELECT project_id from projects";
+			$sq = "SELECT project_id from projects ";
 			$result = $this->database->fetchquery($sq);
 			while ($row = $result->fetch_assoc()) {
 			$pro = new Project();
