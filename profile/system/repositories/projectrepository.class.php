@@ -8,7 +8,6 @@ class ProjectRepository{
 		$this->database = new DbConnection();
 	}
 	public function get_all($id=null){
-
 		$project_list = array();
 
 		//Database Connect
@@ -29,9 +28,8 @@ class ProjectRepository{
 		}
 		
 		else
-		{
-
-			$sql = "SELECT p.project_id,p.start_date,p.end_date,p.title,p.objectives,p.short_desc,p.location,p.budget,p.volunteer,p.banner_image,p.project_proposal,p.video_url,p.detail,p.status,p.u_id FROM projects as p,organization as o where p.u_id = o.org_id and o.org_id=?";
+		{ 
+			$sql = "SELECT project_id,start_date,end_date,title,objectives,short_desc,location,budget,volunteer,banner_image,project_proposal,video_url,detail,status,u_id FROM projects where u_id=?";
 			
 			// prepared statement is returned
 			$stmt = $this->database->initialize($sql);
@@ -45,9 +43,11 @@ class ProjectRepository{
 
 			//bind the result obtained by executing query
 			$stmt->bind_result($project_id,$start_date,$end_date,$title,$objectives,$short_desc,$location,$budget,$volunteer,$banner_image,$project_proposal,$video_url,$detail,$status,$u_id);
-	
-		}
 		
+		}
+
+		//$stmt = $this->database->fetchquery($sql);
+		$i=0;
 		//Store in object so that it can be used in views
 		while ($stmt->fetch()) {
 			$proj = new Project();
@@ -68,49 +68,65 @@ class ProjectRepository{
 			$proj->setStatus($status);
 			$proj->setUid($u_id);
 
-			// FOR GETTING REQUIREMENTS OF CURRENT PROJECT IN LOOP
-			$sql2 = "SELECT r.requirement FROM requirements as r,projects as p where p.project_id = r.project_id and p.project_id=?";
+			$this->get_requirements($project_id,$proj);
+			$this->get_organization($project_id,$proj);
 			
-			// prepared statement is returned
-			$stmt2 = $this->database->initialize($sql2);
-
-			//bind
-			$stmt2->bind_param("i",$proj->getProject_id());
-
-			//execution of query
-			$stmt2->execute();
-
-			//bind the result obtained by executing query
-			$stmt2->bind_result($requirement);
-
-			while($stmt2->fetch()){
-				$proj->setRequirement($requirement);
-			}
-
-			// FOR GETTING ORGANIZATIONS INVOLVED OF CURRENT PROJECT IN LOOP
-			$sql = "SELECT organization_name FROM otherorg as o,projects as p where p.project_id = o.project_id and p.project_id=?";
-			
-			// prepared statement is returned
-			$stmt = $this->database->initialize($sql);
-
-			//bind
-			$stmt->bind_param("i",$project_id);
-
-			//execution of query
-			$stmt->execute();
-
-			//bind the result obtained by executing query
-			$stmt->bind_result($organization_name);
-			while($stmt->fetch()){
-				$proj->setRequirement($organization_name);
-			}
-
 			array_push($project_list, $proj);
+
+			$i++;
+		}
+		echo $i;
+		$this->database->close();
+		var_dump($project_list);
+		exit();
+		
+	}
+
+	public function get_requirements($project_id,$proj){
+		$this->database->connect();
+		// FOR GETTING REQUIREMENTS OF CURRENT PROJECT IN LOOP
+		$sql2 = "SELECT requirement FROM requirements where project_id=?";
+		
+		// prepared statement is returned
+		$stmt2 = $this->database->initialize($sql2);
+		
+		//bind
+		$stmt2->bind_param("i",$project_id);
+
+		//execution of query
+		$stmt2->execute();
+
+		//bind the result obtained by executing query
+		$stmt2->bind_result($requirement);
+
+		while($stmt2->fetch()){
+			$proj->setRequirement($requirement);
 		}
 		
-		$this->database->close();
-		return $project_list;
 	}
+
+	public function get_organization($project_id,$proj){
+		$this->database->connect();
+		// FOR GETTING ORGANIZATIONS INVOLVED OF CURRENT PROJECT IN LOOP
+		$sql3 = "SELECT organization_name FROM otherorg where org_id=?";
+		
+		// prepared statement is returned
+		$stmt3 = $this->database->initialize($sql3);
+
+		//bind
+		$stmt3->bind_param("i",$project_id);
+
+		//execution of query
+		$stmt3->execute();
+
+		//bind the result obtained by executing query
+		$stmt3->bind_result($organization_name);
+		while($stmt3->fetch()){
+			$proj->setOrganization($organization_name);
+		}
+	}
+		
+
 
 	public function get_last_id(){
 		$this->database->connect();
