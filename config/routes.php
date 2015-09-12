@@ -2,12 +2,14 @@
 	//ROUTES
 
 	//ROUTE TO ADMIN CONTROLLING USERS TABLE CONTROLLER
-	$routes['users'] = 'AdminUserController';
-	$routes['general'] = 'GeneralUserController';
-	$routes['org'] = 'OrganizationController';
-	$routes['welf'] = 'WelfareController';
-	$routes['admins'] = "Admins";
-
+	$routes['user'] = 'User';
+	$routes['general'] = 'GeneralUser';
+	$routes['org'] = 'Organization';
+	$routes['welf'] = 'Welfare';
+	$routes['admin'] = "Admin";
+	$routes['home'] = "Home";
+	$routes['fundraiser'] = "Fund";
+ 
 	//fundraiser routes
 	$routes['fund'] = 'FundController';
 	$routes['paypal'] = 'Paypal';

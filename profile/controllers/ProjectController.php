@@ -30,7 +30,7 @@ class ProjectController{
 			exit();
 		}
 		else{
-			$data = array('profile_photo'=>$result->get_profile_photo(),'about'=>$result->get_about(),'user_id'=>$result->get_user_id(),'user_name'=>$result->get_user_name(),'first_name'=>$result->get_first_name(),'last_name'=>$result->get_last_name(),'contact_number'=>$result->get_contact_number(),'user_type'=>$result->get_user_type());
+			$data = array('profile_id'=>$result->get_profile_id(),'profile_photo'=>$result->get_profile_photo(),'about'=>$result->get_about(),'user_id'=>$result->get_user_id(),'user_name'=>$result->get_user_name(),'first_name'=>$result->get_first_name(),'last_name'=>$result->get_last_name(),'contact_number'=>$result->get_contact_number(),'user_type'=>$result->get_user_type());
 			if($result->get_user_type() == "generalUser"){
 				$data['age']=$result->get_age();
 			}
@@ -50,8 +50,8 @@ class ProjectController{
 			$this->error_page();
 			exit();
 		}
-		//$result_project = $this->projectrepository->get_all($data['']);
-		echo "View Project by this user here";
+		$project_list = $this->projectrepository->get_all($data['profile_id']);
+		include_once(ROOT_PATH.'profile/views/container.php');
 	}
 
 	public function add(){
@@ -87,26 +87,22 @@ class ProjectController{
 		else{
 			$proj->setBudget(NULL);
 		}
-		$proj->setRequirement1($_POST['requirement1']);
-		if(isset($_POST['requirement2'])){
-		$proj->setRequirement2($_POST['requirement2']);
+		if (isset($_POST['requirement1'])){
+		$proj->setRequirement($_POST['requirement1']);
 		}else{
-			$proj->setRequirement2("");
+			$proj->setRequirement("");
+		}
+		if(isset($_POST['requirement2'])){
+		$proj->setRequirement($_POST['requirement2']);
 		}
 		if(isset($_POST['requirement3'])){
-		$proj->setRequirement3($_POST['requirement3']);
-		}else{
-			$proj->setRequirement3("");
+		$proj->setRequirement($_POST['requirement3']);
 		}
 		if(isset($_POST['requirement4'])){
-		$proj->setRequirement4($_POST['requirement4']);
-		}else{
-			$proj->setRequirement4("");
+		$proj->setRequirement($_POST['requirement4']);
 		}
 		if(isset($_POST['requirement5'])){
-		$proj->setRequirement5($_POST['requirement5']);
-		}else{
-			$proj->setRequirement5("");
+		$proj->setRequirement($_POST['requirement5']);
 		}
 		if(isset($_POST['cb_volunteer'])){
 			if(isset($_POST['number_volunteer'])){
@@ -119,51 +115,55 @@ class ProjectController{
 			$proj->setVolunteer(0);
 		}
 		if(isset($_POST['cb_otherorg'])){
-			$proj->setOrganization1($_POST['organization1']);
-			if(isset($_POST['organization2'])){
-				$proj->setOrganization2($_POST['organization2']);
+			if(isset($_POST['organization1'])){
+			$proj->setOrganization($_POST['organization1']);
 			}else{
-				$proj->setOrganization2("");
+				$proj->setOrganization("");
+			}
+			if(isset($_POST['organization2'])){
+				$proj->setOrganization($_POST['organization2']);
 			}
 			if(isset($_POST['organization3'])){
-				$proj->setOrganization3($_POST['organization3']);
-			}else{
-				$proj->setOrganization3("");
+				$proj->setOrganization($_POST['organization3']);
 			}
 			if(isset($_POST['organization4'])){
-				$proj->setOrganization4($_POST['organization4']);
-			}else{
-				$proj->setOrganization4("");
+				$proj->setOrganization($_POST['organization4']);
 			}
 			if(isset($_POST['organization5'])){
-				$proj->setOrganization5($_POST['organization5']);
-			}else{
-				$proj->setOrganization5("");
+				$proj->setOrganization($_POST['organization5']);
 			}
 		}else{
-			$proj->organization1("");
-			$proj->organization2("");
-			$proj->organization3("");
-			$proj->organization4("");
-			$proj->organization5("");
+			$proj->setOrganization("");
 		}
 		if(isset($_FILES['banner_image'])){
-		$filename = $_FILES['banner_image']['name'];
+			if($_FILES['banner_image']['name']!=""){
+		    $filename = $_FILES['banner_image']['name'];
 			$path = ROOT_PATH."/profile/project_image/";
 			move_uploaded_file($_FILES['banner_image']['tmp_name'], $path.$filename);
 			$savepath = BASE_URL."/profile/project_image/";
 			$proj->setBanner_image($savepath.$filename);
+			}else{
+				$filename = "default.jpg";
+				$savepath = BASE_URL."/profile/project_image/";
+				$proj->setBanner_image($savepath.$filename);
+			}
 		}
 		else{
 			$savepath = BASE_URL."/profile/project_image/";
-			$proj->setBaneer_image($savepath."default.jpg");
+			$proj->setBanner_image($savepath."default.jpg");
 		}
 		if(isset($_FILES['project_proposal'])){
-		$filename = $_FILES['project_proposal']['name'];
+			if($_FILES['project_proposal']['name']!=""){
+			$filename = $_FILES['project_proposal']['name'];
 			$path = ROOT_PATH."/profile/project_proposal/";
 			move_uploaded_file($_FILES['project_proposal']['tmp_name'], $path.$filename);
 			$savepath = BASE_URL."/profile/project_proposal/";
 			$proj->setProject_proposal($savepath.$filename);
+			}else{
+				$filename = "default.docx";
+				$savepath = BASE_URL."/profile/project_proposal/";
+				$proj->setProject_proposal($savepath.$filename);
+			}
 		}
 		else{
 			$savepath = BASE_URL."/profile/project_proposal/";

@@ -1,5 +1,5 @@
 <?php
-	class User{
+	class User_Model{
 		private $user_id;
 		private $user_name;
 		private $first_name;
@@ -212,7 +212,13 @@
 		}
 
 
-		
+		public function get_user_hash(){
+			return $this->user_hash;
+		}
+
+		public function set_user_hash($user_hash){
+			$this->user_hash = $user_hash;
+		}
 
 
 	}

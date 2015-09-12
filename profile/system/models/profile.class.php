@@ -14,6 +14,7 @@ class Profile{
 	private $user_status;
 	private $user_hash;
 	
+	private $profile_id;
 	private $age;
 	
 	private $name;
@@ -107,14 +108,22 @@ class Profile{
 	public function set_user_hash($user_hash){
 		$this->user_hash = $user_hash;
 	}
+
 	
-	
-	public function get_age(){
-		return $this->get_age;
+	public function get_profile_id(){
+		return $this->profile_id;
 	}
 
-	public function set_age($get_age){
-		$this->get_age = $get_age;
+	public function set_profile_id($profile_id){
+		$this->profile_id = $profile_id;
+	}
+
+	public function get_age(){
+		return $this->age;
+	}
+
+	public function set_age($age){
+		$this->age = $age;
 	}
 
 	public function get_name(){

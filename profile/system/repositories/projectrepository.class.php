@@ -16,46 +16,106 @@ class ProjectRepository{
 		if($id==null){
 		//mysql query to select all
 		$sql = "SELECT * FROM projects";
+
+		// prepared statement is returned
+		$stmt = $this->database->initialize($sql);
+
+		//execution of query
+		$stmt->execute();
+
+		//bind the result obtained by executing query
+		$stmt->bind_result($project_id,$start_date,$end_date,$title,$objectives,$short_desc,$location,$budget,$volunteer,$banner_image,$project_proposal,$video_url,$detail,$status,$u_id);
+
 		}
 		
 		else
 		{
-			$sql = "SELECT * FROM projects,organization where projects._id = organization.org_id and organization.org_id={$id}";
-		}
-		//Fetch Query
-		$result = $this->database->fetchquery($sql);
 
+			$sql = "SELECT p.project_id,p.start_date,p.end_date,p.title,p.objectives,p.short_desc,p.location,p.budget,p.volunteer,p.banner_image,p.project_proposal,p.video_url,p.detail,p.status,p.u_id FROM projects as p,organization as o where p.u_id = o.org_id and o.org_id=?";
+			
+			// prepared statement is returned
+			$stmt = $this->database->initialize($sql);
+
+			//bind
+			$stmt->bind_param("i",$id);
+
+
+			//execution of query
+			$stmt->execute();
+
+			//bind the result obtained by executing query
+			$stmt->bind_result($project_id,$start_date,$end_date,$title,$objectives,$short_desc,$location,$budget,$volunteer,$banner_image,$project_proposal,$video_url,$detail,$status,$u_id);
+	
+		}
+		
 		//Store in object so that it can be used in views
-		while ($row = $result->fetch_assoc()) {
+		while ($stmt->fetch()) {
 			$proj = new Project();
-			$proj->setStart_date($row['start_date']);
-			$proj->setEnd_date($row['end_date']);
-			$proj->setTitle($row['title']);
-			$proj->setObjectives($row['objectives']);
-			$proj->setShortdes($row['short_desc']);
-			$proj->setLocation($row['location']);
-			$proj->setBudget($row['budget']);
-			$proj->setVolunteer($row['volunteer']);
-			$proj->setBanner_image($row['banner_image']);
-			$proj->setProject_proposal($row['project_proposal']);
-			$proj->setVideourl($row['video_url']);
-			$proj->setDetail($row['detail']);
-			$proj->setStatus($row['status']);
-			$proj->setUid($row['u_id']);
+			
+			$proj->setStart_date($start_date);
+			$proj->setEnd_date($end_date);
+			$proj->setTitle($title);
+			$proj->setObjectives($objectives);
+			$proj->setShortdes($short_desc);
+			$proj->setLocation($location);
+			$proj->setBudget($budget);
+			$proj->setVolunteer($volunteer);
+			$proj->setBanner_image($banner_image);
+			$proj->setProject_proposal($project_proposal);
+			$proj->setVideourl($video_url);
+			$proj->setDetail($detail);
+			$proj->setStatus($status);
+			$proj->setUid($u_id);
+
+			// FOR GETTING REQUIREMENTS OF CURRENT PROJECT IN LOOP
+			$sql = "SELECT requirement FROM requirements as r,projects as p where p.project_id = r.project_id and p.project_id=?";
+			
+			// prepared statement is returned
+			$stmt = $this->database->initialize($sql);
+
+			//bind
+			$stmt->bind_param("i",$project_id);
+
+			//execution of query
+			$stmt->execute();
+
+			//bind the result obtained by executing query
+			$stmt->bind_result($requirement);
+			while($stmt->fetch()){
+				$proj->setRequirement($requirement);
+			}
+
+			// FOR GETTING ORGANIZATIONS INVOLVED OF CURRENT PROJECT IN LOOP
+			$sql = "SELECT organization_name FROM otherorg as o,projects as p where p.project_id = o.project_id and p.project_id=?";
+			
+			// prepared statement is returned
+			$stmt = $this->database->initialize($sql);
+
+			//bind
+			$stmt->bind_param("i",$project_id);
+
+			//execution of query
+			$stmt->execute();
+
+			//bind the result obtained by executing query
+			$stmt->bind_result($organization_name);
+			while($stmt->fetch()){
+				$proj->setRequirement($organization_name);
+			}
+
 			array_push($project_list, $proj);
 		}
-		$sql = "SELECT * FROM requirements,projects where projects.prooject_id = requirements.project_id and projects.project_id={proj->getProject_id()}";
-		
-
 		
 		$this->database->close();
 		return $project_list;
 	}
+
 	public function get_last_id(){
 		$this->database->connect();
 		return $this->database->insert_id();
 		$this->database->close();
 	}
+	
 	public function get_by_id($project_id){
 		$proj = null;
 
@@ -122,6 +182,9 @@ class ProjectRepository{
 		$status = $proj->getStatus();
 		$u_id = $_SESSION['user_id'];
 
+		$tryql = "SELECT org_id from organization,user where user.user_id = organization.u_id and user.user_id={$u_id}";
+		$
+
 		//BIND 
 		$statement->bind_param("ssssssiissssii",$start_date,$end_date,$title,$objectives,$short_desc,$location,$budget,$volunteer,$banner_image,$project_proposal,$video_url,$detail,$status,$u_id);
 		
@@ -130,7 +193,7 @@ class ProjectRepository{
 			exit;
 		}
 		else{
-			$sq = "SELECT project_id from projects";
+			$sq = "SELECT project_id from projects ";
 			$result = $this->database->fetchquery($sq);
 			while ($row = $result->fetch_assoc()) {
 			$pro = new Project();
@@ -273,6 +336,25 @@ class ProjectRepository{
 		//Close the connection
 		$this->database->close();
 	}
+
+	public function count(){
+		
+
+			//DATABASE CONNECTION
+			$this->database->connect();
+
+			//SELECT ALL QUERY
+			$sql = "SELECT * FROM projects";
+
+			//fetchquery
+			$result = $this->database->fetchquery($sql);
+
+			
+			$this->database->close();
+			return $result->num_rows;
+
+			
+		}
 }
 
 

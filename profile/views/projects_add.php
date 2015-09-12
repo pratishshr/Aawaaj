@@ -111,7 +111,7 @@
                                         
                                         <div class="form-group">
                                             <label for="org1">Organization (upto 5):</label> <a href="" class="btn btn-success btn-sm" id="org_plus"><span class="fa fa-plus"></span></a> <a href="" class="btn btn-danger btn-sm" id="org_minus"><span class="fa fa-minus"></span></a>
-                                            <input type="text" class="form-control" id="org1" placeholder="Organization 1" maxlength="200" name="organization1" required>
+                                            <input type="text" class="form-control" id="org1" placeholder="Organization 1" maxlength="200" name="organization1">
                                         </div>
 
                                         <div class="form-group">

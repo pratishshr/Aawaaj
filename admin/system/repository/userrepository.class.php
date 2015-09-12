@@ -21,17 +21,18 @@
 
 			//STORE IN OBJECT AND SEND TO VIEW
 			while($row = $result->fetch_assoc()){
-				$user = new User();
+				$user_model = new User_Model();
 
-				$user->set_user_id($row['user_id']);
-				$user->set_user_name($row['user_name']);
-				$user->set_first_name($row['first_name']);
-				$user->set_last_name($row['last_name']);
-				$user->set_contact_number($row['contact_number']);
-				$user->set_user_type($row['user_type']);
-				$user->set_user_status($row['user_status']);
+				$user_model->set_user_id($row['user_id']);
+				$user_model->set_user_name($row['user_name']);
+				$user_model->set_first_name($row['first_name']);
+				$user_model->set_last_name($row['last_name']);
+				$user_model->set_contact_number($row['contact_number']);
+				$user_model->set_user_type($row['user_type']);
+				$user_model->set_user_status($row['user_status']);
+				$user_model->set_user_hash($row['user_hash']);
 
-				array_push($user_list,$user);
+				array_push($user_list,$user_model);
 			}
 			$this->db->close();
 			return $user_list;
@@ -39,7 +40,7 @@
 
 
 		public function get_by_id($id){
-			$user = null;
+			$user_model = null;
 			//DATABASE CONNECTION
 			$this->db->connect();
 
@@ -60,18 +61,19 @@
 
 			while($stmt->fetch()){
 			//instantiate object
-			$user = new User();
+			$user_model = new User_Model();
 
-			$user->set_user_id($user_id);
-			$user->set_user_name($user_name);
-			$user->set_first_name($first_name);
-			$user->set_last_name($last_name);
-			$user->set_contact_number($contact_number);
-			$user->set_user_type($user_type);
-			$user->set_user_status($user_status);
+			$user_model->set_user_id($user_id);
+			$user_model->set_user_name($user_name);
+			$user_model->set_first_name($first_name);
+			$user_model->set_last_name($last_name);
+			$user_model->set_contact_number($contact_number);
+			$user_model->set_user_type($user_type);
+			$user_model->set_user_status($user_status);
+			$user_model->set_user_hash($user_hash);
 		}
 			$this->db->close();
-			return $user;
+			return $user_model;
 
 
 	}
@@ -81,7 +83,7 @@
 			$this->db->connect();
 
 			//INSERT QUERY
-			$sql = "INSERT INTO user(user_name,first_name,last_name,contact_number,user_type,user_status) values(?,?,?,?,?,?)";
+			$sql = "INSERT INTO user(user_name,first_name,last_name,contact_number,user_type,user_status,user_hash) values(?,?,?,?,?,?,?)";
 
 			//PREPARE
 			$stmt = $this->db->initialize($sql);
@@ -97,9 +99,10 @@
 
 			//PASSWORD HASSING USING BCRYPT
 			$password=password_hash($pass,PASSWORD_BCRYPT,array('cost'=>12));
-	
+			$user_hash = password_hash($user_name,PASSWORD_BCRYPT,array('cost'=>12));
+
 			//BIND
-			$stmt->bind_param("sssisi",$user_name,$first_name,$last_name,$contact_number,$user_type,$user_status);
+			$stmt->bind_param("sssisis",$user_name,$first_name,$last_name,$contact_number,$user_type,$user_status,$user_hash);
 
 			//EXECUTE
 			$stmt->execute();
@@ -236,6 +239,25 @@
 
 			
 
+		}
+
+		public function count(){
+		
+
+			//DATABASE CONNECTION
+			$this->db->connect();
+
+			//SELECT ALL QUERY
+			$sql = "SELECT * FROM user";
+
+			//fetchquery
+			$result = $this->db->fetchquery($sql);
+
+			
+			$this->db->close();
+			return $result->num_rows;
+
+			
 		}
 	}
 ?>

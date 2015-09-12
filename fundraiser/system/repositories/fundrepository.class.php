@@ -31,6 +31,7 @@
 				$fund->set_image($row['image']);
 				$fund->set_video_url($row['video_url']);
 				$fund->set_details($row['details']);
+				$fund->set_u_id($row['u_id']);
 
 				
 				array_push($fund_list,$fund);
@@ -118,4 +119,55 @@
 			$this->db->close();
 
 		}	
+
+		public function count(){
+		
+
+			//DATABASE CONNECTION
+			$this->db->connect();
+
+			//SELECT ALL QUERY
+			$sql = "SELECT * FROM fundraiser";
+
+			//fetchquery
+			$result = $this->db->fetchquery($sql);
+
+			
+			$this->db->close();
+			return $result->num_rows;
+
+			
+		}
+
+		public function getUser($user_id){
+			$user = null;
+
+			//DATABASE CONNECTION
+			$this->db->connect();
+
+			//SELECT BY ID
+			$sql = "SELECT user_name FROM user WHERE user_id=?";
+
+			//PREPARE
+			$stmt = $this->db->initialize($sql);
+
+			//BIND
+			$stmt->bind_param("i",$user_id);
+
+			//EXECUTE
+			$stmt->execute();
+
+			//BIND RESULT
+			$stmt->bind_result($user_name);
+
+			while($stmt->fetch()){
+				//instantiate object
+				$user = $user_name;
+			}
+				//CLOSE CONNECTION
+				$this->db->close();
+				
+				return $user;
+
+		}
 }		
