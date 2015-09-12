@@ -128,7 +128,7 @@ class ProfileRepository{
 			$stmt->bind_result($profile_id,$name,$doe,$img,$address,$service,$objective);
 
 			while($stmt->fetch()){
-				$prifle->set_profile_id($profile_id);
+				$profile->set_profile_id($profile_id);
 				$profile->set_name($name);
 				$profile->set_doe($doe);
 				$profile->set_img($img);

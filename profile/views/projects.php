@@ -1,11 +1,14 @@
 <?php
-	echo "<table>";
+	
 	foreach ($project_list as $project) {
 	?>
-		<tr>
-			<td><?php echo $project->get_project_id();?></td>
-		</tr>
+	<table>
+			<tr><td><?php echo $project->getProject_id();?></td></tr>
+			<tr><td><?php echo $project->getStart_date();?></td></tr>
+			<tr><td><?php echo $project->getEnd_date();?></td></tr>
+			<tr><td><?php echo $project->getTitle();?></td></tr>
+			<tr><td><?php echo $project->getObjectives();?></td></tr>
+	</table>
 	<?php
 	}
-	echo "</table>";
 ?>
