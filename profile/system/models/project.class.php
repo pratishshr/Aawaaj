@@ -19,16 +19,16 @@ class Project
 		private $videourl;
 		private $detail;
 		private $status;
-		private $requirement1;
-		private $requirement2;
-		private $requirement3;
-		private $requirement4;
-		private $requirement5;
-		private $organization1;
-		private $organization2;
-		private $organization3;
-		private $organization4;
-		private $organization5;
+		private $requirement = array();
+		// private $requirement2;
+		// private $requirement3;
+		// private $requirement4;
+		// private $requirement5;
+		private $organization = array();
+		// private $organization2;
+		// private $organization3;
+		// private $organization4;
+		// private $organization5;
 		private $uid;
 
 	function __construct()
@@ -179,15 +179,15 @@ class Project
 		 {
 		     return $this->uid;
 		 }
-		 public function getRequiement1()
+		 public function getRequirement()
 		 {
-		 	return $this->requirement1;
+		 	return $this->requirement;
 		 }
-		 public function setRequirement1($requirement)
+		 public function setRequirement($requirement)
 		 {
-		 	$this->requirement1 = $requirement;
+		 	array_push($this->requirement, $requirement);
 		 }
-		 public function getRequiement2()
+		 /*public function getRequiement2()
 		 {
 		 	return $this->requirement2;
 		 }
@@ -218,16 +218,16 @@ class Project
 		 public function setRequirement5($requirement)
 		 {
 		 	$this->requirement5 = $requirement;
-		 }
-		 public function getOrganization1()
+		 }*/
+		 public function getOrganization()
 		 {
-		 	return $this->organization1;
+		 	return $this->organization;
 		 }
-		 public function setOrganization1($organization)
+		 public function setOrganization($organization)
 		 {
-		 	$this->organization1 = $organization;
+		 	array_push($this->organization, $organization);
 		 }
-		 public function getOrganization2()
+		 /*public function getOrganization2()
 		 {
 		 	return $this->organization2;
 		 }
@@ -258,7 +258,7 @@ class Project
 		 public function setOrganization5($organization)
 		 {
 		 	$this->organization5 = $organization;
-		 }
+		 }*/
 		 public function setUid($uid)
 		 {
 		     $this->uid = $uid;

@@ -46,8 +46,8 @@ class ProfileController{
 		}
 	}
 	
-	public function edit(){
-		echo "profile edit page";
+	public function edit($id){
+		include_once(ROOT_PATH.'profile/views/container.php');
 	}
 
 	public function error_page(){
@@ -74,7 +74,7 @@ if(isset($_GET['id'])){
 			$method = $_GET['m'];
 			switch ($method) {
 				case 'edit':
-					$profile_controller->edit();
+					$profile_controller->edit($_SESSION['user_id']);
 					break;
 				
 				default:

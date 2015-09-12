@@ -20,6 +20,8 @@
     <!-- Sidebar CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
+    <link href="<?php echo BASE_URL?>home/assets/css/zebra_pagination.css" rel="stylesheet" >
+
     <!-- Custom Fonts -->
     <link href="<?php echo BASE_URL?>home/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">

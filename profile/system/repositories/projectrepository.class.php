@@ -8,7 +8,6 @@ class ProjectRepository{
 		$this->database = new DbConnection();
 	}
 	public function get_all($id=null){
-
 		$project_list = array();
 
 		//Database Connect
@@ -29,8 +28,8 @@ class ProjectRepository{
 		}
 		
 		else
-		{
-			$sql = "SELECT p.project_id,p.start_date,p.end_date,p.title,p.objectives,p.short_desc,p.location,p.budget,p.volunteer,p.banner_image,p.project_proposal,p.video_url,p.detail,p.status,p.u_id FROM projects as p,organization as o where p.u_id = o.org_id and o.org_id=?";
+		{ 
+			$sql = "SELECT project_id,start_date,end_date,title,objectives,short_desc,location,budget,volunteer,banner_image,project_proposal,video_url,detail,status,u_id FROM projects where u_id=?";
 			
 			// prepared statement is returned
 			$stmt = $this->database->initialize($sql);
@@ -38,18 +37,22 @@ class ProjectRepository{
 			//bind
 			$stmt->bind_param("i",$id);
 
+
 			//execution of query
 			$stmt->execute();
 
 			//bind the result obtained by executing query
 			$stmt->bind_result($project_id,$start_date,$end_date,$title,$objectives,$short_desc,$location,$budget,$volunteer,$banner_image,$project_proposal,$video_url,$detail,$status,$u_id);
-	
-		}
 		
+		}
+
+		//$stmt = $this->database->fetchquery($sql);
+		$i=0;
 		//Store in object so that it can be used in views
 		while ($stmt->fetch()) {
 			$proj = new Project();
 			
+			$proj->setProject_id($project_id);
 			$proj->setStart_date($start_date);
 			$proj->setEnd_date($end_date);
 			$proj->setTitle($title);
@@ -64,15 +67,66 @@ class ProjectRepository{
 			$proj->setDetail($detail);
 			$proj->setStatus($status);
 			$proj->setUid($u_id);
+
+			$this->get_requirements($project_id,$proj);
+			$this->get_organization($project_id,$proj);
+			
 			array_push($project_list, $proj);
+
+			$i++;
 		}
-		$sql = "SELECT * FROM requirements,projects where projects.project_id = requirements.project_id and projects.project_id={proj->getProject_id()}";
+		echo $i;
+		$this->database->close();
+		var_dump($project_list);
+		exit();
+		
+	}
+
+	public function get_requirements($project_id,$proj){
+		$this->database->connect();
+		// FOR GETTING REQUIREMENTS OF CURRENT PROJECT IN LOOP
+		$sql2 = "SELECT requirement FROM requirements where project_id=?";
+		
+		// prepared statement is returned
+		$stmt2 = $this->database->initialize($sql2);
+		
+		//bind
+		$stmt2->bind_param("i",$project_id);
+
+		//execution of query
+		$stmt2->execute();
+
+		//bind the result obtained by executing query
+		$stmt2->bind_result($requirement);
+
+		while($stmt2->fetch()){
+			$proj->setRequirement($requirement);
+		}
+		
+	}
+
+	public function get_organization($project_id,$proj){
+		$this->database->connect();
+		// FOR GETTING ORGANIZATIONS INVOLVED OF CURRENT PROJECT IN LOOP
+		$sql3 = "SELECT organization_name FROM otherorg where org_id=?";
+		
+		// prepared statement is returned
+		$stmt3 = $this->database->initialize($sql3);
+
+		//bind
+		$stmt3->bind_param("i",$project_id);
+
+		//execution of query
+		$stmt3->execute();
+
+		//bind the result obtained by executing query
+		$stmt3->bind_result($organization_name);
+		while($stmt3->fetch()){
+			$proj->setOrganization($organization_name);
+		}
+	}
 		
 
-		
-		$this->database->close();
-		return $project_list;
-	}
 
 	public function get_last_id(){
 		$this->database->connect();
@@ -146,6 +200,9 @@ class ProjectRepository{
 		$status = $proj->getStatus();
 		$u_id = $_SESSION['user_id'];
 
+		$tryql = "SELECT org_id from organization,user where user.user_id = organization.u_id and user.user_id={$u_id}";
+		$
+
 		//BIND 
 		$statement->bind_param("ssssssiissssii",$start_date,$end_date,$title,$objectives,$short_desc,$location,$budget,$volunteer,$banner_image,$project_proposal,$video_url,$detail,$status,$u_id);
 		
@@ -154,7 +211,7 @@ class ProjectRepository{
 			exit;
 		}
 		else{
-			$sq = "SELECT project_id from projects";
+			$sq = "SELECT project_id from projects ";
 			$result = $this->database->fetchquery($sq);
 			while ($row = $result->fetch_assoc()) {
 			$pro = new Project();

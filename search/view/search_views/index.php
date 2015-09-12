@@ -41,10 +41,10 @@
 	                    
                       </a> 
                       <br><br>
-                      <div>                    
-	                    <h4><?php echo $user->get_first_name();?> <?php echo $user->get_last_name();?></h4></div>
-                      <div>
-                      <h5><?php echo $user->get_user_type(); ?></h5></div>
+                                         
+	                    <h4><?php echo $user->get_first_name();?> <?php echo $user->get_last_name();?></h4>
+                      
+                      <h5><?php echo $user->get_user_type(); ?></h5>
 	                    <p><a href="<?php echo BASE_URL?>profile/index.php?id=<?php echo $user->get_user_hash();?>" class="btn btn-primary" role="button">View Profile</a></p>
                     </div> 
           <?php }
@@ -66,9 +66,9 @@
                  ?>
                     <div class="col-md-4">
 	                    <a href="<?php echo BASE_URL?>fundraiser/index.php?page=fund&m=campaign&id=<?php echo $fund->get_fund_id();?>" class="">
-                      <figure>
+                      
                       <img class="img-responsive img-circle show-profile-image" src="<?php echo $fund->get_image();?>" alt="...">
-                      </figure>
+                      
                       </a>
                       <br>
                       
