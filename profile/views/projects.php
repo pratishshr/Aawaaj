@@ -6,15 +6,20 @@
 	$project->setRequirement($req_list);
 	
 	$org_list = $this->projectrepository->get_organization($project->getProject_id(),$project);	
-	$project->getOrganization($org_list);
+	$project->setOrganization($org_list);
 ?>
-	<table>
-			<tr><td><?php echo $project->getProject_id();?></td></tr>
-			<tr><td><?php echo $project->getStart_date();?></td></tr>
-			<tr><td><?php echo $project->getEnd_date();?></td></tr>
-			<tr><td><?php echo $project->getTitle();?></td></tr>
-			<tr><td><?php echo $project->getObjectives();?></td></tr>
-	</table>
+	<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3><?php echo $project->getTitle();?></h3>
+        <p><?php var_dump($project);?></p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+
 	<?php
 	}
 ?>
