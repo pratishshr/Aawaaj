@@ -233,14 +233,17 @@ if(isset($_GET['id'])){
 							break;
 					}
 				}
+				else{
+					$project_controller->index($user_profile_id);
+				}
 				
 				// if(isset($_POST) && isset($_POST['submit'])){
 					
 					
 				// }
-				else{
+				/*else{
 					$project_controller->error_page();
-				}
+				}*/
 			}
 			else{
 				$project_controller->error_page();
