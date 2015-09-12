@@ -52,6 +52,7 @@ class ProjectRepository{
 		while ($stmt->fetch()) {
 			$proj = new Project();
 			
+			$proj->setProject_id($project_id);
 			$proj->setStart_date($start_date);
 			$proj->setEnd_date($end_date);
 			$proj->setTitle($title);
@@ -68,20 +69,21 @@ class ProjectRepository{
 			$proj->setUid($u_id);
 
 			// FOR GETTING REQUIREMENTS OF CURRENT PROJECT IN LOOP
-			$sql = "SELECT requirement FROM requirements as r,projects as p where p.project_id = r.project_id and p.project_id=?";
+			$sql2 = "SELECT r.requirement FROM requirements as r,projects as p where p.project_id = r.project_id and p.project_id=?";
 			
 			// prepared statement is returned
-			$stmt = $this->database->initialize($sql);
+			$stmt2 = $this->database->initialize($sql2);
 
 			//bind
-			$stmt->bind_param("i",$project_id);
+			$stmt2->bind_param("i",$proj->getProject_id());
 
 			//execution of query
-			$stmt->execute();
+			$stmt2->execute();
 
 			//bind the result obtained by executing query
-			$stmt->bind_result($requirement);
-			while($stmt->fetch()){
+			$stmt2->bind_result($requirement);
+
+			while($stmt2->fetch()){
 				$proj->setRequirement($requirement);
 			}
 

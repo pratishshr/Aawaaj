@@ -8,7 +8,11 @@ if(isset($_GET['id'])){
             if(isset($_GET['m']) && $_GET['m'] == 'add'){
             	$page.='_add';
             }
+            
         }
+    }
+    if(!isset($_GET['page']) && isset($_GET['m']) && $_GET['m'] == "edit"){
+        $page.='_edit';
     }
 
     include_once(ROOT_PATH.'profile/views/'.$page.'.php');
