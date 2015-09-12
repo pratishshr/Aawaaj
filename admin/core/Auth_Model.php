@@ -1,7 +1,7 @@
 <?php require_once(ROOT_PATH."admin/system/dbUtil/dbconnection.class.php");?>
 <?php
 
-class Admin_Model{
+class Auth_Model{
 	private $db;
 	private $password;
 

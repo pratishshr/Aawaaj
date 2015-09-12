@@ -1,13 +1,14 @@
 <?php require_once(ROOT_PATH."admin/helpers/session.php"); ?>
-<?php require_once(ROOT_PATH."admin/core/Admin_Model.php"); ?>
+<?php require_once(ROOT_PATH."admin/core/Auth_Model.php"); ?>
 
 <?php 
 	
-	class AdminController{
+	class Auth_Controller{
 
 		public function __construct(){
 			
 			Session::init();
+		
 			if(Session::get('loggin') == false){
 				$this->login();				
 			}
@@ -24,12 +25,13 @@
 				$username = $_POST['username'];
 				$password = $_POST['password'];
 
-				$adminmodel = new Admin_Model();
-				$passwordhash = $adminmodel->get_hash($username);
+				$authmodel = new Auth_Model();
+				$passwordhash = $authmodel->get_hash($username);
 				
 	
 				if(password_verify($password,$passwordhash)){
 					Session::set('loggin',true);
+					Session::set('username',$username);
 				}else{
 					include_once(ROOT_PATH."admin/views/admin/login.php");	
 		    		exit;

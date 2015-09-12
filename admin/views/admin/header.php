@@ -10,7 +10,7 @@
     <!-- Font Awesome Icons -->
     <link href="<?php echo BASE_URL?>admin/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
-    <link href="<?php echo BASE_URL?>admin/assets/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="<?php echo BASE_URL?>admin/assets/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -25,7 +25,7 @@
 
       <header class="main-header">
         <!-- Logo -->
-        <a href="<?php echo BASE_URL;?>admin/index.php?page=admin" class="logo">
+        <a href="<?php echo BASE_URL;?>admin/index.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>dm</span>
           <!-- logo for regular state and mobile devices -->
@@ -47,15 +47,16 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="<?php echo BASE_URL?>admin/assets/dist/img/user-pratish.jpg" class="user-image" alt="User Image" />
-                  <span class="hidden-xs">Pratish Shrestha</span>
+                  <img src="<?php echo $image;?>" class="user-image" alt="User Image" />
+                  <span class="hidden-xs"><?php echo $username;?></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="<?php echo BASE_URL?>admin/assets/dist/img/user-pratish.jpg" class="img-circle" alt="User Image" />
+                    <img src="<?php echo $image;?>" class="img-circle" alt="User Image" />
                     <p>
-                      Pratish Shrestha - Web Developer
+                     <?php echo $first_name.' '.$last_name;?> <br/>
+                     <?php echo $email; ?>
                     </p>
                   </li>
                 
@@ -65,7 +66,7 @@
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="<?php echo BASE_URL.'admin/index.php?page=admins&m=logout';?>" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="<?php echo BASE_URL.'admin/index.php?page=admin&m=logout';?>" class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>

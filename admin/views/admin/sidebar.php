@@ -1,3 +1,16 @@
+<?php
+if(isset($_GET['page'])){
+  $page = $_GET['page'];
+  if($page =="user" || $page =="general" || $page =="org" || $page =="welf"){
+    $active = true;
+  }else{
+    $active = false;
+  }
+}else{
+  $active = false;
+}
+  
+?>
 <!-- Left side column. contains the sidebar -->
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
@@ -5,39 +18,35 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="<?php echo BASE_URL?>admin/assets/dist/img/user-pratish.jpg" class="img-circle" alt="User Image" />
+              <img src="<?php echo $image;?>" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-              <p>Pratish Shrestha</p>
+              <p><?php echo $first_name.' '.$last_name;?></p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
-          <!-- search form -->
-          <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Search..." />
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-          </form>
-          <!-- /.search form -->
+        
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview">
+            <li class="<?php echo ($active)?('active'):'';?> treeview">
               <a href="#">
-                <i class="glyphicon glyphicon-user"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-users"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo BASE_URL?>admin/index.php?page=users"><i class="fa fa-circle-o"></i> All User</a></li>
+                <li><a href="<?php echo BASE_URL?>admin/index.php?page=user"><i class="fa fa-circle-o"></i> All User</a></li>
                 <li><a href="<?php echo BASE_URL?>admin/index.php?page=general"><i class="fa fa-circle-o"></i> General User</a></li>
                 <li><a href="<?php echo BASE_URL?>admin/index.php?page=org"><i class="fa fa-circle-o"></i> Organization</a></li>
                 <li><a href="<?php echo BASE_URL?>admin/index.php?page=welf"><i class="fa fa-circle-o"></i> Welfare</a></li>
               </ul>
-              <li class="active">
-              <a href="<?php echo BASE_URL?>admin/index.php?page=admins">
-                <i class="fa fa-th"></i> <span>Admins</span>
+              <li>
+              <a href="<?php echo BASE_URL?>admin/index.php?page=admin">
+                <i class="fa fa-user"></i> <span>Admins</span>
+              </a>
+              </li>
+              <li>
+              <a href="<?php echo BASE_URL?>admin/index.php?page=fundraiser">
+                <i class="fa fa-credit-card"></i> <span>Fundraisers</span>
               </a>
               </li>
             </li>

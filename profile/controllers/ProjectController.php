@@ -17,6 +17,7 @@ class ProjectController{
 	
 	public function index($u_id){
 		$result = $this->profile_repository->get_by_id($u_id);
+
 		if($result == NULL){
 			//if id=jpt
 			$this->error_page();
@@ -29,7 +30,7 @@ class ProjectController{
 			exit();
 		}
 		else{
-			$data = array('profile_photo'=>$result->get_profile_photo(),'about'=>$result->get_about(),'user_id'=>$result->get_user_id(),'user_name'=>$result->get_user_name(),'first_name'=>$result->get_first_name(),'last_name'=>$result->get_last_name(),'contact_number'=>$result->get_contact_number(),'user_type'=>$result->get_user_type());
+			$data = array('profile_id'=>$result->get_profile_id(),'profile_photo'=>$result->get_profile_photo(),'about'=>$result->get_about(),'user_id'=>$result->get_user_id(),'user_name'=>$result->get_user_name(),'first_name'=>$result->get_first_name(),'last_name'=>$result->get_last_name(),'contact_number'=>$result->get_contact_number(),'user_type'=>$result->get_user_type());
 			if($result->get_user_type() == "generalUser"){
 				$data['age']=$result->get_age();
 			}
@@ -49,7 +50,8 @@ class ProjectController{
 			$this->error_page();
 			exit();
 		}
-		echo "View Project by this user here";
+		$project_list = $this->projectrepository->get_all($data['profile_id']);
+		include_once(ROOT_PATH.'profile/views/container.php');
 	}
 
 	public function add(){
@@ -215,6 +217,9 @@ if(isset($_GET['id'])){
 						case 'add':
 							$project_controller->add();
 							break;
+
+						case 'save':
+							$project_controller->save();
 						
 						default:
 							$project_controller->error_page();

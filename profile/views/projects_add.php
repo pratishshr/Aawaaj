@@ -14,7 +14,7 @@
                             <!-- ===================================== -->
                             <!-- MULTI STEP FORM FOR CREATE-->
 
-                            <form class="black-color" action="" method="POST" enctype="multipart/form-data">
+                            <form class="black-color" action="<?Php echo BASE_URL.'profile/index.php?id='.$_SESSION['user_hash'].'&page=projects&m=save';?>" method="POST" enctype="multipart/form-data">
                                                                     
                                     <div class="form-group ">
                                         <label for="type">Project Type:</label>

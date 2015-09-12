@@ -48,13 +48,15 @@
             <?php } ?>
 
 
-              <a href="<?php echo BASE_URL;?>admin/index.php?page=admins&m=add" class="pull-right btn btn-primary"><span class ="glyphicon glyphicon-plus"></span></a>
+              <a href="<?php echo BASE_URL;?>admin/index.php?page=admin&m=add" class="pull-right btn btn-primary"><span class ="glyphicon glyphicon-plus"></span></a>
 
               <table class="table table-bordered table-hover table-striped">
                 <tr>
                   <th>ID</th>
+                  <th>Name </th>
                   <th>Username</th>
-                  <th>Action</th>
+                  <td>Email</td>
+                 
                 </tr>
 
                 
@@ -67,12 +69,9 @@
 
                 <tr>
                   <td><?php echo $id++?></td>
+                  <td><?php echo $admin->get_first_name();?> <?php echo $admin->get_last_name();?></td>
                   <td><?php echo $admin->get_username();?></td>
-                
-                   
-                  
-                  <td><a href="<?php echo BASE_URL;?>admin/index.php?page=admin&m=edit&id=<?php echo $admin->get_id();?>" class="btn btn-primary btn-sm glyphicon glyphicon-pencil"></a> 
-                      <a href="<?php echo BASE_URL;?>admin/index.php?page=admin&m=delete&id=<?php echo $admin->get_id();?>" class="btn btn-danger btn-sm glyphicon glyphicon-trash" onclick="return confirm('Are you sure?')"></a></td>
+                  <td><?php echo $admin->get_email();?></td>
                 </tr>
 
 

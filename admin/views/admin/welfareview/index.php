@@ -85,8 +85,8 @@
                  ?>
                    
                   
-                  <td><a href="<?php echo BASE_URL;?>/index.php?page=welf&m=edit&id=<?php echo $user->get_user_id();?>" class="btn btn-primary btn-sm glyphicon glyphicon-pencil"></a> 
-                      <a href="<?php echo BASE_URL;?>/index.php?page=welf&m=delete&id=<?php echo $user->get_user_id();?>" class="btn btn-danger btn-sm glyphicon glyphicon-trash" onclick="return confirm('Are you sure?')"></a></td>
+                  <td><a href="<?php echo BASE_URL;?>admin/index.php?page=user&m=edit&id=<?php echo $user->get_user_id();?>" class="btn btn-primary btn-sm glyphicon glyphicon-pencil"></a> 
+                      <a href="<?php echo BASE_URL;?>admin/index.php?page=user&m=delete&id=<?php echo $user->get_user_id();?>" class="btn btn-danger btn-sm glyphicon glyphicon-trash" onclick="return confirm('Are you sure?')"></a></td>
                 </tr>
 
 

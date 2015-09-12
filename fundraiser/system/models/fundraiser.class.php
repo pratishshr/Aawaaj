@@ -10,6 +10,8 @@
 		private $video_url;
 		private $details;
 		private $id;
+		private $u_id;
+		
 		public function __construct(){
 
 		}
