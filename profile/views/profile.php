@@ -15,11 +15,13 @@ $count_projects = $this->projectrepository->count_user_projects($_GET['id']);
                     <br/>
                     <h2><strong>About: </strong></h2>
                     <p class="text-justify"><?=$data['about']?></p>
+                    
                 </div>             
                 <div class="col-xs-12 col-sm-4 text-center">
                     <figure>
                         <img src="<?=BASE_URL.'/home/pictures/profile/'.$data['profile_photo']?>" alt="" class="img-responsive img-circle img-thumbnail profile-picture">
                     </figure>
+                    
                     <hr color="white">
                     <h2><?php
                             if($user_type == "generalUser"){
@@ -33,6 +35,32 @@ $count_projects = $this->projectrepository->count_user_projects($_GET['id']);
                     
                 </div>
             </div>            
+            <div class="col-xs-12 text-left">
+            <div class="text-left">
+                <p>
+                    <?php
+                    if($user_type == "organization" || $user_type == "welfare"){
+                    ?>
+                        <b>Objective : </b><?php echo $data['objective']?>
+                        <?php
+                            if($user_type == "welfare"){
+                        ?>
+                            <br/><b>Service : </b><?php echo $data['service']?>    
+                    <?php
+                            }
+                    }
+                    ?>
+                        <br/><b>Contact : </b><?php echo $data['contact_number']?>
+                    <?php
+                        if($user_type == "organization" || $user_type == "welfare"){
+                    ?>    
+                        <br/><b>Address : </b><?php echo $data['address']?>
+                    <?php
+                    }
+                    ?>
+                </p>
+            </div>
+            </div>
             <div class="col-xs-12 divider text-center">
                
                 <?php
