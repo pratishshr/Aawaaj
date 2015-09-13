@@ -66,7 +66,7 @@ class ProjectController{
 		if(isset($_POST['single_date']) && $_POST['single_date']!=""){
 			$proj->setStart_date($_POST['single_date']);
 		}else if(isset($_POST['start_date'])){
-			echo "start date";
+			
 			$proj->setStart_date($_POST['start_date']);
 			if(isset($_POST['end_date'])){
 				
