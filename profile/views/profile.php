@@ -4,6 +4,7 @@ $user_profile = false;
 if($logged && $_SESSION['user_hash'] == $data['user_hash']){
     $user_profile = true;
 }
+$count_projects = $this->projectrepository->count_user_projects($_GET['id']);
 ?>
 <div class="container black-color">
     <div class="row">
@@ -48,7 +49,7 @@ if($logged && $_SESSION['user_hash'] == $data['user_hash']){
                         elseif($user_type == "organization") {
                 ?>
                             <div class="col-xs-12 col-sm-4 emphasis">
-                                <h2><strong>43</strong></h2>                    
+                                <h2><strong><?=$count_projects?></strong></h2>                    
                                 <p><small>Projects</small></p>
                                 <div class="btn-group dropup btn-block">
                                   <a href="javascript:void(0)" type="button" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown"> Projects </button>
@@ -148,7 +149,7 @@ if($logged && $_SESSION['user_hash'] == $data['user_hash']){
                         elseif ($user_type == "organization") {
                 ?>
                             <div class="col-xs-12 col-sm-4 emphasis">
-                                <h2><strong> 20,7K </strong></h2>                    
+                                <h2><strong> <?=$count_projects?> </strong></h2>                    
                                 <p><small>Projects</small></p>
                                 <a href="<?php echo BASE_URL.'/profile/index.php?id='.$data['user_hash'].'&page=projects'?>" class="btn btn-primary btn-block">View Projects</a> 
                             </div>   

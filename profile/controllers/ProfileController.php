@@ -1,15 +1,19 @@
 <?php require_once(ROOT_PATH."database/session.php");?> 
 <?php include_once(ROOT_PATH."profile/system/models/profile.class.php");?>
 <?php include_once(ROOT_PATH."profile/system/repositories/profilerepository.class.php");?>
+<?php include_once(ROOT_PATH."profile/system/models/project.class.php");?>
+<?php include_once(ROOT_PATH."profile/system/repositories/projectrepository.class.php");?>
 
 <?php
 
 class ProfileController{
 
 	private $repository;
+	private $projectrepository;
 	private $data = array();
 	public function __construct(){
 		$this->repository = new ProfileRepository();
+		$this->projectrepository = new ProjectRepository();
 	}
 	
 	public function index($u_id){

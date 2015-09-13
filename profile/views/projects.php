@@ -12,7 +12,7 @@
 	<div class="row">
   <div class="col-sm-1 col-md-4">
     <div class="thumbnail">
-      <img src="<?php echo $project->getBanner_image();?>" alt="..." style="height:200px">
+      <img src="<?php echo $project->getBanner_image();?>" style="height:200px">
       <div class="caption">
         <h3><?php echo $project->getTitle();?></h3>
         <p><?php //var_dump($project);?></p>
