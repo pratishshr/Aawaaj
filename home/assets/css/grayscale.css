@@ -591,6 +591,7 @@ textarea {
 
 .show-profile-image:hover{
     z-index: -1;
-    box-shadow: 0px 0px 30px black;
+    box-shadow: 0px 0px 40px gray;
 }
+
 
