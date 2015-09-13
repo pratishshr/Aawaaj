@@ -19,7 +19,10 @@ class Requirement
 		}
 		public function setRequirementId($requirement_id)
 		{
-		    $this->requirementId = $requirement_id;
+
+		    $this->$requirement_id = $requirement_id;
+		   
+
 		}
 		public function getTitle()
 		{
@@ -59,6 +62,7 @@ class Requirement
 		}
 		public function setOrgname($orgname)
 		{
+
 		    $this->orgname = $orgname;   
 		}
 		public function getWelfId()
@@ -69,3 +73,6 @@ class Requirement
 		{
 		    $this->welfId = $welfId;
 		}
+
+		   
+}
