@@ -1,7 +1,7 @@
 <?php require_once(ROOT_PATH."database/session.php");?> 
 <?php include_once(ROOT_PATH."profile/system/models/profile.class.php");?>
 <?php include_once(ROOT_PATH."profile/system/models/requirement.class.php"); ?>
-<?php include_once(ROOT_PATH."profile/system/repositories/requirementepository.class.php");?>
+<?php include_once(ROOT_PATH."profile/system/repositories/requirementrepository.class.php");?>
 <?php include_once(ROOT_PATH."profile/system/repositories/profilerepository.class.php");?>
 
 
@@ -14,7 +14,7 @@ class RequirementController{
 
 		public function __construct(){
 		$this->profile_repository = new ProfileRepository();
-		$this->requirement_repository = new RequirementRepository();
+		//$this->requirement_repository = new RequirementRepository();
 	}
 	public function index($u_id){
 		$result = $this->profile_repository->get_by_id($u_id);
@@ -47,18 +47,27 @@ class RequirementController{
 				$data['service']=$result->get_service();
 			}
 		}
-		if($data['user_type'] != "organization"){
+		if($data['user_type'] != "welfare"){
 			$this->error_page();
 			exit();
 		}
-		$project_list = $this->projectrepository->get_all($data['profile_id']);
+		//$requirement_list = $this->requirement_repository->get_all($data['profile_id']);
 		include_once(ROOT_PATH.'profile/views/container.php');
 	}
-	public function error_page(){
-		echo "Include Error_Page here. Error_Page may be common to all";
+	
+	public function add(){
+		include_once(ROOT_PATH.'profile/views/container.php');	
 	}
 
-	$requirement_controller = new RequirementController();
+	public function error_page(){
+		include_once(ROOT_PATH.'profile/views/error_page.php');
+	}
+
+
+}
+
+
+$requirement_controller = new RequirementController();
 
 if(isset($_GET['id'])){
 	$user_profile_id = $_GET['id'];

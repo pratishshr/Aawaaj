@@ -19,7 +19,7 @@ class Requirement
 		
 		public function setRequirementId($requirement_id)
 		{
-		    $this-> = $requirement_id;
+		    $this->$requirement_id = $requirement_id;
 		   
 		}
 		public function getTitle()
@@ -71,3 +71,4 @@ class Requirement
 		    $this->orgname = $orgname;
 		    
 		}
+	}
