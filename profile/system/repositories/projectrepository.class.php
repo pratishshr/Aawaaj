@@ -301,10 +301,9 @@ class ProjectRepository{
 			$organize = $proj->getOrganization();
 			foreach ($organize as $value) {
 			if($value!=""){
-
 			$sql="INSERT into otherorg(organization_name,project_id) VALUES(?,?)";
 			$statement = $this->database->initialize($sql);
-			 $statement->bind_param("si",$value,$project_id);
+			$statement->bind_param("si",$value,$project_id);
 			$statement->execute();
 				}
 			
