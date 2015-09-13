@@ -31,6 +31,9 @@
 						$list->set_user_type($row['user_type']);
 						$list->set_status($row['user_status']);
 						$list->set_user_hash($row['user_hash']);
+						if($list->get_user_image()==null){
+							$list->set_user_image("home/pictures/profile/rotaract.jpg");
+						}
 						array_push($search_list,$list);
 					}
 				}
@@ -43,6 +46,10 @@
 						$list->set_amount($row['amount']);
 						$list->set_image($row['image']);
 						$list->set_fund_id($row['id']);
+						$list->set_user_image($row['profile_photo']);
+						if($list->get_image()==null){
+							$list->set_image("home/pictures/profile/rotaract.jpg");
+						}
 						array_push($search_list, $list);
 					}
 				}
@@ -77,6 +84,9 @@
 					$list->set_status($row['user_status']);
 					$list->set_user_hash($row['user_hash']);
 					$list->set_user_image($row['profile_photo']);
+					if($list->get_user_image()==null){
+							$list->set_user_image("home/pictures/profile/rotaract.jpg");
+						}
 					array_push($search_list, $list);
 				}
 			}
@@ -109,6 +119,45 @@
 					$list->set_amount($row['amount']);
 					$list->set_image($row['image']);
 					$list->set_fund_id($row['id']);
+					if($list->get_image()==null){
+							$list->set_image(BASE_URL."home/pictures/profile/rotaract.jpg");
+						}
+					array_push($search_list, $list);
+				}
+			}
+			$this->db->close();
+			return $search_list;
+
+
+		
+		}
+		public function search_project($find){
+
+			$search_list = array();
+
+			$this->db->connect();
+
+			$sql = "SELECT * FROM projects, organization WHERE (title LIKE '%$find%') AND (projects.u_id=organization.org_id)";
+
+			$result = $this->db->fetchquery($sql);
+
+			$count = mysqli_num_rows($result);
+
+			if($count==0){
+				$search_list = null;
+			}
+			else{
+			while($row = $result->fetch_assoc()){
+	 				$list=new SearchList();
+					$list->set_project_title($row['title']);
+					$list->set_project_desc($row['short_desc']);
+					$list->set_project_id($row['project_id']);
+					$list->set_project_status($row['status']);
+					$list->set_banner_image($row['banner_image']);
+					$list->set_org_name($row['name']);
+					if($list->get_image()==null){
+							$list->set_image(BASE_URL."home/pictures/profile/rotaract.jpg");
+						}
 					array_push($search_list, $list);
 				}
 			}
