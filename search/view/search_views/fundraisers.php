@@ -1,6 +1,6 @@
-<div class="container-fluid text-center col-md-9">
+<div class="container text-center col-md-9">
 	
-    <form method="post" action="">
+    <form method="post" action="" class="col-md-4 col-md-offset-4">
         <div class="form-group">
         <label >Search</label>
         <input type="text" class="form-control" name="search" placeholder="Search" required>
@@ -10,7 +10,7 @@
     
 	<?php
     //totla number of records per page
-    $records_per_page=3;
+    $records_per_page=6;
 
     //instantiate the pagination object
     $pagination = new Zebra_Pagination();
@@ -42,25 +42,24 @@
     ?>
 
 
-     <h4>FUNDRAISERS</h4>
+    
      	<div class="row">
             <div class="col-lg-8 col-lg-offset-2">                      
                  <div class="row">
+                  <h4>FUNDRAISERS</h4>
                  <?php
                 foreach($fundraisers as $index => $fund){ 
                  ?>
                     <div class="col-md-4" >
                        
-	                   <a href="<?php echo BASE_URL?>fundraiser/index.php?page=fund&m=campaign&id=<?php echo $fund->get_fund_id();?>" class="">
-                       <img class="img-responsive img-circle show-profile-image" src="<?php echo $fund->get_image();?>" alt="...">
+	                   <a href="<?php echo BASE_URL?>fundraiser/index.php?page=fund&m=campaign&id=<?php echo $fund->get_fund_id();?>" >
+                       <img class="img-responsive img-rounded show-profile-image" src="<?php echo $fund->get_image();?>" alt="...">
                        </a>
                         <br>
                         <h4><?php echo $fund->get_title();?></h4>
                         <h4>Amount<br><?php echo $fund->get_amount();?></h4>
                         <p><?php echo $fund->get_fundraiser_type(); ?></p>
-                        
-                        <p><a href="<?php echo BASE_URL?>fundraiser/index.php?page=fund&m=campaign&id=<?php echo $fund->get_fund_id();?>" class="btn btn-primary" role="button">View Fundraiser</a></p>
-                      
+                                             
                     </div> 
           <?php }
           ?>

@@ -1,6 +1,6 @@
   <div class="container content-section">
   
-  <div class="col-md-3 panel panel-default">
+  <div class="col-md-3">
                 
         <div style="position:fixed;"> 
           <ul class="nav nav-stacked" id="sidebar"> 
