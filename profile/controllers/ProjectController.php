@@ -61,18 +61,22 @@ class ProjectController{
 	public function save(){
 		// yo thau ma project save huna aaucha
 		// yei bata feri "index.php" ma falne jun chai profile ma jancha
+		
 		$proj = new Project();
-		if(isset($_POST['single_date'])){
+		if(isset($_POST['single_date']) && $_POST['single_date']!=""){
 			$proj->setStart_date($_POST['single_date']);
 		}else if(isset($_POST['start_date'])){
+			
 			$proj->setStart_date($_POST['start_date']);
 			if(isset($_POST['end_date'])){
+				
 				$proj->setEnd_date($_POST['end_date']);
 			}
 			else{
 				$proj->setEnd_date("");
 			}	
 		}else{
+			
 			$proj->setStart_date("");
 			$proj->setEnd_date("");
 		}
@@ -86,26 +90,22 @@ class ProjectController{
 		else{
 			$proj->setBudget(NULL);
 		}
-		$proj->setRequirement1($_POST['requirement1']);
-		if(isset($_POST['requirement2'])){
-		$proj->setRequirement2($_POST['requirement2']);
+		if (isset($_POST['requirement1'])){
+		$proj->setRequirement($_POST['requirement1']);
 		}else{
-			$proj->setRequirement2("");
+			$proj->setRequirement("");
+		}
+		if(isset($_POST['requirement2'])){
+		$proj->setRequirement($_POST['requirement2']);
 		}
 		if(isset($_POST['requirement3'])){
-		$proj->setRequirement3($_POST['requirement3']);
-		}else{
-			$proj->setRequirement3("");
+		$proj->setRequirement($_POST['requirement3']);
 		}
 		if(isset($_POST['requirement4'])){
-		$proj->setRequirement4($_POST['requirement4']);
-		}else{
-			$proj->setRequirement4("");
+		$proj->setRequirement($_POST['requirement4']);
 		}
 		if(isset($_POST['requirement5'])){
-		$proj->setRequirement5($_POST['requirement5']);
-		}else{
-			$proj->setRequirement5("");
+		$proj->setRequirement($_POST['requirement5']);
 		}
 		if(isset($_POST['cb_volunteer'])){
 			if(isset($_POST['number_volunteer'])){
@@ -118,51 +118,55 @@ class ProjectController{
 			$proj->setVolunteer(0);
 		}
 		if(isset($_POST['cb_otherorg'])){
-			$proj->setOrganization1($_POST['organization1']);
-			if(isset($_POST['organization2'])){
-				$proj->setOrganization2($_POST['organization2']);
+			if(isset($_POST['organization1'])){
+			$proj->setOrganization($_POST['organization1']);
 			}else{
-				$proj->setOrganization2("");
+				$proj->setOrganization("");
+			}
+			if(isset($_POST['organization2'])){
+				$proj->setOrganization($_POST['organization2']);
 			}
 			if(isset($_POST['organization3'])){
-				$proj->setOrganization3($_POST['organization3']);
-			}else{
-				$proj->setOrganization3("");
+				$proj->setOrganization($_POST['organization3']);
 			}
 			if(isset($_POST['organization4'])){
-				$proj->setOrganization4($_POST['organization4']);
-			}else{
-				$proj->setOrganization4("");
+				$proj->setOrganization($_POST['organization4']);
 			}
 			if(isset($_POST['organization5'])){
-				$proj->setOrganization5($_POST['organization5']);
-			}else{
-				$proj->setOrganization5("");
+				$proj->setOrganization($_POST['organization5']);
 			}
 		}else{
-			$proj->organization1("");
-			$proj->organization2("");
-			$proj->organization3("");
-			$proj->organization4("");
-			$proj->organization5("");
+			$proj->setOrganization("");
 		}
 		if(isset($_FILES['banner_image'])){
-		$filename = $_FILES['banner_image']['name'];
+			if($_FILES['banner_image']['name']!=""){
+		    $filename = $_FILES['banner_image']['name'];
 			$path = ROOT_PATH."/profile/project_image/";
 			move_uploaded_file($_FILES['banner_image']['tmp_name'], $path.$filename);
 			$savepath = BASE_URL."/profile/project_image/";
 			$proj->setBanner_image($savepath.$filename);
+			}else{
+				$filename = "default.jpg";
+				$savepath = BASE_URL."/profile/project_image/";
+				$proj->setBanner_image($savepath.$filename);
+			}
 		}
 		else{
 			$savepath = BASE_URL."/profile/project_image/";
-			$proj->setBaneer_image($savepath."default.jpg");
+			$proj->setBanner_image($savepath."default.jpg");
 		}
 		if(isset($_FILES['project_proposal'])){
-		$filename = $_FILES['project_proposal']['name'];
+			if($_FILES['project_proposal']['name']!=""){
+			$filename = $_FILES['project_proposal']['name'];
 			$path = ROOT_PATH."/profile/project_proposal/";
 			move_uploaded_file($_FILES['project_proposal']['tmp_name'], $path.$filename);
 			$savepath = BASE_URL."/profile/project_proposal/";
 			$proj->setProject_proposal($savepath.$filename);
+			}else{
+				$filename = "default.docx";
+				$savepath = BASE_URL."/profile/project_proposal/";
+				$proj->setProject_proposal($savepath.$filename);
+			}
 		}
 		else{
 			$savepath = BASE_URL."/profile/project_proposal/";
@@ -183,12 +187,14 @@ class ProjectController{
 			$proj->setDetail("");
 		}
 		$proj->setStatus(1);
-		return $proj;
+		$id = $this->projectrepository->insert($proj);
+		
 
 	}
 	
 	public function selectProject(){
-		echo "particular project view page";
+		$project = $this->projectrepository->get_by_id($_GET['p_id']);
+		include_once(ROOT_PATH.'profile/views/container.php');
 	}
 
 	public function error_page(){
@@ -203,6 +209,11 @@ $project_controller = new ProjectController();
 if(isset($_GET['id'])){
 	$user_profile_id = $_GET['id'];
 	$user = NULL;
+	if(isset($_GET['p_id'])){
+		$p_id = $_GET['p_id'];
+		$project_controller->selectProject($user_profile_id,$p_id);
+	}
+
 	if(isset($_SESSION['user_hash'])){
 		$user = $_SESSION['user_hash'];
 	}
@@ -220,6 +231,8 @@ if(isset($_GET['id'])){
 
 						case 'save':
 							$project_controller->save();
+							header("Location: index.php?id={$user}");
+							break;
 						
 						default:
 							$project_controller->error_page();
@@ -227,16 +240,10 @@ if(isset($_GET['id'])){
 					}
 				}
 				else{
-					$project_controller->index($user_profile_id);	
+					$project_controller->index($user_profile_id);
 				}
-				if(isset($_POST) && isset($_POST['submit'])){
-					$project_controller->save();
-					$id = $this->projectrepository->insert($proj);
-					header("Location: index.php?id={$user}");
-				}
-				else{
-					$project_controller->error_page();
-				}
+				
+				
 			}
 			else{
 				$project_controller->error_page();
@@ -253,10 +260,7 @@ if(isset($_GET['id'])){
 		break;
 	}
 
-	if(isset($_GET['p_id'])){
-		$p_id = $_GET['p_id'];
-		$project_controller->selectProject($user_profile_id,$p_id);
-	}
+	
 
 
 }

@@ -1,0 +1,4 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteRule ^fundraiser/(\w+)/?$ fundraiser/index.php?page=fund&m=$1

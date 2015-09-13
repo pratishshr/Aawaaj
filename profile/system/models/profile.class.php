@@ -2,6 +2,8 @@
 
 class Profile{
 
+	private $id;
+	private $u_id;
 	private $profile_photo;
 	private $about;
 	
@@ -27,6 +29,22 @@ class Profile{
 
 	public function __construct(){
 
+	}
+
+	public function get_id(){
+		return $this->id;
+	}
+
+	public function set_id($id){
+		$this->id = $id;
+	}
+
+	public function get_u_id(){
+		return $this->u_id;
+	}
+
+	public function set_u_id($u_id){
+		$this->u_id = $u_id;
 	}
 
 	public function get_profile_photo(){

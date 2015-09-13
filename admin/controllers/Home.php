@@ -6,6 +6,7 @@
 <?php include_once(ROOT_PATH."admin/system/repository/adminrepository.class.php");?>
 
 <?php include_once(ROOT_PATH."fundraiser/system/repositories/fundrepository.class.php");?>
+<?php include_once(ROOT_PATH."fundraiser/system/models/fundraiser.class.php");?>
 <?php include_once(ROOT_PATH."fundraiser/system/repositories/payrepository.class.php");?>
 <?php include_once(ROOT_PATH."profile/system/repositories/projectrepository.class.php");?>
 
@@ -34,6 +35,10 @@
 			$totalFundraisers = $this->fundrepository->count();
 			$totalFunds = $this->payrepository->total();
 			$totalProjects = $this->projectrepository->count();
+
+			$allFund = $this->fundrepository->get_all();
+			$allFund = array_reverse($allFund);
+			$allUsers = $this->userrepository->get_all();
 
 			$view_page="home/index";
 			include_once(ROOT_PATH."admin/views/admin/container.php");

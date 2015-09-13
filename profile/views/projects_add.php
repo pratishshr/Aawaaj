@@ -14,7 +14,7 @@
                             <!-- ===================================== -->
                             <!-- MULTI STEP FORM FOR CREATE-->
 
-                            <form class="black-color" action="<?Php echo BASE_URL.'profile/index.php?id='.$_SESSION['user_hash'].'&page=projects&m=save';?>" method="POST" enctype="multipart/form-data">
+                            <form class="black-color" action="<?php echo BASE_URL.'profile/index.php?id='.$_SESSION['user_hash'].'&page=projects&m=save';?>" method="POST" enctype="multipart/form-data">
                                                                     
                                     <div class="form-group ">
                                         <label for="type">Project Type:</label>
@@ -73,7 +73,7 @@
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label for="requirement1">Requirements (upto 5):</label> <a href="javascript:void(0)" class="btn btn-success btn-sm" id="btn_plus"><span class="fa fa-plus"></span></a> <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="btn_minus"><span class="fa fa-minus"></span></a>
+                                        <label for="requirement1">Requirements (upto 5):</label> <a href="javascript:void[0]" class="btn btn-success btn-sm" id="btn_plus"><span class="fa fa-plus"></span></a> <a href="javascript:void[0]" class="btn btn-danger btn-sm" id="btn_minus"><span class="fa fa-minus"></span></a>
                                         <input type="text" class="form-control" id="requirement1" placeholder="Requirement 1" maxlength="200" name="requirement1" required>
                                     </div>
 
@@ -95,7 +95,7 @@
 
                                     <div class="form-group">
                                         <label for="volunteers">Need Volunteers:</label>
-                                        <input type="checkbox" class="" id="volunteers" name="cb_volunteer">
+                                        <input type="checkbox" class="" id="volunteers" name="cb_volunteer" value="1">
                                     </div>
 
                                     <div class="form-group">
@@ -110,8 +110,8 @@
                                     <div id="org_list">
                                         
                                         <div class="form-group">
-                                            <label for="org1">Organization (upto 5):</label> <a href="javascript:void(0)" class="btn btn-success btn-sm" id="org_plus"><span class="fa fa-plus"></span></a> <a href="javascript:void(0)" class="btn btn-danger btn-sm" id="org_minus"><span class="fa fa-minus"></span></a>
-                                            <input type="text" class="form-control" id="org1" placeholder="Organization 1" maxlength="200" name="organization1" required>
+                                            <label for="org1">Organization (upto 5):</label> <a href="javascript:void[0]" class="btn btn-success btn-sm" id="org_plus"><span class="fa fa-plus"></span></a> <a href="javascript:void[0]" class="btn btn-danger btn-sm" id="org_minus"><span class="fa fa-minus"></span></a>
+                                            <input type="text" class="form-control" id="org1" placeholder="Organization 1" maxlength="200" name="organization1">
                                         </div>
 
                                         <div class="form-group">
