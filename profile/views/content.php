@@ -8,6 +8,9 @@ if(isset($_GET['id'])){
             if(isset($_GET['m']) && $_GET['m'] == 'add'){
             	$page.='_add';
             }
+            elseif($_GET['page'] == 'projects' && isset($_GET['p_id'])){
+                $page.='_select';
+            }
             
         }
     }
