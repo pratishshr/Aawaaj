@@ -11,7 +11,7 @@
 	<div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src="..." alt="...">
+      <img src="<?php echo BASE_URL.'/home/pictures/profile/'.$project->getBanner_image();?>" alt="...">
       <div class="caption">
         <h3><?php echo $project->getTitle();?></h3>
         <p><?php var_dump($project);?></p>
