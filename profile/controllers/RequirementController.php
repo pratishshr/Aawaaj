@@ -14,7 +14,7 @@ class RequirementController{
 
 		public function __construct(){
 		$this->profile_repository = new ProfileRepository();
-		//$this->requirement_repository = new RequirementRepository();
+		$this->requirement_repository = new RequirementRepository();
 	}
 	public function index($u_id){
 		$result = $this->profile_repository->get_by_id($u_id);
@@ -51,12 +51,30 @@ class RequirementController{
 			$this->error_page();
 			exit();
 		}
-		//$requirement_list = $this->requirement_repository->get_all($data['profile_id']);
+		$requirement_list = $this->requirement_repository->get_all($data['profile_id']);
 		include_once(ROOT_PATH.'profile/views/container.php');
 	}
 	
 	public function add(){
 		include_once(ROOT_PATH.'profile/views/container.php');	
+	}
+
+	public function save(){
+		// yo thau ma requirement save huna aaucha
+		// yei bata feri "index.php" ma falne jun chai profile ma jancha
+		$req = new Requirement();
+
+		$req->setTitle($_POST['title]');
+		$req->setDate($_POST['date']);
+		$req->setDescription($_POST['details']);
+
+		$this->requirement_repository->insert($req);
+
+	}
+
+	public function selectRequirement(){
+		$requirement = $this->requirement_repository->get_by_id($_GET['r_id']);
+		include_once(ROOT_PATH.'profile/views/container.php');
 	}
 
 	public function error_page(){
@@ -72,9 +90,9 @@ $requirement_controller = new RequirementController();
 if(isset($_GET['id'])){
 	$user_profile_id = $_GET['id'];
 	$user = NULL;
-	if(isset($_GET['p_id'])){
-		$p_id = $_GET['p_id'];
-		$user_controller->selectProject($user_profile_id,$p_id);
+	if(isset($_GET['r_id'])){
+		$r_id = $_GET['r_id'];
+		$user_controller->selectProject($user_profile_id,$r_id);
 	}
 
 	if(isset($_SESSION['user_hash'])){

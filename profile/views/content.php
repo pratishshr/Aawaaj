@@ -11,6 +11,9 @@ if(isset($_GET['id'])){
             elseif($_GET['page'] == 'projects' && isset($_GET['p_id'])){
                 $page.='_select';
             }
+            elseif($_GET['page'] == 'requirements' && isset($_GET['r_id'])){
+                $page.='_select';
+            }
             
         }
     }

@@ -20,7 +20,7 @@
 	        <b><br/>Description : </b><br/><?php echo $project->getShortdes()?>
 	        <b><br/>Budget : </b><?php echo $project->getBudget()?>
 	    </p>
-	        <a href="<?php echo BASE_URL.'profile/index.php?id='.$_GET['id'].'&&page=projects&p_id='.$project->getProject_id();?>" class="btn btn-primary" role="button">Details</a>
+	        <a href="<?php echo BASE_URL.'profile/index.php?id='.$_GET['id'].'&page=projects&p_id='.$project->getProject_id();?>" class="btn btn-primary" role="button">Details</a>
        </div>
     </div>
   </div>
