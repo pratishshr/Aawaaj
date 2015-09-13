@@ -193,7 +193,8 @@ class ProjectController{
 	}
 	
 	public function selectProject(){
-		echo "particular project view page";
+		$project = $this->projectrepository->get_by_id($_GET['p_id']);
+		include_once(ROOT_PATH.'profile/views/container.php');
 	}
 
 	public function error_page(){
@@ -208,6 +209,11 @@ $project_controller = new ProjectController();
 if(isset($_GET['id'])){
 	$user_profile_id = $_GET['id'];
 	$user = NULL;
+	if(isset($_GET['p_id'])){
+		$p_id = $_GET['p_id'];
+		$project_controller->selectProject($user_profile_id,$p_id);
+	}
+
 	if(isset($_SESSION['user_hash'])){
 		$user = $_SESSION['user_hash'];
 	}
@@ -237,13 +243,7 @@ if(isset($_GET['id'])){
 					$project_controller->index($user_profile_id);
 				}
 				
-				// if(isset($_POST) && isset($_POST['submit'])){
-					
-					
-				// }
-				/*else{
-					$project_controller->error_page();
-				}*/
+				
 			}
 			else{
 				$project_controller->error_page();
@@ -260,10 +260,7 @@ if(isset($_GET['id'])){
 		break;
 	}
 
-	if(isset($_GET['p_id'])){
-		$p_id = $_GET['p_id'];
-		$project_controller->selectProject($user_profile_id,$p_id);
-	}
+	
 
 
 }

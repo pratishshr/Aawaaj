@@ -87,17 +87,17 @@ class ProjectRepository{
 		return $req_list;
 	}
 
-	public function get_organization($project_id,$proj){
+	public function get_organization($p_id,$proj){
 		$org_list = array();
 		$this->database->connect();
 		// FOR GETTING ORGANIZATIONS INVOLVED OF CURRENT PROJECT IN LOOP
-		$sql3 = "SELECT organization_name FROM otherorg where org_id=?";
+		$sql3 = "SELECT organization_name FROM otherorg where project_id=?";
 		
 		// prepared statement is returned
 		$stmt3 = $this->database->initialize($sql3);
 
 		//bind
-		$stmt3->bind_param("i",$project_id);
+		$stmt3->bind_param("i",$p_id);
 
 		//execution of query
 		$stmt3->execute();
@@ -123,13 +123,13 @@ class ProjectRepository{
 		$proj = null;
 
 		$this->database->connect();
-		$sql = "SELECT * FROM projects WHERE id=?";
+		$sql = "SELECT * FROM projects WHERE project_id=?";
 
 		//prepare the statement
 		$statement = $this->database->initialize($sql);
 
 		//Bind the parameters
-		$statement = $bind_param("i",$project_id);
+		$statement->bind_param("i",$project_id);
 
 		//Execute the above statement
 		$statement->execute();
@@ -158,6 +158,7 @@ class ProjectRepository{
 		}
 		//Close Connection
 		$this->database->close();
+		return $proj;
 	}
 
 	public function insert($proj){
