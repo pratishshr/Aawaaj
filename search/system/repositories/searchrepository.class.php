@@ -31,6 +31,9 @@
 						$list->set_user_type($row['user_type']);
 						$list->set_status($row['user_status']);
 						$list->set_user_hash($row['user_hash']);
+						if($list->get_user_image()==null){
+							$list->set_user_image("home/pictures/profile/rotaract.jpg");
+						}
 						array_push($search_list,$list);
 					}
 				}
@@ -43,6 +46,10 @@
 						$list->set_amount($row['amount']);
 						$list->set_image($row['image']);
 						$list->set_fund_id($row['id']);
+						$list->set_user_image($row['profile_photo']);
+						if($list->get_image()==null){
+							$list->set_image("home/pictures/profile/rotaract.jpg");
+						}
 						array_push($search_list, $list);
 					}
 				}
@@ -77,6 +84,9 @@
 					$list->set_status($row['user_status']);
 					$list->set_user_hash($row['user_hash']);
 					$list->set_user_image($row['profile_photo']);
+					if($list->get_user_image()==null){
+							$list->set_user_image("home/pictures/profile/rotaract.jpg");
+						}
 					array_push($search_list, $list);
 				}
 			}
@@ -109,6 +119,9 @@
 					$list->set_amount($row['amount']);
 					$list->set_image($row['image']);
 					$list->set_fund_id($row['id']);
+					if($list->get_image()==null){
+							$list->set_image(BASE_URL."home/pictures/profile/rotaract.jpg");
+						}
 					array_push($search_list, $list);
 				}
 			}

@@ -9,8 +9,10 @@
     
     
 	<?php
+    //totla number of records per page
     $records_per_page=3;
 
+    //instantiate the pagination object
     $pagination = new Zebra_Pagination();
 
 	if(!empty($_POST['search'])){
@@ -24,15 +26,18 @@
 
      <?php
     $fundraisers = $this->searchrepository->search_fundraiser($find);
+
+    // the number of total records is the number of records in the array
     $pagination->records(count($fundraisers));
 
+    // records per page
     $pagination->records_per_page($records_per_page);
 
     if($fundraisers==null){
         echo "Result not found";
      }
      else{
-
+    //slicing the total number of records in array per the reocrds per page 
     $fundraisers = array_slice($fundraisers,(($pagination->get_page() - 1) * $records_per_page),$records_per_page);
     ?>
 
@@ -64,6 +69,7 @@
          </div>
     <?php
         }
+        // render the pagination links
         $pagination->render();
      
      ?>
