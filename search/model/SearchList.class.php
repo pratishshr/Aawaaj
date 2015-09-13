@@ -20,6 +20,7 @@
 		private $banner_image;
 		private $project_id;
 		private $project_status;
+		private $org_name;
 
 
 
@@ -137,6 +138,12 @@
 		}
 		public function get_project_status(){
 			return $this->project_status;
+		}
+		public function set_org_name($org_name){
+			$this->org_name=$org_name;
+		}
+		public function get_org_name(){
+			return $this->org_name;
 		}
 	}
 

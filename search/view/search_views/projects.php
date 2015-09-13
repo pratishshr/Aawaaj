@@ -56,8 +56,9 @@
                        <img class="img-responsive img-rounded show-profile-image" src="<?php echo $project->get_banner_image();?>" alt="...">
                        </a>
                         <br>
-                        <h4><?php echo $project->get_project_title();?></h4>
-                        <h2><?php echo $project->get_project_desc();?></h2>                                            
+                        <h3><?php echo $project->get_project_title();?></h3>
+                        <h4><?php echo $project->get_project_desc();?></h4>  
+                        <h6><?php echo $project->get_org_name();?></h6>                                          
                     </div> 
           <?php }
           ?>
