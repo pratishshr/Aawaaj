@@ -12,7 +12,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <a class="navbar-brand page-scroll" href="<?php echo BASE_URL.'home/'?>">
+                <a class="navbar-brand page-scroll" href="<?php echo BASE_URL?>home/index.php">
                     <i class="fa fa-play-circle"></i> <span class="light">Aawaaj</span>
                 </a>
             </div>
@@ -25,39 +25,16 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#download">Explore</a>
-                    </li>
-                    <li>
                         <a class="page-scroll" href="<?php echo BASE_URL.'fundraiser/index.php?page=fund';?>">Start Fundraiser</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>   
+                    <li>
+                        <a class="page-scroll" href="<?php echo BASE_URL.'search/';?>">Search</a>
+                    </li> 
                     
                 </ul>
-             
-                
-                  <script>
-                         $(document).ready(function(){
-                         var elements = document.getElementsByTagName("INPUT");
-                         for (var i = 0; i < elements.length; i++){
-                         elements[i].oninvalid = function(e){
-                         e.target.setCustomValidity("");
-                         if (!e.target.validity.valid){
-                            e.target.setCustomValidity("Enter a Value");
-                         }
-                         };
-                         elements[i].oninput = function(e){
-                         e.target.setCustomValidity("");
-        };
-    }                
-    })
-    
-                     </script>
-
             </div>
 
             <!-- Sign up / Login -->

@@ -1,19 +1,18 @@
-<?php include_once('header.php');?>
-
-<div class="container">
-	<div class="panel black-color">
-<?php
-
-echo "<h1>404 Error</h1>";
-
-echo "<p>Error Page yo ho - Malakar le milaucha - header ra footer yesmai cha kinaki malai chalna jhyau layo</p>";
-
-echo "<p>No such page exist. Blah Blah. No Page Error search gara ani testai banau</p>";
-
-echo "<p>panel ma rakhne bhe ni rakhe huncha</p>";
-
-?>
-	</div>
-</div>
+<?php include_once("header.php");?>
+<div class="error-view text-center">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1>404 ERROR</h1>
+                        <h3 class="intro-text">Are you lost? <br/> Click here to go back on track.</h3>
+                        <a href="<?php echo BASE_URL?>home/index.php" class="btn btn-circle page-scroll">
+                            <i class="fa fa-taxi animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <?php include_once('footer.php');?>
