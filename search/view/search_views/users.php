@@ -1,11 +1,6 @@
 <div class="container text-center col-md-9  ">
 
-	<form method="post" action="" class="col-md-4 col-md-offset-4">
-        <div class="form-group">
-        <label >Search</label>
-        <input type="text" class="form-control" name="search" placeholder="Search" required>
-        </div> 
-    </form>
+
 	<?php
 	//total number of records per page
     $records_per_page = 3;

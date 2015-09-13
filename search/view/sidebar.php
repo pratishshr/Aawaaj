@@ -3,6 +3,11 @@
   <div class="col-md-3">
                 
         <div style="position:fixed;"> 
+          <form method="post" action="">
+            <div class="form-group">
+              <input type="text" class="form-control" name="search" placeholder="Search" required>
+            </div> 
+          </form>
           <ul class="nav nav-stacked" id="sidebar"> 
             
             <li>
