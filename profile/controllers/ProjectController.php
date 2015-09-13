@@ -198,7 +198,7 @@ class ProjectController{
 	}
 
 	public function error_page(){
-		echo "Include Error_Page here. Error_Page may be common to all";
+		include_once(ROOT_PATH.'profile/views/error_page.php');
 	}
 
 }
