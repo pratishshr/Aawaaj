@@ -20,7 +20,6 @@ Class Volunteer{
 	{
 	    return $this->username;
 	}
-	
 	public function setUsername($username)
 	{
 	    $this->username = $username;

@@ -19,10 +19,10 @@ $project->setOrganization($org_list);
 	    	<p><b>Location : </b><?=$project->getLocation()?></p>
 	    	<p><b>Budget : </b><?=$project->getBudget()?></p>
 	    	<?php
-	    		if($project->getVolunteer()!='' && $_SESSION['user_type']=='generalUser'){
+	    		if($project->getVolunteer()!=''){
 	    	?>
-	    	<p><b>Volunteers : </b><?=$project->getVolunteer()?></p>
-	    		<?php if($project->getVolunteer()>=1){ ?>
+	    	<p><b>Volunteers Required: </b><?=$project->getVolunteer()?></p>
+	    		<?php if($project->getVolunteer()>=1 && $_SESSION['user_type']=='generalUser'){ ?>
 	    		<p><a href="<?php echo BASE_URL.'profile/controllers/volunteer.php?id='.$project->getUid();?>" > Apply for volunteer </a></p>
 	    		<?php } ?>
 	    	<?php		
