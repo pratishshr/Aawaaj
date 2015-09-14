@@ -20,8 +20,10 @@
 			include_once(ROOT_PATH."search/view/container.php");
 			
 		}
-
-		
+		public function requirements(){
+			$view_page = "requirements";
+			include_once(ROOT_PATH."search/view/container.php");
+        }
 
 		public function fundraisers(){
 
@@ -60,6 +62,8 @@
 			case "projects":
 			$searchcontroller->projects();
 			break;
+			case "requirements":
+			$searchcontroller->requirements();
 			default:
 			$searchcontroller->index();
 			break;
