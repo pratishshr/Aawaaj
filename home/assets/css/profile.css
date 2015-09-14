@@ -90,3 +90,7 @@ span.tags
     margin-left: -10px;
     z-index: 10;
     }
+
+    .dwnld-link:hover{
+        text-decoration: underline;
+    }
