@@ -30,7 +30,7 @@
 			return $this->logged_in;
 		}
 
-		public function generalUserLogin($userid,$firstname,$lastname,$usertype,$userhash){
+		public function generalUserLogin($userid,$firstname,$lastname,$usertype,$userhash,$username){
 			//database should find user based on username/password
 			if($userid){
 				$this->user_id  = $_SESSION['user_id'] = $userid;
@@ -38,6 +38,7 @@
 				$_SESSION['last_name'] = $lastname;
 				$_SESSION['user_type'] = $usertype;
 				$_SESSION['user_hash'] = $userhash;
+				$_SESSION['user_name'] = $username;
 				$this->logged_in = true;
 				$this->firstName = $firstname;
 			
