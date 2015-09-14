@@ -28,9 +28,18 @@
 					$genUserInsertQuery = "INSERT INTO generaluser (age, type, u_id) VALUES (?,?,?)";
 					$genUserInsert = $handler->prepare($genUserInsertQuery);
 					if($genUserInsert->execute(array($age,$userType,$userId))){
+						$profileInsertQuery = "INSERT INTO profile (u_id,profile_photo,about) VALUES (?,?,?)";
+						$profileInsert = $handler->prepare($profileInsertQuery);
+							if($profileInsert->execute(array($userId,"default.jpg","This is the about section. Edit profile to change this section."))){
+
+
 						$handler->commit();
 						$this->connObj->close_connection();
 						return 1;
+						}else{
+							$handler->rollback();
+							return 0;
+						}
 					}else{
 						$handler->rollback();
 						return 0;
@@ -60,9 +69,18 @@
 					
 					$orgInsert = $handler->prepare($orgInsertQuery);
 					if($orgInsert->execute(array($orgName,$orgDoe,$orgLogo,$orgAdd,$orgObj,$userType,$userId))){
+							$profileInsertQuery = "INSERT INTO profile (u_id,profile_photo,about) VALUES (?,?,?)";
+						$profileInsert = $handler->prepare($profileInsertQuery);
+							if($profileInsert->execute(array($userId,"default.jpg","This is the about section. Edit profile to change this section."))){
+
+
 						$handler->commit();
 						$this->connObj->close_connection();
 						return 1;
+						}else{
+							$handler->rollback();
+							return 0;
+						}
 					}else{
 						$handler->rollback();
 						return 0;
@@ -93,9 +111,18 @@
 					$welfInsertQuery = "INSERT INTO welfare (name, doe, img, address, service, objective, type, u_id) VALUES (?,?,?,?,?,?,?,?)";
 					$welfInsert = $handler->prepare($welfInsertQuery);
 					if($welfInsert->execute(array($welfName,$welfDoe,$welfLogo,$welfAdd,$welfServ,$welfObj,$userType,$userId))){
+							$profileInsertQuery = "INSERT INTO profile (u_id,profile_photo,about) VALUES (?,?,?)";
+						$profileInsert = $handler->prepare($profileInsertQuery);
+							if($profileInsert->execute(array($userId,"default.jpg","This is the about section. Edit profile to change this section."))){
+
+
 						$handler->commit();
 						$this->connObj->close_connection();
 						return 1;
+						}else{
+							$handler->rollback();
+							return 0;
+						}
 					}else {
 						$handler->rollback();
 						return 0;
