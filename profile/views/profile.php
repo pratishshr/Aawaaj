@@ -5,6 +5,7 @@ if($logged && $_SESSION['user_hash'] == $data['user_hash']){
     $user_profile = true;
 }
 $count_projects = $this->projectrepository->count_user_projects($_GET['id']);
+$count_requirements = $this->requirementrepository->count_user_requirements($_GET['id']);
 $count_funds = $this->fundviewrepository->count_user_projects($_GET['id']);
 ?>
 <div class="container black-color">
@@ -97,7 +98,7 @@ $count_funds = $this->fundviewrepository->count_user_projects($_GET['id']);
                         elseif($user_type == "welfare"){
                 ?>
                             <div class="col-xs-12 col-sm-4 emphasis">
-                                <h2><strong> 43 </strong></h2>                    
+                                <h2><strong> <?=$count_requirements?> </strong></h2>                    
                                 <p><small>Requirements</small></p>
                                 <div class="btn-group dropup btn-block">
                                   <a href="javascript:void(0)" type="button" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown"> Requirements </button>
@@ -187,7 +188,7 @@ $count_funds = $this->fundviewrepository->count_user_projects($_GET['id']);
                         elseif ($user_type == "welfare") {
                 ?>
                             <div class="col-xs-12 col-sm-4 emphasis">
-                                <h2><strong> <?=$count_funds?> </strong></h2>                    
+                                <h2><strong> <?=$count_requirements?> </strong></h2>                    
                                 <p><small>Requirements</small></p>
                                 <a href="<?php echo BASE_URL.'/profile/index.php?id='.$data['user_hash'].'&page=requirements'?>" class="btn btn-primary btn-block">View Requirements</a> 
                             </div>

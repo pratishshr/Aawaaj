@@ -5,6 +5,8 @@
 <?php include_once(ROOT_PATH."profile/system/repositories/projectrepository.class.php");?>
 <?php include_once(ROOT_PATH."profile/system/models/fundview.class.php");?>
 <?php include_once(ROOT_PATH."profile/system/repositories/fundviewrepository.class.php");?>
+<?php include_once(ROOT_PATH."profile/system/models/requirement.class.php");?>
+<?php include_once(ROOT_PATH."profile/system/repositories/requirementrepository.class.php");?>
 
 <?php
 
@@ -13,11 +15,13 @@ class ProfileController{
 	private $repository;
 	private $projectrepository;
 	private $fundviewrepository;
+	private $requirementrepository;
 	private $data = array();
 	public function __construct(){
 		$this->repository = new ProfileRepository();
 		$this->projectrepository = new ProjectRepository();
 		$this->fundviewrepository = new FundViewRepository();
+		$this->requirementrepository = new RequirementRepository();
 	}
 	
 	public function index($u_id){
