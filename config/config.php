@@ -6,9 +6,9 @@
 	
 
 	//DEFINE DATABASE CONSTANTS
-	define("DB_SERVER", "mysql:host=127.0.0.1");
+	define("DB_SERVER1", "mysql:host=127.0.0.1");
 
-	define("DB_NAME", ";dbname=aawaaj");
+	define("DB_NAME1", ";dbname=aawaaj");
 
 	define('HOSTNAME','127.0.0.1');
 
