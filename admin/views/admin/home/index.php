@@ -20,7 +20,7 @@
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="<?php echo BASE_URL."admin/index.php?page=fundraiser";?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?php echo BASE_URL."admin/fundraiser";?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
@@ -33,7 +33,7 @@
                 <div class="icon">
                   <i class="ion ion-cash"></i>
                 </div>
-                <a href="<?php echo BASE_URL."admin/index.php?page=fundraiser";?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?php echo BASE_URL."admin/fundraiser";?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
@@ -46,7 +46,7 @@
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
                 </div>
-                <a href="<?php echo BASE_URL?>admin/index.php?page=user" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="<?php echo BASE_URL?>admin/user" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
@@ -104,7 +104,7 @@
                   </ul>
                 </div><!-- /.box-body -->
                 <div class="box-footer text-center">
-                  <a href="<?php echo BASE_URL."admin/index.php?page=fundraiser";?>" class="uppercase">View All Fundraisers</a>
+                  <a href="<?php echo BASE_URL."admin/fundraiser";?>" class="uppercase">View All Fundraisers</a>
                 </div><!-- /.box-footer -->
               </div><!-- /.box -->
             </div>  
@@ -144,7 +144,7 @@
                       </ul><!-- /.users-list -->
                     </div><!-- /.box-body -->
                     <div class="box-footer text-center">
-                      <a href="<?php echo BASE_URL?>admin/index.php?page=user" class="uppercase">View All Users</a>
+                      <a href="<?php echo BASE_URL?>admin/user" class="uppercase">View All Users</a>
                     </div><!-- /.box-footer -->
                   </div><!--/.box -->
             </div><!-- /.col -->    

@@ -65,7 +65,7 @@
                           </div>
                           <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $user->get_user_id();?>">
                           <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                          <a href="<?php echo BASE_URL?>/index.php?page=admin" class="btn btn-danger">Cancel</a>
+                          <a href="<?php echo BASE_URL?>/admin" class="btn btn-danger">Cancel</a>
                         </form>
 
                         
