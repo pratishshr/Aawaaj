@@ -49,7 +49,7 @@
 
 			Session::destroy();
 
-			header("location:index.php");	
+			header("location: ".BASE_URL."admin/");	
 
 		}
 	}
