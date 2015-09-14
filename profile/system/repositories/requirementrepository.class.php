@@ -13,7 +13,7 @@ class RequirementRepository{
 		//Database Connect
 		$this->database->connect();
 		
-		$sql = "SELECT * FROM selfrequirement where welf_id=?";
+		$sql = "SELECT * FROM welfrequirement where welf_id=?";
 		
 		// prepared statement is returned
 		$stmt = $this->database->initialize($sql);
@@ -34,7 +34,7 @@ class RequirementRepository{
 		while ($stmt->fetch()) {
 			$requirem = new Requirement();
 			
-			$requirem->setRequirementId($welfareq_id);
+			$requirem->setRequirementId($welfreq_id);
 			$requirem->setTitle($title);
 			$requirem->setDescription($description);
 			$requirem->setDate($end_date);
@@ -111,10 +111,9 @@ class RequirementRepository{
 		$this->database->close();
 	}
 	public function get_by_id($requirement_id){
-		$requirem = null;
-
+		
 		$this->database->connect();
-		$sql = "SELECT * FROM welfrequirement WHERE welf_id=?";
+		$sql = "SELECT * FROM welfrequirement WHERE welfreq_id=?";
 
 		//prepare the statement
 		$statement = $this->database->initialize($sql);
@@ -127,7 +126,7 @@ class RequirementRepository{
 
 		//Bind the result
 		$statement->bind_result($welfreq_id,$title,$description,$end_date,$status,$org_name,$welf_id);
-
+		$req = NULL;
 		while ($statement->fetch()) {
 			$req = new Requirement();
 			$req->setRequirementId($welfreq_id);
@@ -142,46 +141,10 @@ class RequirementRepository{
 		}
 		//Close Connection
 		$this->database->close();
-		return $proj;
+		return $req;
 	}
 
-	public function count(){
-		
 
-		//DATABASE CONNECTION
-		$this->database->connect();
-
-		//SELECT ALL QUERY
-		$sql = "SELECT * FROM projects";
-
-		//fetchquery
-		$result = $this->database->fetchquery($sql);
-
-		
-		$this->database->close();
-		return $result->num_rows;
-
-		
-	}
-
-	public function count_user_projects($id){
-		
-
-		//DATABASE CONNECTION
-		$this->database->connect();
-
-		//SELECT ALL QUERY
-		$sql = "SELECT count(*) FROM projects,user,organization where user.user_id=organization.u_id and organization.org_id=projects.u_id and user.user_hash=?";
-
-		$stmt = $this->database->initialize($sql);
-		$stmt->bind_param("s",$id);
-		$stmt->execute();
-		$stmt->bind_result($result);
-		$stmt->fetch();
-		
-		return $result;
-	}
-}
 	public function count(){
 		
 
@@ -218,5 +181,49 @@ class RequirementRepository{
 		
 		return $result;
 	}
-}
+
+	public function get_req_name($req_id){
+		$this->database->connect();
+		$sql = "SELECT name from welfare WHERE welf_id=? LIMIT 1";
+
+		$stmt = $this->database->initialize($sql);
+		$stmt->bind_param("i",$req_id);
+		$stmt->execute();
+		$stmt->bind_result($result);
+		$stmt->fetch();
+		$this->database->close();
+		return $result;
+	}
+
+	public function accept_project($id,$org){
+		$this->database->connect();
+		$sql = "UPDATE welfrequirement set org_name=? WHERE welfreq_id=?";
+
+		$stmt = $this->database->initialize($sql);
+
+		$stmt->bind_param("si",$org,$id);
+
+		return $stmt->execute();
+
+	}
+
+	public function get_org($id){
+		$this->database->connect();
+
+		$sql = "SELECT organization.name FROM organization,user WHERE organization.u_id=user.user_id and user.user_hash=? LIMIT 1";
+
+		$stmt = $this->database->initialize($sql);
+
+		$stmt->bind_param("s",$id);
+
+		$stmt->execute();
+
+		$stmt->bind_result($result);
+
+		$stmt->fetch();
+
+		$this->database->close();
+
+		return $result;
+	}
 }

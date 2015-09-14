@@ -1,4 +1,15 @@
 Options +FollowSymLinks
 RewriteEngine On
 
+#MAIN ROOT 
+DirectoryIndex home/index.php index.php 
+
+#FOR FUNDRAISER
 RewriteRule ^fundraiser/(\w+)/?$ fundraiser/index.php?page=fund&m=$1
+RewriteRule ^fundraiser/(\w+)/(\w+)?$ fundraiser/index.php?page=fund&m=$1&id=$2
+
+#FOR ADMIN
+RewriteRule ^admin/(\w+)/?$ admin/index.php?page=$1
+RewriteRule ^admin/(\w+)/(\w+)/?$ admin/index.php?page=$1&m=$2
+RewriteRule ^admin/(\w+)/(\w+)/(\w+)/?$ admin/index.php?page=$1&m=$2&id=$3
+RewriteRule ^admin/(\w+)/(\w+)/(\w+)/(\w+)?$ admin/index.php?page=$1&m=$2&id=$3&title=$4

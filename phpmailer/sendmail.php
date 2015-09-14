@@ -43,9 +43,12 @@ $mail->Body    = "Hello {$firstName} {$lastName},<br/>Your Activation Key is <a 
 if(!$mail->send()) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
+   
 } else {
     echo 'Message has been sent';
+   
 }
+
 	}
 
 }

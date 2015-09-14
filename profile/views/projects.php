@@ -1,5 +1,5 @@
 <?php
-	if(empty($fundview_list)){
+	if(empty($project_list)){
 ?>
   <div class="container alert alert-danger text-center" role="alert">
     <h1>No Projects created by this user</h1>
@@ -7,6 +7,7 @@
 <?php
 }
 
+	$projectrepository = new ProjectRepository();
 	foreach ($project_list as $project) {
 	
 	$req_list = $this->projectrepository->get_requirements($project->getProject_id(),$project);
@@ -24,7 +25,7 @@
         <h2><?php echo $project->getTitle();?></h2>
         <p>
         	 <b>Organization : </b><br/><?php echo $projectrepository->get_org_name($project->getUid())?>
-	        <b>Objectives : </b><br/><?php echo $project->getObjectives()?>
+	        <b><br/>Objectives : </b><br/><?php echo $project->getObjectives()?>
 	        <b><br/>Description : </b><br/><?php echo $project->getShortdes()?>
 	        <b><br/>Budget : </b><?php echo $project->getBudget()?>
 	    </p>

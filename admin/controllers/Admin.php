@@ -24,7 +24,7 @@
 				//MAP DATA
 				$admin = $this->_map_posted_data();
 				$this->adminrepository->insert($admin);
-				header("Location: index.php?page=admin&m=index&action=add");
+				header("Location: ".BASE_URL."admin/admin");
 
 			}else{
 				$view_page ="adminsview/add";
@@ -63,13 +63,13 @@
 				$user = $this->_map_posted_data();
 				$user->set_user_id($_POST['id']);
 				$this->userrepository->update($user);
-				header("Location: index.php?page=admin&m=index&action=edit");
+				header("Location: index.php/admin/index/edit");
 			}else{
 				$view_page = "adminusersview/edit";
 				$id = $_GET['id'];
 				$user = $this->userrepository->get_by_id($id);
 				if(is_null($user)){
-					header("Location: index.php?page=admin&m=index");
+					header("Location: index.php/admin/index");
 				}
 				include_once(ROOT_PATH."admin/views/admin/container.php");
 			}
@@ -86,7 +86,7 @@
 			$id = $_GET['id'];
 			$result = $this->userrepository->delete($id);
 			if($result = true){
-				header("Location: index.php?page=admin&m=index&action=delete");
+				header("Location: index.php/admin/index/delete");
 			}
 		}
 
