@@ -206,7 +206,6 @@ class ProjectRepository{
 		$status = $proj->getStatus();
 		
 
-
 		//BIND 
 			
 		$statement->bind_param("ssssssiissssii",$start_date,$end_date,$title,$objectives,$short_desc,$location,$budget,$volunteer,$banner_image,$project_proposal,$video_url,$detail,$status,$orga_id);
