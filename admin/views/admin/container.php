@@ -1,8 +1,10 @@
 <?php 
+if(isset($_SESSION['username'])){
 $username = $_SESSION['username'];
+}
 
 $admin = $this->adminrepository->get_by_username($username);
-$username = $admin->get_username();
+
 $first_name = $admin->get_first_name();
 $last_name = $admin->get_last_name();
 $email = $admin->get_email();

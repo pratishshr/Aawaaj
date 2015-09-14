@@ -46,7 +46,7 @@
                     <div class="col-md-4" >
                        
 	                   <a href="#" >
-                       <img class="img-responsive img-rounded show-profile-image" src="<?php echo BASE_URL?>home/pictures/default.jpg" alt="...">
+                       <img class="img-responsive img-rounded show-profile-image" src="<?php echo BASE_URL?>home/pictures/profile/default.jpg" alt="...">
                        </a>
                         <br>
                         <h4><?php echo $require->get_requirement_title();?></h4>
