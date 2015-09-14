@@ -137,7 +137,7 @@
 
 			$this->db->connect();
 
-			$sql = "SELECT * FROM projects, organization WHERE (title LIKE '%$find%') AND (projects.u_id=organization.org_id)";
+			$sql = "SELECT * FROM projects, organization, user WHERE (title LIKE '%$find%') AND (projects.u_id=organization.org_id) AND (user.user_id=organization.u_id)";
 
 			$result = $this->db->fetchquery($sql);
 
@@ -155,6 +155,7 @@
 					$list->set_project_status($row['status']);
 					$list->set_banner_image($row['banner_image']);
 					$list->set_org_name($row['name']);
+					$list->set_user_hash($row['user_hash']);
 					if($list->get_image()==null){
 							$list->set_image(BASE_URL."home/pictures/profile/rotaract.jpg");
 						}
