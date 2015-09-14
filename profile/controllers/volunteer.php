@@ -10,7 +10,7 @@
 <hr/>
 <p> Your name has been sent to our email address. We will contact you soon.</p>
 <?php 
-	if(isset($_GET['id']){
+	if(isset($_GET['id'])){
 		global $sendmail;
 		$id = $_SESSION['user_id'];
 		$firstname = $_SESSION['fname'];
