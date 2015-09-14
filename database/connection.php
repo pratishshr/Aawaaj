@@ -21,7 +21,7 @@ class Connection{
 			try{
 
 
-				$this->handler = new PDO(DB_SERVER.DB_NAME,USERNAME,PASSWORD);
+				$this->handler = new PDO(DB_SERVER1.DB_NAME1,USERNAME,PASSWORD);
 
 
 				$this->handler->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);

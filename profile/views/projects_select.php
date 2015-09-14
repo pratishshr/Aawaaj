@@ -19,9 +19,12 @@ $project->setOrganization($org_list);
 	    	<p><b>Location : </b><?=$project->getLocation()?></p>
 	    	<p><b>Budget : </b><?=$project->getBudget()?></p>
 	    	<?php
-	    		if($project->getVolunteer()!=''){
+	    		if($project->getVolunteer()!='' && $_SESSION['user_type']=='generalUser'){
 	    	?>
 	    	<p><b>Volunteers : </b><?=$project->getVolunteer()?></p>
+	    		<?php if($project->getVolunteer()>=1){ ?>
+	    		<p><a href="<?php echo BASE_URL.'profile/controllers/volunteer.php?id='.$project->getUid();?>" > Apply for volunteer </a></p>
+	    		<?php } ?>
 	    	<?php		
 	    		}
 	    	?>
