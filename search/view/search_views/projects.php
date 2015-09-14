@@ -2,7 +2,7 @@
 	   
 	<?php
     //totla number of records per page
-    $records_per_page=6;
+    $records_per_page=3;
 
     //instantiate the pagination object
     $pagination = new Zebra_Pagination();

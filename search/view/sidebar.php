@@ -19,6 +19,9 @@
             <li>
                 <a href="<?php echo  BASE_URL?>search/index.php?page=search&m=projects"><label>Projects</label></a>
             </li>
+            <li>
+                <a href="<?php echo  BASE_URL?>search/index.php?page=search&m=requirements"><label>Requirements</label></a>
+            </li>
             </ul>
           </div>
 
