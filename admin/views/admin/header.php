@@ -1,3 +1,10 @@
+<?php 
+ $jsonData = file_get_contents(ROOT_PATH."/admin/views/admin/notifications.json");
+ $jsonData = json_decode($jsonData); 
+ $noti = $jsonData->noti;
+ 
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -42,8 +49,7 @@
           </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-             <!--  <!-- Messages: style can be found in dropdown.less-->
-          
+              
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -59,7 +65,7 @@
                      <?php echo $email; ?>
                     </p>
                   </li>
-                
+               
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
@@ -71,6 +77,31 @@
                   </li>
                 </ul>
               </li>
+
+               <!-- NOTIFICATIONS -->
+                 <li class="dropdown notifications-menu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-bell-o"></i>
+                    <span class="label label-warning" id="noti"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    
+                    <li>
+                      <!-- inner menu: contains the actual data -->
+                      <ul class="menu">
+                      
+                        <li>
+                          <a href="<?php echo BASE_URL.'/admin/user';?>">
+                            <i class="fa fa-users text-aqua"></i> <span id="noti2"></span> new member has just joined.
+                          </a>
+                        </li>
+                    
+                        
+                      </ul>
+                    </li>
+                    <li class="footer"><a href="<?php echo BASE_URL.'/admin/user';?>">View all</a></li>
+                  </ul>
+                </li>
               <!-- Control Sidebar Toggle Button -->
               <li>
                 <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>

@@ -62,7 +62,7 @@
                     
                  ?>
 
-                <tr>
+                <tr class="<?=($user->get_user_status())?'':'danger';?>">
                   <td><?php echo $id++?></td>
                   <td><?php echo $user->get_user_name();?></td>
                   <td><?php echo $user->get_first_name();?> <?php echo $user->get_last_name();?></td>

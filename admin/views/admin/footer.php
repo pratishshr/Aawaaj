@@ -148,5 +148,19 @@
     <script src="<?php echo BASE_URL?>admin/assets/dist/js/app.min.js" type="text/javascript"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?php echo BASE_URL?>admin/assets/dist/js/demo.js" type="text/javascript"></script>
+
+
+
+      <script>
+         function loadIt() {
+            $.getJSON('views/admin/notifications.php', function(data) {
+                
+                $('#noti').html(data.noti);
+                $('#noti2').html(data.noti);
+             
+            });
+          }
+          setInterval(loadIt, 1000);
+      </script>
   </body>
 </html>
