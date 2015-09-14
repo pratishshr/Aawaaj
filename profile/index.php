@@ -7,7 +7,7 @@
 		
 		if(isset($_GET['page'])){
 			
-			if($_GET['page'] == 'projects' || $_GET['page'] == 'requirements'){
+			if($_GET['page'] == 'projects' || $_GET['page'] == 'requirements' || $_GET['page'] == 'fundview'){
 				$page = $_GET['page'];
 			}
 		}
