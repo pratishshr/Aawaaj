@@ -8,8 +8,6 @@
 	$jsonData = json_decode($jsonData); 
 	
 	$noti = $jsonData->noti;
-
-	
 	
 	$noti = $jsonData->noti + 1;
 
