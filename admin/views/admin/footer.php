@@ -157,10 +157,13 @@
                 
                 $('#noti').html(data.noti);
                 $('#noti2').html(data.noti);
-             
+
             });
-          }
+          };
           setInterval(loadIt, 1000);
+
+        
+
       </script>
   </body>
 </html>
