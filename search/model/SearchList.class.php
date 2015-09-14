@@ -15,6 +15,15 @@
 		private $image;
 		private $fund_id;
 
+		private $project_title;
+		private $project_desc;
+		private $banner_image;
+		private $project_id;
+		private $project_status;
+		private $org_name;
+
+
+
 		public function __construct(){
 
 		}
@@ -98,6 +107,43 @@
 		}
 		public function get_fund_id(){
 			return $this->fund_id;
+		}
+
+		public function set_project_title($project_title){
+			$this->project_title=$project_title;
+		}
+		public function get_project_title(){
+			return $this->project_title;
+		}
+		public function set_project_desc($project_desc){
+			$this->project_desc=$project_desc;
+		}
+		public function get_project_desc(){
+			return $this->project_desc;
+		}
+		public function set_banner_image($banner_image){
+			$this->banner_image=$banner_image;
+		}
+		public function get_banner_image(){
+			return $this->banner_image;
+		}
+		public function set_project_id($project_id){
+			$this->project_id=$project_id;
+		}
+		public function get_project_id(){
+			return $this->project_id;
+		}
+		public function set_project_status($project_status){
+			$this->project_status=$project_status;
+		}
+		public function get_project_status(){
+			return $this->project_status;
+		}
+		public function set_org_name($org_name){
+			$this->org_name=$org_name;
+		}
+		public function get_org_name(){
+			return $this->org_name;
 		}
 	}
 

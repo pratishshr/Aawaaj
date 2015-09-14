@@ -16,17 +16,12 @@
 
 		public function index(){
 			
-			$view_page = "index";
+			$view_page = "users";
 			include_once(ROOT_PATH."search/view/container.php");
 			
 		}
 
-		public function users(){
-
-			$view_page = "users";
-			include_once(ROOT_PATH."search/view/container.php");
-
-		}
+		
 
 		public function fundraisers(){
 
@@ -58,9 +53,7 @@
 			$searchcontroller->index();
 			
 			break;
-			case "users":
-			$searchcontroller->users();
-			break;
+			
 			case "fundraisers":
 			$searchcontroller->fundraisers();
 			break;

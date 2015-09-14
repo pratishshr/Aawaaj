@@ -1,15 +1,23 @@
 <?php require_once(ROOT_PATH."database/session.php");?> 
 <?php include_once(ROOT_PATH."profile/system/models/profile.class.php");?>
 <?php include_once(ROOT_PATH."profile/system/repositories/profilerepository.class.php");?>
+<?php include_once(ROOT_PATH."profile/system/models/project.class.php");?>
+<?php include_once(ROOT_PATH."profile/system/repositories/projectrepository.class.php");?>
+<?php include_once(ROOT_PATH."profile/system/models/fundview.class.php");?>
+<?php include_once(ROOT_PATH."profile/system/repositories/fundviewrepository.class.php");?>
 
 <?php
 
 class ProfileController{
 
 	private $repository;
+	private $projectrepository;
+	private $fundviewrepository;
 	private $data = array();
 	public function __construct(){
 		$this->repository = new ProfileRepository();
+		$this->projectrepository = new ProjectRepository();
+		$this->fundviewrepository = new FundViewRepository();
 	}
 	
 	public function index($u_id){
@@ -82,7 +90,7 @@ class ProfileController{
 	}
 
 	public function error_page(){
-		echo "Include Error_Page here. Error_Page may be common to all";
+		include_once(ROOT_PATH.'profile/views/error_page.php');
 	}
 
 }

@@ -66,7 +66,7 @@ class ProjectController{
 		if(isset($_POST['single_date']) && $_POST['single_date']!=""){
 			$proj->setStart_date($_POST['single_date']);
 		}else if(isset($_POST['start_date'])){
-			echo "start date";
+			
 			$proj->setStart_date($_POST['start_date']);
 			if(isset($_POST['end_date'])){
 				
@@ -198,7 +198,7 @@ class ProjectController{
 	}
 
 	public function error_page(){
-		echo "Include Error_Page here. Error_Page may be common to all";
+		include_once(ROOT_PATH.'profile/views/error_page.php');
 	}
 
 }

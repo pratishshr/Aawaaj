@@ -18,6 +18,7 @@
 	$routes['profile'] = 'ProfileController';
 	$routes['projects'] = 'ProjectController';
 	$routes['requirements'] = 'RequirementController';
+	$routes['fundview'] = 'FundViewController';
 
 	$routes['search'] = 'SearchController';
 ?>

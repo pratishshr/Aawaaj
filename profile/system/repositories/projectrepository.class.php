@@ -222,10 +222,9 @@ class ProjectRepository{
 			if($value!=""){
 		$sql="INSERT into requirements(requirement,project_id) VALUES(?,?)";
 		$statement = $this->database->initialize($sql);
-		
 		 $statement->bind_param("si",$value,$project_id);
-		
 		 $statement->execute();
+		 
 			}
 			
 		}
@@ -287,6 +286,7 @@ class ProjectRepository{
 			$organize = $proj->getOrganization();
 			foreach ($organize as $value) {
 			if($value!=""){
+			
 			$sql="INSERT into otherorg(organization_name,project_id) VALUES(?,?)";
 			$statement = $this->database->initialize($sql);
 			$statement->bind_param("si",$value,$project_id);
@@ -358,21 +358,39 @@ class ProjectRepository{
 	public function count(){
 		
 
-			//DATABASE CONNECTION
-			$this->database->connect();
+		//DATABASE CONNECTION
+		$this->database->connect();
 
-			//SELECT ALL QUERY
-			$sql = "SELECT * FROM projects";
+		//SELECT ALL QUERY
+		$sql = "SELECT * FROM projects";
 
-			//fetchquery
-			$result = $this->database->fetchquery($sql);
+		//fetchquery
+		$result = $this->database->fetchquery($sql);
 
-			
-			$this->database->close();
-			return $result->num_rows;
+		
+		$this->database->close();
+		return $result->num_rows;
 
-			
-		}
+		
+	}
+
+	public function count_user_projects($id){
+		
+
+		//DATABASE CONNECTION
+		$this->database->connect();
+
+		//SELECT ALL QUERY
+		$sql = "SELECT count(*) FROM projects,user,organization where user.user_id=organization.u_id and organization.org_id=projects.u_id and user.user_hash=?";
+
+		$stmt = $this->database->initialize($sql);
+		$stmt->bind_param("s",$id);
+		$stmt->execute();
+		$stmt->bind_result($result);
+		$stmt->fetch();
+		
+		return $result;
+	}
 }
 
 
