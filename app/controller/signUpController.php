@@ -182,6 +182,7 @@
 				if($genSuccess){
 					$sendmail->generateKey($this->getEmail());
 					$sendmail->send($this->getFirstName(),$this->getLastName());
+					
 					header('location:'.BASE_URL.'app/view/signUpConfirm.php?email='.$this->getEmail().'&fname='.$this->getFirstName().'&lname='.$this->getLastName());					
 					
 				}
@@ -193,15 +194,21 @@
 				$orgSuccess = $signUpModelObj->insertOrganizationUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getOrganizationName(),$this->getOrganizationDoe(),$this->getOrganizationAddress(),$this->getOrganizationLogo(),$this->getOrganizationObjectives(),$sendmail->generateKey($this->getEmail()));
 		 		if($orgSuccess){
 		 			$sendmail->generateKey($this->getEmail());
-					$sendmail->send($this->getFirstName(),$this->getLastName());
+					
+					
 					header('location:'.BASE_URL.'app/view/signUpConfirm.php?email='.$this->getEmail().'&fname='.$this->getFirstName().'&lname='.$this->getLastName());					
+		 			
+		 			
 		 		}
 		 	}elseif ($this->userType == "welfare") {
 		 		$welfSuccess = $signUpModelObj->insertWelfareUser($this->getFirstName(),$this->getLastName(),$this->getEmail(),$this->getPassword(),$this->getContactNumber(),$this->getUserType(),$this->getWelfareName(),$this->getWelfareDoe(),$this->getWelfareAddress(),$this->getWelfareService(),$this->getWelfareLogo(),$this->getWelfareObjectives(),$sendmail->generateKey($this->getEmail()));
 		 		if($welfSuccess){
 		 			$sendmail->generateKey($this->getEmail());
 					$sendmail->send($this->getFirstName(),$this->getLastName());
+				
 					header('location:'.BASE_URL.'app/view/signUpConfirm.php?email='.$this->getEmail().'&fname='.$this->getFirstName().'&lname='.$this->getLastName());					
+		 			
+		 			
 		 		}
 		 	}
 		}
