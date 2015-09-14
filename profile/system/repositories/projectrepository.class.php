@@ -101,7 +101,7 @@ class ProjectRepository{
 
 		//execution of query
 		$stmt3->execute();
-
+		
 		//bind the result obtained by executing query
 		$stmt3->bind_result($organization_name);
 		while($stmt3->fetch()){
@@ -109,6 +109,18 @@ class ProjectRepository{
 		}
 		$this->database->close();
 		return $org_list;
+	}
+
+	public function get_org_name($org_id){
+		$this->database->connect();
+		$sql = "SELECT name from organization WHERE org_id=? LIMIT 1";
+
+		$stmt = $this->database->initialize($sql);
+		$stmt->bind_param("i",$org_id);
+		$stmt->execute();
+		$stmt->bind_result($result);
+		$stmt->fetch();
+		return $result;
 	}
 		
 
