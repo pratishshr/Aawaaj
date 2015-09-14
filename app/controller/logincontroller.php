@@ -27,7 +27,7 @@ require_once(ROOT_PATH."app/model/loginmodel.php");
 						global $session;
 						//$this->firstName = $loginmodelobj->getFirstName();
 						if($loginmodelobj->getUserType()=="generalUser"){
-							$session->generalUserLogin($loginmodelobj->getUserId(),$loginmodelobj->getFirstName(),$loginmodelobj->getLastName(),$loginmodelobj->getUserType(),$loginmodelobj->getHashed());
+							$session->generalUserLogin($loginmodelobj->getUserId(),$loginmodelobj->getFirstName(),$loginmodelobj->getLastName(),$loginmodelobj->getUserType(),$loginmodelobj->getHashed(),$loginmodelobj->getUserName());
 						}
 						elseif ($loginmodelobj->getUserType()=="organization") {
 							if($loginmodelobj->getName($this->username)){

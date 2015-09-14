@@ -2,7 +2,7 @@
 	   
 	<?php
     //totla number of records per page
-    $records_per_page=6;
+    $records_per_page=3;
 
     //instantiate the pagination object
     $pagination = new Zebra_Pagination();
@@ -44,7 +44,7 @@
                  ?>
                     <div class="col-md-4" >
                        
-	                   <a href="#" >
+	                   <a href="<?php echo BASE_URL?>profile/index.php?id=<?php echo $project->get_user_hash()?>&page=projects&p_id=<?php echo $project->get_project_id()?>" >
                        <img class="img-responsive img-rounded show-profile-image" src="<?php echo $project->get_banner_image();?>" alt="...">
                        </a>
                         <br>

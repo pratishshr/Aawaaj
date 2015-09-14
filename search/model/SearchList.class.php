@@ -22,7 +22,12 @@
 		private $project_status;
 		private $org_name;
 
-
+		private $requirement_title;
+		private $requirement_desc;
+		private $requirement_status;
+		private $requirement_org_name;
+		private $requirement_id;
+		private $welf_id;
 
 		public function __construct(){
 
@@ -145,7 +150,44 @@
 		public function get_org_name(){
 			return $this->org_name;
 		}
-	}
+	
 
+		public function set_requirement_title($requirement_title){
+			$this->requirement_title=$requirement_title;
+		}
+		public function get_requirement_title(){
+			return $this->requirement_title;
+		}
+		public function set_requirement_desc($requirement_desc){
+			$this->requirement_desc=$requirement_desc;
+		}
+		public function get_requirement_desc(){
+			return $this->requirement_desc;
+		}
+		public function set_requirement_status($requirement_status){
+			$this->requirement_status=$requirement_status;
+		}
+		public function get_requirement_status(){
+			return $this->requirement_status;
+		}
+		public function set_requirement_org_name($requirement_org_name){
+			$this->requirement_org_name=$requirement_org_name;
+		}
+		public function get_requirement_org_name(){
+			return $this->requirement_org_name;
+		}
+		public function set_requirement_id($requirement_id){
+			$this->requirement_id=$requirement_id;
+		}
+		public function get_requirement_id(){
+			return $this->requirement_id;
+		}
+		public function set_welf_id($welf_id){
+			$this->welf_id=$welf_id;
+		}
+		public function get_welf_id(){
+			return $this->welf_id;
+		}
+	}
 
 ?>
