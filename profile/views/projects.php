@@ -16,6 +16,7 @@
       <div class="caption">
         <h2><?php echo $project->getTitle();?></h2>
         <p>
+        	 <b>Organization : </b><br/><?php echo $projectrepository->get_org_name($project->getUid())?>
 	        <b>Objectives : </b><br/><?php echo $project->getObjectives()?>
 	        <b><br/>Description : </b><br/><?php echo $project->getShortdes()?>
 	        <b><br/>Budget : </b><?php echo $project->getBudget()?>

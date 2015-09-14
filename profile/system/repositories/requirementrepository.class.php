@@ -110,6 +110,41 @@ class RequirementRepository{
 		//Close the connection
 		$this->database->close();
 	}
+	public function get_by_id($requirement_id){
+		$requirem = null;
+
+		$this->database->connect();
+		$sql = "SELECT * FROM welfrequirement WHERE welf_id=?";
+
+		//prepare the statement
+		$statement = $this->database->initialize($sql);
+
+		//Bind the parameters
+		$statement->bind_param("i",$requirement_id);
+
+		//Execute the above statement
+		$statement->execute();
+
+		//Bind the result
+		$statement->bind_result($welfreq_id,$title,$description,$end_date,$status,$org_name,$welf_id);
+
+		while ($statement->fetch()) {
+			$req = new Requirement();
+			$req->setRequirementId($welfreq_id);
+			$req->setTitle($title);
+			$req->setDescription($description);
+			$req->setDate($end_date);
+			$req->setStatus($status);
+			$req->setOrgname($org_name);
+			$req->setWelfId($welf_id);
+
+		
+		}
+		//Close Connection
+		$this->database->close();
+		return $proj;
+	}
+
 	public function count(){
 		
 
