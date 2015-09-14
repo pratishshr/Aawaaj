@@ -1,4 +1,12 @@
 <?php
+	if(empty($project_list)){
+?>
+  <div class="container alert alert-danger text-center" role="alert">
+    <h1>No Projects created by this user</h1>
+  </div>
+<?php
+}
+
 	$projectrepository = new ProjectRepository();
 	foreach ($project_list as $project) {
 	

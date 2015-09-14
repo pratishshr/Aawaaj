@@ -13,7 +13,7 @@ $project->setOrganization($org_list);
     <br/>
     <div class="thumbnail">
 	       	<h1><?=$project->getTitle()?></h1>
-	    	<p><b>Data : </b><u><?=$project->getStart_date()?></u><?php if($project->getEnd_date()!=''){ echo ' <b>To</b> <u>'.$project->getEnd_date().'</u>';}?></p>
+	    	<p><b>Date : </b><u><?=$project->getStart_date()?></u><?php if($project->getEnd_date()!=''){ echo ' <b>To</b> <u>'.$project->getEnd_date().'</u>';}?></p>
 	    	<p><b>Objective : </b><br/><?=$project->getObjectives()?></p>
 	    	<p><b>Description (short) : </b><br/><?=$project->getShortdes()?></p>
 	    	<p><b>Location : </b><?=$project->getLocation()?></p>

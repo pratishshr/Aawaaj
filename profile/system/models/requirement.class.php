@@ -20,7 +20,7 @@ class Requirement
 		public function setRequirementId($requirement_id)
 		{
 
-		    $this->$requirement_id = $requirement_id;
+		    $this->requirementId = $requirement_id;
 		   
 
 		}

@@ -216,7 +216,7 @@
 			$admin_model->set_email($email);
 			$admin_model->set_image($image);
 			
-		}
+			}
 			$this->db->close();
 			return $admin_model;
 
