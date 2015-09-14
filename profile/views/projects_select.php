@@ -15,6 +15,41 @@ $project->setOrganization($org_list);
 	       	<h1><?=$project->getTitle()?></h1>
 	    	<p><b>Date : </b><u><?=$project->getStart_date()?></u><?php if($project->getEnd_date()!=''){ echo ' <b>To</b> <u>'.$project->getEnd_date().'</u>';}?></p>
 	    	<p><b>Objective : </b><br/><?=$project->getObjectives()?></p>
+	    	
+    		<?php
+    			$req = $project->getRequirement();
+    			if(!empty($req)){
+    		?>
+	    	<p><b>Requirements : </b>
+	    	<?php
+	    		foreach ($req[0] as $value) {
+	    	?>
+	    			<br/><?=$value?>
+	    	<?php		
+	    		}
+	    	?>
+	    	</p>
+	    	<?php	
+	    	}
+	    	?>
+	    	
+	    	<?php
+    			$org = $project->getOrganization();
+    			if(!empty($org)){
+    		?>
+	    	<p><b>Other Organization Involved: </b>
+	    	<?php
+	    		foreach ($org[0] as $value) {
+	    	?>
+	    			<br/><?=$value?>
+	    	<?php		
+	    		}
+	    	?>
+	    	</p>
+	    	<?php	
+	    	}
+	    	?>
+
 	    	<p><b>Description (short) : </b><br/><?=$project->getShortdes()?></p>
 	    	<p><b>Location : </b><?=$project->getLocation()?></p>
 	    	<p><b>Budget : </b><?=$project->getBudget()?></p>
@@ -22,7 +57,7 @@ $project->setOrganization($org_list);
 	    		if($project->getVolunteer()!=''){
 	    	?>
 	    	<p><b>Volunteers Required: </b><?=$project->getVolunteer()?></p>
-	    		<?php if($project->getVolunteer()>=1 && $_SESSION['user_type']=='generalUser'){ ?>
+	    		<?php if($project->getVolunteer()>=1 && isset($_SESSION['user_type']) && $_SESSION['user_type']=='generalUser'){ ?>
 	    		<p><a href="<?php echo BASE_URL.'profile/controllers/volunteer.php?id='.$project->getUid();?>" > Apply for volunteer </a></p>
 	    		<?php } ?>
 	    	<?php		

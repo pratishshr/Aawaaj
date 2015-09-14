@@ -1,7 +1,24 @@
+
 <?php require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php"); ?>
 <?php include_once(PUBLIC_PATH."/includes/header.php"); ?>
 <?php include_once(ROOT_PATH."phpmailer/sendmail.php"); ?>
 
+<?php
+	$jsonData = file_get_contents(ROOT_PATH."/admin/views/admin/notifications.json");
+	$jsonData = json_decode($jsonData); 
+	
+	$noti = $jsonData->noti;
+
+	
+	
+	$noti = $jsonData->noti + 1;
+
+	
+	$data = array("noti" => "$noti") ;
+	$fp = fopen(ROOT_PATH.'/admin/views/admin/notifications.json', 'w');
+	fwrite($fp, json_encode($data));
+	fclose($fp);
+?>
 
 
 <div style="margin: 0 auto;width: 30%;height: 100%;">
@@ -20,7 +37,7 @@
 		<?php
 	}
 	else {
-		header("Location:".PUBLIC_PATH2.'/index.php');
+		// header("Location:".PUBLIC_PATH2.'/index.php');
 	}
 
 ?>
