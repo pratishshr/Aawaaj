@@ -13,16 +13,16 @@ $project->setOrganization($org_list);
     <br/>
     <div class="thumbnail">
 	       	<h1><?=$project->getTitle()?></h1>
-	    	<p><b>Data : </b><u><?=$project->getStart_date()?></u><?php if($project->getEnd_date()!=''){ echo ' <b>To</b> <u>'.$project->getEnd_date().'</u>';}?></p>
+	    	<p><b>Date : </b><u><?=$project->getStart_date()?></u><?php if($project->getEnd_date()!=''){ echo ' <b>To</b> <u>'.$project->getEnd_date().'</u>';}?></p>
 	    	<p><b>Objective : </b><br/><?=$project->getObjectives()?></p>
 	    	<p><b>Description (short) : </b><br/><?=$project->getShortdes()?></p>
 	    	<p><b>Location : </b><?=$project->getLocation()?></p>
 	    	<p><b>Budget : </b><?=$project->getBudget()?></p>
 	    	<?php
-	    		if($project->getVolunteer()!='' && $_SESSION['user_type']=='generalUser'){
+	    		if($project->getVolunteer()!=''){
 	    	?>
-	    	<p><b>Volunteers : </b><?=$project->getVolunteer()?></p>
-	    		<?php if($project->getVolunteer()>=1){ ?>
+	    	<p><b>Volunteers Required: </b><?=$project->getVolunteer()?></p>
+	    		<?php if($project->getVolunteer()>=1 && $_SESSION['user_type']=='generalUser'){ ?>
 	    		<p><a href="<?php echo BASE_URL.'profile/controllers/volunteer.php?id='.$project->getUid();?>" > Apply for volunteer </a></p>
 	    		<?php } ?>
 	    	<?php		

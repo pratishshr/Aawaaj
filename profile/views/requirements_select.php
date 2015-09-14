@@ -1,46 +1,27 @@
-<?php 
-$req_list = $this->projectrepository->get_requirements($project->getProject_id(),$project);
-$project->setRequirement($req_list);
-	
-$org_list = $this->projectrepository->get_organization($project->getProject_id(),$project);	
-$project->setOrganization($org_list);
-?>
-<div class="container panel black-color">
+<div class="container black-color">
 	<br/>
-	<figure>
-        <img src="<?=$project->getBanner_image()?>" alt="" class="img-responsive img-thumbnail profile-picture">
-    </figure>
+	
     <br/>
-    <div class="thumbnail">
-	       	<h1><?=$project->getTitle()?></h1>
-	    	<p><b>Data : </b><u><?=$project->getStart_date()?></u><?php if($project->getEnd_date()!=''){ echo ' <b>To</b> <u>'.$project->getEnd_date().'</u>';}?></p>
-	    	<p><b>Objective : </b><br/><?=$project->getObjectives()?></p>
-	    	<p><b>Description (short) : </b><br/><?=$project->getShortdes()?></p>
-	    	<p><b>Location : </b><?=$project->getLocation()?></p>
-	    	<p><b>Budget : </b><?=$project->getBudget()?></p>
+    <div class="thumbnail col-md-9">
+	       	<h1><?=$requirement->getTitle()?></h1>
+	    	<p><b>End Date : </b><u><?=$requirement->getDate()?></u></p>
+	    	
 	    	<?php
-	    		if($project->getVolunteer()!=''){
+	    		if($requirement->getOrgname()!=''){
 	    	?>
-	    	<p><b>Volunteers : </b><?=$project->getVolunteer()?></p>
-	    	<?php		
+	    	<p><b>Organization : </b><?=$requirement->getOrgname()?></p>
+	    	<?php
 	    		}
 	    	?>
-	    	<p><b>Details : </b><br/><?=$project->getDetail()?></p>
-	    	<p><a href="<?=$project->getProject_proposal()?>" target="_blank">Download Proposal</a></p>
+	    	<p><b>Description : </b><br/><?=$requirement->getDescription()?></p>
+<?php
+	if(isset($_SESSION['user_type']) && $_SESSION['user_type'] == "organization" && $requirement->getOrgname() ==''){    	
+?>
+
+	<a href="<?php echo BASE_URL.'profile/index.php?id='.$_GET['id'].'&page=requirements&r_id='.$_GET['r_id'].'&accept=yes'?>" class="btn btn-success" onclick="return confirm('Accept Project?')">Accept</a>
 	</div>
-	<?php 
-        $video_url = $project->getVideourl();
-
-        if(!empty($video_url)){
-
-    ?>                 
-
-        	<h2>Project Video</h2>
-             
-        	<div class="thumbnail embed-responsive embed-responsive-16by9">
-			    <iframe class="embed-responsive-item" src="<?php echo $video_url;?>"></iframe>
-			</div>	
-    <?php 
-        }
-    ?>
+<?php
+}
+?>
+	
 </div>

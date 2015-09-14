@@ -61,7 +61,7 @@
                             ?>
                             <li>
 
-                                <a class = "page-scross" href="<?php echo BASE_URL?>/profile/index.php"><?php echo "Namaste, " . $firstName; ?></a>
+                                <a class = "page-scross" href="<?php echo BASE_URL?>/profile/index.php"><?php echo "Namaste " . $firstName; ?></a>
 
                                
                            </li>

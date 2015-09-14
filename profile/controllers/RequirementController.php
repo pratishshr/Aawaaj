@@ -91,6 +91,12 @@ class RequirementController{
 		include_once(ROOT_PATH.'profile/views/container.php');
 	}
 
+	public function acceptProject(){
+		$org = $this->requirement_repository->get_org($_SESSION['user_hash']);
+		$result = $this->requirement_repository->accept_project($_GET['r_id'],$org);
+		header('Location:'.BASE_URL.'profile/index.php?id='.$_GET['id']);
+	}
+
 	public function error_page(){
 		include_once(ROOT_PATH.'profile/views/error_page.php');
 	}
@@ -106,7 +112,11 @@ if(isset($_GET['id'])){
 	$user = NULL;
 	if(isset($_GET['r_id'])){
 		$r_id = $_GET['r_id'];
-		$user_controller->selectProject($user_profile_id,$r_id);
+		if(isset($_SESSION['user_type']) && $_SESSION['user_type'] == "organization" && isset($_GET['accept']) && $_GET['accept'] == "yes"){
+			$requirement_controller->acceptProject();
+			
+		}
+		$requirement_controller->selectRequirement($user_profile_id,$r_id);
 	}
 
 	if(isset($_SESSION['user_hash'])){

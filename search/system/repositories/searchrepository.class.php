@@ -168,5 +168,37 @@
 
 		
 		}
+
+		public function search_requirement($find){
+
+			$search_list = array();
+
+			$this->db->connect();
+
+			$sql = "SELECT * FROM welfrequirement WHERE title LIKE '%find%' ";
+
+			$result = $this->db->fetchquery($sql);
+
+			$count  = mysqli_num_rows($result);
+
+			if ($count==0) {
+				$search_list = null;
+			}
+			else{
+				while ($row = $result->fetch_assoc()) {
+					$list = new SearchList();
+					$list->set_requirement_title($row['title']);
+					$list->set_requirement_desc($row['description']);
+					$list->set_requirement_status($row['status']);
+					$list->set_requirement_org_name($row['org_name']);
+					$list->set_requirement_id($row['welfreq_id']);
+					$list->set_welf_id($row['welf_id']);
+					array_push($search_list, $list);
+
+				}
+			}
+			$this->db->close();
+			return $search_list;
+		}
 	}
 	

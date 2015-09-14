@@ -1,7 +1,8 @@
 <?php require_once ($_SERVER['DOCUMENT_ROOT']."/Aawaaj/config/config.php"); ?>
 <?php include_once(PUBLIC_PATH."/includes/header.php"); ?>
+<?php require_once(ROOT_PATH."database/session.php");?> 
 <?php include_once(ROOT_PATH."phpmailer/sendmail.php"); ?>
-<?php include_once(ROOT_PATH."profile/model/volunteer.class.php"); ?>
+<?php include_once(ROOT_PATH."profile/system/repositories/volunteerrepository.class.php"); ?>
 
 
 
@@ -12,15 +13,18 @@
 <?php 
 	if(isset($_GET['id'])){
 		global $sendmail;
+		$org_id = $_GET['id'];
 		$id = $_SESSION['user_id'];
-		$firstname = $_SESSION['fname'];
-		$lastname = $_SESSION['lname'];
+		$firstname = $_SESSION['first_name'];
+		$lastname = $_SESSION['last_name'];
 		$email = $_SESSION['user_name'];
+		$uhash = $_SESSION['user_hash'];
 
-		$sendmail->generateKey($email);
-		?>
-		<p><a href="<?php echo BASE_URL.'app/view/signUpConfirm.php?email='.$email.'&fname='.$firstname.'&lname='.$lastname;?>" onclick="<?php $sendmail->send($firstname,$lastname);?>">Resend Confirmation</a></p>
-		<?php
+		$volunteerrepository = new VolunteerRepository();
+		$org_email = $volunteerrepository->getEmail($org_id);
+
+		$sendmail->generateKey($org_email);
+		$sendmail->sendToOrg($firstname,$lastname,$uhash);
 	}
 	else {
 		header("Location:".PUBLIC_PATH2.'/index.php');
