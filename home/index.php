@@ -1,4 +1,4 @@
-<?php require_once ($_SERVER['DOCUMENT_ROOT']."aawaaj/config/config.php"); ?>
+<?php require_once ($_SERVER['DOCUMENT_ROOT']."/aawaaj/config/config.php"); ?>
 <?php include_once(PUBLIC_PATH."/includes/header.php") ?>
     <!-- Navigation -->
 <?php include_once(PUBLIC_PATH."/includes/navhome.php") ?>
