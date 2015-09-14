@@ -175,18 +175,18 @@
 
 			$this->db->connect();
 
-			$sql = "SELECT * FROM welfrequirement WHERE title LIKE '%find%' ";
+			$sql = "SELECT * FROM welfrequirement WHERE title LIKE '%$find%' ";
 
 			$result = $this->db->fetchquery($sql);
 
-			$count  = mysqli_num_rows($result);
+			$count = mysqli_num_rows($result);
 
-			if ($count==0) {
+			if($count==0){
 				$search_list = null;
 			}
 			else{
-				while ($row = $result->fetch_assoc()) {
-					$list = new SearchList();
+			while($row = $result->fetch_assoc()){
+					$list=new SearchList();
 					$list->set_requirement_title($row['title']);
 					$list->set_requirement_desc($row['description']);
 					$list->set_requirement_status($row['status']);

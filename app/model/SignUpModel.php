@@ -52,6 +52,8 @@
 				$handler->rollback();
 				return 0;
 			}
+
+			
 		}
 
 		public function insertOrganizationUser($firstName,$lastName,$email,$password,$contactNumber,$userType,$orgName,$orgDoe,$orgAdd,$orgLogo,$orgObj,$hashedKey){

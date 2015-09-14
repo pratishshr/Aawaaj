@@ -164,14 +164,14 @@ class RequirementRepository{
 		
 	}
 
-	public function count_user_projects($id){
+	public function count_user_requirements($id){
 		
 
 		//DATABASE CONNECTION
 		$this->database->connect();
 
 		//SELECT ALL QUERY
-		$sql = "SELECT count(*) FROM welfrequirement,user,welfare where user.user_id=welfare.u_id and welfare.welf_id=welfrequirement.welfareq_id and user.user_hash=?";
+		$sql = "SELECT count(*) FROM welfrequirement,user,welfare where user.user_id=welfare.u_id and welfare.welf_id=welfrequirement.welf_id and user.user_hash=?";
 
 		$stmt = $this->database->initialize($sql);
 		$stmt->bind_param("s",$id);
@@ -179,6 +179,7 @@ class RequirementRepository{
 		$stmt->bind_result($result);
 		$stmt->fetch();
 		
+		$this->database->close();
 		return $result;
 	}
 
