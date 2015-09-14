@@ -5,6 +5,7 @@ if($logged && $_SESSION['user_hash'] == $data['user_hash']){
     $user_profile = true;
 }
 $count_projects = $this->projectrepository->count_user_projects($_GET['id']);
+$count_funds = $this->fundviewrepository->count_user_projects($_GET['id']);
 ?>
 <div class="container black-color">
     <div class="row">
@@ -70,14 +71,14 @@ $count_projects = $this->projectrepository->count_user_projects($_GET['id']);
                 ?>
                             <div class="col-xs-12 col-sm-4">
                                 <p><p><br/></p></p>
-                                <a href="<?php echo BASE_URL.'/profile/index.php?id='.$_SESSION['user_hash'].'&page=fundraisers'?>" class="btn btn-primary btn-block">View Fundraisers</a> 
+                                <a href="<?php echo BASE_URL.'/profile/index.php?id='.$_SESSION['user_hash'].'&page=fundview'?>" class="btn btn-primary btn-block">View Fundraisers</a> 
                             </div>
                 <?php
                         }
                         elseif($user_type == "organization") {
                 ?>
                             <div class="col-xs-12 col-sm-4 emphasis">
-                                <h2><strong><?=$count_projects?></strong></h2>                    
+                                <h2><strong> <?=$count_projects?> </strong></h2>                    
                                 <p><small>Projects</small></p>
                                 <div class="btn-group dropup btn-block">
                                   <a href="javascript:void(0)" type="button" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown"> Projects </button>
@@ -96,8 +97,8 @@ $count_projects = $this->projectrepository->count_user_projects($_GET['id']);
                         elseif($user_type == "welfare"){
                 ?>
                             <div class="col-xs-12 col-sm-4 emphasis">
-                                <h2><strong>43</strong></h2>                    
-                                <p><small>Projects</small></p>
+                                <h2><strong> 43 </strong></h2>                    
+                                <p><small>Requirements</small></p>
                                 <div class="btn-group dropup btn-block">
                                   <a href="javascript:void(0)" type="button" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown"> Requirements </button>
                                     <span class="caret"></span>
@@ -137,7 +138,7 @@ $count_projects = $this->projectrepository->count_user_projects($_GET['id']);
                         if($user_type == "generalUser"){
                 ?>
                             <div class="col-xs-12 col-sm-4 emphasis">
-                                <h2><strong> 20,7K </strong></h2>                    
+                                <h2><strong> <?=$count_funds?> </strong></h2>                    
                                 <p><small>Fundraisers</small></p>
                                 <a href="<?php echo BASE_URL.'/fundraiser/index.php?page=fund'?>" class="btn btn-danger btn-block">Start Fundraiser</a> 
                             </div>
@@ -146,7 +147,7 @@ $count_projects = $this->projectrepository->count_user_projects($_GET['id']);
                         elseif($user_type == "organization" || $user_type == "welfare") {
                 ?>
                             <div class="col-xs-12 col-sm-4 emphasis">
-                                <h2><strong>43</strong></h2>                    
+                                <h2><strong> <?=$count_funds?> </strong></h2>                    
                                 <p><small>Fundraisers</small></p>
                                 <div class="btn-group dropup btn-block">
                                   <a href="javascript:void(0)" type="button" class="btn btn-danger btn-block dropdown-toggle" data-toggle="dropdown"> Fundraisers </button>
@@ -156,7 +157,7 @@ $count_projects = $this->projectrepository->count_user_projects($_GET['id']);
                                   <ul class="dropdown-menu text-center" role="menu">
                                     <li class="btn btn-block"><a href="<?php echo BASE_URL.'/fundraiser/index.php?page=fund'?>"> Start Fundraiser </a></li>
                                     <li class="divider"></li>
-                                    <li class="btn btn-block"><a href="<?php echo BASE_URL.'/profile/index.php?id='.$_SESSION['user_hash'].'&page=fundraisers'?>"> View Fundraisers </a></li>
+                                    <li class="btn btn-block"><a href="<?php echo BASE_URL.'/profile/index.php?id='.$_SESSION['user_hash'].'&page=fundview'?>"> View Fundraisers </a></li>
                                 </ul>
                                 </div>
                             </div>
@@ -168,9 +169,9 @@ $count_projects = $this->projectrepository->count_user_projects($_GET['id']);
                         if($user_type == "generalUser"){
                 ?>
                             <div class="col-xs-12 col-sm-4 emphasis">
-                                <h2><strong> 20,7K </strong></h2>                    
+                                <h2><strong> <?=$count_funds?> </strong></h2>                    
                                 <p><small>Fundraisers</small></p>
-                                <a href="<?php echo BASE_URL.'/profile/index.php?id='.$data['user_hash'].'&page=fundraisers'?>" class="btn btn-danger btn-block">View Fundraisers</a> 
+                                <a href="<?php echo BASE_URL.'/profile/index.php?id='.$data['user_hash'].'&page=fundview'?>" class="btn btn-danger btn-block">View Fundraisers</a> 
                             </div>
                 <?php
                         }
@@ -186,7 +187,7 @@ $count_projects = $this->projectrepository->count_user_projects($_GET['id']);
                         elseif ($user_type == "welfare") {
                 ?>
                             <div class="col-xs-12 col-sm-4 emphasis">
-                                <h2><strong> 20,7K </strong></h2>                    
+                                <h2><strong> <?=$count_funds?> </strong></h2>                    
                                 <p><small>Requirements</small></p>
                                 <a href="<?php echo BASE_URL.'/profile/index.php?id='.$data['user_hash'].'&page=requirements'?>" class="btn btn-primary btn-block">View Requirements</a> 
                             </div>
@@ -210,9 +211,9 @@ $count_projects = $this->projectrepository->count_user_projects($_GET['id']);
                         if($user_type == "organization" || $user_type == "welfare"){
                 ?>
                             <div class="col-xs-12 col-sm-4 emphasis">
-                                <h2><strong> 20,7K </strong></h2>                    
+                                <h2><strong> <?=$count_funds?> </strong></h2>                    
                                 <p><small>Fundraisers</small></p>
-                                <a href="<?php echo BASE_URL.'/profile/index.php?id='.$data['user_hash'].'&page=fundraisers'?>" class="btn btn-danger btn-block">View Fundraisers</a> 
+                                <a href="<?php echo BASE_URL.'/profile/index.php?id='.$data['user_hash'].'&page=fundview'?>" class="btn btn-danger btn-block">View Fundraisers</a> 
                             </div>
                 <?php
                         }

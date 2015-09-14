@@ -28,9 +28,18 @@
 					$genUserInsertQuery = "INSERT INTO generaluser (age, type, u_id) VALUES (?,?,?)";
 					$genUserInsert = $handler->prepare($genUserInsertQuery);
 					if($genUserInsert->execute(array($age,$userType,$userId))){
+						$profileInsertQuery = "INSERT INTO profile (u_id,profile_photo,about) VALUES (?,?,?)";
+						$profileInsert = $handler->prepare($profileInsertQuery);
+							if($profileInsert->execute(array($userId,"default.jpg","This is the about section. Edit profile to change this section."))){
+
+
 						$handler->commit();
 						$this->connObj->close_connection();
 						return 1;
+						}else{
+							$handler->rollback();
+							return 0;
+						}
 					}else{
 						$handler->rollback();
 						return 0;
@@ -56,13 +65,26 @@
 				$passInsertQuery = "INSERT INTO password (password, u_id) VALUES (?,?)";
 				$passInsert = $handler->prepare($passInsertQuery);
 				if($passInsert->execute(array($password,$userId))){
-					try{$orgInsertQuery = "INSERT INTO organization (name, doe, img, address, objective, type, u_id) VALUES (?,?,?,?,?,?,?)";
-					
+					try{
+						if($orgLogo)
+					$orgInsertQuery = "INSERT INTO organization (name, doe, img, address, objective, type, u_id) VALUES (?,?,?,?,?,?,?)";
 					$orgInsert = $handler->prepare($orgInsertQuery);
+					if($orgLogo==""){
+						$orgLogo = BASE_URL."/profile/project_image/default.jpg";
+					}
 					if($orgInsert->execute(array($orgName,$orgDoe,$orgLogo,$orgAdd,$orgObj,$userType,$userId))){
+							$profileInsertQuery = "INSERT INTO profile (u_id,profile_photo,about) VALUES (?,?,?)";
+						$profileInsert = $handler->prepare($profileInsertQuery);
+							if($profileInsert->execute(array($userId,"default.jpg","This is the about section. Edit profile to change this section."))){
+
+
 						$handler->commit();
 						$this->connObj->close_connection();
 						return 1;
+						}else{
+							$handler->rollback();
+							return 0;
+						}
 					}else{
 						$handler->rollback();
 						return 0;
@@ -92,10 +114,22 @@
 				if($passInsert->execute(array($password,$userId))){
 					$welfInsertQuery = "INSERT INTO welfare (name, doe, img, address, service, objective, type, u_id) VALUES (?,?,?,?,?,?,?,?)";
 					$welfInsert = $handler->prepare($welfInsertQuery);
+					if($welfLogo==""){
+						$welfLogo = BASE_URL."/profile/project_image/default.jpg";
+					}
 					if($welfInsert->execute(array($welfName,$welfDoe,$welfLogo,$welfAdd,$welfServ,$welfObj,$userType,$userId))){
+							$profileInsertQuery = "INSERT INTO profile (u_id,profile_photo,about) VALUES (?,?,?)";
+						$profileInsert = $handler->prepare($profileInsertQuery);
+							if($profileInsert->execute(array($userId,"default.jpg","This is the about section. Edit profile to change this section."))){
+
+
 						$handler->commit();
 						$this->connObj->close_connection();
 						return 1;
+						}else{
+							$handler->rollback();
+							return 0;
+						}
 					}else {
 						$handler->rollback();
 						return 0;

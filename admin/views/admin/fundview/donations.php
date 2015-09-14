@@ -7,7 +7,7 @@
            <!-- Default box -->
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">All Donations in "<?php echo strtoupper($title)?>"</h3>
+              <h3 class="box-title">All Donations in "<?php echo strtoupper($thisFund->get_title());?>"</h3>
               <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
               </div>

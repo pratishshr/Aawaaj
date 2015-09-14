@@ -26,7 +26,7 @@ $project->setOrganization($org_list);
 	    		}
 	    	?>
 	    	<p><b>Details : </b><br/><?=$project->getDetail()?></p>
-	    	<p><a href="<?=$project->getProject_proposal()?>" target="_blank" class="dwnld-link">Download Proposal</a></p>
+	    	<p><a href="<?=$project->getProject_proposal()?>" target="_blank">Download Proposal</a></p>
 	</div>
 	<?php 
         $video_url = $project->getVideourl();

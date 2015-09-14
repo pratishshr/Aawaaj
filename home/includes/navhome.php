@@ -34,7 +34,7 @@
                         <a class="page-scroll" href="#download">Explore</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="<?php echo BASE_URL.'fundraiser/index.php?page=fund';?>">Start Fundraiser</a>
+                        <a class="page-scroll" href="<?php echo BASE_URL.'fundraiser/';?>">Start Fundraiser</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
