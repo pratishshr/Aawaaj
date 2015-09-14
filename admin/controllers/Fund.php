@@ -28,7 +28,8 @@
 
 		public function donations(){
 			$id = $_GET['id'];
-			$title = $_GET['title'];
+			$thisFund = $this->fundrepository->get_by_id($id);
+			
 			$view_page="fundview/donations";
 			include_once(ROOT_PATH."admin/views/admin/container.php");
 		}

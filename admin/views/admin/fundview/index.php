@@ -2,6 +2,7 @@
 
 
 
+
         <!-- Main content -->
         <section class="content">
            <!-- Default box -->
@@ -45,7 +46,7 @@
 
                 <tr>
                   <td><?php echo $id++?></td>
-                  <td><a href="<?php echo BASE_URL.'admin/index.php?page=fundraiser&m=donations&id='.$fund->get_id().'&title='.$fund->get_title();?>"><?php echo $fund->get_title();?></a></td>
+                  <td><a href="<?php echo BASE_URL.'admin/fundraiser/donations/'.$fund->get_id();?>"><?php echo $fund->get_title();?></a></td>
                   <td><?php echo $user;?></td>
                   <td>$<?php echo $fund->get_amount();?> </td>
                   <td>$<?php echo $total;?></td>

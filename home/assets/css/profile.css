@@ -12,10 +12,10 @@ body
 .profile-picture{
     width:300px;
     height:300px;
-    box-shadow: 0px 0px 20px black;
+    box-shadow: 0px 0px 10px black;
 }
 .profile-picture:hover{
-    box-shadow: 0px 0px 30px black;
+    box-shadow: 0px 0px 20px black;
     z-index: -1;
 }
     
