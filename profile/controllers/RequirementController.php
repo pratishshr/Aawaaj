@@ -63,11 +63,23 @@ class RequirementController{
 		// yo thau ma requirement save huna aaucha
 		// yei bata feri "index.php" ma falne jun chai profile ma jancha
 		$req = new Requirement();
-
-		$req->setTitle($_POST['title]');
+		if(isset($_POST['title'])){
+		$req->setTitle($_POST['title']);
+		}else{
+			$req->setTitle("");
+		}
+		if(isset($_POST['date'])){
 		$req->setDate($_POST['date']);
+		}else{
+			$req->setDate("01-01-2001");
+		}
+		if(isset($_POST['details'])){
 		$req->setDescription($_POST['details']);
-
+		}else{
+			$req->setDescription("");
+		}
+		$req->setStatus(1);
+		$req->setOrgname("");
 		$this->requirement_repository->insert($req);
 
 	}
