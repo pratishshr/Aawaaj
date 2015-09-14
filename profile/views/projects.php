@@ -1,5 +1,12 @@
 <?php
-	
+	if(empty($fundview_list)){
+?>
+  <div class="container alert alert-danger text-center" role="alert">
+    <h1>No Projects created by this user</h1>
+  </div>
+<?php
+}
+
 	foreach ($project_list as $project) {
 	
 	$req_list = $this->projectrepository->get_requirements($project->getProject_id(),$project);

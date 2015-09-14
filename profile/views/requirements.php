@@ -1,5 +1,12 @@
 <?php
-	
+  
+ if(empty($fundview_list)){
+?>
+  <div class="container alert alert-danger text-center" role="alert">
+    <h1>No Requirements created by this user</h1>
+  </div>
+<?php
+}
 	foreach ($requirement_list as $requirement) {
 	
 	
