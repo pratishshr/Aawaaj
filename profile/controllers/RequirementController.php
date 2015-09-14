@@ -64,7 +64,7 @@ class RequirementController{
 		// yei bata feri "index.php" ma falne jun chai profile ma jancha
 		$req = new Requirement();
 
-		$req->setTitle($_POST['title]');
+		$req->setTitle($_POST['title']);
 		$req->setDate($_POST['date']);
 		$req->setDescription($_POST['details']);
 
