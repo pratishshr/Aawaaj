@@ -80,7 +80,7 @@
 
                <!-- NOTIFICATIONS -->
                  <li class="dropdown notifications-menu">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="clickNoti">
                     <i class="fa fa-bell-o"></i>
                     <span class="label label-warning" id="noti"></span>
                   </a>

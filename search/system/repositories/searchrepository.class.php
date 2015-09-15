@@ -175,7 +175,7 @@
 
 			$this->db->connect();
 
-			$sql = "SELECT * FROM welfrequirement WHERE title LIKE '%$find%' ";
+			$sql = "SELECT * FROM welfrequirement,user,welfare WHERE (title LIKE '%$find%') AND (user.user_id=welfare.u_id)";
 
 			$result = $this->db->fetchquery($sql);
 
@@ -193,6 +193,7 @@
 					$list->set_requirement_org_name($row['org_name']);
 					$list->set_requirement_id($row['welfreq_id']);
 					$list->set_welf_id($row['welf_id']);
+					$list->set_user_hash($row['user_hash']);
 					array_push($search_list, $list);
 
 				}

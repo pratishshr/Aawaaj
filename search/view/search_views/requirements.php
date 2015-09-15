@@ -45,7 +45,7 @@
                  ?>
                     <div class="col-md-4" >
                        
-	                   <a href="#" >
+	                   <a href="<?php echo BASE_URL?>profile/index.php?id=<?php echo $require->get_user_hash()?>&page=requirements&r_id=<?php echo $require->get_requirement_id()?>" >
                        <img class="img-responsive img-rounded show-profile-image" src="<?php echo BASE_URL?>home/pictures/profile/default.jpg" alt="...">
                        </a>
                         <br>
